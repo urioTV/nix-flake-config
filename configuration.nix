@@ -88,7 +88,7 @@
     description = "Konrad Lemański";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      firefox
+    #  firefox
     #  thunderbird
     ];
   };
@@ -103,6 +103,7 @@
     wget
     git
     micro
+    desktop-file-utils
   ];
 
   # xdg.portal.enable = true;

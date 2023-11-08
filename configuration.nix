@@ -11,6 +11,8 @@
   # Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  boot.supportedFilesystems = [ "ntfs" ];
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -46,9 +48,7 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+
 
   # Configure keymap in X11
   services.xserver = {
@@ -104,14 +104,37 @@
     git
     micro
     desktop-file-utils
+    waybar
+    dunst
+    libnotify
+    swww
+    kitty
+    rofi-wayland
+    pavucontrol
+    cinnamon.nemo
   ];
 
-  # xdg.portal.enable = true;
-  # xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  # Enable the GNOME Desktop Environment.
+  services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
+
+  programs.hyprland = {
+      enable = true;
+      enableNvidiaPatches = true;
+      xwayland.enable = true;
+  };
+
+  environment.sessionVariables = {
+      WLR_NO_HARDWARE_CURSORS = "1";
+      NIXOS_OZONE_WL = "1";
+  };
+
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
-  # services.blueman.enable = true;
+  services.blueman.enable = true;
 
   
   # Some programs need SUID wrappers, can be configured further or are
@@ -139,6 +162,21 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+ 
+  fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    liberation_ttf
+    fira-code
+    fira-code-symbols
+    mplus-outline-fonts.githubRelease
+    dina-font
+    proggyfonts
+    nerdfonts
+  ];
+
+  
   system.stateVersion = "23.05"; # Did you read the comment?
 
 }

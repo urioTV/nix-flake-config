@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./stylix.nix ];
+  imports = [ ./stylix.nix ./waybar-config.nix ];
 
   nixpkgs.config.allowUnfree = true;
   # Home Manager needs a bit of information about you and the paths it should
@@ -24,21 +24,17 @@
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
      firefox-wayland
-     vscode
-
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
-
-    # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
+     rofi-wayland
+     brave
   ];
+
+  #programs.waybar = {
+  #  enable = true;
+  #};
+
+  programs.vscode.enable = true;
+  
+  services.dunst.enable = true;
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -92,7 +88,7 @@
   #  stylix.base16Scheme = ./dracula/dracula.yaml;
   #  stylix.targets.gnome.enable = true;
   #  stylix.polarity = "dark";
-
+ 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }

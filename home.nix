@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./stylix.nix ./waybar-config.nix ];
+  imports = [ ./stylix.nix  ];
 
   nixpkgs.config.allowUnfree = true;
   # Home Manager needs a bit of information about you and the paths it should
@@ -43,7 +43,10 @@
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
-
+	".config/waybar" = {
+	source = ./waybar;
+	target = ".config/waybar";
+	};
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
     #   org.gradle.console=verbose

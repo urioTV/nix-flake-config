@@ -27,7 +27,11 @@
      rofi-wayland
      brave
   ];
-
+  programs.eww = {
+  	enable = true;
+  	package = pkgs.eww-wayland;
+  	configDir = ./eww-config-dir;
+  };
   #programs.waybar = {
   #  enable = true;
   #};
@@ -47,6 +51,12 @@
 	source = ./waybar;
 	target = ".config/waybar";
 	};
+
+	# ".config/hypr" = {
+	# source = ./hypr;
+	# target = ".config/hypr";
+	# };
+	
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
     #   org.gradle.console=verbose

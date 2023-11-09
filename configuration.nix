@@ -112,6 +112,7 @@
     rofi-wayland
     pavucontrol
     cinnamon.nemo
+    eww-wayland
   ];
 
   # Enable the GNOME Desktop Environment.

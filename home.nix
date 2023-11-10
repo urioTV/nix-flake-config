@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./stylix.nix  ];
+  imports = [ ];
 
   nixpkgs.config.allowUnfree = true;
   # Home Manager needs a bit of information about you and the paths it should
@@ -25,16 +25,22 @@
     # # "Hello, world!" when run.
      firefox-wayland
      rofi-wayland
-     brave
+     rnix-lsp
   ];
-  programs.eww = {
-  	enable = true;
-  	package = pkgs.eww-wayland;
-  	configDir = ./eww-config-dir;
+  
+  # programs.eww = {
+  #	 enable = true;
+  #	 package = pkgs.eww-wayland;
+  #	 configDir = ./eww-config-dir;
+  # };
+  programs.waybar = {
+    enable = true;
   };
-  #programs.waybar = {
-  #  enable = true;
-  #};
+
+  programs.rofi = {
+    enable = true;
+    package = pkgs.rofi-wayland;
+  };
 
   programs.vscode.enable = true;
   
@@ -48,14 +54,26 @@
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
 	".config/waybar" = {
-	source = ./waybar;
+	source = ./configs/waybar;
 	target = ".config/waybar";
 	};
+  ".config/rofi" = {
+    source = ./configs/rofi;
+    target = ".config/rofi";
+    };
+  ".config/dunst" = {
+    source = ./configs/dunst;
+    target = ".config/dunst";
+    };
+    ".config/hypr" = {
+      source = ./configs/hypr;
+      target = ".config/hypr";
+    };
+    ".config/kitty" = {
+      source = ./configs/kitty;
+      target = ".config/kitty";
+    };
 
-	# ".config/hypr" = {
-	# source = ./hypr;
-	# target = ".config/hypr";
-	# };
 	
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''

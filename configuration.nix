@@ -5,7 +5,6 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./nvidia.nix
-      ./stylix.nix
     ];
 
   # Flakes
@@ -107,12 +106,11 @@
     waybar
     dunst
     libnotify
-    swww
+    hyprpaper
     kitty
     rofi-wayland
     pavucontrol
     cinnamon.nemo
-    eww-wayland
   ];
 
   # Enable the GNOME Desktop Environment.

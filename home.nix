@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ];
+  imports = [ ./stylix.nix ];
 
   nixpkgs.config.allowUnfree = true;
   # Home Manager needs a bit of information about you and the paths it should
@@ -33,19 +33,27 @@
   #	 package = pkgs.eww-wayland;
   #	 configDir = ./eww-config-dir;
   # };
-  programs.waybar = {
-    enable = true;
-  };
+  # programs.waybar = {
+  #   enable = true;
+  # };
 
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
   };
 
-  programs.vscode.enable = true;
+  programs.vscode = {
+  	enable = true;
+  	userSettings = {
+  		"window.titleBarStyle" = "custom";
+      "editor.fontFamily" = "'Droid Sans Mono', 'monospace', monospace, Hack Nerd Font";
+      "terminal.integrated.fontFamily" = "Hack Nerd Font";
+  	};
+  };
   
   services.dunst.enable = true;
 
+  services.swayosd.enable = true;
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
@@ -53,10 +61,10 @@
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
-	".config/waybar" = {
-	source = ./configs/waybar;
-	target = ".config/waybar";
-	};
+	# ".config/waybar" = {
+	# source = ./configs/waybar;
+	# target = ".config/waybar";
+	# };
   ".config/rofi" = {
     source = ./configs/rofi;
     target = ".config/rofi";

@@ -3,16 +3,16 @@
 	"position": "top",
 
 	"modules-left": [
-        "custom/packages",
 		"hyprland/workspaces",
 		"tray"
 	],
 	"modules-center": [
-        "hyprland/window",
+        "hyprland/window"
 	],
 	"modules-right": [
 		"memory",
-        "network#wlp62s0",
+        "network",
+        "custom/pipewire",
         "battery",
 		"clock"
 	],
@@ -28,13 +28,24 @@
         "on-click": "activate"
     },
 	"clock": {
-        "format": "{: %I:%M %p   %a %d/%m/%Y}",
+        "format": "{: %I:%M %p   %a %d/%m/%Y}",
 		"tooltip": false
 	},
 	"hyprland/window": {
 		"max-length": 70,
 		"separate-outputs": false
 	},
+    "custom/pipewire": {
+        "format": "{icon}",
+        "return-type": "json",
+        "signal": 8,
+        "interval": 1,
+        "format-icons": {
+            "mute": "󰖁",
+            "default": ["", "", "", ""]
+        },
+        "exec": "pw-volume status"
+    },
 	"memory": {
 		"interval": 5,
 		"format": "󰍛 {}%"
@@ -43,14 +54,9 @@
 		"interval": 5,
 		"format": "󰧑 {usage:2}%"
 	},
-	"custom/packages": {
-		"exec": "~/.local/bin/packagecount",
-		"format": " {}",
-		"interval": 45
-	},
-    "network#wlp62s0": {
+    "network": {
         "interval": 1,
-        "interface": "wlp6s0",
+        "interface": "wlp2s0",
         "format-icons": [
             "󰤯",
             "󰤟",
@@ -61,7 +67,7 @@
         "format-wifi": "{icon}",
         "format-disconnected": "󰤮",
         "on-click": "kitty -e nmtui",
-        "tooltip": false,
+        "tooltip": false
     },
 	"tray": {
 		"icon-size": 20,

@@ -49,6 +49,10 @@ tooltip label {
     color: #ff79c6;
 	padding: 4px 10px;
 }
+#custom-pipewire {
+	color: #f8f8f2;
+	padding: 4px 10px;
+}
 
 #memory {
 	color: #ffb86c;

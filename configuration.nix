@@ -5,6 +5,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./nvidia.nix
+      ./stylix.nix
     ];
 
   # Flakes
@@ -85,7 +86,7 @@
   users.users.urio = {
     isNormalUser = true;
     description = "Konrad Lemański";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "audio" "video"];
     packages = with pkgs; [
     #  firefox
     #  thunderbird
@@ -103,7 +104,7 @@
     git
     micro
     desktop-file-utils
-    waybar
+    wl-clipboard
     dunst
     libnotify
     hyprpaper
@@ -111,8 +112,16 @@
     rofi-wayland
     pavucontrol
     cinnamon.nemo
+    networkmanagerapplet
+    xbindkeys
+    brightnessctl
+    wireplumber
+    pw-volume
+    nwg-panel
+    ddcutil
+    mesa-demos
+    mangohud
   ];
-
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   # services.xserver.desktopManager.gnome.enable = true;
@@ -123,9 +132,19 @@
       xwayland.enable = true;
   };
 
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+};
+
+
   environment.sessionVariables = {
       WLR_NO_HARDWARE_CURSORS = "1";
       NIXOS_OZONE_WL = "1";
+  };
+  environment.shellAliases = {
+    prime-run = "__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only";
   };
 
   xdg.portal.enable = true;
@@ -173,6 +192,10 @@
     dina-font
     proggyfonts
     nerdfonts
+    jetbrains-mono
+    font-awesome
+    cascadia-code
+    ubuntu_font_family
   ];
 
   

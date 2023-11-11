@@ -6,11 +6,11 @@
  	      inputs.nixpkgs.follows = "nixpkgs";
  	    };
  	hyprland.url = "github:hyprwm/Hyprland";
- 	# stylix.url = "github:danth/stylix";
+ 	stylix.url = "github:danth/stylix";
  };
 
 
- outputs = { self, nixpkgs, home-manager, ...}@inputs:
+ outputs = { self, nixpkgs, home-manager, stylix, ...}@inputs:
  	let
  		lib = nixpkgs.lib;
  		system = "x86_64-linux";
@@ -20,14 +20,14 @@
  			blade14 = lib.nixosSystem {
  			    specialArgs = { inherit inputs; };
  				inherit system;
- 				modules = [ ./configuration.nix ];
+ 				modules = [ ./configuration.nix stylix.nixosModules.stylix ];
  			};
  		};
  		homeConfigurations = { 
  			urio = home-manager.lib.homeManagerConfiguration {
  			    extraSpecialArgs = { inherit inputs; }; 
  		        inherit pkgs;
- 		        modules = [ ./home.nix ];
+ 		        modules = [ ./home.nix stylix.homeManagerModules.stylix];
  		      };
  		 };
  	};

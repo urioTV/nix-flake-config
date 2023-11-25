@@ -24,17 +24,20 @@
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
      firefox-wayland
+     discord
+     protonup-qt
   ];
 
   programs.vscode = {
   	enable = true;
   	userSettings = {
-  		"window.titleBarStyle" = "custom";
+  		# "window.titleBarStyle" = "custom";
       "editor.fontFamily" = "'Droid Sans Mono', 'monospace', monospace, Hack Nerd Font";
       "terminal.integrated.fontFamily" = "Hack Nerd Font";
   	};
   };
   
+  xdg.systemDirs.data = ["/var/lib/flatpak/exports/share" "/home/urio/.local/share/flatpak/exports/share"];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.

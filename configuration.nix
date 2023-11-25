@@ -13,7 +13,7 @@
   # Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # boot.supportedFilesystems = [ "ntfs" ];
+  boot.supportedFilesystems = [ "ntfs" ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -111,11 +111,20 @@
     ddcutil
     mesa-demos
     mangohud
+    neofetch
+    gnome.gnome-tweaks
+    gnome-extension-manager
+    ntfs3g
+    teams-for-linux
+    localsend
+    gamemode
+    prismlauncher
   ];
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
+  services.flatpak.enable = true;
 
   programs.steam = {
     enable = true;

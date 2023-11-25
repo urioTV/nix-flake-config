@@ -24,23 +24,7 @@
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
      firefox-wayland
-     rofi-wayland
-     rnix-lsp
   ];
-  
-  # programs.eww = {
-  #	 enable = true;
-  #	 package = pkgs.eww-wayland;
-  #	 configDir = ./eww-config-dir;
-  # };
-  # programs.waybar = {
-  #   enable = true;
-  # };
-
-  programs.rofi = {
-    enable = true;
-    package = pkgs.rofi-wayland;
-  };
 
   programs.vscode = {
   	enable = true;
@@ -51,9 +35,7 @@
   	};
   };
   
-  services.dunst.enable = true;
 
-  services.swayosd.enable = true;
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
@@ -65,29 +47,7 @@
 	# source = ./configs/waybar;
 	# target = ".config/waybar";
 	# };
-  ".config/rofi" = {
-    source = ./configs/rofi;
-    target = ".config/rofi";
-    };
-  ".config/dunst" = {
-    source = ./configs/dunst;
-    target = ".config/dunst";
-    };
-    ".config/hypr" = {
-      source = ./configs/hypr;
-      target = ".config/hypr";
-    };
-    ".config/kitty" = {
-      source = ./configs/kitty;
-      target = ".config/kitty";
-    };
-
 	
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
   };
 
   # You can also manage environment variables but you will have to manually

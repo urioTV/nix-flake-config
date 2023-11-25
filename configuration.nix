@@ -8,10 +8,12 @@
       ./stylix.nix
     ];
 
+  boot.kernelPackages = pkgs.linuxPackages_zen;
+
   # Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  boot.supportedFilesystems = [ "ntfs" ];
+  # boot.supportedFilesystems = [ "ntfs" ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -104,33 +106,16 @@
     git
     micro
     desktop-file-utils
-    wl-clipboard
-    dunst
     libnotify
-    hyprpaper
-    kitty
-    rofi-wayland
     pavucontrol
-    cinnamon.nemo
-    networkmanagerapplet
-    xbindkeys
-    brightnessctl
-    wireplumber
-    pw-volume
-    nwg-panel
     ddcutil
     mesa-demos
     mangohud
   ];
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
 
-  programs.hyprland = {
-      enable = true;
-      enableNvidiaPatches = true;
-      xwayland.enable = true;
-  };
 
   programs.steam = {
     enable = true;
@@ -143,16 +128,13 @@
       WLR_NO_HARDWARE_CURSORS = "1";
       NIXOS_OZONE_WL = "1";
   };
-  environment.shellAliases = {
-    prime-run = "__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only";
-  };
-
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  # environment.shellAliases = {
+  #   prime-run = "__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only";
+  # };
 
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
-  services.blueman.enable = true;
+  # services.blueman.enable = true;
 
   
   # Some programs need SUID wrappers, can be configured further or are

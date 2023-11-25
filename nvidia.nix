@@ -1,5 +1,17 @@
 { config, lib, pkgs, ...}:
-{
+
+let
+  nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
+    export __NV_PRIME_RENDER_OFFLOAD=1
+		export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
+		export __GLX_VENDOR_LIBRARY_NAME=nvidia
+		export __VK_LAYER_NV_optimus=NVIDIA_only
+		exec "$@"
+  '';
+in {
+
+	environment.systemPackages = [ nvidia-offload ];
+
 	hardware.opengl = {
 	    enable = true;
 	    driSupport = true;
@@ -14,7 +26,7 @@
 	    modesetting.enable = true;
 	
 	    # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
-	    powerManagement.enable = false;
+	    powerManagement.enable = true;
 	    # Fine-grained power management. Turns off GPU when not in use.
 	    # Experimental and only works on modern Nvidia GPUs (Turing or newer).
 	    powerManagement.finegrained = true;
@@ -33,7 +45,7 @@
 	    nvidiaSettings = true;
 	
 	    # Optionally, you may need to select the appropriate driver version for your specific GPU.
-	    package = config.boot.kernelPackages.nvidiaPackages.stable;
+	    package = config.boot.kernelPackages.nvidiaPackages.latest;
 	    
 	    };
 

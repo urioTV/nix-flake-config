@@ -36,6 +36,13 @@
       "terminal.integrated.fontFamily" = "Hack Nerd Font";
   	};
   };
+
+  programs.git = {
+      enable = true;
+      userEmail = "uriootv@protonmail.com";
+      userName = "urioTV";
+  };
+
   
   xdg.systemDirs.data = ["/var/lib/flatpak/exports/share" "/home/urio/.local/share/flatpak/exports/share"];
 

@@ -119,6 +119,7 @@
     localsend
     gamemode
     prismlauncher
+    gamescope
   ];
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
@@ -174,6 +175,7 @@
  
   fonts.packages = with pkgs; [
     noto-fonts
+    noto-fonts-extra
     noto-fonts-cjk
     noto-fonts-emoji
     liberation_ttf

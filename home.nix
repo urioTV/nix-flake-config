@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./stylix.nix ];
+  imports = [ ./stylixHome.nix ];
 
   nixpkgs.config.allowUnfree = true;
   # Home Manager needs a bit of information about you and the paths it should
@@ -34,6 +34,8 @@
   		# "window.titleBarStyle" = "custom";
       "editor.fontFamily" = "'Droid Sans Mono', 'monospace', monospace, Hack Nerd Font";
       "terminal.integrated.fontFamily" = "Hack Nerd Font";
+      "workbench.colorTheme" = "Catppuccin Mocha";
+      "workbench.iconTheme" = "catppuccin-perfect-mocha";
   	};
   };
 

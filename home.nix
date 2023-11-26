@@ -73,20 +73,24 @@
   home.sessionVariables = {
     # EDITOR = "emacs";
   };
-  #programs.zsh = {
-  #  zplug = {
-  #    enable = true;
-  #    plugins = [
-  #      { name = "git"; } 
-  #      { name = "npm";  }
-  #      { name = "igoradamenko/npm.plugin.zsh";  }
-  #      { name = "heroku";  }
-  #      { name = "command-not-found";  }
-  #      { name = "zsh-users/zsh-autosuggestions";  }
-  #      { name = "zsh-users/zsh-completions";  }
-  #    ];
-  #  };
-  #};
+
+  programs.zsh = {
+   enable = true;
+
+   zplug = {
+     enable = true;
+     plugins = [
+       { name = "heroku";  }
+       { name = "command-not-found";  }
+       { name = "zsh-users/zsh-autosuggestions";  }
+       { name = "zsh-users/zsh-completions";  }
+     ];
+   };
+  };
+  programs.starship = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 
   
   #stylix.autoEnable = true;

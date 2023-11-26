@@ -98,6 +98,9 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "urio" ];
+  virtualisation.virtualbox.host.enableExtensionPack = true;
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -121,6 +124,9 @@
     prismlauncher
     gamescope
   ];
+
+  programs.zsh.enable = true;
+  users.users.urio.shell = pkgs.zsh;
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;

@@ -124,7 +124,19 @@
     prismlauncher
     gamescope
     syncthingtray
+    heroic
+    jetbrains.rider
+    jetbrains.idea-ultimate
+    jdk11
+    jdk17
+    dotnet-sdk_8
+    lolcat
+    cmatrix
+    skypeforlinux
+    vlc
   ];
+
+  # services.teamviewer.enable = true;
 
   programs.zsh.enable = true;
   users.users.urio.shell = pkgs.zsh;
@@ -175,8 +187,14 @@ services = {
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 53317 ];
-  networking.firewall.allowedUDPPorts = [ 53317 ];
+  networking.firewall = {
+  enable = true;
+  allowedTCPPorts = [ 53317 8000 ];
+  allowedUDPPorts = [ 53317 21116 ];
+  allowedTCPPortRanges = [
+    { from = 21115; to = 21119; }
+  ];
+};
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 

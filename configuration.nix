@@ -134,6 +134,10 @@
     cmatrix
     skypeforlinux
     vlc
+    udisks
+    libstrangle
+    ciscoPacketTracer8
+    speedtest-go
   ];
 
   # services.teamviewer.enable = true;

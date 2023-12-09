@@ -125,8 +125,9 @@
     gamescope
     syncthingtray
     heroic
-    jetbrains.rider
-    jetbrains.idea-ultimate
+    # jetbrains.rider
+    # jetbrains.idea-ultimate
+    jetbrains-toolbox
     jdk11
     jdk17
     dotnet-sdk_8
@@ -138,6 +139,9 @@
     libstrangle
     ciscoPacketTracer8
     speedtest-go
+    bun
+    nodejs_21
+    ollama
   ];
 
   # services.teamviewer.enable = true;
@@ -162,12 +166,17 @@ services = {
         openDefaultPorts = true; # Open the default port (22000) in the firewall
     };
 };
+virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+    enableNvidia = true;
+};
 
 
-  environment.sessionVariables = {
-      WLR_NO_HARDWARE_CURSORS = "1";
-      NIXOS_OZONE_WL = "1";
-  };
+  # environment.sessionVariables = {
+  #     WLR_NO_HARDWARE_CURSORS = "1";
+  #     NIXOS_OZONE_WL = "1";
+  # };
   # environment.shellAliases = {
   #   prime-run = "__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only";
   # };

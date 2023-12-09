@@ -45,7 +45,7 @@ in {
 	    nvidiaSettings = true;
 	
 	    # Optionally, you may need to select the appropriate driver version for your specific GPU.
-	    package = config.boot.kernelPackages.nvidiaPackages.latest;
+	    package = config.boot.kernelPackages.nvidiaPackages.production;
 	    
 	    };
 
@@ -61,5 +61,5 @@ in {
 
 	    # Early KMS
 	    boot.initrd.kernelModules = [ "nvidia" ];
-	    boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
+	    # boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
 }

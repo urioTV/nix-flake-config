@@ -16,7 +16,7 @@
  		pkgs = nixpkgs.legacyPackages.${system};
  	in {
  		nixosConfigurations = {
- 			blade14 = lib.nixosSystem {
+ 			asus-ultra = lib.nixosSystem {
  			    specialArgs = { inherit inputs; };
  				inherit system;
  				modules = [ ./configuration.nix stylix.nixosModules.stylix ];

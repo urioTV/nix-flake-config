@@ -4,11 +4,15 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./nvidia.nix
       ./stylix.nix
     ];
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
+ 	hardware.opengl = {
+	    enable = true;
+	    driSupport = true;
+	    driSupport32Bit = true;
+	  };
 
   # Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -19,7 +23,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "blade14"; # Define your hostname.
+  networking.hostName = "asus-ultra"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -98,13 +102,15 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "urio" ];
-  virtualisation.virtualbox.host.enableExtensionPack = true;
+  # virtualisation.virtualbox.host.enable = true;
+  # users.extraGroups.vboxusers.members = [ "urio" ];
+  # virtualisation.virtualbox.host.enableExtensionPack = true;
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    firefox-wayland
+    discord
     wget
     git
     micro
@@ -137,7 +143,6 @@
     vlc
     udisks
     libstrangle
-    ciscoPacketTracer8
     speedtest-go
     bun
     nodejs_21

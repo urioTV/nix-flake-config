@@ -12,6 +12,12 @@
 	    enable = true;
 	    driSupport = true;
 	    driSupport32Bit = true;
+      extraPackages = with pkgs; [
+          intel-media-driver
+          vaapiIntel
+          vaapiVdpau
+          libvdpau-va-gl
+      ];
 	  };
 
   # Flakes
@@ -22,6 +28,8 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  zramSwap.enable = true;
 
   networking.hostName = "asus-ultra"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -114,18 +122,19 @@
     wget
     git
     micro
+    btop
     desktop-file-utils
     libnotify
     pavucontrol
     ddcutil
     mesa-demos
+    vulkan-tools
     mangohud
     neofetch
     gnome.gnome-tweaks
     gnome-extension-manager
     ntfs3g
     teams-for-linux
-    localsend
     gamemode
     prismlauncher
     gamescope
@@ -147,6 +156,10 @@
     bun
     nodejs_21
     ollama
+    appimage-run
+    gpu-viewer
+    tenacity
+    wine
   ];
 
   # services.teamviewer.enable = true;
@@ -174,7 +187,6 @@ services = {
 virtualisation.podman = {
     enable = true;
     dockerCompat = true;
-    enableNvidia = true;
 };
 
 

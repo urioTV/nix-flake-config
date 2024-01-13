@@ -23,11 +23,24 @@
   # Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  boot.supportedFilesystems = [ "ntfs" ];
+  boot.supportedFilesystems = [ "ntfs" "exfat" ];
+  
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  # boot.loader.systemd-boot.enable = true;
+  # boot.loader.efi.canTouchEfiVariables = true;
+
+  boot.loader = {
+    efi = {
+      canTouchEfiVariables = true;
+      efiSysMountPoint = "/boot/efi"; # ← use the same mount point here.
+    };
+    grub = {
+       efiSupport = true;
+       #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
+       device = "nodev";
+    };
+  };
 
   zramSwap.enable = true;
 
@@ -118,6 +131,7 @@
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     firefox-wayland
+    brave
     discord
     wget
     git
@@ -152,7 +166,7 @@
     vlc
     udisks
     libstrangle
-    speedtest-go
+    librespeed-cli
     bun
     nodejs_21
     ollama
@@ -160,6 +174,13 @@
     gpu-viewer
     tenacity
     wine
+    spotify-unwrapped
+    google-chrome
+    moonlight-qt
+    kdiskmark
+    gparted
+    solaar
+    logitech-udev-rules
   ];
 
   # services.teamviewer.enable = true;
@@ -188,6 +209,9 @@ virtualisation.podman = {
     enable = true;
     dockerCompat = true;
 };
+# virtualisation.waydroid = {
+#     enable = true;
+# };
 
 
   # environment.sessionVariables = {

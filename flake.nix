@@ -6,10 +6,14 @@
  	      inputs.nixpkgs.follows = "nixpkgs";
  	    };
  	stylix.url = "github:danth/stylix";
+ 	solaar = {
+ 	      url = "github:Svenum/Solaar-Flake/main";
+ 	      inputs.nixpkgs.follows = "nixpkgs";
+ 	    };
  };
 
 
- outputs = { self, nixpkgs, home-manager, stylix, ...}@inputs:
+ outputs = { self, nixpkgs, home-manager, stylix, solaar, ...}@inputs:
  	let
  		lib = nixpkgs.lib;
  		system = "x86_64-linux";
@@ -19,7 +23,7 @@
  			asus-ultra = lib.nixosSystem {
  			    specialArgs = { inherit inputs; };
  				inherit system;
- 				modules = [ ./configuration.nix stylix.nixosModules.stylix ];
+ 				modules = [ ./configuration.nix stylix.nixosModules.stylix solaar.nixosModules.default ];
  			};
  		};
  		homeConfigurations = { 

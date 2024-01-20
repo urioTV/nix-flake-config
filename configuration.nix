@@ -181,19 +181,23 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-  services.flatpak.enable = true;
 
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
 };
+  programs.corectrl = {
+  	enable = true;
+  	gpuOverclock.enable = true;
+  };
 
 services = {
     syncthing = {
         enable = true;
         openDefaultPorts = true; # Open the default port (22000) in the firewall
     };
+    flatpak.enable = true;
 };
 virtualisation.podman = {
     enable = true;

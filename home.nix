@@ -23,29 +23,29 @@
   home.packages = with pkgs; [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
-     protonup-qt
-     vcmi
+    protonup-qt
+    vcmi
   ];
 
   programs.vscode = {
-  	enable = true;
-  	userSettings = {
-  		# "window.titleBarStyle" = "custom";
+    enable = true;
+    userSettings = {
+      # "window.titleBarStyle" = "custom";
       "editor.fontFamily" = "'Droid Sans Mono', 'monospace', monospace, Hack Nerd Font";
       "terminal.integrated.fontFamily" = "Hack Nerd Font";
       "workbench.colorTheme" = "Catppuccin Mocha";
       "workbench.iconTheme" = "catppuccin-perfect-mocha";
-  	};
+    };
   };
 
   programs.git = {
-      enable = true;
-      userEmail = "uriootv@protonmail.com";
-      userName = "urioTV";
+    enable = true;
+    userEmail = "uriootv@protonmail.com";
+    userName = "urioTV";
   };
 
-  
-  xdg.systemDirs.data = ["/var/lib/flatpak/exports/share" "/home/urio/.local/share/flatpak/exports/share"];
+
+  xdg.systemDirs.data = [ "/var/lib/flatpak/exports/share" "/home/urio/.local/share/flatpak/exports/share" ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -54,11 +54,11 @@
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
-	# ".config/waybar" = {
-	# source = ./configs/waybar;
-	# target = ".config/waybar";
-	# };
-	
+    # ".config/waybar" = {
+    # source = ./configs/waybar;
+    # target = ".config/waybar";
+    # };
+
   };
 
   # You can also manage environment variables but you will have to manually
@@ -76,24 +76,24 @@
   };
 
   programs.zsh = {
-   enable = true;
+    enable = true;
 
-   zplug = {
-     enable = true;
-     plugins = [
-       { name = "heroku";  }
-       { name = "command-not-found";  }
-       { name = "zsh-users/zsh-autosuggestions";  }
-       { name = "zsh-users/zsh-completions";  }
-     ];
-   };
+    zplug = {
+      enable = true;
+      plugins = [
+        { name = "heroku"; }
+        { name = "command-not-found"; }
+        { name = "zsh-users/zsh-autosuggestions"; }
+        { name = "zsh-users/zsh-completions"; }
+      ];
+    };
   };
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
   };
 
-  
+
   #stylix.autoEnable = true;
   #  stylix.image = pkgs.fetchurl {
   #      url = "https://images.hdqwalls.com/wallpapers/heights-are-not-scary-5k-7s.jpg";
@@ -102,7 +102,7 @@
   #  stylix.base16Scheme = ./dracula/dracula.yaml;
   #  stylix.targets.gnome.enable = true;
   #  stylix.polarity = "dark";
- 
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }

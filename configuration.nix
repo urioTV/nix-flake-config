@@ -2,34 +2,35 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./stylix.nix
     ];
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
- 	hardware.opengl = {
-	    enable = true;
-	    driSupport = true;
-	    driSupport32Bit = true;
-      extraPackages = with pkgs; [
-          intel-media-driver
-          vaapiIntel
-          vaapiVdpau
-          libvdpau-va-gl
-      ];
-	  };
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+    extraPackages = with pkgs; [
+      intel-media-driver
+      vaapiIntel
+      vaapiVdpau
+      libvdpau-va-gl
+    ];
+  };
 
   # Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   boot.supportedFilesystems = [ "ntfs" "exfat" ];
-  
+
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
- 
+
 
   zramSwap.enable = true;
 
@@ -102,10 +103,10 @@
   users.users.urio = {
     isNormalUser = true;
     description = "Konrad Lemański";
-    extraGroups = [ "networkmanager" "wheel" "audio" "video"];
+    extraGroups = [ "networkmanager" "wheel" "audio" "video" ];
     packages = with pkgs; [
-    #  firefox
-    #  thunderbird
+      #  firefox
+      #  thunderbird
     ];
   };
 
@@ -118,7 +119,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     firefox-wayland
     brave
     discord
@@ -146,6 +147,7 @@
     # jetbrains.rider
     # jetbrains.idea-ultimate
     jetbrains-toolbox
+    nixpkgs-fmt
     jdk11
     jdk17
     dotnet-sdk_8
@@ -172,55 +174,48 @@
     logitech-udev-rules
     transmission-gtk
   ];
-
-  # services.teamviewer.enable = true;
-
-  programs.zsh.enable = true;
-  programs.solaar.enable = true;
   users.users.urio.shell = pkgs.zsh;
+
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
 
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-};
-  programs.corectrl = {
-  	enable = true;
-  	gpuOverclock.enable = true;
+  programs = {
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+      dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    };
+    corectrl = {
+      enable = true;
+      gpuOverclock.enable = true;
+    };
+    zsh.enable = true;
+    solaar.enable = true;
   };
-services = {
+  services = {
     syncthing = {
-        enable = true;
-        openDefaultPorts = true; # Open the default port (22000) in the firewall
+      enable = true;
+      openDefaultPorts = true; # Open the default port (22000) in the firewall
     };
     flatpak.enable = true;
-};
-virtualisation.podman = {
+  };
+  virtualisation.podman = {
     enable = true;
     dockerCompat = true;
-};
-# virtualisation.waydroid = {
-#     enable = true;
-# };
-
+  };
 
   # environment.sessionVariables = {
   #     WLR_NO_HARDWARE_CURSORS = "1";
   #     NIXOS_OZONE_WL = "1";
-  # };
-  # environment.shellAliases = {
-  #   prime-run = "__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only";
   # };
 
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
   # services.blueman.enable = true;
 
-  
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -236,23 +231,16 @@ virtualisation.podman = {
 
   # Open ports in the firewall.
   networking.firewall = {
-  enable = true;
-  allowedTCPPorts = [ 53317 8000 ];
-  allowedUDPPorts = [ 53317 21116 ];
-  allowedTCPPortRanges = [
-    { from = 21115; to = 21119; }
-  ];
-};
+    enable = true;
+    allowedTCPPorts = [ 53317 8000 ];
+    allowedUDPPorts = [ 53317 21116 ];
+    allowedTCPPortRanges = [
+      { from = 21115; to = 21119; }
+    ];
+  };
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
- 
   fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-extra
@@ -271,7 +259,7 @@ virtualisation.podman = {
     ubuntu_font_family
   ];
 
-  
+
   system.stateVersion = "23.05"; # Did you read the comment?
 
 }

@@ -131,59 +131,69 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    firefox-wayland
-    brave
-    discord
-    wget
+    # Programming and Development
     git
     micro
     btop
-    desktop-file-utils
-    libnotify
-    pavucontrol
-    ddcutil
-    mesa-demos
-    vulkan-tools
-    mangohud
-    neofetch
-    gnome.gnome-tweaks
-    gnome-extension-manager
-    ntfs3g
-    teams-for-linux
-    gamemode
-    prismlauncher
-    gamescope
-    syncthingtray
-    heroic
-    # jetbrains.rider
-    # jetbrains.idea-ultimate
-    jetbrains-toolbox
     nixpkgs-fmt
     jdk11
     jdk17
     dotnet-sdk_8
-    lolcat
-    cmatrix
-    skypeforlinux
-    vlc
-    udisks
-    libstrangle
-    librespeed-cli
     bun
     nodejs_21
     ollama
-    appimage-run
-    gpu-viewer
-    tenacity
-    wine
-    spotify-unwrapped
+    jetbrains-toolbox
+    desktop-file-utils
+
+    # Browsers
+    firefox-wayland
+    brave
     google-chrome
+
+    # Communication
+    discord
+    teams-for-linux
+    skypeforlinux
+
+    # Entertainment and Media
+    vlc
+    spotify-unwrapped
     moonlight-qt
-    kdiskmark
+    heroic
+    prismlauncher
+    gamescope
+    mangohud
+    gamemode
+
+    # System Utilities and Tools
+    wget
+    pavucontrol
+    ddcutil
+    mesa-demos
+    vulkan-tools
+    gnome.gnome-tweaks
+    gnome-extension-manager
+    ntfs3g
+    udisks
     gparted
-    solaar
+    kdiskmark
     logitech-udev-rules
     transmission-gtk
+    libnotify
+    libstrangle
+    librespeed-cli
+    appimage-run
+    gpu-viewer
+
+    # Fun and Miscellaneous
+    lolcat
+    cmatrix
+    freshfetch
+    tenacity
+    wine
+
+    # Storage and File Systems
+    syncthingtray
   ];
   users.users.urio.shell = pkgs.zsh;
 

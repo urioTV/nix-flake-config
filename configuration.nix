@@ -266,6 +266,8 @@
     noto-fonts
     noto-fonts-extra
     noto-fonts-cjk
+    noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
     noto-fonts-emoji
     liberation_ttf
     fira-code
@@ -278,6 +280,7 @@
     font-awesome
     cascadia-code
     ubuntu_font_family
+    babelstone-han
   ];
 
 

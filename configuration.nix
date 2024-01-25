@@ -170,6 +170,7 @@
     gparted
     solaar
     logitech-udev-rules
+    transmission-gtk
   ];
 
   # services.teamviewer.enable = true;
@@ -191,7 +192,6 @@
   	enable = true;
   	gpuOverclock.enable = true;
   };
-
 services = {
     syncthing = {
         enable = true;

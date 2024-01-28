@@ -25,6 +25,10 @@
     # # "Hello, world!" when run.
     protonup-qt
     vcmi
+    spotify-unwrapped
+    moonlight-qt
+    teams-for-linux
+    skypeforlinux
   ];
 
   programs.vscode = {

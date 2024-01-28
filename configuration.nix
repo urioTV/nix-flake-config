@@ -152,13 +152,9 @@
 
     # Communication
     discord
-    teams-for-linux
-    skypeforlinux
 
     # Entertainment and Media
     vlc
-    spotify-unwrapped
-    moonlight-qt
     heroic
     prismlauncher
     gamescope
@@ -188,7 +184,7 @@
     # Fun and Miscellaneous
     lolcat
     cmatrix
-    freshfetch
+    neofetch
     tenacity
     wine
 

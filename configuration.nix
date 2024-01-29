@@ -144,6 +144,7 @@
     ollama
     jetbrains-toolbox
     desktop-file-utils
+    ventoy-bin-full
 
     # Browsers
     firefox-wayland

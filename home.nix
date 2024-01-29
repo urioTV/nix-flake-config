@@ -29,6 +29,7 @@
     moonlight-qt
     teams-for-linux
     skypeforlinux
+    upscayl
   ];
 
   programs.vscode = {

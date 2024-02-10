@@ -86,8 +86,6 @@
     zplug = {
       enable = true;
       plugins = [
-        { name = "heroku"; }
-        { name = "command-not-found"; }
         { name = "zsh-users/zsh-autosuggestions"; }
         { name = "zsh-users/zsh-completions"; }
       ];

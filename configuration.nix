@@ -14,10 +14,7 @@
     driSupport = true;
     driSupport32Bit = true;
     extraPackages = with pkgs; [
-      intel-media-driver
-      vaapiIntel
-      vaapiVdpau
-      libvdpau-va-gl
+      rocmPackages.clr.icd
     ];
   };
 
@@ -27,7 +24,7 @@
   boot.supportedFilesystems = [ "ntfs" "exfat" ];
 
 
-  # Bootloader.
+  # Bootloader
   # boot.loader.systemd-boot.enable = true;
 
   boot.loader = {
@@ -35,17 +32,17 @@
       canTouchEfiVariables = true;
       # efiSysMountPoint = "/boot/efi"; # ← use the same mount point here.
     };
-    grub = {
-      enable = true;
-      efiSupport = true;
-      #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
-      device = "nodev";
-    };
+    #grub = {
+    #  enable = true;
+    #  efiSupport = true;
+    #  #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
+    #  device = "nodev";
+    #};
+    systemd-boot.enable = true;
   };
 
-  zramSwap.enable = true;
 
-  networking.hostName = "asus-ultra"; # Define your hostname.
+  networking.hostName = "konrad-m18"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -75,7 +72,8 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-
+  services.xserver.videoDrivers = [ "amdgpu" ];
+  boot.initrd.kernelModules = [ "amdgpu" ];
 
 
   # Configure keymap in X11
@@ -181,6 +179,8 @@
     librespeed-cli
     appimage-run
     gpu-viewer
+    pciutils
+    switcheroo-control
 
     # Fun and Miscellaneous
     lolcat
@@ -205,12 +205,7 @@
       remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
       dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
     };
-    corectrl = {
-      enable = true;
-      gpuOverclock.enable = true;
-    };
     zsh.enable = true;
-    solaar.enable = true;
   };
   services = {
     syncthing = {
@@ -281,6 +276,6 @@
   ];
 
 
-  system.stateVersion = "23.05"; # Did you read the comment?
+  system.stateVersion = "23.11"; # Did you read the comment?
 
 }

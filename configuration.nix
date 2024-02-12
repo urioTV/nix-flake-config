@@ -188,6 +188,7 @@
     neofetch
     tenacity
     wine
+    remmina
 
     # Storage and File Systems
     syncthingtray

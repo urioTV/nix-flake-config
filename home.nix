@@ -30,6 +30,7 @@
     teams-for-linux
     skypeforlinux
     upscayl
+    ferdium
   ];
 
   programs.vscode = {

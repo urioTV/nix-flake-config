@@ -104,6 +104,10 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [ xdg-desktop-portal-gnome ];
+  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -180,7 +184,7 @@
     appimage-run
     gpu-viewer
     pciutils
-    switcheroo-control
+    lm_sensors
 
     # Fun and Miscellaneous
     lolcat
@@ -189,6 +193,7 @@
     tenacity
     wine
     remmina
+    localsend
 
     # Storage and File Systems
     syncthingtray
@@ -207,6 +212,10 @@
       dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
     };
     zsh.enable = true;
+    corectrl = {
+      enable = true;
+      gpuOverclock.enable = true;
+    };
   };
   services = {
     syncthing = {

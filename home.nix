@@ -24,13 +24,14 @@
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     protonup-qt
-    vcmi
     spotify-unwrapped
     moonlight-qt
     teams-for-linux
     skypeforlinux
     upscayl
     ferdium
+    vcmi
+    yuzu-ea
   ];
 
   programs.vscode = {

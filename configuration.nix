@@ -185,6 +185,8 @@
     gpu-viewer
     pciutils
     lm_sensors
+    libva-utils
+    helvum
 
     # Fun and Miscellaneous
     lolcat

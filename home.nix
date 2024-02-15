@@ -27,7 +27,6 @@
     spotify-unwrapped
     moonlight-qt
     teams-for-linux
-    skypeforlinux
     upscayl
     ferdium
     vcmi

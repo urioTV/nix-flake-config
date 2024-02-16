@@ -9,6 +9,7 @@
     ];
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
+  # boot.kernelPackages = pkgs.linuxPackages;
   # boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
   hardware.opengl = {
     enable = true;
@@ -23,7 +24,6 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   boot.supportedFilesystems = [ "ntfs" "exfat" ];
-
 
   # Bootloader
   # boot.loader.systemd-boot.enable = true;
@@ -75,6 +75,8 @@
   services.xserver.enable = true;
   services.xserver.videoDrivers = [ "amdgpu" ];
   boot.initrd.kernelModules = [ "amdgpu" ];
+
+  services.logind.lidSwitch = "lock";
 
 
   # Configure keymap in X11
@@ -161,7 +163,6 @@
     vlc
     heroic
     prismlauncher
-    mangohud
     gamemode
     gamescope
 
@@ -181,7 +182,7 @@
     transmission-gtk
     libnotify
     libstrangle
-    librespeed-cli
+    speedtest-go
     appimage-run
     gpu-viewer
     pciutils
@@ -231,12 +232,12 @@
       remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
       dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
     };
-
     zsh.enable = true;
     corectrl = {
       enable = true;
       gpuOverclock.enable = true;
     };
+    noisetorch.enable = true;
   };
   services = {
     syncthing = {

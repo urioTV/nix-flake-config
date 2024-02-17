@@ -196,11 +196,10 @@
     neofetch
     tenacity
     wine
-    remmina
     localsend
 
     # Storage and File Systems
-    syncthingtray
+    # syncthingtray
   ];
   users.users.urio.shell = pkgs.zsh;
 
@@ -240,10 +239,6 @@
     noisetorch.enable = true;
   };
   services = {
-    syncthing = {
-      enable = true;
-      openDefaultPorts = true; # Open the default port (22000) in the firewall
-    };
     flatpak.enable = true;
   };
   virtualisation.podman = {

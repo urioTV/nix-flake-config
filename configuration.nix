@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, ... }:
+{ inputs, config, pkgs, chaotic, ... }:
 
 {
   imports =
@@ -8,8 +8,8 @@
       ./stylix.nix
     ];
 
-  boot.kernelPackages = pkgs.linuxPackages_zen;
-  # boot.kernelPackages = pkgs.linuxPackages;
+  # boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_cachyos;
   # boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
   hardware.opengl = {
     enable = true;
@@ -75,6 +75,8 @@
   services.xserver.enable = true;
   services.xserver.videoDrivers = [ "amdgpu" ];
   boot.initrd.kernelModules = [ "amdgpu" ];
+
+  chaotic.mesa-git.enable = true;
 
   services.logind.lidSwitch = "lock";
 
@@ -235,6 +237,7 @@
     corectrl = {
       enable = true;
       gpuOverclock.enable = true;
+      # gpuOverclock.ppfeaturemask = "0xffffffff";
     };
     noisetorch.enable = true;
   };

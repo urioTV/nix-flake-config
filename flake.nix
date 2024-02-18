@@ -6,10 +6,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix.url = "github:danth/stylix";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
   };
 
 
-  outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, stylix, chaotic, ... }@inputs:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -20,14 +21,14 @@
         konrad-m18 = lib.nixosSystem {
           specialArgs = { inherit inputs; };
           inherit system;
-          modules = [ ./configuration.nix stylix.nixosModules.stylix ];
+          modules = [ ./configuration.nix stylix.nixosModules.stylix chaotic.nixosModules.default ];
         };
       };
       homeConfigurations = {
         urio = home-manager.lib.homeManagerConfiguration {
           extraSpecialArgs = { inherit inputs; };
           inherit pkgs;
-          modules = [ ./home.nix stylix.homeManagerModules.stylix ];
+          modules = [ ./home.nix stylix.homeManagerModules.stylix chaotic.homeManagerModules.default ];
         };
       };
     };

@@ -3,6 +3,8 @@
 {
   imports = [ ./stylixHome.nix ];
 
+
+  nix.package = pkgs.nix;
   nixpkgs.config.allowUnfree = true;
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -30,7 +32,7 @@
     upscayl
     ferdium
     vcmi
-    yuzu-ea
+    yuzu-early-access_git
   ];
 
   programs.vscode = {

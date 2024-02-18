@@ -166,7 +166,7 @@
     heroic
     prismlauncher
     gamemode
-    gamescope
+    gamescope_git
 
     # System Utilities and Tools
     wget

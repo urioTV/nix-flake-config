@@ -155,8 +155,6 @@
 
     # Browsers
     firefox-wayland
-    brave
-    google-chrome
 
     # Communication
     discord
@@ -280,6 +278,20 @@
     allowedTCPPortRanges = [
       { from = 21115; to = 21119; }
     ];
+  };
+
+  security.polkit = {
+    enable = true;
+    extraConfig = ''polkit.addRule(function(action, subject) {
+    if ((action.id == "org.corectrl.helper.init" ||
+         action.id == "org.corectrl.helperkiller.init") &&
+        subject.local == true &&
+        subject.active == true &&
+        subject.isInGroup("your-user-group")) {
+            return polkit.Result.YES;
+    }
+});
+'';
   };
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;

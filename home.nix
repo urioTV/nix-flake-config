@@ -33,6 +33,7 @@
     ferdium
     vcmi
     yuzu-early-access_git
+    skypeforlinux
   ];
 
   programs.vscode = {

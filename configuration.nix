@@ -1,5 +1,4 @@
 { inputs, config, pkgs, chaotic, ... }:
-
 {
   imports =
     [
@@ -287,7 +286,7 @@
          action.id == "org.corectrl.helperkiller.init") &&
         subject.local == true &&
         subject.active == true &&
-        subject.isInGroup("your-user-group")) {
+        subject.isInGroup("wheel")) {
             return polkit.Result.YES;
     }
 });

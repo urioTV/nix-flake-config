@@ -163,7 +163,7 @@
     heroic
     prismlauncher
     gamemode
-    gamescope_git
+    #gamescope_git
 
     # System Utilities and Tools
     wget
@@ -196,6 +196,7 @@
     tenacity
     wine
     localsend
+    (import ./scripts/gamesteam.nix {inherit pkgs;})
 
     # Storage and File Systems
     # syncthingtray
@@ -237,6 +238,14 @@
       # gpuOverclock.ppfeaturemask = "0xffffffff";
     };
     noisetorch.enable = true;
+    gamescope = {
+      enable = true;
+      # capSysNice = true;
+      package = pkgs.gamescope_git;
+      env = {
+        SDL_VIDEODRIVER = "x11";
+      };
+    };
   };
   services = {
     flatpak.enable = true;
@@ -245,7 +254,6 @@
     enable = true;
     dockerCompat = true;
   };
-
   # environment.sessionVariables = {
   #     WLR_NO_HARDWARE_CURSORS = "1";
   #     NIXOS_OZONE_WL = "1";
@@ -314,6 +322,7 @@
     cascadia-code
     ubuntu_font_family
     babelstone-han
+    baekmuk-ttf
   ];
 
 

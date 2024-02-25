@@ -34,6 +34,8 @@
     vcmi
     yuzu-early-access_git
     skypeforlinux
+    rpcs3
+    onlyoffice-bin_latest
   ];
 
   programs.vscode = {

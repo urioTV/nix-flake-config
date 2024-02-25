@@ -36,6 +36,7 @@
     skypeforlinux
     rpcs3
     onlyoffice-bin_latest
+    mangohud_git
   ];
 
   programs.vscode = {
@@ -55,22 +56,23 @@
     userName = "urioTV";
   };
 
-  programs.mangohud = {
-      	enable = true;
-      	settings = {
-      		# horizontal = true;
-      		cpu_stats = true;
-      		gpu_stats = true;
-      		ram = true;
-      		vram = true;
-      		fps = true;
-      		frametime=0;
-      		frame_timing=1;
-      		hud_no_margin = true;
-      		gpu_power = true;
-      		cpu_power = true;
-      	};
-      };
+  # programs.mangohud = {
+  #     	enable = true;
+  #       package = pkgs.mangohud_git;
+  #     	settings = {
+  #     		# horizontal = true;
+  #     		cpu_stats = true;
+  #     		gpu_stats = true;
+  #     		ram = true;
+  #     		vram = true;
+  #     		fps = true;
+  #     		frametime=0;
+  #     		frame_timing=1;
+  #     		hud_no_margin = true;
+  #     		gpu_power = true;
+  #     		cpu_power = true;
+  #     	};
+  #     };
 
   xdg.systemDirs.data = [ "/var/lib/flatpak/exports/share" "/home/urio/.local/share/flatpak/exports/share" ];
 

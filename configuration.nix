@@ -196,7 +196,7 @@
     tenacity
     wine
     localsend
-    (import ./scripts/gamesteam.nix {inherit pkgs;})
+    #(import ./scripts/gamesteam.nix {inherit pkgs;})
 
     # Storage and File Systems
     # syncthingtray
@@ -240,11 +240,17 @@
     noisetorch.enable = true;
     gamescope = {
       enable = true;
-      # capSysNice = true;
+      capSysNice = true;
       package = pkgs.gamescope_git;
       env = {
         SDL_VIDEODRIVER = "x11";
       };
+      args = [
+        "-h 1200"
+        "-w 1920"
+        "-H 1200"
+        "-W 1920"
+      ];
     };
   };
   services = {

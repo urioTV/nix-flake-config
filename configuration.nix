@@ -188,6 +188,8 @@
     lm_sensors
     libva-utils
     helvum
+    du-dust
+    tldr
 
     # Fun and Miscellaneous
     lolcat

@@ -240,7 +240,7 @@
     noisetorch.enable = true;
     gamescope = {
       enable = true;
-      capSysNice = true;
+      # capSysNice = true;
       package = pkgs.gamescope_git;
       env = {
         SDL_VIDEODRIVER = "x11";

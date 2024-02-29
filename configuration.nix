@@ -190,6 +190,9 @@
     helvum
     du-dust
     tldr
+    gping
+    rm-improved
+    fzf
 
     # Fun and Miscellaneous
     lolcat

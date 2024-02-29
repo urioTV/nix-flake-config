@@ -18,7 +18,7 @@
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
-  home.stateVersion = "23.05"; # Please read the comment before changing.
+  home.stateVersion = "23.11"; # Please read the comment before changing.
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -29,7 +29,7 @@
     spotify-unwrapped
     moonlight-qt
     teams-for-linux
-    upscayl
+    # upscayl
     ferdium
     vcmi
     yuzu-early-access_git
@@ -39,22 +39,51 @@
     mangohud_git
   ];
 
-  programs.vscode = {
-    enable = true;
-    userSettings = {
-      # "window.titleBarStyle" = "custom";
-      "editor.fontFamily" = "'Droid Sans Mono', 'monospace', monospace, Hack Nerd Font";
-      "terminal.integrated.fontFamily" = "Hack Nerd Font";
-      "workbench.colorTheme" = "Catppuccin Mocha";
-      "workbench.iconTheme" = "catppuccin-perfect-mocha";
+  programs =
+    {
+      vscode = {
+        enable = true;
+        userSettings = {
+          # "window.titleBarStyle" = "custom";
+          "editor.fontFamily" = "'Droid Sans Mono', 'monospace', monospace, Hack Nerd Font";
+          "terminal.integrated.fontFamily" = "Hack Nerd Font";
+          "workbench.colorTheme" = "Catppuccin Mocha";
+          "workbench.iconTheme" = "catppuccin-perfect-mocha";
+        };
+      };
+      git = {
+        enable = true;
+        userEmail = "uriootv@protonmail.com";
+        userName = "urioTV";
+      };
+      zsh = {
+        enable = true;
+        zplug = {
+          enable = true;
+          plugins = [
+            { name = "zsh-users/zsh-autosuggestions"; }
+            { name = "zsh-users/zsh-completions"; }
+          ];
+        };
+      };
+      eza = {
+        enable = true;
+        enableAliases = true;
+      };
+      bat = {
+        enable = true;
+      };
+      starship = {
+        enable = true;
+        enableZshIntegration = true;
+      };
+      obs-studio = {
+        enable = true;
+        plugins = with pkgs; [
+          obs-studio-plugins.obs-vaapi
+        ];
+      };
     };
-  };
-
-  programs.git = {
-    enable = true;
-    userEmail = "uriootv@protonmail.com";
-    userName = "urioTV";
-  };
 
   # programs.mangohud = {
   #     	enable = true;
@@ -104,43 +133,16 @@
     # EDITOR = "emacs";
   };
 
-  programs =
-    {
-      zsh = {
-        enable = true;
-        zplug = {
-          enable = true;
-          plugins = [
-            { name = "zsh-users/zsh-autosuggestions"; }
-            { name = "zsh-users/zsh-completions"; }
-          ];
-        };
-      };
-      eza = {
-        enable = true;
-        enableAliases = true;
-      };
-      starship = {
-        enable = true;
-        enableZshIntegration = true;
-      };
-      obs-studio = {
-        enable = true;
-        plugins = with pkgs; [
-          obs-studio-plugins.obs-vaapi
-        ];
-      };
-    };
 
-      #stylix.autoEnable = true;
-      #  stylix.image = pkgs.fetchurl {
-      #      url = "https://images.hdqwalls.com/wallpapers/heights-are-not-scary-5k-7s.jpg";
-      #      sha256 = "rgJkrd7S/uWugPyBVTicbn6HtC8ru5HtEHP426CRSCE=";
-      #    };
-      #  stylix.base16Scheme = ./dracula/dracula.yaml;
-      #  stylix.targets.gnome.enable = true;
-      #  stylix.polarity = "dark";
+  #stylix.autoEnable = true;
+  #  stylix.image = pkgs.fetchurl {
+  #      url = "https://images.hdqwalls.com/wallpapers/heights-are-not-scary-5k-7s.jpg";
+  #      sha256 = "rgJkrd7S/uWugPyBVTicbn6HtC8ru5HtEHP426CRSCE=";
+  #    };
+  #  stylix.base16Scheme = ./dracula/dracula.yaml;
+  #  stylix.targets.gnome.enable = true;
+  #  stylix.polarity = "dark";
 
-      # Let Home Manager install and manage itself.
-      programs.home-manager.enable = true;
+  # Let Home Manager install and manage itself.
+  programs.home-manager.enable = true;
 }

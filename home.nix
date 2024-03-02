@@ -37,6 +37,7 @@
     rpcs3
     onlyoffice-bin_latest
     mangohud_git
+    protonvpn-gui
   ];
 
   programs =

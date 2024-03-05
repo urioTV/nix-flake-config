@@ -130,11 +130,13 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # virtualisation.virtualbox.host.enable = true;
-  # users.extraGroups.vboxusers.members = [ "urio" ];
-  # virtualisation.virtualbox.host.enableExtensionPack = true;
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # nixpkgs.overlays = [
+  #   (final: prev: {
+  #     pkg = optimizeForThisHost prev.pkg;
+  #   })
+  # ];
+
+
   environment.systemPackages = with pkgs; [
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     # Programming and Development
@@ -201,12 +203,14 @@
     tenacity
     wine
     localsend
-    #(import ./scripts/gamesteam.nix {inherit pkgs;})
+    nh
 
     # Storage and File Systems
     # syncthingtray
   ];
   users.users.urio.shell = pkgs.zsh;
+
+
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
@@ -265,10 +269,9 @@
     enable = true;
     dockerCompat = true;
   };
-  # environment.sessionVariables = {
-  #     WLR_NO_HARDWARE_CURSORS = "1";
-  #     NIXOS_OZONE_WL = "1";
-  # };
+  environment.sessionVariables = {
+    FLAKE = "/home/urio/nix-flake-config";
+  };
 
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot

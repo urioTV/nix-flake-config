@@ -32,7 +32,7 @@
     # upscayl
     ferdium
     vcmi
-    yuzu-early-access_git
+    yuzu-early-access
     skypeforlinux
     rpcs3
     onlyoffice-bin_latest

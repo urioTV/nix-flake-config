@@ -3,7 +3,6 @@
 {
   imports = [ ./stylixHome.nix ];
 
-
   nix.package = pkgs.nix;
   nixpkgs.config.allowUnfree = true;
   # Home Manager needs a bit of information about you and the paths it should
@@ -32,59 +31,54 @@
     # upscayl
     ferdium
     vcmi
-    yuzu-early-access
     skypeforlinux
     rpcs3
     onlyoffice-bin_latest
     mangohud_git
     protonvpn-gui
+    vscode
   ];
 
-  programs =
-    {
-      vscode = {
+  programs = {
+    # vscode = {
+    #   enable = true;
+    #   userSettings = {
+    #     # "window.titleBarStyle" = "custom";
+    #     "editor.fontFamily" = "'Droid Sans Mono', 'monospace', monospace, Hack Nerd Font";
+    #     "terminal.integrated.fontFamily" = "Hack Nerd Font";
+    #     "workbench.colorTheme" = "Catppuccin Mocha";
+    #     "workbench.iconTheme" = "catppuccin-perfect-mocha";
+    #   };
+    # };
+    git = {
+      enable = true;
+      userEmail = "uriootv@protonmail.com";
+      userName = "urioTV";
+    };
+    zsh = {
+      enable = true;
+      zplug = {
         enable = true;
-        userSettings = {
-          # "window.titleBarStyle" = "custom";
-          "editor.fontFamily" = "'Droid Sans Mono', 'monospace', monospace, Hack Nerd Font";
-          "terminal.integrated.fontFamily" = "Hack Nerd Font";
-          "workbench.colorTheme" = "Catppuccin Mocha";
-          "workbench.iconTheme" = "catppuccin-perfect-mocha";
-        };
-      };
-      git = {
-        enable = true;
-        userEmail = "uriootv@protonmail.com";
-        userName = "urioTV";
-      };
-      zsh = {
-        enable = true;
-        zplug = {
-          enable = true;
-          plugins = [
-            { name = "zsh-users/zsh-autosuggestions"; }
-            { name = "zsh-users/zsh-completions"; }
-          ];
-        };
-      };
-      eza = {
-        enable = true;
-        enableAliases = true;
-      };
-      bat = {
-        enable = true;
-      };
-      starship = {
-        enable = true;
-        enableZshIntegration = true;
-      };
-      obs-studio = {
-        enable = true;
-        plugins = with pkgs; [
-          obs-studio-plugins.obs-vaapi
+        plugins = [
+          { name = "zsh-users/zsh-autosuggestions"; }
+          { name = "zsh-users/zsh-completions"; }
         ];
       };
     };
+    eza = {
+      enable = true;
+      enableAliases = true;
+    };
+    bat = { enable = true; };
+    starship = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+    obs-studio = {
+      enable = true;
+      plugins = with pkgs; [ obs-studio-plugins.obs-vaapi ];
+    };
+  };
 
   # programs.mangohud = {
   #     	enable = true;
@@ -104,7 +98,10 @@
   #     	};
   #     };
 
-  xdg.systemDirs.data = [ "/var/lib/flatpak/exports/share" "/home/urio/.local/share/flatpak/exports/share" ];
+  xdg.systemDirs.data = [
+    "/var/lib/flatpak/exports/share"
+    "/home/urio/.local/share/flatpak/exports/share"
+  ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -133,7 +130,6 @@
   home.sessionVariables = {
     # EDITOR = "emacs";
   };
-
 
   #stylix.autoEnable = true;
   #  stylix.image = pkgs.fetchurl {

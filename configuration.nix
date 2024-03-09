@@ -1,11 +1,9 @@
-{ inputs, config, pkgs, chaotic, ... }:
-{
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./stylix.nix
-    ];
+{ inputs, config, pkgs, chaotic, ... }: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./stylix.nix
+  ];
 
   # boot.kernelPackages = pkgs.linuxPackages_zen;
   boot.kernelPackages = pkgs.linuxPackages_cachyos;
@@ -14,9 +12,7 @@
     enable = true;
     driSupport = true;
     driSupport32Bit = true;
-    extraPackages = with pkgs; [
-      rocmPackages.clr.icd
-    ];
+    extraPackages = with pkgs; [ rocmPackages.clr.icd ];
   };
 
   # Flakes
@@ -40,7 +36,6 @@
     #};
     systemd-boot.enable = true;
   };
-
 
   networking.hostName = "konrad-m18"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -78,7 +73,6 @@
   chaotic.mesa-git.enable = true;
 
   services.logind.lidSwitch = "lock";
-
 
   # Configure keymap in X11
   services.xserver = {
@@ -121,10 +115,11 @@
     isNormalUser = true;
     description = "Konrad Lemański";
     extraGroups = [ "networkmanager" "wheel" "audio" "video" ];
-    packages = with pkgs; [
-      #  firefox
-      #  thunderbird
-    ];
+    packages = with pkgs;
+      [
+        #  firefox
+        #  thunderbird
+      ];
   };
 
   # Allow unfree packages
@@ -136,13 +131,13 @@
   #   })
   # ];
 
-
   environment.systemPackages = with pkgs; [
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     # Programming and Development
     git
     micro
     btop
+    nixfmt
     nixpkgs-fmt
     jdk11
     jdk17
@@ -210,8 +205,6 @@
   ];
   users.users.urio.shell = pkgs.zsh;
 
-
-
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
@@ -219,26 +212,29 @@
   # GameScope fix
   nixpkgs.config.packageOverrides = pkgs: {
     steam = pkgs.steam.override {
-      extraPkgs = pkgs: with pkgs; [
-        xorg.libXcursor
-        xorg.libXi
-        xorg.libXinerama
-        xorg.libXScrnSaver
-        libpng
-        libpulseaudio
-        libvorbis
-        stdenv.cc.cc.lib
-        libkrb5
-        keyutils
-      ];
+      extraPkgs = pkgs:
+        with pkgs; [
+          xorg.libXcursor
+          xorg.libXi
+          xorg.libXinerama
+          xorg.libXScrnSaver
+          libpng
+          libpulseaudio
+          libvorbis
+          stdenv.cc.cc.lib
+          libkrb5
+          keyutils
+        ];
     };
   };
 
   programs = {
     steam = {
       enable = true;
-      remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-      dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+      remotePlay.openFirewall =
+        true; # Open ports in the firewall for Steam Remote Play
+      dedicatedServer.openFirewall =
+        true; # Open ports in the firewall for Source Dedicated Server
     };
     zsh.enable = true;
     corectrl = {
@@ -251,32 +247,21 @@
       enable = true;
       # capSysNice = true;
       package = pkgs.gamescope_git;
-      env = {
-        SDL_VIDEODRIVER = "x11";
-      };
-      args = [
-        "-h 1200"
-        "-w 1920"
-        "-H 1200"
-        "-W 1920"
-      ];
+      env = { SDL_VIDEODRIVER = "x11"; };
+      args = [ "-h 1200" "-w 1920" "-H 1200" "-W 1920" ];
     };
   };
-  services = {
-    flatpak.enable = true;
-  };
+  services = { flatpak.enable = true; };
   virtualisation.podman = {
     enable = true;
     dockerCompat = true;
   };
-  environment.sessionVariables = {
-    FLAKE = "/home/urio/nix-flake-config";
-  };
+  environment.sessionVariables = { FLAKE = "/home/urio/nix-flake-config"; };
 
   hardware.bluetooth.enable = true; # enables support for Bluetooth
-  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+  hardware.bluetooth.powerOnBoot =
+    true; # powers up the default Bluetooth controller on boot
   # services.blueman.enable = true;
-
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -296,23 +281,25 @@
     enable = true;
     allowedTCPPorts = [ 53317 8000 ];
     allowedUDPPorts = [ 53317 21116 ];
-    allowedTCPPortRanges = [
-      { from = 21115; to = 21119; }
-    ];
+    allowedTCPPortRanges = [{
+      from = 21115;
+      to = 21119;
+    }];
   };
 
   security.polkit = {
     enable = true;
-    extraConfig = ''polkit.addRule(function(action, subject) {
-    if ((action.id == "org.corectrl.helper.init" ||
-         action.id == "org.corectrl.helperkiller.init") &&
-        subject.local == true &&
-        subject.active == true &&
-        subject.isInGroup("wheel")) {
-            return polkit.Result.YES;
-    }
-});
-'';
+    extraConfig = ''
+      polkit.addRule(function(action, subject) {
+          if ((action.id == "org.corectrl.helper.init" ||
+               action.id == "org.corectrl.helperkiller.init") &&
+              subject.local == true &&
+              subject.active == true &&
+              subject.isInGroup("wheel")) {
+                  return polkit.Result.YES;
+          }
+      });
+    '';
   };
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
@@ -338,7 +325,6 @@
     babelstone-han
     baekmuk-ttf
   ];
-
 
   system.stateVersion = "23.11"; # Did you read the comment?
 

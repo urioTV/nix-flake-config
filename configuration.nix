@@ -153,7 +153,7 @@
     firefox-wayland
 
     # Communication
-    discord
+    discord-krisp
 
     # Entertainment and Media
     vlc
@@ -190,6 +190,7 @@
     gping
     rm-improved
     fzf
+    inputs.nix-alien.packages.${system}.nix-alien
 
     # Fun and Miscellaneous
     lolcat
@@ -199,6 +200,8 @@
     wine
     localsend
     nh
+    nmap
+    bottles
 
     # Storage and File Systems
     # syncthingtray
@@ -245,11 +248,12 @@
     noisetorch.enable = true;
     gamescope = {
       enable = true;
-      # capSysNice = true;
+      capSysNice = true;
       package = pkgs.gamescope_git;
       env = { SDL_VIDEODRIVER = "x11"; };
       args = [ "-h 1200" "-w 1920" "-H 1200" "-W 1920" ];
     };
+    nix-ld.enable = true;
   };
   services = { flatpak.enable = true; };
   virtualisation.podman = {

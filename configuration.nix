@@ -114,7 +114,7 @@
   users.users.urio = {
     isNormalUser = true;
     description = "Konrad Lemański";
-    extraGroups = [ "networkmanager" "wheel" "audio" "video" ];
+    extraGroups = [ "networkmanager" "wheel" "audio" "video" "docker" ];
     packages = with pkgs;
       [
         #  firefox
@@ -148,6 +148,7 @@
     jetbrains-toolbox
     desktop-file-utils
     ventoy-bin-full
+    docker-compose
 
     # Browsers
     firefox-wayland
@@ -191,6 +192,8 @@
     rm-improved
     fzf
     inputs.nix-alien.packages.${system}.nix-alien
+    headsetcontrol
+    alsaUtils
 
     # Fun and Miscellaneous
     lolcat
@@ -256,9 +259,8 @@
     nix-ld.enable = true;
   };
   services = { flatpak.enable = true; };
-  virtualisation.podman = {
+  virtualisation.docker = {
     enable = true;
-    dockerCompat = true;
   };
   environment.sessionVariables = { FLAKE = "/home/urio/nix-flake-config"; };
 

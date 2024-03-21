@@ -29,7 +29,6 @@
     moonlight-qt
     teams-for-linux
     # upscayl
-    # ferdium
     vcmi
     skypeforlinux
     rpcs3
@@ -67,7 +66,7 @@
     };
     eza = {
       enable = true;
-      enableAliases = true;
+      
     };
     bat = { enable = true; };
     starship = {

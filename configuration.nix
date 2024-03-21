@@ -6,8 +6,10 @@
   ];
 
   # boot.kernelPackages = pkgs.linuxPackages_zen;
+  # boot.kernelPackages = pkgs.linuxPackages_6_6;
   boot.kernelPackages = pkgs.linuxPackages_cachyos;
   # boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+
   hardware.opengl = {
     enable = true;
     driSupport = true;
@@ -70,7 +72,8 @@
   services.xserver.videoDrivers = [ "amdgpu" ];
   boot.initrd.kernelModules = [ "amdgpu" ];
 
-  chaotic.mesa-git.enable = true;
+  # Mesa-git
+  # chaotic.mesa-git.enable = true;
 
   services.logind.lidSwitch = "lock";
 
@@ -151,7 +154,8 @@
     docker-compose
 
     # Browsers
-    firefox-wayland
+    # firefox
+    firefox_nightly
 
     # Communication
     discord-krisp
@@ -194,6 +198,7 @@
     inputs.nix-alien.packages.${system}.nix-alien
     headsetcontrol
     alsaUtils
+    smartmontools
 
     # Fun and Miscellaneous
     lolcat
@@ -259,9 +264,7 @@
     nix-ld.enable = true;
   };
   services = { flatpak.enable = true; };
-  virtualisation.docker = {
-    enable = true;
-  };
+  virtualisation.docker = { enable = true; };
   environment.sessionVariables = { FLAKE = "/home/urio/nix-flake-config"; };
 
   hardware.bluetooth.enable = true; # enables support for Bluetooth

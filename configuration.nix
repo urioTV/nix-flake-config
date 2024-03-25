@@ -220,28 +220,26 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-  # GameScope fix
-  nixpkgs.config.packageOverrides = pkgs: {
-    steam = pkgs.steam.override {
-      extraPkgs = pkgs:
-        with pkgs; [
-          xorg.libXcursor
-          xorg.libXi
-          xorg.libXinerama
-          xorg.libXScrnSaver
-          libpng
-          libpulseaudio
-          libvorbis
-          stdenv.cc.cc.lib
-          libkrb5
-          keyutils
-        ];
-    };
-  };
-
   programs = {
     steam = {
       enable = true;
+      # Gamescope Fix
+      package = pkgs.steam.override {
+        extraEnv = { };
+        extraLibraries = pkgs:
+          with pkgs; [
+            xorg.libXcursor
+            xorg.libXi
+            xorg.libXinerama
+            xorg.libXScrnSaver
+            libpng
+            libpulseaudio
+            libvorbis
+            stdenv.cc.cc.lib
+            libkrb5
+            keyutils
+          ];
+      };
       remotePlay.openFirewall =
         true; # Open ports in the firewall for Steam Remote Play
       dedicatedServer.openFirewall =

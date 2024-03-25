@@ -31,7 +31,7 @@
     # upscayl
     vcmi
     skypeforlinux
-    rpcs3
+    # rpcs3
     onlyoffice-bin_latest
     mangohud_git
     protonvpn-gui

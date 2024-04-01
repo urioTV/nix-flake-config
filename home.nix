@@ -64,10 +64,7 @@
         ];
       };
     };
-    eza = {
-      enable = true;
-      
-    };
+    eza = { enable = true; };
     bat = { enable = true; };
     starship = {
       enable = true;

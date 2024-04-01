@@ -20,6 +20,8 @@
   # Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  nix.settings.trusted-users = [ "root" "urio" ];
+
   boot.supportedFilesystems = [ "ntfs" "exfat" ];
 
   # Bootloader
@@ -145,8 +147,6 @@
     jdk11
     jdk17
     dotnet-sdk_8
-    bun
-    nodejs_21
     ollama
     jetbrains-toolbox
     desktop-file-utils
@@ -154,8 +154,7 @@
     docker-compose
 
     # Browsers
-    # firefox
-    firefox_nightly
+    firefox-wayland
 
     # Communication
     discord-krisp
@@ -209,7 +208,8 @@
     localsend
     nh
     nmap
-    bottles
+    lutris
+    ffmpeg
 
     # Storage and File Systems
     # syncthingtray

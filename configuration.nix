@@ -144,8 +144,6 @@
     btop
     nixfmt
     nixpkgs-fmt
-    jdk11
-    jdk17
     dotnet-sdk_8
     ollama
     jetbrains-toolbox
@@ -226,7 +224,7 @@
       # Gamescope Fix
       package = pkgs.steam.override {
         extraEnv = { };
-        extraLibraries = pkgs:
+        extraPkgs = pkgs:
           with pkgs; [
             xorg.libXcursor
             xorg.libXi
@@ -251,7 +249,6 @@
       gpuOverclock.enable = true;
       # gpuOverclock.ppfeaturemask = "0xffffffff";
     };
-    noisetorch.enable = true;
     gamescope = {
       enable = true;
       capSysNice = true;
@@ -260,6 +257,10 @@
       args = [ "-h 1200" "-w 1920" "-H 1200" "-W 1920" ];
     };
     nix-ld.enable = true;
+    java = {
+      enable = true;
+      package = pkgs.jdk17;
+    };
   };
   services = { flatpak.enable = true; };
   virtualisation.docker = { enable = true; };

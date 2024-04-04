@@ -36,6 +36,7 @@
     mangohud_git
     protonvpn-gui
     vscode
+    openmw
   ];
 
   programs = {

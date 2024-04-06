@@ -5,19 +5,16 @@
     ./stylix.nix
   ];
 
-fileSystems."/home/urio/Ratto" =
- { device = "/dev/disk/by-uuid/40313e69-26ab-4254-9783-f19a417cc4df";
-   fsType = "ext4";
-   options = [ "nofail" "nosuid" "nodev" "x-gvfs-show"];
- };
+fileSystems = {
+	"/".options = [ "compress=zstd" ];
+	"/home".options = [ "compress=zstd" ];
+	"/nix".options = [ "compress=zstd" "noatime" ];
+	
+};
 
- systemd.tmpfiles.rules = [
-    "d /home/urio/Ratto 0755 urio users -"
-  ];
-
-  # boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
   # boot.kernelPackages = pkgs.linuxPackages_6_6;
-  boot.kernelPackages = pkgs.linuxPackages_cachyos;
+  # boot.kernelPackages = pkgs.linuxPackages_cachyos;
   # boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
   hardware.opengl = {

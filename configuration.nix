@@ -9,8 +9,9 @@ fileSystems = {
 	"/".options = [ "compress=zstd" ];
 	"/home".options = [ "compress=zstd" ];
 	"/nix".options = [ "compress=zstd" "noatime" ];
-	
+    # "/swap".options = [ "noatime" "compress=none" ];	
 };
+
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
   # boot.kernelPackages = pkgs.linuxPackages_6_6;
@@ -203,6 +204,8 @@ fileSystems = {
     headsetcontrol
     alsaUtils
     smartmontools
+    btrfs-progs
+    gptfdisk
 
     # Fun and Miscellaneous
     lolcat

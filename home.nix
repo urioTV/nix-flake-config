@@ -37,6 +37,7 @@
     protonvpn-gui
     vscode
     openmw
+    ani-cli
   ];
 
   programs = {

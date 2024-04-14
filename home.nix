@@ -27,10 +27,10 @@
     protonup-qt
     spotify-unwrapped
     moonlight-qt
-    teams-for-linux
+    # teams-for-linux
     # upscayl
     vcmi
-    skypeforlinux
+    # skypeforlinux
     # rpcs3
     onlyoffice-bin_latest
     mangohud_git
@@ -38,6 +38,7 @@
     vscode
     openmw
     ani-cli
+    
   ];
 
   programs = {

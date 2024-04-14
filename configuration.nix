@@ -4,48 +4,16 @@
     ./hardware-configuration.nix
     ./btrfsOptions.nix
     ./stylix.nix
+    ./hardware-stuff
+    ./host-programs
+    ./boot-kernel-stuff
+    ./host-pkgs
   ];
-
-  # boot.kernelPackages = pkgs.linuxPackages_zen;
-  # boot.kernelPackages = pkgs.linuxPackages_6_6;
-  boot.kernelPackages = pkgs.linuxPackages_cachyos;
-  # boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
-
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-    extraPackages = with pkgs; [ 
-    	rocmPackages.clr.icd 
-    	vulkan-loader
-    	vulkan-validation-layers
-    	vulkan-extension-layer
-    ];
-  };
 
   # Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   nix.settings.trusted-users = [ "root" "urio" ];
-
-  boot.supportedFilesystems = [ "ntfs" "exfat" ];
-
-  # Bootloader
-  # boot.loader.systemd-boot.enable = true;
-
-  boot.loader = {
-    efi = {
-      canTouchEfiVariables = true;
-      # efiSysMountPoint = "/boot/efi"; # ← use the same mount point here.
-    };
-    #grub = {
-    #  enable = true;
-    #  efiSupport = true;
-    #  #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
-    #  device = "nodev";
-    #};
-    systemd-boot.enable = true;
-  };
 
   networking.hostName = "konrad-m18"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -74,16 +42,6 @@
     LC_TELEPHONE = "pl_PL.UTF-8";
     LC_TIME = "pl_PL.UTF-8";
   };
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.videoDrivers = [ "amdgpu" ];
-  boot.initrd.kernelModules = [ "amdgpu" ];
-
-  # Mesa-git
-  # chaotic.mesa-git.enable = true;
-
-  services.logind.lidSwitch = "lock";
 
   # Configure keymap in X11
   services.xserver = {
@@ -115,7 +73,7 @@
   };
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [ xdg-desktop-portal-gnome ];
+    # extraPortals = with pkgs; [ xdg-desktop-portal-gnome ];
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -136,161 +94,16 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # nixpkgs.overlays = [
-  #   (final: prev: {
-  #     pkg = optimizeForThisHost prev.pkg;
-  #   })
-  # ];
-
-  environment.systemPackages = with pkgs; [
-    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    # Programming and Development
-    git
-    micro
-    btop
-    nixfmt
-    nixpkgs-fmt
-    dotnet-sdk_8
-    ollama
-    jetbrains-toolbox
-    desktop-file-utils
-    ventoy-bin-full
-    docker-compose
-
-    # Browsers
-    firefox-wayland
-
-    # Communication
-    discord-krisp
-
-    # Entertainment and Media
-    vlc
-    heroic
-    prismlauncher
-    gamemode
-    #gamescope_git
-
-    # System Utilities and Tools
-    wget
-    pavucontrol
-    ddcutil
-    mesa-demos
-    vulkan-tools
-    gnome.gnome-tweaks
-    gnome-extension-manager
-    ntfs3g
-    udisks
-    gparted
-    kdiskmark
-    logitech-udev-rules
-    transmission-gtk
-    libnotify
-    libstrangle
-    speedtest-go
-    appimage-run
-    gpu-viewer
-    pciutils
-    lm_sensors
-    libva-utils
-    helvum
-    du-dust
-    tldr
-    gping
-    rm-improved
-    fzf
-    inputs.nix-alien.packages.${system}.nix-alien
-    headsetcontrol
-    alsaUtils
-    smartmontools
-    btrfs-progs
-    gptfdisk
-
-    # Fun and Miscellaneous
-    lolcat
-    cmatrix
-    neofetch
-    tenacity
-    wine
-    localsend
-    nh
-    nmap
-    lutris
-    ffmpeg
-
-    # Storage and File Systems
-    # syncthingtray
-  ];
+  
   users.users.urio.shell = pkgs.zsh;
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-  programs = {
-    steam = {
-      enable = true;
-      # Gamescope Fix
-      package = pkgs.steam.override {
-        extraEnv = { };
-        extraPkgs = pkgs:
-          with pkgs; [
-            xorg.libXcursor
-            xorg.libXi
-            xorg.libXinerama
-            xorg.libXScrnSaver
-            libpng
-            libpulseaudio
-            libvorbis
-            stdenv.cc.cc.lib
-            libkrb5
-            keyutils
-          ];
-      };
-      remotePlay.openFirewall =
-        true; # Open ports in the firewall for Steam Remote Play
-      dedicatedServer.openFirewall =
-        true; # Open ports in the firewall for Source Dedicated Server
-    };
-    zsh.enable = true;
-    corectrl = {
-      enable = true;
-      gpuOverclock.enable = true;
-      # gpuOverclock.ppfeaturemask = "0xffffffff";
-    };
-    gamescope = {
-      enable = true;
-      capSysNice = true;
-      package = pkgs.gamescope_git;
-      env = { SDL_VIDEODRIVER = "x11"; };
-      args = [ "-h 1200" "-w 1920" "-H 1200" "-W 1920" ];
-    };
-    nix-ld.enable = true;
-    java = {
-      enable = true;
-      package = pkgs.jdk17;
-    };
-  };
   services = { flatpak.enable = true; };
   virtualisation.docker = { enable = true; };
   environment.sessionVariables = { FLAKE = "/home/urio/nix-flake-config"; };
-
-  hardware.bluetooth.enable = true; # enables support for Bluetooth
-  hardware.bluetooth.powerOnBoot =
-    true; # powers up the default Bluetooth controller on boot
-  # services.blueman.enable = true;
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
 
   # Open ports in the firewall.
   networking.firewall = {
@@ -327,19 +140,12 @@
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
     noto-fonts-emoji
-    liberation_ttf
-    fira-code
-    fira-code-symbols
-    mplus-outline-fonts.githubRelease
-    dina-font
-    proggyfonts
     nerdfonts
     jetbrains-mono
     font-awesome
-    cascadia-code
     ubuntu_font_family
-    babelstone-han
     baekmuk-ttf
+    nerd-font-patcher
   ];
 
   system.stateVersion = "23.11"; # Did you read the comment?

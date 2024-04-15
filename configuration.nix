@@ -94,7 +94,6 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  
   users.users.urio.shell = pkgs.zsh;
 
   # Enable the GNOME Desktop Environment.

@@ -67,6 +67,7 @@
     smartmontools
     btrfs-progs
     gptfdisk
+    psmisc
 
     # Fun and Miscellaneous
     lolcat

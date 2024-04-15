@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./stylixHome.nix ];
+  imports = [ ./stylixHome.nix ./home-hyprland ];
 
   nix.package = pkgs.nix;
   nixpkgs.config.allowUnfree = true;
@@ -38,7 +38,7 @@
     vscode
     openmw
     ani-cli
-    
+
   ];
 
   programs = {

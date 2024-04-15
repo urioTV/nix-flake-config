@@ -8,9 +8,12 @@
     stylix.url = "github:danth/stylix";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nix-alien.url = "github:thiagokokada/nix-alien";
+    hyprland.url = "github:hyprwm/Hyprland";
+
   };
 
-  outputs = { self, nixpkgs, home-manager, stylix, chaotic, nix-alien, ... }@inputs:
+  outputs =
+    { self, nixpkgs, home-manager, stylix, chaotic, nix-alien, ... }@inputs:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";

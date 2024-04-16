@@ -13,7 +13,6 @@
     btop
     nixfmt
     nixpkgs-fmt
-    dotnet-sdk_8
     ollama
     jetbrains-toolbox
     desktop-file-utils
@@ -22,6 +21,7 @@
 
     # Browsers
     firefox-wayland
+    brave
 
     # Communication
     discord-krisp

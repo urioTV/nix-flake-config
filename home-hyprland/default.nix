@@ -2,12 +2,16 @@
 
   home.packages = with pkgs;
     [
-
+      playerctl
     ];
 
-  services.udiskie = {
-    enable = true;
+  services = {
+    udiskie = {
+      enable = true;
 
+    };
+    playerctld = {
+      enable = true;
+    };
   };
-
 }

@@ -26,5 +26,6 @@
     networkmanagerapplet
     swaynotificationcenter
     waybar
+    blueman
   ];
 }

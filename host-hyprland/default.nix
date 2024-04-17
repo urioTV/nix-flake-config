@@ -6,26 +6,31 @@
     xwayland.enable = true;
   };
 
-  programs = {
-    thunar = {
-      enable = true;
-      plugins = [ ];
-    };
-  };
+  # programs = {
+  #   thunar = {
+  #     enable = true;
+  #     plugins = [ ];
+  #   };
+  # };
 
   environment.systemPackages = with pkgs; [
     # dunst
+    gnome.nautilus
+    gnome.gnome-tweaks
     lxqt.lxqt-policykit
     swww
-    waypaper
-    rofi-wayland
+    wofi
     wl-clipboard
     cliphist
     kitty
-    blueberry
-    networkmanagerapplet
     swaynotificationcenter
     waybar
     blueman
+    slurp
+    grim
+    grimblast
+    brightnessctl
+    pamixer
+    pw-volume
   ];
 }

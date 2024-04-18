@@ -6,6 +6,8 @@
     xwayland.enable = true;
   };
 
+  services.udev.packages = [ pkgs.swayosd ];
+  
   # programs = {
   #   thunar = {
   #     enable = true;
@@ -26,11 +28,13 @@
     swaynotificationcenter
     waybar
     blueman
+    bluetuith
     slurp
     grim
     grimblast
     brightnessctl
     pamixer
     pw-volume
+    swayosd
   ];
 }

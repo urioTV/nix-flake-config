@@ -47,6 +47,9 @@
       userEmail = "uriootv@protonmail.com";
       userName = "urioTV";
     };
+    gh = {
+      enable = true;
+    };
     zsh = {
       enable = true;
       zplug = {

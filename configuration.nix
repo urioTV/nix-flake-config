@@ -8,6 +8,7 @@
     ./host-programs
     ./boot-kernel-stuff
     ./host-pkgs
+    ./host-services
   ];
 
   # Flakes

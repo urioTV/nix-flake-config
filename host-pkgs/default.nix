@@ -31,7 +31,7 @@
     heroic
     prismlauncher
     gamemode
-    #gamescope_git
+    
 
     # System Utilities and Tools
     wget
@@ -46,7 +46,6 @@
     gparted
     kdiskmark
     logitech-udev-rules
-    transmission-gtk
     libnotify
     libstrangle
     speedtest-go
@@ -67,6 +66,7 @@
     smartmontools
     btrfs-progs
     gptfdisk
+    psmisc
 
     # Fun and Miscellaneous
     lolcat

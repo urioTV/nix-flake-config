@@ -104,6 +104,8 @@
   services = { flatpak.enable = true; };
   virtualisation.docker = { enable = true; };
   environment.sessionVariables = { FLAKE = "/home/urio/nix-flake-config"; };
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "urio" ];
 
   # Open ports in the firewall.
   networking.firewall = {

@@ -8,7 +8,7 @@
     stylix.url = "github:danth/stylix";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nix-alien.url = "github:thiagokokada/nix-alien";
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.url = "https://flakehub.com/f/hyprwm/Hyprland/0.39.*.tar.gz";
 
   };
 

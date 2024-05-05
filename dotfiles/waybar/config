@@ -76,6 +76,6 @@
 			"default": ["", "", ""]
 		},
 		"on-click": "pamixer --toggle-mute",
-		"on-click-right": "/home/fra/scripts/volume/on-off.sh",
+		"on-click-right": "pavucontrol",
     }
 }

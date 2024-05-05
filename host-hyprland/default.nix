@@ -31,7 +31,7 @@
     bluetuith
     slurp
     grim
-    grimblast
+    hyprshot
     brightnessctl
     pamixer
     pw-volume

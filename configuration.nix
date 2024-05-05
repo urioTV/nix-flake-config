@@ -109,7 +109,10 @@
 
   services = { flatpak.enable = true; };
   virtualisation.docker = { enable = true; };
-  environment.sessionVariables = { FLAKE = "/home/urio/nix-flake-config"; };
+  environment.sessionVariables = {
+    FLAKE = "/home/urio/nix-flake-config";
+    HYPRSHOT_DIR = "/home/urio/Obrazy/Screenshots";
+  };
 
   # Open ports in the firewall.
   networking.firewall = {

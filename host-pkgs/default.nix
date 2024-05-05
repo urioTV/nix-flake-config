@@ -72,7 +72,7 @@
     # Fun and Miscellaneous
     lolcat
     cmatrix
-    neofetch
+    fastfetch
     tenacity
     wine
     localsend

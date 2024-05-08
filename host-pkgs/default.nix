@@ -39,8 +39,8 @@
     ddcutil
     mesa-demos
     vulkan-tools
-    gnome.gnome-tweaks
-    gnome-extension-manager
+    # gnome.gnome-tweaks
+    # gnome-extension-manager
     ntfs3g
     udisks
     gparted

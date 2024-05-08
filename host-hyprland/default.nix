@@ -24,7 +24,7 @@
     wofi
     wl-clipboard
     cliphist
-    kitty
+    # kitty
     swaynotificationcenter
     waybar
     blueman

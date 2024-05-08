@@ -2,6 +2,7 @@
     "position": "top", 
     "height": 40,
     "modules-left": ["hyprland/workspaces"],
+	"modules-center": ["hyprland/window"],
     "modules-right": ["network", "pulseaudio", "backlight", "battery", "clock", "tray"],
     // Modules configuration
 	"clock": {
@@ -10,7 +11,15 @@
 //        	"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         	"format-alt": "{:%a %d %B %Y}"
 	},
-	
+
+	"hyprland/window": {
+		"format": "( {} )",
+		"rewrite": {
+			"(.*) — Mozilla Firefox": "🌎 $1",
+			"(.*) - fish": "> [$1]"
+		},
+		"separate-outputs": true
+	},
 
 	"hyprland/workspaces": {
 //		"format": "{icon}",

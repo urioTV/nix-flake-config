@@ -108,7 +108,19 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-
+    ".config/hypr" = {
+      source =
+        config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-flake-config/dotfiles/hypr";
+    };
+    ".config/waybar" = {
+      source =
+        config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-flake-config/dotfiles/waybar";
+    };
+    ".config/wofi" = {
+      source =
+        config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-flake-config/dotfiles/wofi";
+    };
+    
   };
   # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {

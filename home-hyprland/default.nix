@@ -1,6 +1,6 @@
 { inputs, config, pkgs, ... }: {
 
-  home.packages = with pkgs; [ playerctl ];
+  home.packages = with pkgs; [ playerctl kitty ];
 
   services = {
     udiskie = {
@@ -13,7 +13,7 @@
   programs = {
     wofi = {
       enable = true;
-      
+
     };
   };
 

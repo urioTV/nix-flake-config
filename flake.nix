@@ -13,7 +13,7 @@
   };
 
   outputs =
-    { self, nixpkgs, home-manager, stylix, chaotic, nix-alien, ... }@inputs:
+    { self, nixpkgs, home-manager, stylix, chaotic, nix-alien, hyprland, ... }@inputs:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -38,6 +38,7 @@
             ./home.nix
             stylix.homeManagerModules.stylix
             chaotic.homeManagerModules.default
+            hyprland.homeManagerModules.default
           ];
         };
       };

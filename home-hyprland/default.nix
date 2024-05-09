@@ -1,6 +1,6 @@
 { inputs, config, pkgs, ... }: {
 
-  home.packages = with pkgs; [ playerctl ];
+  home.packages = with pkgs; [ playerctl cava ];
 
   home.file = {
     ".config/hypr" = {

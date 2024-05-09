@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./stylixHome.nix ./home-hyprland ];
+  imports = [ ./home ];
 
   nix.package = pkgs.nix;
   nixpkgs.config.allowUnfree = true;

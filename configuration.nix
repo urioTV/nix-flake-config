@@ -2,13 +2,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./btrfsOptions.nix
-    ./stylix.nix
-    ./hardware-stuff
-    ./host-programs
-    ./boot-kernel-stuff
-    ./host-pkgs
-    ./host-hyprland
+    ./host
   ];
 
   nix.settings = {

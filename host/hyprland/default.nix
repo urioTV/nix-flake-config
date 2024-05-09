@@ -11,9 +11,9 @@
   systemd = {
   user.services.polkit-gnome-authentication-agent-1 = {
     description = "polkit-gnome-authentication-agent-1";
-    wantedBy = [ "default.target" ];
-    wants = [ "default.target" ];
-    after = [ "default.target" ];
+    wantedBy = [ "bluetooth.target" ];
+    wants = [ "bluetooth.target" ];
+    after = [ "bluetooth.target" ];
     serviceConfig = {
         Type = "simple";
         ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";

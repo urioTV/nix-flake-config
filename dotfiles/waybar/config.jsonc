@@ -1,90 +1,118 @@
 {
-    "position": "top", 
-    "height": 40,
-    "modules-left": ["hyprland/workspaces"],
-	"modules-center": ["hyprland/window"],
-    "modules-right": ["network", "pulseaudio", "backlight", "battery", "clock", "tray"],
-    // Modules configuration
-	"clock": {
-		"format": "{:%d/%m %H:%M}",
-		"tooltip": "false",
-//        	"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        	"format-alt": "{:%a %d %B %Y}"
-	},
+  "position": "top",
+  "height": 40,
+  "modules-left": ["hyprland/workspaces", "wlr/taskbar", "hyprland/window"],
+  "modules-center": ["clock"],
+  "modules-right": [
+    "tray",
+    "network",
+    "memory",
+	"cpu",
+    "pulseaudio",
+    "backlight",
+    "battery"
+  ],
+  // Modules configuration
+  "clock": {
+    "format": "{:%d/%m %H:%M}",
+    "tooltip": "false",
+    //        	"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%a %d %B %Y}"
+  },
 
-	"hyprland/window": {
-		"format": "( {} )",
-		"rewrite": {
-			"(.*) — Mozilla Firefox": "🌎 $1",
-			"(.*) - fish": "> [$1]"
-		},
-		"separate-outputs": true
-	},
+  "hyprland/window": {
+    "format": "( {} )",
+    "rewrite": {
+      "(.*) — Mozilla Firefox": "🌎 $1",
+      "(.*) - fish": "> [$1]"
+    },
+    "separate-outputs": true
+  },
 
-	"hyprland/workspaces": {
-//		"format": "{icon}",
-		"on-click": "activate",
-//		"format-icons": {
-//			"1": "",
-//			"2": "",
-//			"3": "",
-//			"4": "",
-//			"5": "",
-//			"urgent": "",
-//			"active": "",
-//			"default": ""
-		"sort-by-number": true,
-		},
-
-	"battery": {
-        "states": {
-            "good": 95,
-            "warning": 30,
-            "critical": 15
-        },
-        "format":"{icon}  {capacity}%",
-        "format-charging": "{capacity}% 󱐋",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{icon} {time}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
-	},
-	
-	"network": {
-        	"format-wifi": "  {essid}",
-        	"format-ethernet": "󰈀 Connected",
-        	"format-linked": "󰜏 {ifname} (No IP)",
-        	"format-disconnected": "Disconnected",
-        	"format-alt": "󰜏 {ifname}: {ipaddr}/{cidr}"
-	},
-
-	"tray": {
-		"icon-size": 17,
-		"spacing": 5
-	},
-
-	"backlight": {
-        // "device": "acpi_video1",
-	"format": "{icon} {percent}%",
-        "format-icons": ["", "", "", "", "", "", "", "", ""],
-//	"on-scroll-up":,
-//	"on-scroll-down":,
-	},
-
-	"pulseaudio": {
-		"format": "{icon}  {volume}%",
-        	"format-muted": "󰖁 muted",
-		"format-icons": {
-			"headphone": "",
-			"hands-free": "",
-			"headset": "󰋎",
-			"phone": "",
-			"portable": "",
-			"car": "",
-			"default": ["", "", ""]
-		},
-		"on-click": "pamixer --toggle-mute",
-		"on-click-right": "pavucontrol",
+  "hyprland/workspaces": {
+    //		"format": "{icon}",
+    "on-click": "activate",
+    //		"format-icons": {
+    //			"1": "",
+    //			"2": "",
+    //			"3": "",
+    //			"4": "",
+    //			"5": "",
+    //			"urgent": "",
+    //			"active": "",
+    //			"default": ""
+    "sort-by-number": true
+  },
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 14,
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "ignore-list": ["kitty"],
+    "rewrite": {
+      "Firefox Web Browser": "Firefox",
+      "Foot Server": "Terminal"
     }
+  },
+  "memory": {
+    "interval": 5,
+    "format": "{used:0.1f}G/{total:0.1f}G "
+  },
+  "cpu": {
+    "interval": 1,
+    "format": "{avg_frequency}% "
+  },
+
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon}  {capacity}%",
+    "format-charging": "{capacity}% 󱐋",
+    "format-plugged": "{capacity}% ",
+    "format-alt": "{icon} {time}",
+    // "format-good": "", // An empty format will hide the module
+    // "format-full": "",
+    "format-icons": ["", "", "", "", ""]
+  },
+
+  "network": {
+    "format-wifi": "  {essid}",
+    "format-ethernet": "󰈀 Connected",
+    "format-linked": "󰜏 {ifname} (No IP)",
+    "format-disconnected": "Disconnected",
+    "format-alt": "󰜏 {ifname}: {ipaddr}/{cidr}"
+  },
+
+  "tray": {
+    "icon-size": 17,
+    "spacing": 5
+  },
+
+  "backlight": {
+    // "device": "acpi_video1",
+    "format": "{icon} {percent}%",
+    "format-icons": ["", "", "", "", "", "", "", "", ""]
+    //	"on-scroll-up":,
+    //	"on-scroll-down":,
+  },
+
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-muted": "󰖁 muted",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "󰋎",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
+    },
+    "on-click": "pamixer --toggle-mute",
+    "on-click-right": "pavucontrol"
+  }
 }

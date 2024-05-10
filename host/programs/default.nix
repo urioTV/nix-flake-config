@@ -4,7 +4,7 @@
       enable = true;
       # Gamescope Fix
       package = pkgs.steam.override {
-        extraEnv = { };
+        extraEnv = { SDL_VIDEODRIVER = "x11";};
         extraPkgs = pkgs:
           with pkgs; [
             xorg.libXcursor

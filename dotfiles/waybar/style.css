@@ -50,6 +50,8 @@ window#waybar.empty #window {
 #clock,
 #battery,
 #pulseaudio,
+#memory,
+#cpu,
 #network {
   background-color: #24283b;
   padding: 5px 10px;
@@ -73,22 +75,29 @@ window#waybar.empty #window {
 
 #tray {
   background-color: #24283b;
-  border-radius: 0px 5px 5px 0px;
-  margin-right: 10px;
-  margin: 5px;
-  margin-left: -15px;
-  border-radius: 5px;
+  margin: 5px 5px;
   padding: 0px 5px;
+  border-radius: 10px;
+}
+#cpu {
+  color: #ce86ff;
+
+}
+#memory {
+  color: #a0bd00;
 }
 
 #clock {
   color: #b48ead;
-  border-radius: 0px 5px 5px 0px;
-  margin-right: 10px;
+  margin: 5px 5px;
+  padding: 0px 5px;
+  border-radius: 10px;
 }
 
 #battery {
   color: #9ece6a;
+  border-radius: 0px 5px 5px 0px;
+  margin-right: 10px;
 }
 
 #battery.charging {

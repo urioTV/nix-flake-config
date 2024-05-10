@@ -21,10 +21,10 @@
   },
 
   "hyprland/window": {
-    "format": "( {} )",
+    "format": "{}",
     "rewrite": {
-      "(.*) — Mozilla Firefox": "🌎 $1",
-      "(.*) - fish": "> [$1]"
+      "(.*) — Mozilla Firefox": "󰈹 $1",
+      "(.*) - zsh": "> [$1]"
     },
     "separate-outputs": true
   },

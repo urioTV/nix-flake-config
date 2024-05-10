@@ -34,9 +34,9 @@
   # };
 
   environment.systemPackages = with pkgs; [
-    # QT Packages
-    kdePackages.qt6ct
-    libsForQt5.qt5ct
+    # # QT Packages
+    # kdePackages.qt6ct
+    # libsForQt5.qt5ct
 
     # dunst
     xorg.xhost

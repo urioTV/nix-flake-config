@@ -24,7 +24,7 @@
     firefox-wayland
 
     # Communication
-    discord-krisp
+    vesktop
 
     # Entertainment and Media
     vlc
@@ -68,6 +68,7 @@
     btrfs-progs
     gptfdisk
     psmisc
+    handlr-regex
 
     # Fun and Miscellaneous
     lolcat

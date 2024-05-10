@@ -8,9 +8,9 @@
       source =
         "${config.home.homeDirectory}/nix-flake-config/dotfiles/hypr/hyprland.conf";
     };
-    plugins = [
-      inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
-    ];
+    # plugins = [
+    #   inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
+    # ];
   };
 
   home.file = {

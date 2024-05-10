@@ -61,7 +61,7 @@
   },
   "cpu": {
     "interval": 1,
-    "format": "{avg_frequency}% "
+    "format": "{usage}% "
   },
 
   "battery": {

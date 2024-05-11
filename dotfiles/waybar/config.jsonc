@@ -17,7 +17,9 @@
     "format": "{:%d/%m %H:%M}",
     "tooltip": "false",
     //        	"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format-alt": "{:%a %d %B %Y}"
+    "format-alt": "{:%a %d %B %Y}",
+
+    "on-click-right": "swaync-client -t"
   },
 
   "hyprland/window": {

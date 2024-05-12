@@ -28,10 +28,23 @@
 
     # Entertainment and Media
     vlc
-    heroic
+    (heroic.override {
+      extraPkgs = pkgs:
+        [
+          # List package dependencies here
+          gamescope_git
+        ];
+    })
     prismlauncher
     gamemode
     #gamescope_git
+    (lutris.override {
+      extraPkgs = pkgs:
+        [
+          # List package dependencies here
+          gamescope_git
+        ];
+    })
 
     # System Utilities and Tools
     wget
@@ -79,13 +92,6 @@
     localsend
     nh
     nmap
-    (lutris.override {
-      extraPkgs = pkgs:
-        [
-          # List package dependencies here
-          gamescope_git
-        ];
-    })
     ffmpeg
 
     # Storage and File Systems

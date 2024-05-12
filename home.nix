@@ -78,7 +78,10 @@
     };
     obs-studio = {
       enable = true;
-      plugins = with pkgs; [ obs-studio-plugins.obs-vaapi ];
+      plugins = with pkgs; [
+        obs-studio-plugins.obs-vaapi
+        obs-studio-plugins.obs-vkcapture
+      ];
     };
   };
 
@@ -107,7 +110,7 @@
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
-  
+
   # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {
     # EDITOR = "emacs";

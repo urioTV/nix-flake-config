@@ -4,7 +4,7 @@
       enable = true;
       # Gamescope Fix
       package = pkgs.steam.override {
-        extraEnv = { SDL_VIDEODRIVER = "x11";};
+        extraEnv = { SDL_VIDEODRIVER = "x11"; };
         extraPkgs = pkgs:
           with pkgs; [
             xorg.libXcursor
@@ -43,4 +43,8 @@
       package = pkgs.jdk17;
     };
   };
+
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "urio" ];
+
 }

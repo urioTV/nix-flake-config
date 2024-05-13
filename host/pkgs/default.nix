@@ -36,7 +36,6 @@
         ];
     })
     prismlauncher
-    gamemode
     #gamescope_git
     (lutris.override {
       extraPkgs = pkgs:

@@ -37,6 +37,7 @@
       env = { SDL_VIDEODRIVER = "x11"; };
       args = [ "-h 1200" "-w 1920" "-H 1200" "-W 1920" ];
     };
+    gamemode.enable = true;
     nix-ld.enable = true;
     java = {
       enable = true;

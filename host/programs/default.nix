@@ -33,7 +33,7 @@
     gamescope = {
       enable = true;
       # capSysNice = true;
-      package = pkgs.gamescope_git;
+      # package = pkgs.gamescope_git;
       env = { SDL_VIDEODRIVER = "x11"; };
       args = [ "-h 1200" "-w 1920" "-H 1200" "-W 1920" ];
     };

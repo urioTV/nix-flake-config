@@ -32,7 +32,7 @@
       extraPkgs = pkgs:
         [
           # List package dependencies here
-          gamescope_git
+          gamescope
         ];
     })
     prismlauncher
@@ -41,7 +41,7 @@
       extraPkgs = pkgs:
         [
           # List package dependencies here
-          gamescope_git
+          gamescope
         ];
     })
 

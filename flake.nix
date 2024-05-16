@@ -9,7 +9,7 @@
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nix-alien.url = "github:thiagokokada/nix-alien";
     hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+      url = "https://flakehub.com/f/hyprwm/Hyprland/0.39.*.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # Hyprspace = {

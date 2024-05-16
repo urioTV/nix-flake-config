@@ -101,6 +101,10 @@
   # services.xserver.displayManager.gdm.enable = true;
   # services.xserver.desktopManager.gnome.enable = true;
 
+  # Enable the KDE Desktop Environment
+  # services.xserver.displayManager.sddm.enable = true;
+  # services.xserver.desktopManager.plasma6.enable = true;
+
   services = { flatpak.enable = true; };
   virtualisation.docker = { enable = true; };
   environment.sessionVariables = {

@@ -8,6 +8,7 @@
     "network",
     "memory",
 	"cpu",
+  "disk",
     "pulseaudio",
     "backlight",
     "battery"
@@ -64,6 +65,12 @@
   "cpu": {
     "interval": 1,
     "format": "{usage}% "
+  },
+  "disk": {
+    "interval": 30,
+    "format": "{free}/{total} ",
+    "unit": "GB"
+    // 0.25 GB out of 2000.00 GB available. Alternatively 241.3MiB out of 1.9TiB available.
   },
 
   "battery": {

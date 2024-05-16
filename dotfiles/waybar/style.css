@@ -52,6 +52,7 @@ window#waybar.empty #window {
 #pulseaudio,
 #memory,
 #cpu,
+#disk,
 #network {
   background-color: #24283b;
   padding: 5px 10px;
@@ -85,6 +86,9 @@ window#waybar.empty #window {
 }
 #memory {
   color: #a0bd00;
+}
+#disk {
+  color: #ff50ad;
 }
 
 #clock {

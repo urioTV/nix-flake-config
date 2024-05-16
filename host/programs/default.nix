@@ -4,7 +4,7 @@
       enable = true;
       # Gamescope Fix
       package = pkgs.steam.override {
-        extraEnv = { SDL_VIDEODRIVER = "x11"; };
+        # extraEnv = { SDL_VIDEODRIVER = "x11"; };
         extraPkgs = pkgs:
           with pkgs; [
             xorg.libXcursor
@@ -45,7 +45,33 @@
     };
   };
 
-  virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "urio" ];
+  # virtualisation.virtualbox.host.enable = true;
+  # users.extraGroups.vboxusers.members = [ "urio" ];
+
+  # Qemu KVM and virt-manager
+
+  programs.virt-manager.enable = true;
+
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu = {
+      package = pkgs.qemu_kvm;
+      runAsRoot = true;
+      swtpm.enable = true;
+      ovmf = {
+        enable = true;
+        packages = [
+          (pkgs.OVMF.override {
+            secureBoot = true;
+            tpmSupport = true;
+          }).fd
+        ];
+      };
+    };
+  };
+
+  users.users.urio = {
+  extraGroups = [ "libvirtd" ];
+};
 
 }

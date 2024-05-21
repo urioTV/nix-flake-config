@@ -105,7 +105,10 @@
   # services.xserver.displayManager.sddm.enable = true;
   # services.xserver.desktopManager.plasma6.enable = true;
 
-  services = { flatpak.enable = true; };
+  services = {
+    flatpak.enable = true;
+    udisks2.enable = true;
+  };
   virtualisation.docker = { enable = true; };
   environment.sessionVariables = {
     FLAKE = "/home/urio/nix-flake-config";

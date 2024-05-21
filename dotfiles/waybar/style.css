@@ -53,6 +53,7 @@ window#waybar.empty #window {
 #memory,
 #cpu,
 #disk,
+#bluetooth,
 #network {
   background-color: #24283b;
   padding: 5px 10px;
@@ -89,6 +90,12 @@ window#waybar.empty #window {
 }
 #disk {
   color: #ff50ad;
+}
+#bluetooth {
+  color: #7299ec;
+  margin: 5px 5px;
+  padding: 0px 5px;
+  border-radius: 10px;
 }
 
 #clock {

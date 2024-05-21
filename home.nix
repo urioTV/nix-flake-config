@@ -83,6 +83,10 @@
         obs-studio-plugins.obs-vkcapture
       ];
     };
+    yazi = {
+      enable = true;
+      enableZshIntegration = true;
+    };
   };
 
   # programs.mangohud = {

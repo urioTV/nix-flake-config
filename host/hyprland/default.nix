@@ -41,6 +41,7 @@
     # dunst
     xorg.xhost
     gnome.nautilus
+    loupe
     # gnome.gnome-tweaks
     #lxqt.lxqt-policykit
     polkit_gnome

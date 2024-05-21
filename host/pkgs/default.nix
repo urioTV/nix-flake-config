@@ -81,6 +81,7 @@
     gptfdisk
     psmisc
     handlr-regex
+    resources
 
     # Fun and Miscellaneous
     lolcat

@@ -18,7 +18,6 @@
     jetbrains-toolbox
     desktop-file-utils
     ventoy-bin-full
-    docker-compose
 
     # Browsers
     firefox-wayland

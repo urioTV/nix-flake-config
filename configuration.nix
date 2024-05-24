@@ -84,7 +84,8 @@
   users.users.urio = {
     isNormalUser = true;
     description = "Konrad Lemański";
-    extraGroups = [ "networkmanager" "wheel" "audio" "video" "docker" ];
+    extraGroups =
+      [ "networkmanager" "wheel" "audio" "video" "gamemode" ];
     packages = with pkgs;
       [
         #  firefox
@@ -108,11 +109,16 @@
   services = {
     flatpak.enable = true;
     udisks2.enable = true;
+    gvfs.enable = true;
   };
-  virtualisation.docker = { enable = true; };
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+  };
   environment.sessionVariables = {
     FLAKE = "/home/urio/nix-flake-config";
     HYPRSHOT_DIR = "/home/urio/Obrazy/Screenshots";
+    ELECTRON_OZONE_PLATFORM_HINT = "wayland";
   };
 
   # Open ports in the firewall.

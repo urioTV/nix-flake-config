@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports = [ ./home ];
@@ -38,6 +38,7 @@
     vscode
     openmw
     ani-cli
+    inputs.suyu.packages.${system}.suyu
 
   ];
 

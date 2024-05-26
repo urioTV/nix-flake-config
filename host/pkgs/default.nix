@@ -18,6 +18,7 @@
     jetbrains-toolbox
     desktop-file-utils
     ventoy-bin-full
+    podman-compose
 
     # Browsers
     firefox-wayland

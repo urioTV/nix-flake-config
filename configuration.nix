@@ -5,6 +5,12 @@
     ./host
   ];
 
+  # nixpkgs.hostPlatform = {
+  #     gcc.arch = "znver4";
+  #     gcc.tune = "znver4";
+  #     system = "x86_64-linux";
+  #   };
+
   nix.settings = {
     substituters = [ "https://hyprland.cachix.org" ];
     trusted-public-keys =

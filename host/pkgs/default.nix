@@ -2,7 +2,7 @@
 
   imports = [
     # Include the results of the hardware scan.
-
+      
   ];
 
   environment.systemPackages = with pkgs; [
@@ -32,7 +32,7 @@
       extraPkgs = pkgs:
         [
           # List package dependencies here
-          gamescope
+          gamescope_git
         ];
     })
     prismlauncher
@@ -41,7 +41,7 @@
       extraPkgs = pkgs:
         [
           # List package dependencies here
-          gamescope
+          gamescope_git
         ];
     })
 

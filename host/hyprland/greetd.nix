@@ -15,7 +15,6 @@ in {
       };
     };
   };
-
   # this is a life saver.
   # literally no documentation about this anywhere.
   # might be good to write about this...
@@ -30,5 +29,10 @@ in {
     TTYVHangup = true;
     TTYVTDisallocate = true;
   };
+
+  boot.kernel.sysctl = {
+    "kernel.printk" = "3 3 3 3";
+  };
+
   
 }

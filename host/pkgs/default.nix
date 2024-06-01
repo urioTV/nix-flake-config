@@ -51,8 +51,6 @@
     ddcutil
     mesa-demos
     vulkan-tools
-    # gnome.gnome-tweaks
-    # gnome-extension-manager
     ntfs3g
     udisks
     gparted
@@ -61,7 +59,6 @@
     transmission-gtk
     libnotify
     libstrangle
-    speedtest-go
     appimage-run
     gpu-viewer
     pciutils
@@ -82,6 +79,7 @@
     psmisc
     handlr-regex
     resources
+    glib
 
     # Fun and Miscellaneous
     lolcat

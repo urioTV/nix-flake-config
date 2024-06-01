@@ -2,32 +2,32 @@
   stylix.autoEnable = true;
   stylix.image = ../tech-driad.png;
   stylix.base16Scheme = ../catppuccin/mocha.yaml;
-  # stylix.targets.gnome.enable = true;
+  stylix.targets.gnome.enable = true;
   stylix.polarity = "dark";
   stylix.targets.vscode.enable = false;
-  stylix.cursor.package = pkgs.qogir-icon-theme;
-  stylix.cursor.name = "Qogir Cursors";
-  # stylix.cursor.size = 24;
+  stylix.cursor.package = pkgs.bibata-cursors;
+  stylix.cursor.name = "Bibata-Modern-Classic";
+  stylix.cursor.size = 20;
 
   gtk.iconTheme.package = pkgs.papirus-icon-theme;
   gtk.iconTheme.name = "Papirus";
-  gtk.cursorTheme.package = pkgs.qogir-icon-theme;
-  gtk.cursorTheme.name = "Qogir Cursors";
+  # gtk.cursorTheme.package = pkgs.qogir-icon-theme;
+  # gtk.cursorTheme.name = "Qogir Cursors";
 
   gtk = {
     enable = true;
 
-    gtk3.extraConfig = {
-      Settings = ''
-        gtk-application-prefer-dark-theme=1
-      '';
-    };
+    gtk3.extraConfig = { gtk-application-prefer-dark-theme = 1; };
 
     gtk4.extraConfig = {
-      Settings = ''
-        gtk-application-prefer-dark-theme=1
-	      gtk-cursor-theme-name=Qogir Cursors
-      '';
+      gtk-application-prefer-dark-theme = 1;
+      #gtk-cursor-theme-name = "Qogir Cursors";
     };
   };
+
+  xdg.systemDirs.data = [
+    "${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}"
+    "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}"
+  ];
+
 }

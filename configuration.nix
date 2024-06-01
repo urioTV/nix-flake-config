@@ -78,20 +78,11 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
-  };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.urio = {
     isNormalUser = true;
     description = "Konrad Lemański";
-    extraGroups =
-      [ "networkmanager" "wheel" "audio" "video" "gamemode" ];
+    extraGroups = [ "networkmanager" "wheel" "audio" "video" "gamemode" ];
     packages = with pkgs;
       [
         #  firefox
@@ -104,26 +95,12 @@
 
   users.users.urio.shell = pkgs.zsh;
 
-  # Enable the GNOME Desktop Environment.
-  # services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
-
-  # Enable the KDE Desktop Environment
-  # services.xserver.displayManager.sddm.enable = true;
-  # services.xserver.desktopManager.plasma6.enable = true;
-
-  services = {
-    flatpak.enable = true;
-    udisks2.enable = true;
-    gvfs.enable = true;
-  };
   virtualisation.podman = {
     enable = true;
     dockerCompat = true;
   };
   environment.sessionVariables = {
     FLAKE = "/home/urio/nix-flake-config";
-    HYPRSHOT_DIR = "/home/urio/Obrazy/Screenshots";
     ELECTRON_OZONE_PLATFORM_HINT = "wayland";
   };
 

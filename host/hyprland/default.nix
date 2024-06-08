@@ -2,8 +2,6 @@
 
   imports = [ ./greetd.nix ];
 
-  # services.xserver.displayManager.gdm.enable = true;
-
   programs.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
@@ -42,12 +40,11 @@
 
   services.udev.packages = [ pkgs.swayosd ];
 
-  # programs = {
-  #   thunar = {
-  #     enable = true;
-  #     plugins = [ ];
-  #   };
-  # };
+  programs = {
+    file-roller = {
+      enable = true;
+    };
+  };
 
   environment.systemPackages = with pkgs; [
     # # QT Packages

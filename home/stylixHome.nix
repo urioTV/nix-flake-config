@@ -11,8 +11,6 @@
 
   gtk.iconTheme.package = pkgs.papirus-icon-theme;
   gtk.iconTheme.name = "Papirus";
-  # gtk.cursorTheme.package = pkgs.qogir-icon-theme;
-  # gtk.cursorTheme.name = "Qogir Cursors";
 
   gtk = {
     enable = true;

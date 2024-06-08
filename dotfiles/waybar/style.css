@@ -139,7 +139,7 @@ window#waybar.empty #window {
 
 #pulseaudio {
   color: #e0af68;
-  border-radius: 5px 0px 0px 5px;
+  border-radius: 0px 0px 0px 0px;
   margin-left: -2px;
 }
 
@@ -147,5 +147,4 @@ window#waybar.empty #window {
   background-color: #e0af68;
   color: #24283b;
   border-radius: 5px 5px 5px 5px;
-  margin-left: -2px;
 }

@@ -6,6 +6,7 @@
     ./programs
     ./boot-kernel-stuff
     ./pkgs
+    ./services
     ./hyprland
   ];
 

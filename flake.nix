@@ -11,7 +11,7 @@
     hyprland = {
       url = "https://flakehub.com/f/hyprwm/Hyprland/0.39.*.tar.gz";
       # url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-      inputs.nixpkgs.follows = "nixpkgs";
+      #inputs.nixpkgs.follows = "nixpkgs";
     };
     suyu = {
       url = "git+https://git.suyu.dev/suyu/nix-flake";

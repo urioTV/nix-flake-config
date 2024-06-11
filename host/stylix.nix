@@ -1,4 +1,5 @@
 { config, lib, pkgs, ... }: {
+  stylix.enable = true;
   stylix.autoEnable = true;
   stylix.image = ../tech-driad.png;
   stylix.base16Scheme = ../catppuccin/mocha.yaml;

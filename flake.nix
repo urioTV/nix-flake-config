@@ -9,8 +9,8 @@
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nix-alien.url = "github:thiagokokada/nix-alien";
     hyprland = {
-      url = "https://flakehub.com/f/hyprwm/Hyprland/0.39.*.tar.gz";
-      # url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+      # url = "https://flakehub.com/f/hyprwm/Hyprland/0.39.*.tar.gz";
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1&rev=fe7b748eb668136dd0558b7c8279bfcd7ab4d759";
       #inputs.nixpkgs.follows = "nixpkgs";
     };
     suyu = {

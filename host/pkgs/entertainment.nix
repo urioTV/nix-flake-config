@@ -8,22 +8,10 @@
   environment.systemPackages = with pkgs; [
     # Entertainment and Media
     vlc
-    (heroic.override {
-      extraPkgs = pkgs:
-        [
-          # List package dependencies here
-          gamescope_git
-        ];
-    })
+    heroic
     prismlauncher
     #gamescope_git
-    (lutris.override {
-      extraPkgs = pkgs:
-        [
-          # List package dependencies here
-          gamescope_git
-        ];
-    })
+    lutris
   ];
 
 }

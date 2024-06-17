@@ -33,17 +33,27 @@
     gamescope = {
       enable = true;
       # capSysNice = true;
-      package = pkgs.gamescope_git;
+      # package = pkgs.gamescope_git;
       env = { SDL_VIDEODRIVER = "x11"; };
       args = [ "-h 1200" "-w 1920" "-H 1200" "-W 1920" ];
     };
-    gamemode.enable = true;
+    gamemode = {
+      enable = true;
+      enableRenice = true;
+    };
     nix-ld.enable = true;
     java = {
       enable = true;
       package = pkgs.jdk17;
     };
   };
+
+  # security.wrappers.steam = {
+  #   owner = "root";
+  #   group = "root";
+  #   source = "${pkgs.steam}/bin/steam";
+  #   capabilities = "cap_sys_nice=eip";
+  # };
 
   # virtualisation.virtualbox.host.enable = true;
   # users.extraGroups.vboxusers.members = [ "urio" ];
@@ -70,8 +80,6 @@
     };
   };
 
-  users.users.urio = {
-  extraGroups = [ "libvirtd" ];
-};
+  users.users.urio = { extraGroups = [ "libvirtd" ]; };
 
 }

@@ -17,7 +17,6 @@
     gparted
     kdiskmark
     logitech-udev-rules
-    transmission-gtk
     libnotify
     libstrangle
     appimage-run

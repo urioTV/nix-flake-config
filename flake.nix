@@ -18,12 +18,10 @@
       url = "git+https://git.suyu.dev/suyu/nix-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # Hyprspace = {
-    #   url = "github:KZDKM/Hyprspace";
-
-    #   # Hyprspace uses latest Hyprland. We declare this to keep them in sync.
-    #   inputs.hyprland.follows = "hyprland";
-    # };
+    kwin-effects-forceblur = {
+      url = "github:taj-ny/kwin-effects-forceblur";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
   };
 

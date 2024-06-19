@@ -21,5 +21,7 @@
         [General]
         background=${../../tech-driad.png}
       '')
+      transmission-qt
+      inputs.kwin-effects-forceblur.packages.${pkgs.system}.default
     ];
 }

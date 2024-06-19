@@ -4,11 +4,16 @@
   stylix.image = ../tech-driad.png;
   stylix.base16Scheme = ../catppuccin/mocha.yaml;
   stylix.targets.gnome.enable = true;
+  stylix.targets.gtk.enable = true;
   stylix.polarity = "dark";
   stylix.targets.vscode.enable = false;
   stylix.cursor.package = pkgs.bibata-cursors;
   stylix.cursor.name = "Bibata-Modern-Classic";
   stylix.cursor.size = 20;
+
+  gtk.cursorTheme.package = pkgs.bibata-cursors;
+  gtk.cursorTheme.name = "Bibata-Modern-Classic";
+  gtk.cursorTheme.size = 20;
 
   gtk.iconTheme.package = pkgs.papirus-icon-theme;
   gtk.iconTheme.name = "Papirus";

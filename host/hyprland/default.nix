@@ -72,6 +72,7 @@
     pamixer
     pw-volume
     swayosd
+    transmission-gtk
   ];
 
   environment.sessionVariables = {

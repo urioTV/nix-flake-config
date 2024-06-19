@@ -7,7 +7,7 @@
     ./boot-kernel-stuff
     ./pkgs
     ./services
-    ./hyprland
+    ./plasma6
   ];
 
 

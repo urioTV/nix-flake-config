@@ -22,10 +22,15 @@
       url = "github:taj-ny/kwin-effects-forceblur";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    plasma-manager = {
+      url = "github:pjones/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
 
   };
 
-  outputs = { self, nixpkgs, home-manager, stylix, chaotic, nix-alien, hyprland
+  outputs = { self, nixpkgs, home-manager, stylix, chaotic, nix-alien, hyprland, plasma-manager
     , ... }@inputs:
     let
       lib = nixpkgs.lib;
@@ -52,6 +57,7 @@
             stylix.homeManagerModules.stylix
             chaotic.homeManagerModules.default
             hyprland.homeManagerModules.default
+            plasma-manager.homeManagerModules.plasma-manager
           ];
         };
       };

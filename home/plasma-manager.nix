@@ -1,14 +1,14 @@
 { config, lib, pkgs, ... }: {
-  qt = {
-    enable = true;
-    platformTheme = "kde";
-    style = { package = pkgs.catppuccin-qt5ct; };
-  };
+
+  home.packages = with pkgs; [
+    catppuccin-qt5ct
+  ];
 
   programs.plasma = {
     enable = true;
 
     workspace = {
+      colorScheme = "CatppuccinMocha";
       cursor.theme = "Bibata-Modern-Classic";
       iconTheme = "Papirus";
       wallpaper = "${../tech-driad.png}";

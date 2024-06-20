@@ -36,12 +36,16 @@
       lib = nixpkgs.lib;
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
+      customOverlay = final: prev: {
+        gamescope = chaotic.packages.${system}.gamescope_git;
+      };
     in {
       nixosConfigurations = {
         konrad-m18 = lib.nixosSystem {
           specialArgs = { inherit inputs; };
           inherit system;
           modules = [
+            { nixpkgs.overlays = [ customOverlay ]; }
             ./configuration.nix
             stylix.nixosModules.stylix
             chaotic.nixosModules.default
@@ -53,6 +57,7 @@
           extraSpecialArgs = { inherit inputs; };
           inherit pkgs;
           modules = [
+            { nixpkgs.overlays = [ customOverlay ]; }
             ./home.nix
             stylix.homeManagerModules.stylix
             chaotic.homeManagerModules.default

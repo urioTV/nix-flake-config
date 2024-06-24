@@ -1,7 +1,7 @@
 { inputs, config, pkgs, chaotic, ... }: {
   imports = [
     # Include the results of the hardware scan.
-    ./hyprland
+    # ./hyprland
     ./stylixHome.nix
     ./plasma-manager.nix
   ];

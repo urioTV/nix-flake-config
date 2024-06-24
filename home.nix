@@ -39,7 +39,6 @@
     openmw
     ani-cli
     inputs.suyu.packages.${system}.suyu
-
   ];
 
   programs = {
@@ -79,10 +78,11 @@
     };
     obs-studio = {
       enable = true;
-      plugins = with pkgs; [
-        # obs-studio-plugins.obs-vaapi
-        obs-studio-plugins.obs-vkcapture
-      ];
+      plugins = with pkgs;
+        [
+          # obs-studio-plugins.obs-vaapi
+          obs-studio-plugins.obs-vkcapture
+        ];
     };
     yazi = {
       enable = true;

@@ -4,5 +4,7 @@
     # ./hyprland
     ./stylixHome.nix
     ./plasma-manager.nix
+    ./pkgs
+    ./programs
   ];
 }

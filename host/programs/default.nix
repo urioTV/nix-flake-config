@@ -2,6 +2,7 @@
   programs = {
     steam = {
       enable = true;
+      protontricks.enable = true;
       # Gamescope Fix
       package = pkgs.steam.override {
         # extraEnv = { SDL_VIDEODRIVER = "x11"; };

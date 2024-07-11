@@ -13,16 +13,15 @@
 
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [ ];
+    extraPortals = with pkgs; [ kdePackages.kalk ];
   };
 
-  environment.systemPackages = with pkgs;
-    [
-      (pkgs.writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
-        [General]
-        background=${../../tech-driad.png}
-      '')
-      transmission-qt
-      inputs.kwin-effects-forceblur.packages.${pkgs.system}.default
-    ];
+  environment.systemPackages = with pkgs; [
+    (pkgs.writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
+      [General]
+      background=${../../tech-driad.png}
+    '')
+    transmission_4-qt
+    inputs.kwin-effects-forceblur.packages.${pkgs.system}.default
+  ];
 }

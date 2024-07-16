@@ -40,6 +40,7 @@
     handlr-regex
     resources
     glib
+    wireguard-tools
   ];
 
 }

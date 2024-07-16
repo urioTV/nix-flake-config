@@ -6,5 +6,6 @@
     ./plasma-manager.nix
     ./pkgs
     ./programs
+    ./services
   ];
 }

@@ -9,6 +9,12 @@
     };
 
     fwupd.enable = true;
+
+    sunshine = {
+      enable = false;
+      openFirewall = true;
+      capSysAdmin = true;
+    };
   };
   programs.system-config-printer.enable = true;
 }

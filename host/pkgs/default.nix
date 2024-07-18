@@ -10,6 +10,7 @@
   environment.systemPackages = with pkgs; [
     # Browsers
     firefox-wayland
+    brave
 
     # Communication
     vesktop
@@ -24,6 +25,9 @@
     nh
     nmap
     ffmpeg
+
+    # Remote Desktop
+    # krdc
 
     # Storage and File Systems
     # syncthingtray

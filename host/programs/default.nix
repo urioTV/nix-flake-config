@@ -1,4 +1,5 @@
 { config, lib, pkgs, ... }: {
+  imports = [ ./nix-ld.nix ];
   programs = {
     steam = {
       enable = true;

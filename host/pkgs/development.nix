@@ -1,8 +1,7 @@
 { config, lib, pkgs, chaotic, inputs, ... }: {
 
   imports = [
-    # Include the results of the hardware scan.
-      
+
   ];
 
   environment.systemPackages = with pkgs; [
@@ -19,6 +18,8 @@
     desktop-file-utils
     ventoy-bin-full
     podman-compose
+    mono
+    
   ];
 
 }

@@ -2,10 +2,11 @@
   programs = {
     nix-ld = {
       enable = true;
-      package = pkgs.nix-ld;
+      package = pkgs.nix-ld-rs;
       libraries = with pkgs; [
         mono
         dotnet-sdk_8
+        dotnet-sdk_6
         msbuild
         xorg.libxshmfence
         xorg.libxkbfile

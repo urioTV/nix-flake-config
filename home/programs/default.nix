@@ -14,6 +14,7 @@
           { name = "zsh-users/zsh-completions"; }
         ];
       };
+
     };
     eza = { enable = true; };
     bat = { enable = true; };

@@ -41,6 +41,10 @@
     resources
     glib
     wireguard-tools
+    p7zip
+    bzip2
+    pbzip2
+    file
   ];
 
 }

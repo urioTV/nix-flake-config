@@ -48,7 +48,7 @@
     nix-ld.enable = true;
     java = {
       enable = true;
-      package = pkgs.jdk17;
+      package = pkgs.corretto21;
     };
   };
 

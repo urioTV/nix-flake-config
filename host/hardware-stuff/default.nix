@@ -1,8 +1,9 @@
 { config, lib, pkgs, chaotic, ... }: {
   hardware.enableAllFirmware = true;
 
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
+    enable32Bit = true;
     # driSupport = true;
     # driSupport32Bit = true;
     extraPackages = with pkgs; [
@@ -10,6 +11,7 @@
       vulkan-loader
       vulkan-validation-layers
       vulkan-extension-layer
+      libva
     ];
   };
 

@@ -12,6 +12,8 @@
     prismlauncher
     #gamescope_git
     lutris
+    # inputs.nix-citizen.packages.${system}.star-citizen
+    star-citizen
   ];
 
 }

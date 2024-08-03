@@ -13,7 +13,7 @@
     nixfmt
     nixpkgs-fmt
     dotnet-sdk_8
-    ollama
+    # ollama
     jetbrains-toolbox
     desktop-file-utils
     ventoy-bin-full

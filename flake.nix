@@ -9,13 +9,6 @@
       "git+https://github.com/danth/stylix?rev=29148118cc33f08b71058e1cda7ca017f5300b51";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nix-alien.url = "github:thiagokokada/nix-alien";
-    hyprland = {
-      # url = "https://flakehub.com/f/hyprwm/Hyprland/0.39.*.tar.gz";
-      url =
-        "git+https://github.com/hyprwm/Hyprland?submodules=1&rev=fe7b748eb668136dd0558b7c8279bfcd7ab4d759";
-      # url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     suyu = {
       url = "git+https://git.suyu.dev/suyu/nix-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -38,7 +31,7 @@
 
   };
 
-  outputs = { self, nixpkgs, home-manager, stylix, chaotic, nix-alien, hyprland
+  outputs = { self, nixpkgs, home-manager, stylix, chaotic, nix-alien
     , plasma-manager, ... }@inputs:
     let
       lib = nixpkgs.lib;
@@ -48,10 +41,11 @@
         gamescope = chaotic.packages.${system}.gamescope_git;
         nix = pkgs.lix;
 
-        star-citizen = inputs.nix-citizen.packages.${system}.star-citizen.override (prev: {
-          # Recommended to keep the previous overrides
-          preCommands = "export radv_zero_vram=true";
-        });
+        # star-citizen = inputs.nix-citizen.packages.${system}.star-citizen.override (prev: {
+        #   # Recommended to keep the previous overrides
+        #   preCommands = "export radv_zero_vram=true";
+          
+        # });
 
       };
     in {
@@ -76,7 +70,6 @@
             ./home.nix
             stylix.homeManagerModules.stylix
             chaotic.homeManagerModules.default
-            hyprland.homeManagerModules.default
             plasma-manager.homeManagerModules.plasma-manager
           ];
         };

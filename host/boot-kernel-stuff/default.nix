@@ -10,6 +10,11 @@
     "fs.file-max" = 524288;
   };
 
+  zramSwap = {
+    enable = true;
+    memoryPercent = 50;
+  };
+
   # Bootloader
   # boot.loader.systemd-boot.enable = true;
 

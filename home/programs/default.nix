@@ -7,15 +7,15 @@
     };
     zsh = {
       enable = true;
-      zplug = {
-        enable = false;
+      antidote = {
+        enable = true;
         plugins = [
-          { name = "zsh-users/zsh-autosuggestions"; }
-          { name = "zsh-users/zsh-completions"; }
+          "zsh-users/zsh-autosuggestions"
+          "zsh-users/zsh-completions"
         ];
       };
       prezto = {
-        enable = true;
+        enable = false;
         pmodules = [
           "environment"
           "terminal"
@@ -63,6 +63,10 @@
       enable = true;
       enableZshIntegration = true;
     };
+    # vscode = {
+    #   enable = true;
+    #   package = pkgs.vscode-fhs;
+    # };
   };
 
   programs.mangohud = {

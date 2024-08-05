@@ -18,6 +18,7 @@
     desktop-file-utils
     ventoy-bin-full
     podman-compose
+    podman-tui
     mono
     
   ];

@@ -10,6 +10,8 @@
     "fs.file-max" = 524288;
   };
 
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
   zramSwap = {
     enable = true;
     memoryPercent = 50;

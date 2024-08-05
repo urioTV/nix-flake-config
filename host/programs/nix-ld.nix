@@ -11,6 +11,7 @@
         xorg.libxshmfence
         xorg.libxkbfile
         krb5Full
+        gamemode
         # Basic Libraries
         SDL
         SDL2

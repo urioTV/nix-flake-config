@@ -8,10 +8,26 @@
     zsh = {
       enable = true;
       zplug = {
-        enable = true;
+        enable = false;
         plugins = [
           { name = "zsh-users/zsh-autosuggestions"; }
           { name = "zsh-users/zsh-completions"; }
+        ];
+      };
+      prezto = {
+        enable = true;
+        pmodules = [
+          "environment"
+          "terminal"
+          "editor"
+          "history"
+          "directory"
+          "spectrum"
+          "utility"
+          "completion"
+          "prompt"
+          "autosuggestions"
+          "git"
         ];
       };
 
@@ -68,10 +84,10 @@
       background_alpha = lib.mkForce 0.3;
       alpha = 1.0;
 
-      font_size= lib.mkForce 24;
-      font_scale= lib.mkForce 1.0;
-      font_size_text=lib.mkForce 24;
-      font_scale_media_player= lib.mkForce 0.55;
+      font_size = lib.mkForce 24;
+      font_scale = lib.mkForce 1.0;
+      font_size_text = lib.mkForce 24;
+      font_scale_media_player = lib.mkForce 0.55;
       # no_small_font = true;
     };
   };

@@ -10,10 +10,9 @@
 
     fwupd.enable = true;
 
-    sunshine = {
-      enable = false;
-      openFirewall = true;
-      capSysAdmin = true;
+    openssh = {
+      enable = true;
+      settings.PermitRootLogin = "yes";
     };
   };
   programs.system-config-printer.enable = true;

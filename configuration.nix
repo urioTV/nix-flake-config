@@ -11,22 +11,6 @@
   #     system = "x86_64-linux";
   #   };
 
-  nix.settings = {
-    substituters = [
-      "https://hyprland.cachix.org"
-      "https://nix-gaming.cachix.org"
-      "https://nix-citizen.cachix.org"
-    ];
-    trusted-public-keys = [
-      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-      "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
-      "nix-citizen.cachix.org-1:lPMkWc2X8XD4/7YPEEwXKKBg+SVbYTVrAaLA2wQTKCo="
-    ];
-  };
-
-  # Flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
   nix.settings.trusted-users = [ "root" "urio" ];
 
   networking.hostName = "konrad-m18"; # Define your hostname.
@@ -93,6 +77,11 @@
         #  thunderbird
       ];
   };
+
+  users.users.root.openssh.authorizedKeys.keys = [
+    # This is my public key
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDRfYCXQz7XXM9pupEpNw949Yh2fuMvfJouJZi6+HOIH urio@konrad-m18"
+  ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

@@ -45,6 +45,7 @@
     bzip2
     pbzip2
     file
+    caligula
   ];
 
 }

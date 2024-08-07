@@ -2,9 +2,9 @@
 
   imports = [
     # Include the results of the hardware scan.
-      ./development.nix
-      ./entertainment.nix
-      ./utilities.nix
+    ./development.nix
+    ./entertainment.nix
+    ./utilities.nix
   ];
 
   environment.systemPackages = with pkgs; [
@@ -13,7 +13,12 @@
     brave
 
     # Communication
-    vesktop
+    (vesktop.overrideAttrs (oldAttrs: {
+      postFixup = oldAttrs.postFixup or "" + ''
+        wrapProgram $out/bin/vesktop \
+          --add-flags --ozone-platform=x11
+      '';
+    }))
 
     # Fun and Miscellaneous
     lolcat

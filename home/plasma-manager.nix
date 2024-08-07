@@ -1,8 +1,6 @@
 { config, lib, pkgs, ... }: {
 
-  home.packages = with pkgs; [
-    catppuccin-qt5ct
-  ];
+  home.packages = with pkgs; [ catppuccin-qt5ct ];
 
   programs.plasma = {
     enable = true;
@@ -89,9 +87,20 @@
       "services/org.kde.spectacle.desktop"."_launch" = "Print";
     };
     configFile = {
+      "kwinrc"."Effect-blurplus"."BlurDecorations" = true;
+      "kwinrc"."Effect-blurplus"."BlurMatching" = false;
+      "kwinrc"."Effect-blurplus"."BlurNonMatching" = true;
+      "kwinrc"."Effect-blurplus"."BlurStrength" = 4;
+      "kwinrc"."Effect-blurplus"."BottomCornerRadius" = 25;
+      "kwinrc"."Effect-blurplus"."DockCornerRadius" = 25;
+      "kwinrc"."Effect-blurplus"."MenuCornerRadius" = 25;
+      "kwinrc"."Effect-blurplus"."NoiseStrength" = 0;
+      "kwinrc"."Effect-blurplus"."TopCornerRadius" = 25;
+      "kwinrc"."Effect-blurplus"."WindowClasses" = "";
       "kwinrc"."Plugins"."blurEnabled" = false;
       "kwinrc"."Plugins"."forceblurEnabled" = true;
       "kwinrc"."TabBox"."DesktopMode" = 0;
+      "kwinrc"."Xwayland"."Scale" = 1;
       "kwinrulesrc"."1"."Description" = "Konsole Blur";
       "kwinrulesrc"."1"."opacityactive" = 90;
       "kwinrulesrc"."1"."opacityactiverule" = 2;
@@ -128,11 +137,25 @@
       "kwinrulesrc"."4"."opacityactiverule" = 2;
       "kwinrulesrc"."4"."wmclass" = "vesktop";
       "kwinrulesrc"."4"."wmclassmatch" = 2;
+      "kwinrulesrc"."4f56ab29-f70a-4efb-888a-06394744796f"."Description" =
+        "Code x11 Blur";
+      "kwinrulesrc"."4f56ab29-f70a-4efb-888a-06394744796f"."opacityactive" = 97;
+      "kwinrulesrc"."4f56ab29-f70a-4efb-888a-06394744796f"."opacityactiverule" =
+        2;
+      "kwinrulesrc"."4f56ab29-f70a-4efb-888a-06394744796f"."wmclass" = "Code";
+      "kwinrulesrc"."4f56ab29-f70a-4efb-888a-06394744796f"."wmclassmatch" = 1;
       "kwinrulesrc"."5"."Description" = "Spotify Blur";
       "kwinrulesrc"."5"."opacityactive" = 95;
       "kwinrulesrc"."5"."opacityactiverule" = 2;
       "kwinrulesrc"."5"."wmclass" = "Spotify";
       "kwinrulesrc"."5"."wmclassmatch" = 2;
+      "kwinrulesrc"."9392c64d-382a-4104-a987-eb168d855a24"."Description" =
+        "Code x11 Blur";
+      "kwinrulesrc"."9392c64d-382a-4104-a987-eb168d855a24"."opacityactive" = 97;
+      "kwinrulesrc"."9392c64d-382a-4104-a987-eb168d855a24"."opacityactiverule" =
+        2;
+      "kwinrulesrc"."9392c64d-382a-4104-a987-eb168d855a24"."wmclass" = "Code";
+      "kwinrulesrc"."9392c64d-382a-4104-a987-eb168d855a24"."wmclassmatch" = 1;
       "kwinrulesrc"."9ef289a6-6fc5-42f3-8258-21b32fcb15be"."Description" =
         "Code Blur";
       "kwinrulesrc"."9ef289a6-6fc5-42f3-8258-21b32fcb15be"."opacityactive" = 97;
@@ -141,8 +164,16 @@
       "kwinrulesrc"."9ef289a6-6fc5-42f3-8258-21b32fcb15be"."wmclass" =
         "code-url-handler";
       "kwinrulesrc"."9ef289a6-6fc5-42f3-8258-21b32fcb15be"."wmclassmatch" = 1;
-      "kwinrulesrc"."General"."count" = 5;
-      "kwinrulesrc"."General"."rules" = "1,2,3,4,5";
+      "kwinrulesrc"."General"."count" = 6;
+      "kwinrulesrc"."General"."rules" =
+        "1,2,3,4f56ab29-f70a-4efb-888a-06394744796f,4,5";
+      "kwinrulesrc"."be1f6b37-ae44-483c-ba4e-63082b9d79da"."Description" =
+        "Code x11 Blur";
+      "kwinrulesrc"."be1f6b37-ae44-483c-ba4e-63082b9d79da"."opacityactive" = 97;
+      "kwinrulesrc"."be1f6b37-ae44-483c-ba4e-63082b9d79da"."opacityactiverule" =
+        2;
+      "kwinrulesrc"."be1f6b37-ae44-483c-ba4e-63082b9d79da"."wmclass" = "Code";
+      "kwinrulesrc"."be1f6b37-ae44-483c-ba4e-63082b9d79da"."wmclassmatch" = 1;
       "kwinrulesrc"."e068d076-63ff-4714-851b-ed9f95c1f2d4"."Description" =
         "Konsole Blur";
       "kwinrulesrc"."e068d076-63ff-4714-851b-ed9f95c1f2d4"."opacityactive" = 90;

@@ -12,7 +12,13 @@
     # rpcs3
     onlyoffice-bin_latest
     protonvpn-gui
-    vscode
+    #vscode
+    (vscode.overrideAttrs (oldAttrs: {
+      postFixup = oldAttrs.postFixup or "" + ''
+        wrapProgram $out/bin/code \
+          --add-flags --ozone-platform=x11
+      '';
+    }))
     openmw
     ani-cli
     inputs.suyu.packages.${system}.suyu

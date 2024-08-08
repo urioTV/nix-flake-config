@@ -63,6 +63,7 @@
           modules = [
             { nixpkgs.overlays = [ customOverlay ]; }
             ./configuration.nix
+            ./vars.nix
             {
               home-manager.useUserService = true; # Added by patch above ^
               home-manager.useGlobalPkgs = true;
@@ -70,6 +71,7 @@
               home-manager.backupFileExtension = "backupnix";
               home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.sharedModules = [
+                ./vars.nix
                 chaotic.homeManagerModules.default
                 plasma-manager.homeManagerModules.plasma-manager
               ];

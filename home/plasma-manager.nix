@@ -1,5 +1,4 @@
 { config, lib, pkgs, ... }: {
-
   home.packages = with pkgs; [ catppuccin-qt5ct ];
 
   programs.plasma = {
@@ -9,7 +8,7 @@
       colorScheme = "CatppuccinMocha";
       cursor.theme = "Bibata-Modern-Classic";
       iconTheme = "Papirus";
-      wallpaper = pkgs.urio-wallpaper;
+      wallpaper = config.vars.wallpaper;
     };
     fonts = {
       general = {

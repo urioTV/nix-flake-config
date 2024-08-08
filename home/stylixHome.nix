@@ -1,8 +1,8 @@
 { config, lib, pkgs, urio-wallpaper, ... }: {
   stylix.enable = true;
   stylix.autoEnable = true;
-  stylix.image = pkgs.urio-wallpaper;
-  stylix.base16Scheme = ../catppuccin/mocha.yaml;
+  stylix.image = config.vars.wallpaper;
+  stylix.base16Scheme = config.vars.base16Scheme;
   stylix.targets.gnome.enable = true;
   stylix.targets.gtk.enable = true;
   stylix.polarity = "dark";

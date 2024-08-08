@@ -2,7 +2,7 @@
   stylix.enable = true;
   stylix.autoEnable = true;
   stylix.image = config.vars.wallpaper;
-  stylix.base16Scheme = ../catppuccin/mocha.yaml;
+  stylix.base16Scheme = config.vars.base16Scheme;
   stylix.cursor.package = pkgs.bibata-cursors;
   stylix.cursor.name = "Bibata-Modern-Classic";
   stylix.targets.gnome.enable = true;

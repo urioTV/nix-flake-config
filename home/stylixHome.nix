@@ -1,4 +1,4 @@
-{ config, lib, pkgs, urio-wallpaper, ... }: {
+{ config, lib, pkgs, ... }: {
   stylix.enable = true;
   stylix.autoEnable = true;
   stylix.image = config.vars.wallpaper;

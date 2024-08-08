@@ -9,7 +9,7 @@
       colorScheme = "CatppuccinMocha";
       cursor.theme = "Bibata-Modern-Classic";
       iconTheme = "Papirus";
-      wallpaper = "${../tech-driad.png}";
+      wallpaper = "${../kosciejo.png}";
     };
     fonts = {
       general = {

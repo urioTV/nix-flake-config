@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }: {
   stylix.enable = true;
   stylix.autoEnable = true;
-  stylix.image = ../tech-driad.png;
+  stylix.image = ../kosciejo.png;
   stylix.base16Scheme = ../catppuccin/mocha.yaml;
   stylix.targets.gnome.enable = true;
   stylix.targets.gtk.enable = true;

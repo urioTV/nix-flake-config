@@ -9,7 +9,7 @@
       colorScheme = "CatppuccinMocha";
       cursor.theme = "Bibata-Modern-Classic";
       iconTheme = "Papirus";
-      wallpaper = "${../kosciejo.png}";
+      wallpaper = pkgs.urio-wallpaper;
     };
     fonts = {
       general = {

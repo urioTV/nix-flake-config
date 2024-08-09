@@ -19,7 +19,7 @@
   environment.systemPackages = with pkgs; [
     (pkgs.writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
       [General]
-      background=${../../tech-driad.png}
+      background=${config.vars.wallpaper}
     '')
     transmission_4-qt
     inputs.kwin-effects-forceblur.packages.${pkgs.system}.default

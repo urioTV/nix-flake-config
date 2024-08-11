@@ -16,7 +16,7 @@
     (vscode.overrideAttrs (oldAttrs: {
       postFixup = oldAttrs.postFixup or "" + ''
         wrapProgram $out/bin/code \
-          --add-flags --enable-features=UseOzonePlatform --add-flags --ozone-platform=x11
+           --add-flags --ozone-platform=x11
       '';
     }))
     openmw

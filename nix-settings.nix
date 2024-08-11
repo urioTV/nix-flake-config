@@ -19,5 +19,14 @@
     ];
   };
 
+
+  nix.settings.auto-optimise-store = true;
+
+  nix.gc = {
+    automatic = true;
+    dates = "daily";
+    options = "--delete-older-than 2d";
+  };
+
   nix.settings.trusted-users = [ "root" "urio" ];
 }

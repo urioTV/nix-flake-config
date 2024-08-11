@@ -24,7 +24,7 @@
 
   xdg.systemDirs.data = [
     "/var/lib/flatpak/exports/share"
-    "/home/urio/.local/share/flatpak/exports/share"
+    "${config.home.homeDirectory}/.local/share/flatpak/exports/share"
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

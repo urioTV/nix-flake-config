@@ -64,6 +64,7 @@
             { nixpkgs.overlays = [ customOverlay ]; }
             ./configuration.nix
             ./vars.nix
+            ./nix-settings.nix
             {
               home-manager.useUserService = true; # Added by patch above ^
               home-manager.useGlobalPkgs = true;

@@ -30,6 +30,7 @@
     nh
     nmap
     ffmpeg
+    obsidian
 
     # Remote Desktop
     # krdc

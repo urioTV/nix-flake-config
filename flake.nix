@@ -39,9 +39,9 @@
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
       customOverlay = final: prev: {
-        urio-wallpaper = ./kosciejo.png;
         gamescope = chaotic.packages.${system}.gamescope_git;
         nix = pkgs.lix;
+
       };
       home-manager = let
         src = nixpkgs.legacyPackages.${system}.applyPatches {

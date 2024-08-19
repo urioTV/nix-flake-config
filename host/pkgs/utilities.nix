@@ -38,7 +38,6 @@
     gptfdisk
     psmisc
     handlr-regex
-    resources
     glib
     wireguard-tools
     p7zip
@@ -46,6 +45,7 @@
     pbzip2
     file
     caligula
+    resources
   ];
 
 }

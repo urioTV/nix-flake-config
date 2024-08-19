@@ -24,7 +24,7 @@
   # chaotic.mesa-git.enable = true;
 
   # Disable suspention on lid close
-  services.logind.lidSwitch = "lock";
+  # services.logind.lidSwitch = "lock";
 
   # Enables support for Bluetooth
   hardware.bluetooth.enable = true;

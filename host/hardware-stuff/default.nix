@@ -9,7 +9,9 @@
     extraPackages = with pkgs; [
       rocmPackages.clr.icd
       vulkan-loader
-      vulkan-validation-layers
+      (vulkan-validation-layers.overrideAttrs (oldAttrs: {
+        buildInputs = oldAttrs.buildInputs ++ [ pkgs.spirv-tools ];
+      }))
       vulkan-extension-layer
       libva
     ];

@@ -27,7 +27,6 @@
     tenacity
     wine
     localsend
-    nh
     nmap
     ffmpeg
     obsidian

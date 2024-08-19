@@ -36,6 +36,32 @@
         pointSize = 10;
       };
     };
+    powerdevil = {
+      AC = {
+        autoSuspend = { action = "nothing"; };
+        dimDisplay = {
+          enable = true;
+          idleTimeOut = 300;
+        };
+        turnOffDisplay = {
+          idleTimeout = 900;
+          idleTimeoutWhenLocked = 120;
+        };
+        whenLaptopLidClosed = "sleep";
+        whenSleepingEnter = "standbyThenHibernate";
+        powerButtonAction = "showLogoutScreen";
+      };
+      battery = {
+        whenLaptopLidClosed = "sleep";
+        whenSleepingEnter = "standbyThenHibernate";
+        powerButtonAction = "showLogoutScreen";
+      };
+      lowBattery = {
+        whenLaptopLidClosed = "sleep";
+        whenSleepingEnter = "standbyThenHibernate";
+        powerButtonAction = "showLogoutScreen";
+      };
+    };
 
     shortcuts = {
       "kwin"."Overview" = "Meta+Tab";

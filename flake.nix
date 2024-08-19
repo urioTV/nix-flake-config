@@ -24,11 +24,12 @@
       inputs.home-manager.follows = "home-manager";
     };
 
-    nix-citizen.url = "github:LovingMelody/nix-citizen";
-
-    # Optional - updates underlying without waiting for nix-citizen to update
+    # Gaming
     nix-gaming.url = "github:fufexan/nix-gaming";
-    nix-citizen.inputs.nix-gaming.follows = "nix-gaming";
+    nix-citizen = {
+      url = "github:LovingMelody/nix-citizen";
+      inputs.nix-gaming.follows = "nix-gaming";
+    };
 
   };
 

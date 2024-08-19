@@ -84,10 +84,7 @@
     enable = true;
     dockerCompat = true;
   };
-  environment.sessionVariables = {
-    FLAKE = "/home/urio/nix-flake-config";
-    ELECTRON_OZONE_PLATFORM_HINT = "wayland";
-  };
+  environment.sessionVariables = { ELECTRON_OZONE_PLATFORM_HINT = "wayland"; };
 
   # Open ports in the firewall.
   networking.firewall = {

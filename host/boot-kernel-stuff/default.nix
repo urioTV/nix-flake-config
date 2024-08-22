@@ -1,7 +1,6 @@
 { config, lib, pkgs, chaotic, ... }: {
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
-  # boot.kernelPackages = pkgs.linuxPackages_6_6;
   # boot.kernelPackages = pkgs.linuxPackages_cachyos;
   # boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
 

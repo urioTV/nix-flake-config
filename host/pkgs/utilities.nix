@@ -46,6 +46,7 @@
     file
     caligula
     resources
+    yad
   ];
 
 }

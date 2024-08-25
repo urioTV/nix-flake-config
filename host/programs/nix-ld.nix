@@ -12,6 +12,8 @@
         xorg.libxkbfile
         krb5Full
         gamemode
+        gtkmm3
+        atkmm
         # Basic Libraries
         SDL
         SDL2

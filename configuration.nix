@@ -129,6 +129,9 @@
     nerd-font-patcher
   ];
 
+  fonts.fontDir.enable = true;
+
+
   system.stateVersion = "23.11"; # Did you read the comment?
 
 }

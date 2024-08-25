@@ -13,7 +13,7 @@
 
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [ kdePackages.kalk ];
+    extraPortals = with pkgs; [ kdePackages.kalk xdg-desktop-portal-gtk ];
   };
 
   environment.systemPackages = with pkgs; [

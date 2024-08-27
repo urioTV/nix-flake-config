@@ -22,16 +22,16 @@
 
   nix.settings.auto-optimise-store = true;
 
-  # nix.gc = {
-  #   automatic = true;
-  #   dates = "daily";
-  #   options = "--delete-older-than 2d";
-  # };
+  nix.gc = {
+    automatic = true;
+    dates = "daily";
+    options = "--delete-older-than 2d";
+  };
 
   programs.nh = {
     enable = true;
-    clean.enable = true;
-    clean.extraArgs = "--keep-since 2d --keep 2";
+    # clean.enable = true;
+    # clean.extraArgs = "--keep-since 2d --keep 2";
     flake = "/home/urio/nix-flake-config";
   };
 

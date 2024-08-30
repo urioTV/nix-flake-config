@@ -41,7 +41,7 @@
       pkgs = nixpkgs.legacyPackages.${system};
       customOverlay = final: prev: {
         gamescope = chaotic.packages.${system}.gamescope_git;
-        nix = pkgs.lix;
+        # nix = pkgs.lix;
 
       };
       home-manager = let

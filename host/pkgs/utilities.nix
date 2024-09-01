@@ -47,6 +47,7 @@
     caligula
     resources
     yad
+    rclone
   ];
 
 }

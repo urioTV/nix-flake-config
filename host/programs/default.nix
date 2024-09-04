@@ -1,9 +1,8 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, pkgs, inputs, ... }: {
   imports = [ ./nix-ld.nix ];
   programs = {
     steam = {
       enable = true;
-      # protontricks.enable = true;
       # Gamescope Fix
       package = pkgs.steam.override {
         # extraEnv = { SDL_VIDEODRIVER = "x11"; };
@@ -21,7 +20,7 @@
             keyutils
           ];
       };
-      extraCompatPackages = with pkgs; [  ];
+      extraCompatPackages = with pkgs; [ ];
       remotePlay.openFirewall =
         true; # Open ports in the firewall for Steam Remote Play
       dedicatedServer.openFirewall =
@@ -36,7 +35,6 @@
     gamescope = {
       enable = true;
       # capSysNice = true;
-      # package = pkgs.gamescope_git;
       env = { SDL_VIDEODRIVER = "x11"; };
       args = [ "-h 1200" "-w 1920" "-H 1200" "-W 1920" "--adaptive-sync" ];
     };

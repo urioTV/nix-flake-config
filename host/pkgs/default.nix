@@ -31,6 +31,9 @@
     ffmpeg
     obsidian
 
+    # Nice
+    bleachbit
+
     # Remote Desktop
     # krdc
 

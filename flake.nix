@@ -30,7 +30,6 @@
       url = "github:LovingMelody/nix-citizen";
       inputs.nix-gaming.follows = "nix-gaming";
     };
-
   };
 
   outputs = { self, nixpkgs, home-manager, stylix, chaotic, nix-alien
@@ -41,7 +40,6 @@
       pkgs = nixpkgs.legacyPackages.${system};
       customOverlay = final: prev: {
         gamescope = chaotic.packages.${system}.gamescope_git;
-        # nix = pkgs.lix;
 
       };
       home-manager = let
@@ -62,7 +60,9 @@
           specialArgs = { inherit inputs; };
           inherit system;
           modules = [
-            { nixpkgs.overlays = [ customOverlay ]; }
+            {
+              nixpkgs.overlays = [ customOverlay ];
+            }
             ./configuration.nix
             ./vars.nix
             ./nix-settings.nix

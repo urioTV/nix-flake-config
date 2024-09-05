@@ -33,6 +33,7 @@
 
     # Nice
     bleachbit
+    libreoffice-qt6
 
     # Remote Desktop
     # krdc

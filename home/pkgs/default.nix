@@ -10,7 +10,6 @@
     vcmi
     # skypeforlinux
     # rpcs3
-    onlyoffice-bin_latest
     protonvpn-gui
     #vscode
     (vscode.overrideAttrs (oldAttrs: {
@@ -23,5 +22,6 @@
     ani-cli
     inputs.suyu.packages.${system}.suyu
     distrobox
+
   ];
 }

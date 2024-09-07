@@ -48,6 +48,8 @@
     resources
     yad
     rclone
+    unrar
+    bzip3
   ];
 
 }

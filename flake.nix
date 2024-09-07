@@ -62,6 +62,7 @@
           modules = [
             {
               nixpkgs.overlays = [ customOverlay ];
+              nixpkgs.config.allowUnfree = true;
             }
             ./configuration.nix
             ./vars.nix

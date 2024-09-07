@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -40,6 +41,7 @@
       pkgs = nixpkgs.legacyPackages.${system};
       customOverlay = final: prev: {
         gamescope = chaotic.packages.${system}.gamescope_git;
+        bottles = pkgs.callPackage ./custom-pkgs/bottles/default.nix { };
 
       };
       home-manager = let

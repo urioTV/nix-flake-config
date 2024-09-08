@@ -3,7 +3,8 @@
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     protonup-qt
-    spotify-unwrapped
+    # spotify-unwrapped
+    tidal-hifi
     moonlight-qt
     # teams-for-linux
     # upscayl

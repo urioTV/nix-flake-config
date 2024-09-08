@@ -144,6 +144,14 @@
       "kwinrulesrc"."2953631e-40b3-43e6-9b40-5733a200e59a"."wmclass" =
         "Spotify";
       "kwinrulesrc"."2953631e-40b3-43e6-9b40-5733a200e59a"."wmclassmatch" = 2;
+      "kwinrulesrc"."abe17153-b183-4a13-aaad-316778b49290"."Description" =
+        "Tidal Blur";
+      "kwinrulesrc"."abe17153-b183-4a13-aaad-316778b49290"."opacityactive" = 95;
+      "kwinrulesrc"."abe17153-b183-4a13-aaad-316778b49290"."opacityactiverule" =
+        2;
+      "kwinrulesrc"."abe17153-b183-4a13-aaad-316778b49290"."wmclass" =
+        "tidal-hifi";
+      "kwinrulesrc"."abe17153-b183-4a13-aaad-316778b49290"."wmclassmatch" = 2;
       "kwinrulesrc"."3"."Description" = "Code Blur";
       "kwinrulesrc"."3"."opacityactive" = 97;
       "kwinrulesrc"."3"."opacityactiverule" = 2;

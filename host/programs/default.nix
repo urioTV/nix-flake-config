@@ -41,6 +41,19 @@
     gamemode = {
       enable = true;
       enableRenice = true;
+      settings = {
+        general = {
+          renice = 10;
+          reaper_freq = 5;
+          desiredgov = "performance";
+          igpu_desiredgov = "powersave";
+          igpu_power_threshold = 0.3;
+        };
+        custom = {
+          start = "${pkgs.libnotify}/bin/notify-send 'GameMode started'";
+          end = "${pkgs.libnotify}/bin/notify-send 'GameMode ended'";
+        };
+      };
     };
     nix-ld.enable = true;
     java = {
@@ -63,20 +76,26 @@
 
   programs.virt-manager.enable = true;
 
-  virtualisation.libvirtd = {
-    enable = true;
-    qemu = {
-      package = pkgs.qemu_kvm;
-      runAsRoot = true;
-      swtpm.enable = true;
-      ovmf = {
-        enable = true;
-        packages = [
-          (pkgs.OVMF.override {
-            secureBoot = true;
-            tpmSupport = true;
-          }).fd
-        ];
+  virtualisation = {
+    podman = {
+      enable = true;
+      dockerCompat = true;
+    };
+    libvirtd = {
+      enable = true;
+      qemu = {
+        package = pkgs.qemu_kvm;
+        runAsRoot = true;
+        swtpm.enable = true;
+        ovmf = {
+          enable = true;
+          packages = [
+            (pkgs.OVMF.override {
+              secureBoot = true;
+              tpmSupport = true;
+            }).fd
+          ];
+        };
       };
     };
   };

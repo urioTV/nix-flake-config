@@ -20,6 +20,7 @@
     podman-compose
     podman-tui
     mono
+    distrobox
     
   ];
 

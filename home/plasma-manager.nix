@@ -44,7 +44,7 @@
           idleTimeOut = 300;
         };
         turnOffDisplay = {
-          idleTimeout = 900;
+          idleTimeout = 1800;
           idleTimeoutWhenLocked = 120;
         };
         whenLaptopLidClosed = "sleep";

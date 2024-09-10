@@ -80,11 +80,11 @@
 
   users.users.urio.shell = pkgs.zsh;
 
-  virtualisation.podman = {
-    enable = true;
-    dockerCompat = true;
+  environment.sessionVariables = {
+    ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+    container_additional_volumes =
+      "/nix/store:/nix/store:ro /etc/profiles/per-user:/etc/profiles/per-user:ro";
   };
-  environment.sessionVariables = { ELECTRON_OZONE_PLATFORM_HINT = "wayland"; };
 
   # Open ports in the firewall.
   networking.firewall = {
@@ -130,7 +130,6 @@
   ];
 
   fonts.fontDir.enable = true;
-
 
   system.stateVersion = "23.11"; # Did you read the comment?
 

@@ -13,7 +13,9 @@
 
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [ kdePackages.kalk xdg-desktop-portal-gtk ];
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+    ];
   };
 
   environment.systemPackages = with pkgs; [
@@ -23,5 +25,7 @@
     '')
     transmission_4-qt
     inputs.kwin-effects-forceblur.packages.${pkgs.system}.default
+    kdePackages.filelight
+    kdePackages.kalk
   ];
 }

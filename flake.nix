@@ -16,10 +16,7 @@
       "github:danth/stylix";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nix-alien.url = "github:thiagokokada/nix-alien";
-    suyu = {
-      url = "git+https://git.suyu.dev/suyu/nix-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+
     kwin-effects-forceblur = {
       url = "github:taj-ny/kwin-effects-forceblur";
       inputs.nixpkgs.follows = "nixpkgs";

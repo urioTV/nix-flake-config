@@ -21,7 +21,6 @@
     }))
     openmw
     ani-cli
-    inputs.suyu.packages.${system}.suyu
     distrobox
 
   ];

@@ -41,7 +41,7 @@
         autoSuspend = { action = "nothing"; };
         dimDisplay = {
           enable = true;
-          idleTimeOut = 300;
+          # idleTimeOut = 300;
         };
         turnOffDisplay = {
           idleTimeout = 1800;

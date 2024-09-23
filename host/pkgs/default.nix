@@ -9,7 +9,7 @@
 
   environment.systemPackages = with pkgs; [
     # Browsers
-    firefox_nightly
+    firefox
     brave
 
     # Communication

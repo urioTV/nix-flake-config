@@ -127,6 +127,7 @@
     ubuntu_font_family
     baekmuk-ttf
     nerd-font-patcher
+    # open-dyslexic
   ];
 
   fonts.fontDir.enable = true;

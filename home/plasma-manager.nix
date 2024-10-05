@@ -224,6 +224,16 @@
         "vesktop";
       "kwinrulesrc"."e95ec1aa-5f55-42db-9408-1be622a641b6"."wmclassmatch" = 2;
       "plasma-localerc"."Formats"."LANG" = "pl_PL.UTF-8";
+
+      # Mouse and Touchpad
+
+      "kcminputrc"."Libinput/1267/12938/DELL0C4C:00 04F3:328A Mouse"."NaturalScroll" =
+        false;
+      "kcminputrc"."Libinput/1267/12938/DELL0C4C:00 04F3:328A Touchpad"."ClickMethod" =
+        2;
+      "kcminputrc"."Libinput/1267/12938/DELL0C4C:00 04F3:328A Touchpad"."NaturalScroll" =
+        true;
+
     };
   };
 }

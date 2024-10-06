@@ -39,7 +39,7 @@
 
     # Nice
     bleachbit
-    onlyoffice-bin
+    libreoffice-qt
 
     # Remote Desktop
     # krdc

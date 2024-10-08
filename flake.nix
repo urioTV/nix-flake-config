@@ -45,18 +45,18 @@
         gamescope = chaotic.packages.${system}.gamescope_git;
 
       };
-      home-manager = let
-        src = nixpkgs.legacyPackages.${system}.applyPatches {
-          name = "home-manager";
-          src = inputs.home-manager;
-          patches = nixpkgs.legacyPackages.${system}.fetchpatch {
-            url =
-              "https://patch-diff.githubusercontent.com/raw/nix-community/home-manager/pull/2548.patch";
-            sha256 = "sha256-weI2sTxjEtQbdA76f3fahC9thiQbGSzOYQ7hwHvqt8s=";
-          };
-        };
-      in nixpkgs.lib.fix
-      (self: (import "${src}/flake.nix").outputs { inherit self nixpkgs; });
+      # home-manager = let
+      #   src = nixpkgs.legacyPackages.${system}.applyPatches {
+      #     name = "home-manager";
+      #     src = inputs.home-manager;
+      #     patches = nixpkgs.legacyPackages.${system}.fetchpatch {
+      #       url =
+      #         "https://patch-diff.githubusercontent.com/raw/nix-community/home-manager/pull/2548.patch";
+      #       sha256 = "sha256-weI2sTxjEtQbdA76f3fahC9thiQbGSzOYQ7hwHvqt8s=";
+      #     };
+      #   };
+      # in nixpkgs.lib.fix
+      # (self: (import "${src}/flake.nix").outputs { inherit self nixpkgs; });
     in {
       nixosConfigurations = {
         konrad-m18 = lib.nixosSystem {
@@ -71,10 +71,10 @@
             ./vars.nix
             ./nix-settings.nix
             {
-              home-manager.useUserService = true; # Added by patch above ^
+              # home-manager.useUserService = true; # Added by patch above ^
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "backupnix";
+              home-manager.backupFileExtension = "backupnix1";
               home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.sharedModules = [
                 ./vars.nix

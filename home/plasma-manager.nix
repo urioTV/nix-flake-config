@@ -64,6 +64,7 @@
     };
 
     kscreenlocker = {
+      autoLock = true;
       timeout = 15;
     };
 

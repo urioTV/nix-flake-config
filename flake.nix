@@ -7,7 +7,7 @@
     };
     lix-module = {
       url =
-        "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
+        "git+https://git.lix.systems/lix-project/nixos-module?ref=main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

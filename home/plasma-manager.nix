@@ -41,11 +41,11 @@
         autoSuspend = { action = "nothing"; };
         dimDisplay = {
           enable = true;
-          # idleTimeOut = 300;
+          idleTimeout = 600;
         };
         turnOffDisplay = {
           idleTimeout = 1800;
-          idleTimeoutWhenLocked = 120;
+          idleTimeoutWhenLocked = 900;
         };
         whenLaptopLidClosed = "sleep";
         whenSleepingEnter = "standbyThenHibernate";
@@ -61,6 +61,10 @@
         whenSleepingEnter = "standbyThenHibernate";
         powerButtonAction = "showLogoutScreen";
       };
+    };
+
+    kscreenlocker = {
+      timeout = 15;
     };
 
     shortcuts = {

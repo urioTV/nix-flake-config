@@ -43,6 +43,7 @@
       pkgs = nixpkgs.legacyPackages.${system};
       customOverlay = final: prev: {
         gamescope = chaotic.packages.${system}.gamescope_git;
+        shadps4 = pkgs.callPackage ./custom-packages/shadps4 {};
 
       };
       # home-manager = let

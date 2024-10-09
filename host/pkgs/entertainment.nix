@@ -8,9 +8,9 @@
   environment.systemPackages = with pkgs; [
     # Entertainment and Media
     vlc
-    heroic
+    # heroic
     prismlauncher
-    lutris
+    # lutris
     bottles
     steamtinkerlaunch
     # inputs.nix-citizen.packages.${system}.star-citizen

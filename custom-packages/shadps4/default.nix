@@ -29,17 +29,18 @@
   xorg,
   xxHash,
   zlib-ng,
+  rapidjson,
 }:
 
 stdenv.mkDerivation {
   pname = "shadps4";
-  version = "0.3.1-unstable-2024-10-08";
+  version = "0.3.1-unstable-2024-10-10";
 
   src = fetchFromGitHub {
     owner = "shadps4-emu";
     repo = "shadPS4";
-    rev = "aba803bd04575c2016d15b8edeaef01856ad1724";
-    hash = "sha256-2DrmBDbzmv01bupIHPhKcHvPq8GaFuYgU3eA+3LPCKE=";
+    rev = "0df0d0cb66632006f3300709d94b76b297f76c80";
+    hash = "sha256-Sb2T9Wzs1pK8ghrhRCXwbY45nANIWab3+2Z9iUAgyro=";
     fetchSubmodules = true;
   };
 
@@ -80,6 +81,7 @@ stdenv.mkDerivation {
     vulkan-memory-allocator
     xxHash
     zlib-ng
+    rapidjson
   ];
 
   nativeBuildInputs = [

@@ -34,7 +34,8 @@
     wine
     localsend
     nmap
-    ffmpeg
+    ffmpeg-full
+    handbrake
     obsidian
 
     # Nice

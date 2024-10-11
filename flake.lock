@@ -75,11 +75,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1728555019,
-        "narHash": "sha256-S75yO06WNQrddMdy9LhuqjQbcFORbxkYdq01hwNGo2c=",
+        "lastModified": 1728587571,
+        "narHash": "sha256-vQmYKJ9sLQP6VivCdKNdpisXrB6xpDaaTif5U+IogzQ=",
         "owner": "chaotic-cx",
         "repo": "nyx",
-        "rev": "61e275745dc53a5b4a840fc12193f31dcaaa49a6",
+        "rev": "d73c548a001f367048d4f22cf2ae626cd2002503",
         "type": "github"
       },
       "original": {
@@ -307,11 +307,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1728337164,
-        "narHash": "sha256-VdRTjJFyq4Q9U7Z/UoC2Q5jK8vSo6E86lHc2OanXtvc=",
+        "lastModified": 1728650932,
+        "narHash": "sha256-mGKzqdsRyLnGNl6WjEr7+sghGgBtYHhJQ4mjpgRTCsU=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "038630363e7de57c36c417fd2f5d7c14773403e4",
+        "rev": "65ae9c147349829d3df0222151f53f79821c5134",
         "type": "github"
       },
       "original": {
@@ -746,11 +746,11 @@
         "tinted-tmux": "tinted-tmux"
       },
       "locked": {
-        "lastModified": 1728487226,
-        "narHash": "sha256-gTOUdO94Y24QgnPVnHTQ/Kch0eM6pHEk/c1WoIxg+qE=",
+        "lastModified": 1728640680,
+        "narHash": "sha256-JH2+RXJNooFtZIN6ZhaGZWn2KChMrso4H7Fkp1Ujrdo=",
         "owner": "danth",
         "repo": "stylix",
-        "rev": "5699ba97c60455ebafde0fd4e78ca0a2e5a58282",
+        "rev": "f95022bb6e74f726a87975aec982a5aa9fad8691",
         "type": "github"
       },
       "original": {
@@ -853,16 +853,17 @@
     "tinted-kitty": {
       "flake": false,
       "locked": {
-        "lastModified": 1727867815,
-        "narHash": "sha256-cghdwzPyve13JFeW+Mpqy/sDswlJ4DTffY24R0R7r/U=",
+        "lastModified": 1716423189,
+        "narHash": "sha256-2xF3sH7UIwegn+2gKzMpFi3pk5DlIlM18+vj17Uf82U=",
         "owner": "tinted-theming",
         "repo": "tinted-kitty",
-        "rev": "81b15cb9eb696247af857808d37122188423f73b",
+        "rev": "eb39e141db14baef052893285df9f266df041ff8",
         "type": "github"
       },
       "original": {
         "owner": "tinted-theming",
         "repo": "tinted-kitty",
+        "rev": "eb39e141db14baef052893285df9f266df041ff8",
         "type": "github"
       }
     },
@@ -912,11 +913,11 @@
       },
       "locked": {
         "dir": "packaging/nix",
-        "lastModified": 1728517090,
-        "narHash": "sha256-6rIJ9cz63NIoL69Ix/ZwUSfKJIhoItkDJUJauSxMPX0=",
+        "lastModified": 1728645719,
+        "narHash": "sha256-QjWe69fLLg+/Lj8E6jY1dw8UZjwdUX/CfT5ieDSgQLk=",
         "ref": "refs/heads/main",
-        "rev": "cfe955f42b0fed574fd1f5bc4165f7491a775c25",
-        "revCount": 751,
+        "rev": "3a70f3c61c0a41b0eca0ceff56df8c78d822d030",
+        "revCount": 758,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/Open-Wine-Components/umu-launcher/"

@@ -41,6 +41,11 @@
     # Nice
     bleachbit
     libreoffice-qt
+    hunspell
+    hunspellDicts.en_US
+    hunspellDicts.pl_PL
+    hyphen
+    hyphenDicts.en_US
 
     # Remote Desktop
     # krdc

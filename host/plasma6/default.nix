@@ -27,5 +27,9 @@
     inputs.kwin-effects-forceblur.packages.${pkgs.system}.default
     kdePackages.filelight
     kdePackages.kalk
+    kdePackages.accounts-qt
+    kdePackages.kaccounts-providers
+    kdePackages.kaccounts-integration
+    kdePackages.kmail-account-wizard
   ];
 }

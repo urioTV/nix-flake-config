@@ -22,7 +22,6 @@
     openmw
     ani-cli
     distrobox
-    shadps4
     thunderbird
 
   ];

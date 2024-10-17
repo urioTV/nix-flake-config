@@ -5,11 +5,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    lix-module = {
-      url =
-        "git+https://git.lix.systems/lix-project/nixos-module?ref=release-2.91";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # lix-module = {
+    #   url =
+    #     "git+https://git.lix.systems/lix-project/nixos-module?ref=release-2.91";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     stylix.url =
       #"git+https://github.com/danth/stylix?rev=29148118cc33f08b71058e1cda7ca017f5300b51";
@@ -36,14 +36,13 @@
   };
 
   outputs = { self, nixpkgs, home-manager, stylix, chaotic, nix-alien
-    , plasma-manager, lix-module, ... }@inputs:
+    , plasma-manager, ... }@inputs:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
       customOverlay = final: prev: {
         gamescope = chaotic.packages.${system}.gamescope_git;
-        shadps4 = pkgs.callPackage ./custom-packages/shadps4 {};
 
       };
       # home-manager = let
@@ -87,7 +86,7 @@
             home-manager.nixosModules.home-manager
             stylix.nixosModules.stylix
             chaotic.nixosModules.default
-            lix-module.nixosModules.default
+            # lix-module.nixosModules.default
           ];
         };
       };

@@ -32,7 +32,7 @@
     fzf
     inputs.nix-alien.packages.${system}.nix-alien
     headsetcontrol
-    alsaUtils
+    alsa-utils
     smartmontools
     btrfs-progs
     gptfdisk

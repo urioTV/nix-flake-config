@@ -25,6 +25,7 @@
           --add-flags --ozone-platform=x11
       '';
     }))
+    element-desktop
 
     # Fun and Miscellaneous
     lolcat

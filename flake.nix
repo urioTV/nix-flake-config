@@ -74,7 +74,7 @@
               # home-manager.useUserService = true; # Added by patch above ^
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "backupnix1";
+              home-manager.backupFileExtension = "backupnix2";
               home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.sharedModules = [
                 ./vars.nix

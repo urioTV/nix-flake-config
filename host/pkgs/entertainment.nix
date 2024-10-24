@@ -2,7 +2,7 @@
 
   imports = [
     # Include the results of the hardware scan.
-      
+
   ];
 
   environment.systemPackages = with pkgs; [
@@ -10,7 +10,7 @@
     vlc
     # heroic
     prismlauncher
-    # lutris
+    lutris
     bottles
     steamtinkerlaunch
     # inputs.nix-citizen.packages.${system}.star-citizen

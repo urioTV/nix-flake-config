@@ -315,11 +315,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1730040816,
-        "narHash": "sha256-Wq7Ta/8jKGdNaQXeAMQBDxVLquOgyjAtvZpqrzQda54=",
+        "lastModified": 1730108786,
+        "narHash": "sha256-HanZv/MCAcW2BMbe7Ns942ceMa2bTJUW48J654LiR/o=",
         "owner": "taj-ny",
         "repo": "kwin-effects-forceblur",
-        "rev": "0890549fe7451037530e452762b05e65573edabe",
+        "rev": "523a7d714cc1c921ed9edb4a2bd6fd49817bc4bb",
         "type": "github"
       },
       "original": {

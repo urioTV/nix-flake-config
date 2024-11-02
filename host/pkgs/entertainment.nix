@@ -8,7 +8,7 @@
   environment.systemPackages = with pkgs; [
     # Entertainment and Media
     vlc
-    # heroic
+    heroic
     prismlauncher
     lutris
     bottles

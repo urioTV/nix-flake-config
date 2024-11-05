@@ -1,8 +1,16 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 {
   # Flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   nix.settings = {
     substituters = [
@@ -16,7 +24,6 @@
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
   };
-
 
   nix.settings.auto-optimise-store = true;
 
@@ -33,6 +40,8 @@
     flake = "/home/urio/nix-flake-config";
   };
 
-
-  nix.settings.trusted-users = [ "root" "urio" ];
+  nix.settings.trusted-users = [
+    "root"
+    "urio"
+  ];
 }

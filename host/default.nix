@@ -1,4 +1,11 @@
-{ inputs, config, pkgs, chaotic, ... }: {
+{
+  inputs,
+  config,
+  pkgs,
+  chaotic,
+  ...
+}:
+{
   imports = [
     ./btrfsOptions.nix
     ./stylix.nix
@@ -9,7 +16,6 @@
     ./services
     ./plasma6
   ];
-
 
   # Specialization for gnome and hyprland if needed
 

@@ -1,4 +1,12 @@
-{ config, lib, pkgs, chaotic, inputs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  chaotic,
+  inputs,
+  ...
+}:
+{
 
   imports = [
     # Include the results of the hardware scan.
@@ -14,16 +22,20 @@
 
     # Communication
     (vesktop.overrideAttrs (oldAttrs: {
-      postFixup = oldAttrs.postFixup or "" + ''
-        wrapProgram $out/bin/vesktop \
-          --add-flags --ozone-platform=x11
-      '';
+      postFixup =
+        oldAttrs.postFixup or ""
+        + ''
+          wrapProgram $out/bin/vesktop \
+            --add-flags --ozone-platform=x11
+        '';
     }))
     (teams-for-linux.overrideAttrs (oldAttrs: {
-      postFixup = oldAttrs.postFixup or "" + ''
-        wrapProgram $out/bin/teams-for-linux \
-          --add-flags --ozone-platform=x11
-      '';
+      postFixup =
+        oldAttrs.postFixup or ""
+        + ''
+          wrapProgram $out/bin/teams-for-linux \
+            --add-flags --ozone-platform=x11
+        '';
     }))
     element-desktop
 

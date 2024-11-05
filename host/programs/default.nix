@@ -1,4 +1,11 @@
-{ config, lib, pkgs, inputs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
+{
   imports = [ ./nix-ld.nix ];
   programs = {
     steam = {
@@ -6,8 +13,8 @@
       # Gamescope Fix
       package = pkgs.steam.override {
         # extraEnv = { SDL_VIDEODRIVER = "x11"; };
-        extraPkgs = pkgs:
-          with pkgs; [
+        extraPkgs =
+          pkgs: with pkgs; [
             xorg.libXcursor
             xorg.libXi
             xorg.libXinerama
@@ -21,12 +28,12 @@
           ];
       };
       extraCompatPackages = with pkgs; [ ];
-      remotePlay.openFirewall =
-        true; # Open ports in the firewall for Steam Remote Play
-      dedicatedServer.openFirewall =
-        true; # Open ports in the firewall for Source Dedicated Server
+      remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+      dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
     };
-    zsh = { enable = true; };
+    zsh = {
+      enable = true;
+    };
     corectrl = {
       enable = true;
       gpuOverclock.enable = true;
@@ -35,8 +42,16 @@
     gamescope = {
       enable = true;
       # capSysNice = true;
-      env = { SDL_VIDEODRIVER = "x11"; };
-      args = [ "-h 1200" "-w 1920" "-H 1200" "-W 1920" "--adaptive-sync" ];
+      env = {
+        SDL_VIDEODRIVER = "x11";
+      };
+      args = [
+        "-h 1200"
+        "-w 1920"
+        "-H 1200"
+        "-W 1920"
+        "--adaptive-sync"
+      ];
     };
     gamemode = {
       enable = true;
@@ -100,6 +115,8 @@
     };
   };
 
-  users.users.urio = { extraGroups = [ "libvirtd" ]; };
+  users.users.urio = {
+    extraGroups = [ "libvirtd" ];
+  };
 
 }

@@ -1,4 +1,11 @@
-{ config, lib, pkgs, chaotic, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  chaotic,
+  ...
+}:
+{
   hardware.enableAllFirmware = true;
 
   hardware.graphics = {

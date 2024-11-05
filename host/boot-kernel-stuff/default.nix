@@ -1,4 +1,11 @@
-{ config, lib, pkgs, chaotic, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  chaotic,
+  ...
+}:
+{
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
   # boot.kernelPackages = pkgs.linuxPackages_cachyos;
@@ -33,5 +40,8 @@
     systemd-boot.enable = true;
   };
 
-  boot.supportedFilesystems = [ "ntfs" "exfat" ];
+  boot.supportedFilesystems = [
+    "ntfs"
+    "exfat"
+  ];
 }

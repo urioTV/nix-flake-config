@@ -1,4 +1,11 @@
-{ inputs, config, pkgs, chaotic, ... }: {
+{
+  inputs,
+  config,
+  pkgs,
+  chaotic,
+  ...
+}:
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -62,12 +69,17 @@
   users.users.urio = {
     isNormalUser = true;
     description = "Konrad Lemański";
-    extraGroups = [ "networkmanager" "wheel" "audio" "video" "gamemode" ];
-    packages = with pkgs;
-      [
-        #  firefox
-        #  thunderbird
-      ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "audio"
+      "video"
+      "gamemode"
+    ];
+    packages = with pkgs; [
+      #  firefox
+      #  thunderbird
+    ];
   };
 
   users.users.root.openssh.authorizedKeys.keys = [
@@ -82,19 +94,26 @@
 
   environment.sessionVariables = {
     ELECTRON_OZONE_PLATFORM_HINT = "wayland";
-    container_additional_volumes =
-      "/nix/store:/nix/store:ro /etc/profiles/per-user:/etc/profiles/per-user:ro";
+    container_additional_volumes = "/nix/store:/nix/store:ro /etc/profiles/per-user:/etc/profiles/per-user:ro";
   };
 
   # Open ports in the firewall.
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 53317 8000 ];
-    allowedUDPPorts = [ 53317 21116 ];
-    allowedTCPPortRanges = [{
-      from = 21115;
-      to = 21119;
-    }];
+    allowedTCPPorts = [
+      53317
+      8000
+    ];
+    allowedUDPPorts = [
+      53317
+      21116
+    ];
+    allowedTCPPortRanges = [
+      {
+        from = 21115;
+        to = 21119;
+      }
+    ];
   };
 
   security.polkit = {

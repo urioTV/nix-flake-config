@@ -1,12 +1,20 @@
-{ inputs, config, pkgs, ... }: {
-  home.packages = with pkgs; [ playerctl cava ];
+{
+  inputs,
+  config,
+  pkgs,
+  ...
+}:
+{
+  home.packages = with pkgs; [
+    playerctl
+    cava
+  ];
 
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
     settings = {
-      source =
-        "${config.home.homeDirectory}/nix-flake-config/dotfiles/hypr/hyprland.conf";
+      source = "${config.home.homeDirectory}/nix-flake-config/dotfiles/hypr/hyprland.conf";
     };
     # plugins = [
     #   inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
@@ -19,16 +27,13 @@
     #     "${config.home.homeDirectory}/nix-flake-config/dotfiles/hypr";
     # };
     ".config/waybar" = {
-      source = config.lib.file.mkOutOfStoreSymlink
-        "${config.home.homeDirectory}/nix-flake-config/dotfiles/waybar";
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-flake-config/dotfiles/waybar";
     };
     ".config/wofi" = {
-      source = config.lib.file.mkOutOfStoreSymlink
-        "${config.home.homeDirectory}/nix-flake-config/dotfiles/wofi";
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-flake-config/dotfiles/wofi";
     };
     ".config/kitty" = {
-      source = config.lib.file.mkOutOfStoreSymlink
-        "${config.home.homeDirectory}/nix-flake-config/dotfiles/kitty";
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-flake-config/dotfiles/kitty";
     };
   };
 
@@ -37,7 +42,9 @@
       enable = true;
 
     };
-    playerctld = { enable = true; };
+    playerctld = {
+      enable = true;
+    };
   };
 
   programs = {

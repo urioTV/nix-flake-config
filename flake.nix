@@ -35,8 +35,17 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, stylix, chaotic, nix-alien
-    , plasma-manager, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      stylix,
+      chaotic,
+      nix-alien,
+      plasma-manager,
+      ...
+    }@inputs:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -45,22 +54,25 @@
         gamescope = chaotic.packages.${system}.gamescope_git;
 
       };
-      # home-manager = let
-      #   src = nixpkgs.legacyPackages.${system}.applyPatches {
-      #     name = "home-manager";
-      #     src = inputs.home-manager;
-      #     patches = nixpkgs.legacyPackages.${system}.fetchpatch {
-      #       url =
-      #         "https://patch-diff.githubusercontent.com/raw/nix-community/home-manager/pull/2548.patch";
-      #       sha256 = "sha256-weI2sTxjEtQbdA76f3fahC9thiQbGSzOYQ7hwHvqt8s=";
-      #     };
-      #   };
-      # in nixpkgs.lib.fix
-      # (self: (import "${src}/flake.nix").outputs { inherit self nixpkgs; });
-    in {
+    in
+    # home-manager = let
+    #   src = nixpkgs.legacyPackages.${system}.applyPatches {
+    #     name = "home-manager";
+    #     src = inputs.home-manager;
+    #     patches = nixpkgs.legacyPackages.${system}.fetchpatch {
+    #       url =
+    #         "https://patch-diff.githubusercontent.com/raw/nix-community/home-manager/pull/2548.patch";
+    #       sha256 = "sha256-weI2sTxjEtQbdA76f3fahC9thiQbGSzOYQ7hwHvqt8s=";
+    #     };
+    #   };
+    # in nixpkgs.lib.fix
+    # (self: (import "${src}/flake.nix").outputs { inherit self nixpkgs; });
+    {
       nixosConfigurations = {
         konrad-m18 = lib.nixosSystem {
-          specialArgs = { inherit inputs; };
+          specialArgs = {
+            inherit inputs;
+          };
           inherit system;
           modules = [
             {
@@ -75,13 +87,17 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "backupnix2";
-              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.extraSpecialArgs = {
+                inherit inputs;
+              };
               home-manager.sharedModules = [
                 ./vars.nix
                 chaotic.homeManagerModules.default
                 plasma-manager.homeManagerModules.plasma-manager
               ];
-              home-manager.users.urio = { imports = [ ./home.nix ]; };
+              home-manager.users.urio = {
+                imports = [ ./home.nix ];
+              };
             }
             home-manager.nixosModules.home-manager
             stylix.nixosModules.stylix

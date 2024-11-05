@@ -1,4 +1,10 @@
-{ config, lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
   stylix.enable = true;
   stylix.autoEnable = true;
   stylix.image = config.vars.wallpaper;
@@ -21,7 +27,9 @@
   gtk = {
     enable = true;
 
-    gtk3.extraConfig = { gtk-application-prefer-dark-theme = 1; };
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = 1;
+    };
 
     gtk4.extraConfig = {
       gtk-application-prefer-dark-theme = 1;

@@ -1,4 +1,12 @@
-{ config, lib, pkgs, chaotic, inputs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  chaotic,
+  inputs,
+  ...
+}:
+{
 
   imports = [
 
@@ -10,8 +18,7 @@
     git
     micro
     btop
-    nixfmt
-    nixpkgs-fmt
+    nixfmt-rfc-style
     dotnet-sdk_8
     # ollama
     jetbrains-toolbox
@@ -21,7 +28,7 @@
     podman-tui
     mono
     distrobox
-    
+
   ];
 
 }

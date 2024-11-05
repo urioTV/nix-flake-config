@@ -1,4 +1,12 @@
-{ inputs, config, pkgs, chaotic, lib, ... }: {
+{
+  inputs,
+  config,
+  pkgs,
+  chaotic,
+  lib,
+  ...
+}:
+{
   programs = {
     git = {
       enable = true;
@@ -9,8 +17,10 @@
       enable = true;
       antidote = {
         enable = false;
-        plugins =
-          [ "zsh-users/zsh-autosuggestions" "zsh-users/zsh-completions" ];
+        plugins = [
+          "zsh-users/zsh-autosuggestions"
+          "zsh-users/zsh-completions"
+        ];
       };
       prezto = {
         enable = true;
@@ -34,8 +44,12 @@
       };
 
     };
-    eza = { enable = true; };
-    bat = { enable = true; };
+    eza = {
+      enable = true;
+    };
+    bat = {
+      enable = true;
+    };
     starship = {
       enable = true;
       enableZshIntegration = true;
@@ -55,11 +69,10 @@
     };
     obs-studio = {
       enable = true;
-      plugins = with pkgs;
-        [
-          # obs-studio-plugins.obs-vaapi
-          # obs-studio-plugins.obs-vkcapture
-        ];
+      plugins = with pkgs; [
+        # obs-studio-plugins.obs-vaapi
+        # obs-studio-plugins.obs-vkcapture
+      ];
     };
     # yazi = {
     #   enable = true;

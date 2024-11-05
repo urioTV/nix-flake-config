@@ -61,10 +61,10 @@
           # obs-studio-plugins.obs-vkcapture
         ];
     };
-    yazi = {
-      enable = true;
-      enableZshIntegration = true;
-    };
+    # yazi = {
+    #   enable = true;
+    #   enableZshIntegration = true;
+    # };
     # vscode = {
     #   enable = true;
     #   package = pkgs.vscode-fhs;

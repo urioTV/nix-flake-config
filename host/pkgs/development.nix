@@ -28,7 +28,6 @@
     podman-tui
     mono
     distrobox
-
   ];
 
 }

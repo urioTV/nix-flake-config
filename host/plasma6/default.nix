@@ -32,7 +32,8 @@
       [General]
       background=${config.vars.wallpaper}
     '')
-    transmission_4-qt
+    # transmission_4-qt
+    qbittorrent
     inputs.kwin-effects-forceblur.packages.${pkgs.system}.default
     kdePackages.filelight
     kdePackages.kalk

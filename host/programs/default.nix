@@ -75,6 +75,10 @@
       enable = true;
       package = pkgs.corretto21;
     };
+    appimage = {
+      enable = true;
+      binfmt = true;
+    };
   };
 
   # security.wrappers.steam = {

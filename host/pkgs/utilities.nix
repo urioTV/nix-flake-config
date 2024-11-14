@@ -27,7 +27,6 @@
     logitech-udev-rules
     libnotify
     libstrangle
-    appimage-run
     gpu-viewer
     pciutils
     lm_sensors

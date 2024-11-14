@@ -22,6 +22,8 @@
     bottles
     steamtinkerlaunch
     shadps4
+    rpcs3
+
     # inputs.nix-citizen.packages.${system}.star-citizen
     # star-citizen
     # (inputs.nix-citizen.packages.${system}.star-citizen.override (prev: {

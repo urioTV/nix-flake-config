@@ -20,6 +20,7 @@
         gamemode
         gtkmm3
         atkmm
+        icu
         # Basic Libraries
         SDL
         SDL2

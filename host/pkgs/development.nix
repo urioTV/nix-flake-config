@@ -20,7 +20,6 @@
     btop
     nixfmt-rfc-style
     dotnet-sdk_8
-    # ollama
     jetbrains-toolbox
     desktop-file-utils
     ventoy-bin-full
@@ -28,6 +27,9 @@
     podman-tui
     mono
     distrobox
+
+    # LLM
+    open-webui
   ];
 
 }

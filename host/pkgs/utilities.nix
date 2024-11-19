@@ -57,6 +57,7 @@
     rclone
     unrar
     bzip3
+    syncthingtray-qt6
   ];
 
 }

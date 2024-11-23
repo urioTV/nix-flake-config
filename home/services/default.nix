@@ -7,6 +7,8 @@
 }:
 {
   services = {
-
+    syncthing = {
+      enable = true;
+    };
   };
 }

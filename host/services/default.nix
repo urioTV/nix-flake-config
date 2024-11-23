@@ -31,10 +31,6 @@
       enable = false;
       port = 2137;
     };
-
-    syncthing = {
-      enable = true;
-    };
   };
   programs.system-config-printer.enable = true;
 }

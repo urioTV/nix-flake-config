@@ -81,6 +81,7 @@
             {
               nixpkgs.overlays = [ customOverlay ];
               nixpkgs.config.allowUnfree = true;
+              chaotic.nyx.cache.enable = true;
             }
             ./configuration.nix
             ./vars.nix

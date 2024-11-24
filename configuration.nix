@@ -87,9 +87,6 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDRfYCXQz7XXM9pupEpNw949Yh2fuMvfJouJZi6+HOIH urio@konrad-m18"
   ];
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
   users.users.urio.shell = pkgs.zsh;
 
   environment.sessionVariables = {

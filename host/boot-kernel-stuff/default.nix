@@ -7,8 +7,8 @@
 }:
 {
 
-  boot.kernelPackages = pkgs.linuxPackages_zen;
-  # boot.kernelPackages = pkgs.linuxPackages_cachyos;
+  # boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_cachyos-lto;
   # boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
   boot.kernel.sysctl = {

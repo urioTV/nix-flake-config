@@ -30,7 +30,6 @@
     }))
     openmw
     ani-cli
-    distrobox
     thunderbird
 
   ];

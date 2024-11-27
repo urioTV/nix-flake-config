@@ -22,9 +22,7 @@
     dotnet-sdk_8
     jetbrains-toolbox
     desktop-file-utils
-    ventoy-bin-full
-    podman-compose
-    podman-tui
+    ventoy-full
     mono
     distrobox
 

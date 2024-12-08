@@ -137,7 +137,6 @@
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
     noto-fonts-emoji
-    nerdfonts
     jetbrains-mono
     font-awesome
     ubuntu_font_family
@@ -145,6 +144,12 @@
     nerd-font-patcher
     corefonts
     open-sans
+    nerd-fonts.hack
+    nerd-fonts.noto
+    nerd-fonts.ubuntu
+    nerd-fonts.ubuntu-mono
+    nerd-fonts.open-dyslexic
+    nerd-fonts.agave
   ];
 
   fonts.fontDir.enable = true;

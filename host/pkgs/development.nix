@@ -19,7 +19,7 @@
     micro
     btop
     nixfmt-rfc-style
-    dotnet-sdk_8
+    dotnet-sdk
     jetbrains-toolbox
     desktop-file-utils
     ventoy-full

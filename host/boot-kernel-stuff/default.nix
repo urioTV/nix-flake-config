@@ -11,6 +11,11 @@
   boot.kernelPackages = pkgs.linuxPackages_cachyos-lto;
   # boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
+  services.scx = {
+    enable = true;
+    scheduler = "scx_lavd";
+  };
+
   boot.kernel.sysctl = {
     "vm.max_map_count" = 16777216;
     "fs.file-max" = 524288;

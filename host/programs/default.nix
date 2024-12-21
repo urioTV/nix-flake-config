@@ -25,6 +25,8 @@
             stdenv.cc.cc.lib
             libkrb5
             keyutils
+            curl
+            openssl
           ];
       };
       extraCompatPackages = with pkgs; [ ];

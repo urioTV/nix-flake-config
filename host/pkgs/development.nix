@@ -25,6 +25,7 @@
     ventoy-full
     mono
     distrobox
+    alacritty
 
     # LLM
     open-webui

@@ -17,7 +17,7 @@
 
   environment.systemPackages = with pkgs; [
     # Browsers
-    firefox
+    firefox-wayland
     brave
 
     # Communication

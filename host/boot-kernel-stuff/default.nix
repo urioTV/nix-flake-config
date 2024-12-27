@@ -48,5 +48,7 @@
   boot.supportedFilesystems = [
     "ntfs"
     "exfat"
+    "cifs"
   ];
+
 }

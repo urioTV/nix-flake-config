@@ -7,7 +7,6 @@
 }:
 {
   imports = [
-    ./btrfsOptions.nix
     ./stylix.nix
     ./hardware-stuff
     ./programs

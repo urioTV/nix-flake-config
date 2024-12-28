@@ -6,13 +6,12 @@
 }:
 
 {
-  # Flakes
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-
   nix.settings = {
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+
     substituters = [
       "https://nix-gaming.cachix.org"
       "https://nix-citizen.cachix.org"
@@ -23,9 +22,14 @@
       "nix-citizen.cachix.org-1:lPMkWc2X8XD4/7YPEEwXKKBg+SVbYTVrAaLA2wQTKCo="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
-  };
 
-  nix.settings.auto-optimise-store = true;
+    auto-optimise-store = true;
+
+    trusted-users = [
+      "root"
+      "urio"
+    ];
+  };
 
   nix.gc = {
     automatic = true;
@@ -39,9 +43,4 @@
     # clean.extraArgs = "--keep-since 2d --keep 2";
     flake = "/home/urio/nix-flake-config";
   };
-
-  nix.settings.trusted-users = [
-    "root"
-    "urio"
-  ];
 }

@@ -12,16 +12,6 @@
     ./host
   ];
 
-  networking.hostName = "konrad-m18"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
-
   # Set your time zone.
   time.timeZone = "Europe/Warsaw";
 
@@ -95,25 +85,6 @@
     container_additional_volumes = "/nix/store:/nix/store:ro /etc/profiles/per-user:/etc/profiles/per-user:ro";
   };
 
-  # Open ports in the firewall.
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [
-      53317
-      8000
-    ];
-    allowedUDPPorts = [
-      53317
-      21116
-    ];
-    allowedTCPPortRanges = [
-      {
-        from = 21115;
-        to = 21119;
-      }
-    ];
-  };
-
   security.polkit = {
     enable = true;
     extraConfig = ''
@@ -128,31 +99,6 @@
       });
     '';
   };
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  fonts.packages = with pkgs; [
-    noto-fonts
-    noto-fonts-extra
-    noto-fonts-cjk-sans
-    noto-fonts-cjk-serif
-    noto-fonts-emoji
-    jetbrains-mono
-    font-awesome
-    ubuntu_font_family
-    baekmuk-ttf
-    nerd-font-patcher
-    corefonts
-    open-sans
-    nerd-fonts.hack
-    nerd-fonts.noto
-    nerd-fonts.ubuntu
-    nerd-fonts.ubuntu-mono
-    nerd-fonts.open-dyslexic
-    nerd-fonts.agave
-  ];
-
-  fonts.fontDir.enable = true;
 
   system.stateVersion = "23.11"; # Did you read the comment?
 

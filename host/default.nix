@@ -15,5 +15,6 @@
     ./services
     ./plasma6
     ./filesystems
+    ./networking
   ];
 }

@@ -21,4 +21,10 @@
       fileSystems = [ "/" ];
     };
   };
+
+  boot.supportedFilesystems = [
+    "ntfs"
+    "exfat"
+    "cifs"
+  ];
 }

@@ -50,6 +50,7 @@
     ffmpeg-full
     handbrake
     obsidian
+    spacedrive
 
     # Nice
     bleachbit

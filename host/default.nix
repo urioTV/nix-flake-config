@@ -15,20 +15,6 @@
     ./pkgs
     ./services
     ./plasma6
+    ./filesystems
   ];
-
-  # Specialization for gnome and hyprland if needed
-
-  # specialization = {
-  #   hyprland.configuration = {
-  #     imports = [
-  #       ./hyprland
-  #     ];
-  #   };
-  #   gnome.configuration = {
-  #     imports = [
-  #       ./gnome
-  #     ];
-  #   };
-  # };
 }

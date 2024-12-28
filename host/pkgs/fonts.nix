@@ -8,15 +8,6 @@
 }:
 {
 
-  imports = [
-    # Include the results of the hardware scan.
-
-  ];
-
-  environment.systemPackages = with pkgs; [
-
-  ];
-
   fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-extra

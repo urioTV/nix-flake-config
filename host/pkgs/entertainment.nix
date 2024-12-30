@@ -18,10 +18,8 @@
     vlc
     heroic
     prismlauncher
-    lutris
-    bottles
-    steamtinkerlaunch
-    shadps4
+    # lutris
+    # bottles
     rpcs3
 
     # inputs.nix-citizen.packages.${system}.star-citizen

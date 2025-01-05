@@ -81,6 +81,11 @@
       enable = true;
       binfmt = true;
     };
+    alvr = {
+      enable = true;
+      package = pkgs.alvr;
+      openFirewall = true;
+    };
   };
 
   # security.wrappers.steam = {

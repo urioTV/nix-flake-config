@@ -21,7 +21,7 @@
     # lutris
     # bottles
     rpcs3
-
+    sidequest
     # inputs.nix-citizen.packages.${system}.star-citizen
     # star-citizen
     # (inputs.nix-citizen.packages.${system}.star-citizen.override (prev: {

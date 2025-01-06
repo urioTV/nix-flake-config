@@ -32,11 +32,6 @@
       enable = false;
       port = 2137;
     };
-    wivrn = {
-      enable = true;
-      openFirewall = true;
-      defaultRuntime = true;
-    };
   };
   programs.system-config-printer.enable = true;
 }

@@ -16,5 +16,7 @@
     ./plasma6
     ./filesystems
     ./networking
+    ./virtualisation
+    ./vr-gaming
   ];
 }

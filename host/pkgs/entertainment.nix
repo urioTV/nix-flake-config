@@ -21,9 +21,6 @@
     # lutris
     # bottles
     rpcs3
-    sidequest
-    opencomposite
-    wlx-overlay-s
     # inputs.nix-citizen.packages.${system}.star-citizen
     # star-citizen
     # (inputs.nix-citizen.packages.${system}.star-citizen.override (prev: {

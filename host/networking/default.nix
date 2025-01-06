@@ -17,10 +17,12 @@
     allowedTCPPorts = [
       53317
       8000
+      9757
     ];
     allowedUDPPorts = [
       53317
       21116
+      9757
     ];
     allowedTCPPortRanges = [
       {

@@ -10,7 +10,8 @@
     printing.enable = true;
     avahi = {
       enable = true;
-      nssmdns = true;
+      nssmdns4 = true;
+      nssmdns6 = true;
       openFirewall = true;
     };
 
@@ -30,6 +31,10 @@
     open-webui = {
       enable = false;
       port = 2137;
+    };
+    wivrn = {
+      enable = true;
+      openFirewall = true;
     };
   };
   programs.system-config-printer.enable = true;

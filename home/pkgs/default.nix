@@ -28,7 +28,7 @@
              --add-flags --ozone-platform=x11
         '';
     }))
-    openmw
+    # openmw
     ani-cli
     thunderbird
 

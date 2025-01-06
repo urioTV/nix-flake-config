@@ -22,6 +22,7 @@
     # bottles
     rpcs3
     sidequest
+    opencomposite
     # inputs.nix-citizen.packages.${system}.star-citizen
     # star-citizen
     # (inputs.nix-citizen.packages.${system}.star-citizen.override (prev: {

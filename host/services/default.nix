@@ -11,7 +11,7 @@
     avahi = {
       enable = true;
       nssmdns4 = true;
-      nssmdns6 = true;
+      # nssmdns6 = true;
       openFirewall = true;
     };
 
@@ -35,6 +35,7 @@
     wivrn = {
       enable = true;
       openFirewall = true;
+      defaultRuntime = true;
     };
   };
   programs.system-config-printer.enable = true;

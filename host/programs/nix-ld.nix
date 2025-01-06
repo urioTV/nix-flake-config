@@ -21,6 +21,8 @@
         gtkmm3
         atkmm
         icu
+        libnotify
+        libsysprof-capture
         # Basic Libraries
         SDL
         SDL2

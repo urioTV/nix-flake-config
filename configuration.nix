@@ -82,7 +82,7 @@
 
   environment.sessionVariables = {
     ELECTRON_OZONE_PLATFORM_HINT = "wayland";
-    container_additional_volumes = "/nix/store:/nix/store:ro /etc/profiles/per-user:/etc/profiles/per-user:ro";
+    # container_additional_volumes = "/nix/store:/nix/store:ro /etc/profiles/per-user:/etc/profiles/per-user:ro";
   };
 
   security.polkit = {

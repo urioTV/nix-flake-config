@@ -27,6 +27,9 @@
       enable = true;
       binfmt = true;
     };
+    adb = {
+      enable = true;
+    };
   };
 
 }

@@ -24,7 +24,6 @@
     desktop-file-utils
     ventoy-full
     mono
-    distrobox
     alacritty
 
     # LLM

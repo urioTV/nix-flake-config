@@ -6,13 +6,19 @@
   ...
 }:
 {
+  environment.systemPackages = with pkgs; [
+    distrobox
+    podman-tui
+  ];
+
   # Qemu KVM and virt-manager
 
   programs.virt-manager.enable = true;
 
   virtualisation = {
-    docker = {
+    podman = {
       enable = true;
+      dockerCompat = true;
     };
     libvirtd = {
       enable = true;
@@ -34,6 +40,21 @@
   };
 
   users.users.urio = {
-    extraGroups = [ "libvirtd" ];
+    extraGroups = [
+      "libvirtd"
+      "podman"
+    ];
+    # subGidRanges = [
+    #   {
+    #     count = 65536;
+    #     startGid = 1000;
+    #   }
+    # ];
+    # subUidRanges = [
+    #   {
+    #     count = 65536;
+    #     startUid = 1000;
+    #   }
+    # ];
   };
 }

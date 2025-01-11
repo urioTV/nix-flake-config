@@ -6,11 +6,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # lix-module = {
-    #   url =
-    #     "git+https://git.lix.systems/lix-project/nixos-module?ref=release-2.91";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
 
     stylix = {
       url = "github:danth/stylix";
@@ -37,6 +32,7 @@
       url = "github:LovingMelody/nix-citizen";
       inputs.nix-gaming.follows = "nix-gaming";
     };
+
   };
 
   outputs =
@@ -116,7 +112,6 @@
             home-manager.nixosModules.home-manager
             stylix.nixosModules.stylix
             chaotic.nixosModules.default
-            # lix-module.nixosModules.default
           ];
         };
       };

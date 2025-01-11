@@ -53,20 +53,20 @@
       customOverlay = final: prev: {
         gamescope = chaotic.packages.${system}.gamescope_git;
 
+        opencomposite = prev.opencomposite.overrideAttrs (prevAttrs: {
+          version = "git-2025-01-10";
+
+          src = prev.fetchFromGitLab {
+            owner = "znixian";
+            repo = "OpenOVR";
+            rev = "bdb830a4bcd04196ba13e8c08a07a4530363aa4b";
+            fetchSubmodules = true;
+            hash = "sha256-y8djMkjcWA0TSI+3Pc7pAqTGaE5MSGIJpq4/ee7LWQs=";
+          };
+        });
+
       };
     in
-    # home-manager = let
-    #   src = nixpkgs.legacyPackages.${system}.applyPatches {
-    #     name = "home-manager";
-    #     src = inputs.home-manager;
-    #     patches = nixpkgs.legacyPackages.${system}.fetchpatch {
-    #       url =
-    #         "https://patch-diff.githubusercontent.com/raw/nix-community/home-manager/pull/2548.patch";
-    #       sha256 = "sha256-weI2sTxjEtQbdA76f3fahC9thiQbGSzOYQ7hwHvqt8s=";
-    #     };
-    #   };
-    # in nixpkgs.lib.fix
-    # (self: (import "${src}/flake.nix").outputs { inherit self nixpkgs; });
     {
       nixosConfigurations = {
         konrad-m18 = lib.nixosSystem {

@@ -10,6 +10,7 @@
     sidequest
     opencomposite
     wlx-overlay-s
+    xrizer
   ];
   programs = {
     alvr = {

@@ -14,4 +14,14 @@ final: prev: {
     };
   });
 
+  xrizer = prev.xrizer.overrideAttrs (prevAttrs: {
+    version = "git-2025-01-11";
+
+    src = prev.fetchFromGitHub {
+      owner = "Supreeeme";
+      repo = "xrizer";
+      rev = "1babbac76a275749ee4c93a57f64431bd5d71e6f";
+      hash = "sha256-KDRih95IcYDDOd6QMxqZI33TaCWI3/xOfzczlS1SyVI=";
+    };
+  });
 }

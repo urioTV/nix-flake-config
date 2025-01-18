@@ -49,7 +49,7 @@
     localsend
     nmap
     ffmpeg-full
-    # handbrake
+    handbrake
     obsidian
     spacedrive
 

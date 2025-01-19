@@ -600,6 +600,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-alvr": {
+      "locked": {
+        "lastModified": 1737250550,
+        "narHash": "sha256-K+bSbKgZRSzUAF+/3Ewmm4Bto9PS7VKsQwRV6up0QLE=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "2269ae37e860190c38b17826d5ca274e6a901c46",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "2269ae37e860190c38b17826d5ca274e6a901c46",
+        "type": "github"
+      }
+    },
     "nixpkgs-lib": {
       "locked": {
         "lastModified": 1735774519,
@@ -724,6 +740,7 @@
         "nix-citizen": "nix-citizen",
         "nix-gaming": "nix-gaming",
         "nixpkgs": "nixpkgs_5",
+        "nixpkgs-alvr": "nixpkgs-alvr",
         "plasma-manager": "plasma-manager",
         "stylix": "stylix"
       }

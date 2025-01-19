@@ -32,5 +32,7 @@
     ani-cli
     thunderbird
 
+    ciscoPacketTracer8
+
   ];
 }

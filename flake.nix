@@ -1,7 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    # nixpkgs.url = "github:NixOS/nixpkgs/7d27fd2b04ede95f27fdce6b8902745777ad4844";
+    nixpkgs-alvr.url = "github:NixOS/nixpkgs/2269ae37e860190c38b17826d5ca274e6a901c46";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";

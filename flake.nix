@@ -9,9 +9,9 @@
 
     stylix = {
       url = "github:danth/stylix";
-      inputs.base16.follows = "base16";
+      # inputs.base16.follows = "base16";
     };
-    base16.url = "github:Noodlez1232/base16.nix/slugify-fix";
+    # base16.url = "github:Noodlez1232/base16.nix/slugify-fix";
 
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nix-alien.url = "github:thiagokokada/nix-alien";

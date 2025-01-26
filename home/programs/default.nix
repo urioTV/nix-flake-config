@@ -13,6 +13,10 @@
       userEmail = "uriootv@protonmail.com";
       userName = "urioTV";
     };
+    nushell = {
+      enable = true;
+      extraConfig = ''$env.config.show_banner = false'';
+    };
     zsh = {
       enable = true;
       antidote = {
@@ -44,8 +48,10 @@
       };
 
     };
-    eza = {
+    carapace = {
       enable = true;
+      enableZshIntegration = true;
+      enableNushellIntegration = true;
     };
     bat = {
       enable = true;
@@ -53,6 +59,7 @@
     starship = {
       enable = true;
       enableZshIntegration = true;
+      enableNushellIntegration = true;
       settings = {
         nix_shell = {
           disabled = false;
@@ -74,14 +81,6 @@
         # obs-studio-plugins.obs-vkcapture
       ];
     };
-    # yazi = {
-    #   enable = true;
-    #   enableZshIntegration = true;
-    # };
-    # vscode = {
-    #   enable = true;
-    #   package = pkgs.vscode-fhs;
-    # };
   };
 
   programs.mangohud = {

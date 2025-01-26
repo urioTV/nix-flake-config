@@ -71,14 +71,14 @@
       #  firefox
       #  thunderbird
     ];
+    # shell = pkgs.zsh;
+    shell = pkgs.nushell;
   };
 
   users.users.root.openssh.authorizedKeys.keys = [
     # This is my public key
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDRfYCXQz7XXM9pupEpNw949Yh2fuMvfJouJZi6+HOIH urio@konrad-m18"
   ];
-
-  users.users.urio.shell = pkgs.zsh;
 
   environment.sessionVariables = {
     ELECTRON_OZONE_PLATFORM_HINT = "wayland";

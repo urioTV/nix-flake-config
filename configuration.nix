@@ -71,8 +71,8 @@
       #  firefox
       #  thunderbird
     ];
-    # shell = pkgs.zsh;
-    shell = pkgs.nushell;
+    shell = pkgs.zsh;
+    # shell = pkgs.nushell;
   };
 
   users.users.root.openssh.authorizedKeys.keys = [

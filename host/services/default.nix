@@ -33,5 +33,7 @@
       port = 2137;
     };
   };
+  # security.auditd.enable = true;
+
   programs.system-config-printer.enable = true;
 }

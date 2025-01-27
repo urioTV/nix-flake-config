@@ -14,13 +14,6 @@
     };
     zsh = {
       enable = true;
-      antidote = {
-        enable = false;
-        plugins = [
-          "zsh-users/zsh-autosuggestions"
-          "zsh-users/zsh-completions"
-        ];
-      };
       prezto = {
         enable = true;
         pmodules = [

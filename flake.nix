@@ -86,7 +86,7 @@
               # home-manager.useUserService = true; # Added by patch above ^
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "bkpnix2";
+              home-manager.backupFileExtension = "bkpnix";
               home-manager.extraSpecialArgs = {
                 inherit inputs;
               };

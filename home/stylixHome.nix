@@ -25,6 +25,9 @@
   gtk.iconTheme.name = "Papirus";
 
   gtk = {
+    gtk2 = {
+      # configLocation = "${config.xdg.configHome}/gtkrc-2.0";
+    };
     enable = true;
 
     gtk3.extraConfig = {

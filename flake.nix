@@ -9,10 +9,9 @@
     };
 
     stylix = {
-      url = "github:danth/stylix";
-      # inputs.base16.follows = "base16";
+      url = "github:danth/stylix/d9df2b4200ba53a0944c3d2c6d242095e523d3d9";
+
     };
-    # base16.url = "github:Noodlez1232/base16.nix/slugify-fix";
 
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nix-alien.url = "github:thiagokokada/nix-alien";

@@ -25,6 +25,8 @@
     ventoy-full
     mono
     alacritty
+    kubectl
+    kubernetes-helm
 
     # LLM
     open-webui

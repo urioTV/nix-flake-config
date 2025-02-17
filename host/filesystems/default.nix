@@ -26,5 +26,6 @@
     "ntfs"
     "exfat"
     "cifs"
+    "nfs"
   ];
 }

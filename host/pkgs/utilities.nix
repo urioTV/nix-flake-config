@@ -59,6 +59,7 @@
     bzip3
     syncthingtray-qt6
     cifs-utils
+    nss
   ];
 
 }

@@ -17,7 +17,7 @@
     # Entertainment and Media
     vlc
     heroic
-    prismlauncher
+    # prismlauncher
     lutris
     # bottles
     rpcs3

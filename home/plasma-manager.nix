@@ -52,8 +52,8 @@
           idleTimeout = 600;
         };
         turnOffDisplay = {
-          idleTimeout = 1800;
-          idleTimeoutWhenLocked = 900;
+          idleTimeout = 14400;
+          idleTimeoutWhenLocked = 14400;
         };
         whenLaptopLidClosed = "sleep";
         whenSleepingEnter = "standbyThenHibernate";
@@ -73,7 +73,7 @@
 
     kscreenlocker = {
       autoLock = true;
-      timeout = 15;
+      timeout = 120;
     };
 
     shortcuts = {

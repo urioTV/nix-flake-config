@@ -23,6 +23,7 @@
         icu
         libnotify
         libsysprof-capture
+        nss
         # Basic Libraries
         SDL
         SDL2

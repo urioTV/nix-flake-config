@@ -8,9 +8,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    lix-module = {
+      url = "git+https://git.lix.systems/lix-project/nixos-module?ref=stable";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     stylix = {
       url = "github:danth/stylix/d9df2b4200ba53a0944c3d2c6d242095e523d3d9";
-
+      # url = "github:danth/stylix";
     };
 
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
@@ -26,12 +31,14 @@
       inputs.home-manager.follows = "home-manager";
     };
 
+    # Apps
+    # zen-browser = {
+    #   url = "github:0xc000022070/zen-browser-flake";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+
     # Gaming
     nix-gaming.url = "github:fufexan/nix-gaming";
-    nix-citizen = {
-      url = "github:LovingMelody/nix-citizen";
-      inputs.nix-gaming.follows = "nix-gaming";
-    };
 
   };
 
@@ -44,6 +51,7 @@
       chaotic,
       nix-alien,
       plasma-manager,
+      lix-module,
       ...
     }@inputs:
     let
@@ -59,6 +67,9 @@
           };
           inherit system;
           modules = [
+            ./configuration.nix
+            ./vars.nix
+            ./nix-settings.nix
             {
               nixpkgs.overlays = [
                 (import ./overlay.nix {
@@ -78,9 +89,6 @@
                 "dotnet-runtime-wrapped-6.0.36"
               ];
             }
-            ./configuration.nix
-            ./vars.nix
-            ./nix-settings.nix
             {
               # home-manager.useUserService = true; # Added by patch above ^
               home-manager.useGlobalPkgs = true;
@@ -101,6 +109,7 @@
             home-manager.nixosModules.home-manager
             stylix.nixosModules.stylix
             chaotic.nixosModules.default
+            lix-module.nixosModules.default
           ];
         };
       };

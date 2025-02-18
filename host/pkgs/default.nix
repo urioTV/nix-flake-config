@@ -20,6 +20,7 @@
     # Browsers
     firefox-wayland
     brave
+    # inputs.zen-browser.packages."${system}".default
 
     # Communication
     (vesktop.overrideAttrs (oldAttrs: {

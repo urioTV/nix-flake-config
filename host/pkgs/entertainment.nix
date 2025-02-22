@@ -17,17 +17,8 @@
     # Entertainment and Media
     vlc
     heroic
-    # prismlauncher
     lutris
-    # bottles
-    rpcs3
-    # inputs.nix-citizen.packages.${system}.star-citizen
-    # star-citizen
-    # (inputs.nix-citizen.packages.${system}.star-citizen.override (prev: {
-    #       # Recommended to keep the previous overrides
-    #       preCommands = "export radv_zero_vram=true";
-    #       useUmu = true;
-    #     }))
+    openmw
   ];
 
 }

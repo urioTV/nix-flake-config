@@ -27,5 +27,6 @@
     "exfat"
     "cifs"
     "nfs"
+    "ceph"
   ];
 }

@@ -28,8 +28,6 @@
     kubectl
     kubernetes-helm
 
-    # LLM
-    open-webui
   ];
 
 }

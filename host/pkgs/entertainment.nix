@@ -19,6 +19,7 @@
     heroic
     lutris
     openmw
+    vkbasalt
   ];
 
 }

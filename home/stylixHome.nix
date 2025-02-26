@@ -11,9 +11,10 @@
   stylix.base16Scheme = config.vars.base16Scheme;
   stylix.targets.gnome.enable = true;
   stylix.targets.gtk.enable = true;
-  # stylix.targets.qt = {
-  #   enable = true;
-  # };
+  stylix.targets.qt = {
+    enable = false;
+  };
+  qt.enable = false;
   stylix.polarity = "dark";
   stylix.targets.vscode.enable = false;
   stylix.cursor.package = pkgs.bibata-cursors;

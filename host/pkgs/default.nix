@@ -20,7 +20,6 @@
     # Browsers
     firefox-wayland
     brave
-    # inputs.zen-browser.packages."${system}".default
 
     # Communication
     (vesktop.overrideAttrs (oldAttrs: {
@@ -39,13 +38,11 @@
             --add-flags --ozone-platform=x11
         '';
     }))
-    element-desktop
 
     # Fun and Miscellaneous
     lolcat
     cmatrix
     fastfetch
-    tenacity
     wine
     localsend
     nmap

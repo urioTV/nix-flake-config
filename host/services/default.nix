@@ -26,11 +26,6 @@
       # acceleration = "rocm";
       # rocmOverrideGfx = "11.0.0";
     };
-
-    open-webui = {
-      enable = false;
-      port = 2137;
-    };
   };
   # security.auditd.enable = true;
 

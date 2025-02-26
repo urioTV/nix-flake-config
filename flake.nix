@@ -14,8 +14,8 @@
     };
 
     stylix = {
-      url = "github:danth/stylix/d9df2b4200ba53a0944c3d2c6d242095e523d3d9";
-      # url = "github:danth/stylix";
+      # url = "github:danth/stylix/d9df2b4200ba53a0944c3d2c6d242095e523d3d9";
+      url = "github:danth/stylix";
     };
 
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";

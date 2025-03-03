@@ -17,9 +17,6 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    # Browsers
-    firefox-wayland
-    brave
 
     # Communication
     (vesktop.overrideAttrs (oldAttrs: {

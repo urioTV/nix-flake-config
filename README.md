@@ -1,6 +1,7 @@
-# My Nix Flake Config!
-This is mine config to easily setup my laptop. It will be probably really chaotic because it is for my usage only.
+# My Nix Flake Configuration
 
-## IMPORTANT
+This is my personal configuration for quickly setting up my laptop. It may be somewhat chaotic, as it's primarily intended for my own use.
 
-If for some reason you want to use it replace hardware-configuration.nix with your own.
+## Important
+
+If you decide to use this configuration, make sure to replace `hardware-configuration.nix` with your own file.

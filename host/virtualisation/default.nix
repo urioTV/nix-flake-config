@@ -37,6 +37,7 @@
         };
       };
     };
+    vmware.host.enable = true;
   };
 
   users.users.urio = {

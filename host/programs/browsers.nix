@@ -23,29 +23,29 @@
   };
 
   programs = {
-    # firefox = {
-    #   enable = true;
-    #   package = pkgs.librewolf-wayland;
-    #   languagePacks = [
-    #     "pl"
-    #   ];
-    #   policies = {
-    #     DisableFirefoxAccounts = false;
-    #     DisableTelemetry = true;
-    #     DisableFirefoxStudies = true;
+    firefox = {
+      enable = true;
+      package = pkgs.librewolf-wayland;
+      languagePacks = [
+        "pl"
+      ];
+      policies = {
+        DisableFirefoxAccounts = false;
+        DisableTelemetry = true;
+        DisableFirefoxStudies = true;
 
-    #     Preferences = {
-    #       "identity.sync.tokenserver.uri" = "https://token.services.mozilla.com/1.0/sync/1.5";
-    #       "privacy.donottrackheader.enabled" = true;
-    #       "privacy.fingerprintingProtection" = false;
-    #       "privacy.resistFingerprinting" = false;
-    #       "privacy.trackingprotection.emailtracking.enabled" = true;
-    #       "privacy.trackingprotection.enabled" = true;
-    #       "privacy.trackingprotection.fingerprinting.enabled" = false;
-    #       "privacy.trackingprotection.socialtracking.enabled" = true;
-    #     };
-    #   };
-    # };
+        # Preferences = {
+        #   "identity.sync.tokenserver.uri" = "https://token.services.mozilla.com/1.0/sync/1.5";
+        #   "privacy.donottrackheader.enabled" = true;
+        #   "privacy.fingerprintingProtection" = false;
+        #   "privacy.resistFingerprinting" = false;
+        #   "privacy.trackingprotection.emailtracking.enabled" = true;
+        #   "privacy.trackingprotection.enabled" = true;
+        #   "privacy.trackingprotection.fingerprinting.enabled" = false;
+        #   "privacy.trackingprotection.socialtracking.enabled" = true;
+        # };
+      };
+    };
   };
 
 }

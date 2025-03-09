@@ -720,7 +720,8 @@
         "nix-gaming": "nix-gaming",
         "nixpkgs": "nixpkgs_4",
         "plasma-manager": "plasma-manager",
-        "stylix": "stylix"
+        "stylix": "stylix",
+        "zen-browser": "zen-browser"
       }
     },
     "rust-analyzer-src": {
@@ -940,6 +941,25 @@
         "owner": "numtide",
         "repo": "flake-utils",
         "type": "github"
+      }
+    },
+    "zen-browser": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1741493092,
+        "narHash": "sha256-jShBVqU8K5rN8xtsq2JDgq+KInRw3pDbp8SViMIz5pE=",
+        "rev": "117945c4162d78f2cc7ad578cf44edbbf1ee33fb",
+        "revCount": 139,
+        "type": "tarball",
+        "url": "https://api.flakehub.com/f/pinned/youwen5/zen-browser/0.1.139%2Brev-117945c4162d78f2cc7ad578cf44edbbf1ee33fb/01957914-891e-77aa-af1b-2d9c55299efb/source.tar.gz?rev=117945c4162d78f2cc7ad578cf44edbbf1ee33fb&revCount=139"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://flakehub.com/f/youwen5/zen-browser/%2A"
       }
     }
   },

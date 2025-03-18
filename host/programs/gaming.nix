@@ -28,7 +28,7 @@
             openssl
           ];
       };
-      extraCompatPackages = with pkgs; [ ];
+      extraCompatPackages = with pkgs; [ proton-ge-custom ];
       remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
       dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
     };
@@ -46,23 +46,23 @@
         "--adaptive-sync"
       ];
     };
-    gamemode = {
-      enable = true;
-      enableRenice = true;
-      settings = {
-        general = {
-          renice = 10;
-          reaper_freq = 5;
-          desiredgov = "performance";
-          igpu_desiredgov = "powersave";
-          igpu_power_threshold = 0.3;
-        };
-        custom = {
-          start = "${pkgs.libnotify}/bin/notify-send 'GameMode started'";
-          end = "${pkgs.libnotify}/bin/notify-send 'GameMode ended'";
-        };
-      };
-    };
+    # gamemode = {
+    #   enable = true;
+    #   enableRenice = true;
+    #   settings = {
+    #     general = {
+    #       renice = 10;
+    #       reaper_freq = 5;
+    #       desiredgov = "performance";
+    #       igpu_desiredgov = "powersave";
+    #       igpu_power_threshold = 0.3;
+    #     };
+    #     custom = {
+    #       start = "${pkgs.libnotify}/bin/notify-send 'GameMode started'";
+    #       end = "${pkgs.libnotify}/bin/notify-send 'GameMode ended'";
+    #     };
+    #   };
+    # };
   };
 
 }

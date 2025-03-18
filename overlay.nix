@@ -24,6 +24,6 @@ final: prev: {
   #     hash = "sha256-KDRih95IcYDDOd6QMxqZI33TaCWI3/xOfzczlS1SyVI=";
   #   };
   # });
-  
+
   # alvr = inputs.nixpkgs-alvr.legacyPackages.${system}.alvr;
 }

@@ -26,6 +26,10 @@
       # acceleration = "rocm";
       # rocmOverrideGfx = "11.0.0";
     };
+    ananicy = {
+      enable = true;
+      rulesProvider = pkgs.ananicy-rules-cachyos_git;
+    };
   };
   # security.auditd.enable = true;
 

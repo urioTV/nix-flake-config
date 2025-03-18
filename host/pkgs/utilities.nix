@@ -60,6 +60,7 @@
     syncthingtray-qt6
     cifs-utils
     nss
+    lsof
   ];
 
 }

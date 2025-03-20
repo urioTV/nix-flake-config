@@ -23,6 +23,7 @@
   };
 
   hardware.steam-hardware.enable = true;
+  hardware.xpadneo.enable = true;
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -30,7 +31,7 @@
   # boot.initrd.kernelModules = [ "amdgpu" ];
 
   # Mesa-git
-  # chaotic.mesa-git.enable = true;
+  chaotic.mesa-git.enable = true;
 
   # Disable suspention on lid close
   # services.logind.lidSwitch = "lock";

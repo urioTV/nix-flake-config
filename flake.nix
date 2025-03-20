@@ -33,7 +33,7 @@
 
     # Apps
     zen-browser = {
-      url = "https://flakehub.com/f/youwen5/zen-browser/*";
+      url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

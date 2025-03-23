@@ -36,14 +36,14 @@
       enable = true;
       # capSysNice = true;
       env = {
-        SDL_VIDEODRIVER = "x11";
+        # SDL_VIDEODRIVER = "x11";
       };
       args = [
         "-h 1200"
         "-w 1920"
         "-H 1200"
         "-W 1920"
-        "--adaptive-sync"
+        # "--adaptive-sync"
       ];
     };
     # gamemode = {

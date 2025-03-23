@@ -29,6 +29,13 @@
     ananicy = {
       enable = true;
       rulesProvider = pkgs.ananicy-rules-cachyos_git;
+      extraRules = [
+        # {
+        #   name = "gamescope-wl";
+        #   type = "Game";
+        #   nice = -20;
+        # }
+      ];
     };
   };
   # security.auditd.enable = true;

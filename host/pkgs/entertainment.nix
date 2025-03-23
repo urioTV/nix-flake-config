@@ -20,6 +20,7 @@
     lutris
     openmw
     vkbasalt
+
   ];
 
 }

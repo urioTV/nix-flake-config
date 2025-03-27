@@ -2,6 +2,13 @@
 final: prev: {
   gamescope = inputs.chaotic.packages.${system}.gamescope_git;
 
+  nixpkgs-vmware = import inputs.nixpkgs-vmware {
+    inherit (prev) system;
+    config = {
+      allowUnfree = true;
+    };
+  };
+
   # opencomposite = prev.opencomposite.overrideAttrs (prevAttrs: {
   #   version = "git-2025-01-11";
 

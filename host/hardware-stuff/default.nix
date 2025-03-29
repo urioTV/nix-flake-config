@@ -31,7 +31,7 @@
   # boot.initrd.kernelModules = [ "amdgpu" ];
 
   # Mesa-git
-  chaotic.mesa-git.enable = true;
+  # chaotic.mesa-git.enable = true;
 
   # Disable suspention on lid close
   # services.logind.lidSwitch = "lock";

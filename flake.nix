@@ -8,9 +8,12 @@
     };
 
     lix-module = {
-      # url = "git+https://git.lix.systems/lix-project/nixos-module?ref=stable";
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0-3.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "git+https://git.lix.systems/lix-project/nixos-module?ref=release-2.92";
+      inputs = {
+        # flake-utils.follows = "flake-utils";
+        nixpkgs.follows = "nixpkgs";
+      };
+      # url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0-3.tar.gz";
     };
 
     stylix = {
@@ -79,15 +82,6 @@
               ];
               nixpkgs.config.allowUnfree = true;
               chaotic.nyx.cache.enable = true;
-
-              nixpkgs.config.permittedInsecurePackages = [
-                "aspnetcore-runtime-6.0.36"
-                "aspnetcore-runtime-wrapped-6.0.36"
-                "dotnet-sdk-6.0.428"
-                "dotnet-sdk-wrapped-6.0.428"
-                "dotnet-runtime-6.0.36"
-                "dotnet-runtime-wrapped-6.0.36"
-              ];
             }
             {
               # home-manager.useUserService = true; # Added by patch above ^

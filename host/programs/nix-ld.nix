@@ -12,8 +12,7 @@
       libraries = with pkgs; [
         mono
         dotnet-sdk_8
-        dotnet-sdk_6
-        msbuild
+        # msbuild
         xorg.libxshmfence
         xorg.libxkbfile
         krb5Full

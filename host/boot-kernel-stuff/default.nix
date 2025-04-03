@@ -15,7 +15,7 @@
   # boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelPackages = pkgs.linuxPackages_6_12;
 
-  # boot.kernelParams = [ "amdgpu.dcdebugmask=0x10" ];
+  boot.kernelParams = [ "amdgpu.dcdebugmask=0x10" ];
 
   services.scx = {
     enable = true;

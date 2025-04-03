@@ -13,15 +13,16 @@
         # flake-utils.follows = "flake-utils";
         nixpkgs.follows = "nixpkgs";
       };
-      # url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0-3.tar.gz";
     };
 
     stylix = {
-      # url = "github:danth/stylix/d9df2b4200ba53a0944c3d2c6d242095e523d3d9";
       url = "github:danth/stylix";
     };
 
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    chaotic = {
+      # url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+      url = "https://flakehub.com/f/chaotic-cx/nyx/*.tar.gz";
+    };
     nix-alien.url = "github:thiagokokada/nix-alien";
 
     kwin-effects-forceblur = {
@@ -81,11 +82,9 @@
                 })
               ];
               nixpkgs.config.allowUnfree = true;
-              chaotic.nyx.cache.enable = true;
             }
             {
-              # home-manager.useUserService = true; # Added by patch above ^
-              home-manager.useGlobalPkgs = true;
+              # home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "bkpnix";
               home-manager.extraSpecialArgs = {
@@ -98,6 +97,13 @@
               ];
               home-manager.users.urio = {
                 imports = [ ./home.nix ];
+                nixpkgs.overlays = [
+                  (import ./overlay.nix {
+                    inherit inputs;
+                    inherit system;
+                  })
+                ];
+                nixpkgs.config.allowUnfree = true;
               };
             }
             home-manager.nixosModules.home-manager
@@ -107,19 +113,6 @@
           ];
         };
       };
-      # homeConfigurations = {
-      #   urio = home-manager.lib.homeManagerConfiguration {
-      #     extraSpecialArgs = { inherit inputs; };
-      #     inherit pkgs;
-      #     modules = [
-      #       { nixpkgs.overlays = [ customOverlay ]; }
-      #       ./home.nix
-      #       stylix.homeManagerModules.stylix
-      #       chaotic.homeManagerModules.default
-      #       plasma-manager.homeManagerModules.plasma-manager
-      #     ];
-      #   };
-      # };
     };
 
 }

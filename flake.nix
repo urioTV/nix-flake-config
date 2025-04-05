@@ -101,11 +101,13 @@
                 ./vars.nix
                 chaotic.homeManagerModules.default
                 plasma-manager.homeManagerModules.plasma-manager
+                {
+                  nixpkgs.overlays = [ myOverlay ];
+                  nixpkgs.config.allowUnfree = true;
+                }
               ];
               home-manager.users.urio = {
                 imports = [ ./home.nix ];
-                nixpkgs.overlays = [ myOverlay ];
-                nixpkgs.config.allowUnfree = true;
               };
             }
           ];

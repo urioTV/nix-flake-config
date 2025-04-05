@@ -16,7 +16,8 @@
     };
 
     stylix = {
-      url = "github:danth/stylix";
+      # url = "github:danth/stylix";
+      url = "https://flakehub.com/f/danth/stylix/0.1.*.tar.gz";
     };
 
     chaotic = {
@@ -64,6 +65,9 @@
       lib = nixpkgs.lib;
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
+      myOverlay = import ./overlay.nix {
+        inherit inputs system;
+      };
     in
     {
       nixosConfigurations = {
@@ -77,14 +81,15 @@
             ./vars.nix
             ./nix-settings.nix
             {
-              nixpkgs.overlays = [
-                (import ./overlay.nix {
-                  inherit inputs;
-                  inherit system;
-                })
-              ];
+              nixpkgs.overlays = [ myOverlay ];
               nixpkgs.config.allowUnfree = true;
             }
+            stylix.nixosModules.stylix
+            chaotic.nixosModules.default
+            lix-module.nixosModules.default
+            home-manager.nixosModules.home-manager
+
+            # Home Manager Configuration
             {
               # home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
@@ -99,19 +104,10 @@
               ];
               home-manager.users.urio = {
                 imports = [ ./home.nix ];
-                nixpkgs.overlays = [
-                  (import ./overlay.nix {
-                    inherit inputs;
-                    inherit system;
-                  })
-                ];
+                nixpkgs.overlays = [ myOverlay ];
                 nixpkgs.config.allowUnfree = true;
               };
             }
-            home-manager.nixosModules.home-manager
-            stylix.nixosModules.stylix
-            chaotic.nixosModules.default
-            lix-module.nixosModules.default
           ];
         };
       };

@@ -816,17 +816,16 @@
         "tinted-zed": "tinted-zed"
       },
       "locked": {
-        "lastModified": 1743630094,
-        "narHash": "sha256-irmHQhaHgq6iwHAuexgdqPA4X/254ss00zXPRcc8sZw=",
-        "owner": "danth",
-        "repo": "stylix",
-        "rev": "194a91d0018daaf5bcfcea4702e6800426a82445",
-        "type": "github"
+        "lastModified": 1743877209,
+        "narHash": "sha256-DTSnxnN/OS+5eI17ycTEddiY940zYB15pLJ9TAxvUgU=",
+        "rev": "3a6985718a3cad0fb873c9d465607fe96bcbcf7a",
+        "revCount": 709,
+        "type": "tarball",
+        "url": "https://api.flakehub.com/f/pinned/danth/stylix/0.1.709%2Brev-3a6985718a3cad0fb873c9d465607fe96bcbcf7a/0196072f-4a05-782f-a7de-5f923b79321d/source.tar.gz?rev=3a6985718a3cad0fb873c9d465607fe96bcbcf7a&revCount=709"
       },
       "original": {
-        "owner": "danth",
-        "repo": "stylix",
-        "type": "github"
+        "type": "tarball",
+        "url": "https://flakehub.com/f/danth/stylix/0.1.%2A.tar.gz"
       }
     },
     "systems": {

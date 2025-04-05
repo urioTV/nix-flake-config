@@ -21,6 +21,7 @@
     openmw
     vkbasalt
 
+    galaxy-buds-client
   ];
 
 }

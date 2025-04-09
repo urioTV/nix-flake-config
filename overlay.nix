@@ -11,6 +11,8 @@ final: prev: {
 
   zen-browser = inputs.zen-browser.packages.${system}.default;
 
+  vintagestory = prev.callPackage ./custom-pkgs/vintagestory { };
+
   # opencomposite = prev.opencomposite.overrideAttrs (prevAttrs: {
   #   version = "git-2025-01-11";
 

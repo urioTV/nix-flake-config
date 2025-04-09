@@ -61,6 +61,7 @@
     cifs-utils
     nss
     lsof
+    mission-center
   ];
 
 }

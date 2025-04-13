@@ -31,11 +31,11 @@
       package = pkgs.ananicy-cpp;
       rulesProvider = pkgs.ananicy-rules-cachyos_git;
       extraRules = [
-        # {
-        #   name = "gamescope-wl";
-        #   type = "Game";
-        #   nice = -20;
-        # }
+        {
+          name = "dotnet";
+          type = "Game";
+          nice = -20;
+        }
       ];
     };
   };

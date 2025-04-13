@@ -20,15 +20,6 @@
     lutris
     openmw
     vkbasalt
-    # (pkgs.vintagestory.overrideAttrs (oldAttrs: {
-    #   postFixup =
-    #     (oldAttrs.postFixup or "")
-    #     + ''
-    #       wrapProgram $out/bin/vintagestory \
-    #         --set MESA_LOADER_DRIVER_OVERRIDE zink \
-    #         --set GALLIUM_DRIVER zink
-    #     '';
-    # }))
     vintagestory
 
     galaxy-buds-client

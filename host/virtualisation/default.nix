@@ -9,6 +9,7 @@
   environment.systemPackages = with pkgs; [
     distrobox
     podman-tui
+    podman-compose
   ];
 
   # Qemu KVM and virt-manager

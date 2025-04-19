@@ -93,6 +93,13 @@ stdenv.mkDerivation rec {
       done
     '';
 
+  postFixup = ''
+    # OpenGL threading fix
+    wrapProgram "$out/bin/vintagestory" \
+      --set mesa_glthread true
+  '';
+
+
   meta = with lib; {
     description = "In-development indie sandbox game about innovation and exploration";
     homepage = "https://www.vintagestory.at/";

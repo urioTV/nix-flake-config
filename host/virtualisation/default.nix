@@ -39,7 +39,6 @@
     #   };
     # };
     vmware.host.enable = true;
-    vmware.host.package = pkgs.nixpkgs-vmware.vmware-workstation;
   };
 
   users.users.urio = {

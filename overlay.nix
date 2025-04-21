@@ -2,13 +2,6 @@
 final: prev: {
   gamescope = inputs.chaotic.packages.${system}.gamescope_git;
 
-  nixpkgs-vmware = import inputs.nixpkgs-vmware {
-    inherit (prev) system;
-    config = {
-      allowUnfree = true;
-    };
-  };
-
   zen-browser = inputs.zen-browser.packages.${system}.default;
 
   vintagestory = prev.callPackage ./custom-pkgs/vintagestory { };

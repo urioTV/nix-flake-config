@@ -50,9 +50,18 @@
     pulse.enable = true;
 
     extraConfig.pipewire = {
-      "context.properties" = {
-        "default.clock.rate" = 48000;
-        "default.clock.quantum" = 1024;
+      "10-custom-config" = {
+        "context.properties" = {
+          "default.clock.rate" = 48000;
+          "default.clock.allowed-rates" = [
+            44100
+            48000
+            96000
+          ];
+          "default.clock.quantum" = 512;
+          "default.clock.min-quantum" = 256;
+          "default.clock.max-quantum" = 2048;
+        };
       };
     };
   };

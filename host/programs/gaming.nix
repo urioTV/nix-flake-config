@@ -6,6 +6,21 @@
   ...
 }:
 {
+  environment.systemPackages = with pkgs; [
+    heroic
+    lutris
+    openmw
+    vkbasalt
+    vintagestory
+    shadps4_git
+  ];
+
+  # For Vintage Story
+  nixpkgs.config.permittedInsecurePackages = [
+    "dotnet-runtime-wrapped-7.0.20"
+    "dotnet-runtime-7.0.20"
+  ];
+
   programs = {
     steam = {
       enable = true;

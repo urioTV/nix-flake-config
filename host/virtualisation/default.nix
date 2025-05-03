@@ -12,6 +12,11 @@
     podman-compose
   ];
 
+  environment.sessionVariables = {
+    DBX_CONTAINER_MANAGER = "podman";
+    DBX_CONTAINER_HOME_PREFIX = "/home/urio/distrobox";
+  };
+
   # Qemu KVM and virt-manager
 
   # programs.virt-manager.enable = true;

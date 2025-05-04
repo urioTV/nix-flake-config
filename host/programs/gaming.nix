@@ -13,6 +13,7 @@
     vkbasalt
     vintagestory
     shadps4_git
+    limo
   ];
 
   # For Vintage Story

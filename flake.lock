@@ -576,11 +576,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1743794824,
-        "narHash": "sha256-AUtptO6o1DZH4ypT1M9m/SSH+s8/5CZ49RqHQRtYc1I=",
+        "lastModified": 1746489826,
+        "narHash": "sha256-C900iBo78BnoINywOM1Ej4vwq+KnPcIFk2gHRD4yyjU=",
         "owner": "urioTV",
         "repo": "nix-proton-cachyos",
-        "rev": "dfec035dee37ae26c590ca612dba8b31f4dc537f",
+        "rev": "0b485bf20243aa24060551c5268a994ff925c28a",
         "type": "github"
       },
       "original": {

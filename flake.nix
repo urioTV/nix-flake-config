@@ -2,7 +2,7 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/75268f62525920c4936404a056f37b91e299c97e";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -15,8 +15,8 @@
     };
 
     stylix = {
-      # url = "github:danth/stylix";
-      url = "https://flakehub.com/f/danth/stylix/0.1.*.tar.gz";
+      url = "github:danth/stylix/fe3feecf23f8c71067c47a2cfaca5e86c8723450";
+      # url = "https://flakehub.com/f/danth/stylix/0.1.*.tar.gz";
     };
 
     chaotic = {

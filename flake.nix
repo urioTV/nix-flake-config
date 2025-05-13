@@ -7,7 +7,8 @@
     };
 
     lix-module = {
-      url = "git+https://git.lix.systems/lix-project/nixos-module?ref=release-2.92";
+      # url = "git+https://git.lix.systems/lix-project/nixos-module?ref=release-2.93";
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.0.tar.gz";
       inputs = {
         # flake-utils.follows = "flake-utils";
         nixpkgs.follows = "nixpkgs";

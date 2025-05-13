@@ -6,17 +6,6 @@ final: prev: {
 
   vintagestory = prev.callPackage ./custom-pkgs/vintagestory { };
 
-  limo = prev.limo.overrideAttrs (prevAttrs: {
-    version = "1.2.2";
-
-    src = prev.fetchFromGitHub {
-      owner = "limo-app";
-      repo = "limo";
-      tag = "v1.2.2";
-      hash = "sha256-ZnGDEoZLKlbtAzPKg5dIisvV1pR+Usu6m71zRQBa9ig=";
-    };
-  });
-
   # opencomposite = prev.opencomposite.overrideAttrs (prevAttrs: {
   #   version = "git-2025-01-11";
 

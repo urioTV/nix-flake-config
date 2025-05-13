@@ -22,7 +22,7 @@
     dotnet-sdk
     jetbrains-toolbox
     desktop-file-utils
-    ventoy-full
+    # ventoy-full
     mono
     alacritty
     kubectl

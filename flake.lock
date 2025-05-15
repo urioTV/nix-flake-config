@@ -512,11 +512,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1747015093,
-        "narHash": "sha256-hq4/dMueUdWrBCnXbvqVqzCovVmcZQev3p1Nio4ObAE=",
+        "lastModified": 1747101345,
+        "narHash": "sha256-IjktcMUVCez262VtDAh9U9FCs8Cur+yagZpcJzDwdFY=",
         "owner": "fufexan",
         "repo": "nix-gaming",
-        "rev": "ab0641bcabd2ca144b5489e23ab06454411a7569",
+        "rev": "3b8f27e4a0b894dedc07f398b5ef1a747861fea3",
         "type": "github"
       },
       "original": {
@@ -574,11 +574,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1746489826,
-        "narHash": "sha256-C900iBo78BnoINywOM1Ej4vwq+KnPcIFk2gHRD4yyjU=",
+        "lastModified": 1747204724,
+        "narHash": "sha256-RfK821kqWurai+Qr8UyWLV7ppg6R+zwpMMHF6+udI8Q=",
         "owner": "urioTV",
         "repo": "nix-proton-cachyos",
-        "rev": "0b485bf20243aa24060551c5268a994ff925c28a",
+        "rev": "f14326b5d0850a35274e8317c47e1415ec1d096d",
         "type": "github"
       },
       "original": {

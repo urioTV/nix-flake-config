@@ -45,8 +45,6 @@
     # Gaming
     nix-gaming.url = "github:fufexan/nix-gaming";
 
-    nix-proton-cachyos.url = "github:urioTV/nix-proton-cachyos";
-
   };
 
   outputs =

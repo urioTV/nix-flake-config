@@ -25,7 +25,7 @@
   };
   services = {
     wivrn = {
-      enable = true;
+      enable = false;
       openFirewall = true;
       # defaultRuntime = true;
     };

@@ -9,7 +9,7 @@
   environment.systemPackages = with pkgs; [
     brave
     zen-browser
-    microsoft-edge
+    # microsoft-edge
   ];
 
   environment.etc = {

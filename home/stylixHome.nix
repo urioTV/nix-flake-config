@@ -30,7 +30,7 @@
 
   gtk = {
     gtk2 = {
-      # configLocation = "${config.xdg.configHome}/gtkrc-2.0";
+      force = true;
     };
     enable = true;
 

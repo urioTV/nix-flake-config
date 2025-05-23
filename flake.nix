@@ -46,6 +46,10 @@
 
     # Gaming
     nix-gaming.url = "github:fufexan/nix-gaming";
+    scopebuddy = {
+      url = "github:HikariKnight/ScopeBuddy";
+      flake = false;
+    };
 
   };
 

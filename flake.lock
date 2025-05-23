@@ -701,6 +701,7 @@
         "nix-gaming": "nix-gaming",
         "nixpkgs": "nixpkgs_4",
         "plasma-manager": "plasma-manager",
+        "scopebuddy": "scopebuddy",
         "stylix": "stylix",
         "zen-browser": "zen-browser"
       }
@@ -719,6 +720,22 @@
         "owner": "rust-lang",
         "ref": "nightly",
         "repo": "rust-analyzer",
+        "type": "github"
+      }
+    },
+    "scopebuddy": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1744821742,
+        "narHash": "sha256-wO6RFGhGywVFvOAVNyl8rdQsgubsiwmgLJdOReWrj/c=",
+        "owner": "HikariKnight",
+        "repo": "ScopeBuddy",
+        "rev": "413e9b8e2205d7e1c2eb2a19b437e81b20f2ed5a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "HikariKnight",
+        "repo": "ScopeBuddy",
         "type": "github"
       }
     },

@@ -6,6 +6,47 @@ final: prev: {
 
   vintagestory = prev.callPackage ./custom-pkgs/vintagestory { };
 
+  scopebuddy = prev.stdenv.mkDerivation {
+    pname = "scopebuddy";
+    version = "1.1.1";
+
+    src = inputs.scopebuddy;
+
+    nativeBuildInputs = with prev; [ makeWrapper ];
+
+    buildInputs = with prev; [
+      bash
+      gamescope
+      perl
+      jq
+    ];
+
+    installPhase = ''
+      mkdir -p $out/bin
+      cp bin/scopebuddy $out/bin/scopebuddy
+      chmod +x $out/bin/scopebuddy
+      ln -s $out/bin/scopebuddy $out/bin/scb
+      wrapProgram $out/bin/scopebuddy \
+        --prefix PATH : ${
+          prev.lib.makeBinPath [
+            prev.bash
+            prev.gamescope
+            prev.perl
+            prev.jq
+          ]
+        } \
+        --set SCB_AUTO_RES "1" \
+        --set SCB_AUTO_HDR "1" \
+        --set SCB_AUTO_VRR "1"
+    '';
+
+    meta = {
+      description = "A manager script to make gamescope easier to use on desktop";
+      homepage = "https://github.com/HikariKnight/ScopeBuddy";
+      license = prev.lib.licenses.asl20;
+    };
+  };
+
   # opencomposite = prev.opencomposite.overrideAttrs (prevAttrs: {
   #   version = "git-2025-01-11";
 

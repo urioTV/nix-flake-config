@@ -14,6 +14,7 @@
     vintagestory
     shadps4_git
     limo
+    scopebuddy
   ];
 
   # For Vintage Story

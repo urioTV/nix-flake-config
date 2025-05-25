@@ -9,12 +9,15 @@
   environment.systemPackages = with pkgs; [
     heroic
     lutris
-    openmw
     vkbasalt
     vintagestory
     shadps4_git
     limo
     scopebuddy
+
+    # Morrowind
+    # openmw
+    inputs.openmw-nix.packages.${pkgs.system}.openmw-dev
   ];
 
   # For Vintage Story

@@ -50,6 +50,10 @@
       url = "github:HikariKnight/ScopeBuddy";
       flake = false;
     };
+    openmw-nix = {
+      url = "git+https://codeberg.org/PopeRigby/openmw-nix.git";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
   };
 

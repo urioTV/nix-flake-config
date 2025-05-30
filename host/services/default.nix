@@ -13,14 +13,11 @@
       # nssmdns6 = true;
       openFirewall = true;
     };
-
     fwupd.enable = true;
-
     openssh = {
       enable = true;
       settings.PermitRootLogin = "yes";
     };
-
     ollama = {
       enable = false;
       # acceleration = "rocm";
@@ -39,6 +36,22 @@
       ];
     };
   };
+
+  systemd.services.lact = {
+    description = "AMDGPU Control Daemon";
+    after = [ "multi-user.target" ];
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      ExecStart = "${pkgs.lact}/bin/lact daemon";
+    };
+    enable = true;
+  };
+
+  environment.systemPackages = with pkgs; [
+    lact
+  ];
+
+  boot.kernelParams = [ "amdgpu.ppfeaturemask=0xffffffff" ];
   # security.auditd.enable = true;
 
   programs.system-config-printer.enable = true;

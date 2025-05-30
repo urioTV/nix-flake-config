@@ -15,11 +15,11 @@
     zsh = {
       enable = true;
     };
-    corectrl = {
-      enable = true;
-      gpuOverclock.enable = true;
-      # gpuOverclock.ppfeaturemask = "0xffffffff";
-    };
+    # corectrl = {
+    #   enable = true;
+    #   gpuOverclock.enable = true;
+    #   # gpuOverclock.ppfeaturemask = "0xffffffff";
+    # };
     java = {
       enable = true;
       package = pkgs.corretto21;

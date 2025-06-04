@@ -17,7 +17,7 @@
 
     # Morrowind
     # openmw
-    inputs.openmw-nix.packages.${pkgs.system}.openmw-dev
+    openmw-dev
   ];
 
   # For Vintage Story

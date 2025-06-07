@@ -20,7 +20,7 @@
     btop
     nixfmt-rfc-style
     dotnet-sdk
-    jetbrains-toolbox
+    # jetbrains-toolbox
     desktop-file-utils
     # ventoy-full
     mono

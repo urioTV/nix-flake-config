@@ -46,7 +46,7 @@
     ffmpeg-full
     # handbrake
     obsidian
-    spacedrive
+    # spacedrive
 
     # Nice
     bleachbit

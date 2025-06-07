@@ -11,7 +11,7 @@ If you decide to use this configuration, make sure to replace `hardware-configur
 This flake uses Nix to manage the entire system configuration, including:
 
 *   **Operating System:** NixOS
-*   **Window Manager:** KDE Plasma (host/plasma6/default.nix, home/plasma-manager.nix)
+*   **Window Manager:** KDE Plasma (see `host/plasma6/default.nix`, `home/plasma-manager.nix`)
 *   **Home Manager:** Used to manage user-specific configurations (see `home.nix`)
 *   **Stylix:** Used for theming and styling (see `host/stylix.nix` and `home/stylixHome.nix`). To configure Stylix, see the [Stylix documentation](https://github.com/danth/stylix).
 *   **Chaotic:** Used for additional packages and configurations. See the [Chaotic documentation](https://github.com/chaotic-cx/nyx).

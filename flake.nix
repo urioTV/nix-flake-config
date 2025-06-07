@@ -76,6 +76,10 @@
       myOverlay = import ./overlay.nix {
         inherit inputs system;
       };
+      commonNixpkgsConfig = {
+        nixpkgs.overlays = [ myOverlay ];
+        nixpkgs.config.allowUnfree = true;
+      };
     in
     {
       nixosConfigurations = {
@@ -88,10 +92,7 @@
             ./configuration.nix
             ./vars.nix
             ./nix-settings.nix
-            {
-              nixpkgs.overlays = [ myOverlay ];
-              nixpkgs.config.allowUnfree = true;
-            }
+            commonNixpkgsConfig
             stylix.nixosModules.stylix
             chaotic.nixosModules.default
             lix-module.nixosModules.default
@@ -109,10 +110,7 @@
                 ./vars.nix
                 chaotic.homeManagerModules.default
                 plasma-manager.homeManagerModules.plasma-manager
-                {
-                  nixpkgs.overlays = [ myOverlay ];
-                  nixpkgs.config.allowUnfree = true;
-                }
+                commonNixpkgsConfig
               ];
               home-manager.users.urio = {
                 imports = [ ./home.nix ];

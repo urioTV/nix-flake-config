@@ -21,18 +21,18 @@ final: prev: {
       jq
     ];
 
-    installPhase = ''
+    installPhase = with prev; ''
       mkdir -p $out/bin
       cp bin/scopebuddy $out/bin/scopebuddy
       chmod +x $out/bin/scopebuddy
       ln -s $out/bin/scopebuddy $out/bin/scb
       wrapProgram $out/bin/scopebuddy \
         --prefix PATH : ${
-          prev.lib.makeBinPath [
-            prev.bash
-            prev.gamescope
-            prev.perl
-            prev.jq
+          lib.makeBinPath [
+            bash
+            gamescope
+            perl
+            jq
           ]
         } \
         --set SCB_AUTO_RES "1" \

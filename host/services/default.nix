@@ -35,8 +35,11 @@
         }
       ];
     };
+    open-webui = {
+      enable = false;
+      port = 1111;
+    };
   };
-
   systemd.services.lact = {
     description = "AMDGPU Control Daemon";
     after = [ "multi-user.target" ];
@@ -46,13 +49,10 @@
     };
     enable = true;
   };
-
   environment.systemPackages = with pkgs; [
     lact
   ];
-
   boot.kernelParams = [ "amdgpu.ppfeaturemask=0xffffffff" ];
   # security.auditd.enable = true;
-
   programs.system-config-printer.enable = true;
 }

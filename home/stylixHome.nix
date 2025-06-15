@@ -15,9 +15,9 @@
     targets = {
       gnome.enable = true;
       gtk.enable = true;
-      qt = {
-        enable = false;
-      };
+      # qt = {
+      #   enable = false;
+      # };
       vscode.enable = false;
     };
     cursor = {

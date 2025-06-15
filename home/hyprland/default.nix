@@ -5,52 +5,64 @@
   ...
 }:
 {
+  imports = [ inputs.hyprpanel.homeManagerModules.hyprpanel ];
+
+
   home.packages = with pkgs; [
-    playerctl
-    cava
+    # playerctl
+    # cava
   ];
 
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
-    settings = {
-      source = "${config.home.homeDirectory}/nix-flake-config/dotfiles/hypr/hyprland.conf";
-    };
+    systemd.enable = false;
+    # settings = {
+    #   source = "${config.home.homeDirectory}/nix-flake-config/dotfiles/hypr/hyprland.conf";
+    # };
     # plugins = [
     #   inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
     # ];
   };
 
   home.file = {
-    # ".config/hypr" = {
-    #   source = config.lib.file.mkOutOfStoreSymlink
-    #     "${config.home.homeDirectory}/nix-flake-config/dotfiles/hypr";
+    ".config/hypr" = {
+      source = config.lib.file.mkOutOfStoreSymlink
+        "${config.home.homeDirectory}/nix-flake-config/dotfiles/hypr";
+    };
+    # ".config/waybar" = {
+    #   source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-flake-config/dotfiles/waybar";
     # };
-    ".config/waybar" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-flake-config/dotfiles/waybar";
-    };
-    ".config/wofi" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-flake-config/dotfiles/wofi";
-    };
-    ".config/kitty" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-flake-config/dotfiles/kitty";
-    };
+    # ".config/wofi" = {
+    #   source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-flake-config/dotfiles/wofi";
+    # };
+    # ".config/kitty" = {
+    #   source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-flake-config/dotfiles/kitty";
+    # };
   };
 
   services = {
-    udiskie = {
-      enable = true;
+    # udiskie = {
+    #   enable = true;
 
-    };
-    playerctld = {
+    # };
+    # playerctld = {
+    #   enable = true;
+    # };
+    hyprpolkitagent = {
       enable = true;
     };
   };
 
   programs = {
-    wofi = {
+    hyprpanel = {
       enable = true;
-
+      systemd.enable = true;
+      # hyprland.enable = true;
+    };
+    rofi = {
+      enable = true;
+      package = pkgs.rofi-wayland;
     };
   };
 }

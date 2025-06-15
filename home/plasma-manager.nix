@@ -7,6 +7,8 @@
 {
   home.packages = with pkgs; [ catppuccin-qt5ct ];
 
+  stylix.targets.qt.enable = false;
+
   programs.plasma = {
     enable = true;
 

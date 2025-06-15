@@ -14,6 +14,7 @@
     ./pkgs
     ./services
     ./plasma6
+    # ./hyprland
     ./filesystems
     ./networking
     ./virtualisation

@@ -13,30 +13,30 @@
   boot.kernelPackages = pkgs.linuxPackages_6_12;
 
   # NTSYNC patch
-  boot.kernelPatches = [
-    {
-      name = "ntsync";
-      patch = pkgs.fetchurl {
-        url = "https://raw.githubusercontent.com/CachyOS/kernel-patches/master/6.12/0005-ntsync.patch";
-        sha256 = "sha256-KaSOBV81NYET0kXMNwuFvIuy1pf3R04lNuE3ZjA4oak=";
-      };
-      extraConfig = ''
-        NTSYNC m
-      '';
-    }
-  ];
+  # boot.kernelPatches = [
+  #   {
+  #     name = "ntsync";
+  #     patch = pkgs.fetchurl {
+  #       url = "https://raw.githubusercontent.com/CachyOS/kernel-patches/master/6.12/0005-ntsync.patch";
+  #       sha256 = "sha256-KaSOBV81NYET0kXMNwuFvIuy1pf3R04lNuE3ZjA4oak=";
+  #     };
+  #     extraConfig = ''
+  #       NTSYNC m
+  #     '';
+  #   }
+  # ];
 
-  boot.initrd.kernelModules = [ "ntsync" ];
+  # boot.initrd.kernelModules = [ "ntsync" ];
 
-  users.groups.ntsync = { };
+  # users.groups.ntsync = { };
 
-  services.udev.extraRules = ''
-    KERNEL=="ntsync", GROUP="ntsync", MODE="0664"
-  '';
+  # services.udev.extraRules = ''
+  #   KERNEL=="ntsync", GROUP="ntsync", MODE="0664"
+  # '';
 
-  users.users.urio = {
-    extraGroups = [ "ntsync" ];
-  };
+  # users.users.urio = {
+  #   extraGroups = [ "ntsync" ];
+  # };
 
   boot.kernelParams = [ "amdgpu.dcdebugmask=0x10" ];
 

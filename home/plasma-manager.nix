@@ -17,28 +17,28 @@
       wallpaper = config.vars.wallpaper;
     };
     fonts = {
-      general = {
-        family = "Hack Nerd Font";
-        pointSize = 12;
-      };
-      fixedWidth = {
-        family = "Hack Nerd Font";
-        pointSize = 12;
-      };
-      small = {
-        family = "Hack Nerd Font";
-        pointSize = 10;
-      };
-      toolbar = {
-        family = "Hack Nerd Font";
-        pointSize = 10;
-      };
-      menu = {
-        family = "Hack Nerd Font";
-        pointSize = 10;
-      };
+      # general = {
+      #   family = "Hack Nerd Font";
+      #   pointSize = 12;
+      # };
+      # fixedWidth = {
+      #   family = "Hack Nerd Font";
+      #   pointSize = 12;
+      # };
+      # small = {
+      #   family = "Hack Nerd Font";
+      #   pointSize = 10;
+      # };
+      # toolbar = {
+      #   family = "Hack Nerd Font";
+      #   pointSize = 10;
+      # };
+      # menu = {
+      #   family = "Hack Nerd Font";
+      #   pointSize = 10;
+      # };
       windowTitle = {
-        family = "Hack Nerd Font";
+        family = "SFCompactDisplay Nerd Font";
         pointSize = 10;
       };
     };
@@ -55,6 +55,7 @@
           idleTimeout = 14400;
           idleTimeoutWhenLocked = 14400;
         };
+        powerProfile = "performance";
         whenLaptopLidClosed = "sleep";
         whenSleepingEnter = "standbyThenHibernate";
         powerButtonAction = "showLogoutScreen";

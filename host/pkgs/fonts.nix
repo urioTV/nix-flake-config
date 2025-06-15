@@ -14,7 +14,6 @@
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
     noto-fonts-emoji
-    jetbrains-mono
     font-awesome
     ubuntu_font_family
     baekmuk-ttf
@@ -23,10 +22,15 @@
     open-sans
     nerd-fonts.hack
     nerd-fonts.noto
-    nerd-fonts.ubuntu
-    nerd-fonts.ubuntu-mono
     nerd-fonts.open-dyslexic
-    nerd-fonts.agave
+    inputs.apple-fonts.packages.${pkgs.system}.sf-pro-nerd
+    inputs.apple-fonts.packages.${pkgs.system}.sf-compact-nerd
+    inputs.apple-fonts.packages.${pkgs.system}.sf-mono-nerd
+    inputs.apple-fonts.packages.${pkgs.system}.sf-arabic-nerd
+    inputs.apple-fonts.packages.${pkgs.system}.sf-armenian-nerd
+    inputs.apple-fonts.packages.${pkgs.system}.sf-georgian-nerd
+    inputs.apple-fonts.packages.${pkgs.system}.sf-hebrew-nerd
+    inputs.apple-fonts.packages.${pkgs.system}.ny-nerd
   ];
 
   fonts.fontDir.enable = true;

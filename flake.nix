@@ -18,9 +18,11 @@
 
     stylix = {
       # url = "github:danth/stylix/fe3feecf23f8c71067c47a2cfaca5e86c8723450";
-      url = "github:danth/stylix";
+      # url = "github:danth/stylix";
+      url = "github:nix-community/stylix";
       # url = "https://flakehub.com/f/danth/stylix/0.1.*.tar.gz";
     };
+    apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
 
     chaotic = {
       url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
@@ -63,6 +65,7 @@
       nixpkgs,
       home-manager,
       stylix,
+      apple-fonts,
       chaotic,
       nix-alien,
       plasma-manager,

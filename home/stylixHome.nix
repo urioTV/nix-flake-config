@@ -2,33 +2,64 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }:
 {
-  stylix.enable = true;
-  stylix.autoEnable = true;
-  stylix.image = config.vars.wallpaper;
-  stylix.base16Scheme = config.vars.base16Scheme;
-  stylix.targets.gnome.enable = true;
-  stylix.targets.gtk.enable = true;
-  stylix.targets.qt = {
-    enable = false;
+  stylix = {
+    enable = true;
+    autoEnable = true;
+    image = config.vars.wallpaper;
+    base16Scheme = config.vars.base16Scheme;
+    polarity = "dark";
+    targets = {
+      gnome.enable = true;
+      gtk.enable = true;
+      qt = {
+        enable = false;
+      };
+      vscode.enable = false;
+    };
+    cursor = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Classic";
+      size = 20;
+    };
+    fonts = {
+      serif = {
+        package = inputs.apple-fonts.packages.${pkgs.system}.sf-pro-nerd;
+        # name = "SFProDisplay Nerd Font";
+        name = "SFProText Nerd Font";
+      };
+
+      sansSerif = {
+        package = inputs.apple-fonts.packages.${pkgs.system}.sf-pro-nerd;
+        name = "SFProText Nerd Font";
+        # name = "SFProDisplay Nerd Font";
+      };
+
+      monospace = {
+        package = inputs.apple-fonts.packages.${pkgs.system}.sf-mono-nerd;
+        name = "SFMono Nerd Font";
+      };
+
+      emoji = {
+        package = pkgs.noto-fonts-emoji;
+        name = "Noto Color Emoji";
+      };
+    };
   };
-  qt.enable = false;
-  stylix.polarity = "dark";
-  stylix.targets.vscode.enable = false;
-  stylix.cursor.package = pkgs.bibata-cursors;
-  stylix.cursor.name = "Bibata-Modern-Classic";
-  stylix.cursor.size = 20;
-
-  gtk.cursorTheme.package = pkgs.bibata-cursors;
-  gtk.cursorTheme.name = "Bibata-Modern-Classic";
-  gtk.cursorTheme.size = 20;
-
-  gtk.iconTheme.package = pkgs.papirus-icon-theme;
-  gtk.iconTheme.name = "Papirus";
 
   gtk = {
+    cursorTheme = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Classic";
+      size = 20;
+    };
+    iconTheme = {
+      package = pkgs.papirus-icon-theme;
+      name = "Papirus";
+    };
     gtk2 = {
       force = true;
     };
@@ -44,8 +75,10 @@
     };
   };
 
-  xdg.systemDirs.data = [
-    "${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}"
-    "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}"
-  ];
+  xdg = {
+    systemDirs.data = [
+      "${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}"
+      "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}"
+    ];
+  };
 }

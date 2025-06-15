@@ -18,28 +18,28 @@
     };
     fonts = {
       # general = {
-      #   family = "Hack Nerd Font";
-      #   pointSize = 12;
+      #   family = "SFProText Nerd Font";
+      #   pointSize = 13;
       # };
       # fixedWidth = {
-      #   family = "Hack Nerd Font";
-      #   pointSize = 12;
+      #   family = "SFProText Nerd Font";
+      #   pointSize = 13;
       # };
       # small = {
-      #   family = "Hack Nerd Font";
-      #   pointSize = 10;
+      #   family = "SFProText Nerd Font";
+      #   pointSize = 11;
       # };
       # toolbar = {
-      #   family = "Hack Nerd Font";
-      #   pointSize = 10;
+      #   family = "SFProText Nerd Font";
+      #   pointSize = 11;
       # };
       # menu = {
-      #   family = "Hack Nerd Font";
-      #   pointSize = 10;
+      #   family = "SFProText Nerd Font";
+      #   pointSize = 11;
       # };
       windowTitle = {
         family = "SFCompactDisplay Nerd Font";
-        pointSize = 10;
+        pointSize = 11;
       };
     };
     powerdevil = {

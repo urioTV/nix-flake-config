@@ -7,7 +7,6 @@
 {
   imports = [ inputs.hyprpanel.homeManagerModules.hyprpanel ];
 
-
   home.packages = with pkgs; [
     # playerctl
     # cava
@@ -17,29 +16,21 @@
     enable = true;
     xwayland.enable = true;
     systemd.enable = false;
-    # settings = {
-    #   source = "${config.home.homeDirectory}/nix-flake-config/dotfiles/hypr/hyprland.conf";
-    # };
+    settings = {
+      source = "${config.home.homeDirectory}/nix-flake-config/dotfiles/hypr/hyprland.conf";
+    };
     # plugins = [
     #   inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
     # ];
   };
 
   home.file = {
-    ".config/hypr" = {
-      source = config.lib.file.mkOutOfStoreSymlink
-        "${config.home.homeDirectory}/nix-flake-config/dotfiles/hypr";
-    };
-    # ".config/waybar" = {
-    #   source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-flake-config/dotfiles/waybar";
-    # };
-    # ".config/wofi" = {
-    #   source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-flake-config/dotfiles/wofi";
-    # };
-    # ".config/kitty" = {
-    #   source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-flake-config/dotfiles/kitty";
+    # ".config/hypr" = {
+    #   source = config.lib.file.mkOutOfStoreSymlink "/home/urio/nix-flake-config/dotfiles/hypr";
     # };
   };
+
+  
 
   services = {
     # udiskie = {
@@ -49,17 +40,26 @@
     # playerctld = {
     #   enable = true;
     # };
-    hyprpolkitagent = {
-      enable = true;
+    # hyprpolkitagent = {
+    #   enable = true;
+    # };
+  };
+
+  systemd.user.services.polkit-kde-agent = {
+    Unit = {
+      Description = "KDE Polkit Agent";
+      Wants = [ "graphical-session.target" ];
+      After = [ "graphical-session.target" ];
+    };
+    Service = {
+      ExecStart = "${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1";
+    };
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
     };
   };
 
   programs = {
-    hyprpanel = {
-      enable = true;
-      systemd.enable = true;
-      # hyprland.enable = true;
-    };
     rofi = {
       enable = true;
       package = pkgs.rofi-wayland;

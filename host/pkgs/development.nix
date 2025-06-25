@@ -27,6 +27,7 @@
     alacritty
     kubectl
     kubernetes-helm
+    lmstudio
 
   ];
 

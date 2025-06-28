@@ -14,13 +14,58 @@
     # driSupport = true;
     # driSupport32Bit = true;
     extraPackages = with pkgs; [
-      rocmPackages.clr.icd
       vulkan-loader
       vulkan-validation-layers
       vulkan-extension-layer
       libva
+
+      # ROCm packages
+      rocmPackages.clr.icd
+      rocmPackages.rocblas
+      rocmPackages.hipblas
+      rocmPackages.clr
+      rocmPackages.rocm-runtime
+      rocmPackages.rocm-device-libs
+      rocmPackages.rocm-comgr
+      rocmPackages.rpp
     ];
   };
+  # Symlink dla aplikacji wymagających /opt/rocm
+  systemd.tmpfiles.rules =
+    let
+      rocmEnv = pkgs.symlinkJoin {
+        name = "rocm-combined";
+        paths = with pkgs.rocmPackages; [
+          rocblas
+          hipblas
+          clr
+          clr.icd
+          rocm-runtime
+          rocm-device-libs
+          rocm-comgr
+          rpp
+        ];
+      };
+    in
+    [
+      "L+ /opt/rocm - - - - ${rocmEnv}"
+    ];
+
+  # Zmienne środowiskowe
+  environment.variables = {
+    ROCM_PATH = "/opt/rocm";
+    LD_LIBRARY_PATH = "/opt/rocm/lib";
+    HSA_OVERRIDE_GFX_VERSION = "11.0.0"; # Dla kart RX serii 7000 (RDNA 3)
+  };
+
+  environment.systemPackages = with pkgs; [
+    clinfo
+    rocmPackages.rocminfo
+    amdgpu_top
+  ];
+
+  hardware.amdgpu.opencl.enable = true;
+  nixpkgs.config.rocmSupport = true;
 
   hardware.steam-hardware.enable = true;
   hardware.xpadneo.enable = true;

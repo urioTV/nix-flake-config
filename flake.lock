@@ -116,6 +116,39 @@
         "type": "github"
       }
     },
+    "eso-hub-client-flake": {
+      "inputs": {
+        "eso-hub-client-jar": "eso-hub-client-jar",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1750864758,
+        "narHash": "sha256-Z3ArMZ9f95aEaTZEBCYX3iTMnRZsAzc37ajcZUAZ3ok=",
+        "owner": "urioTV",
+        "repo": "eso-hub-client-nix",
+        "rev": "5d71f19b73e4d7db2ebbf3fbcaa132e84f3adaf2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "urioTV",
+        "repo": "eso-hub-client-nix",
+        "type": "github"
+      }
+    },
+    "eso-hub-client-jar": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-GHbvRqry19AnF0T4yrsHeS0V4ufw5zc9vfof3KMr3zA=",
+        "type": "file",
+        "url": "https://data.eso-hub.com/client/download/linux"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://data.eso-hub.com/client/download/linux"
+      }
+    },
     "fenix": {
       "inputs": {
         "nixpkgs": [
@@ -841,6 +874,7 @@
       "inputs": {
         "apple-fonts": "apple-fonts",
         "chaotic": "chaotic",
+        "eso-hub-client-flake": "eso-hub-client-flake",
         "home-manager": "home-manager_2",
         "kwin-effects-forceblur": "kwin-effects-forceblur",
         "lix-module": "lix-module",

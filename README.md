@@ -43,7 +43,7 @@ To use this configuration:
 1.  Clone the repository:
 
     ```bash
-    git clone https://github.com/your-username/nix-flake-config.git
+    git clone https://github.com/urioTV/nix-flake-config.git
     cd nix-flake-config
     ```
 

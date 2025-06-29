@@ -8,7 +8,7 @@ final: prev: {
 
   scopebuddy = prev.stdenv.mkDerivation {
     pname = "scopebuddy";
-    version = "1.1.1";
+    version = "unstable-${inputs.scopebuddy.shortRev or "dirty"}";
 
     src = inputs.scopebuddy;
 

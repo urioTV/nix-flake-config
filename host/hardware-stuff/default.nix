@@ -30,7 +30,7 @@
       rocmPackages.rpp
     ];
   };
-  # Symlink dla aplikacji wymagających /opt/rocm
+  # Symlink for applications requiring /opt/rocm
   systemd.tmpfiles.rules =
     let
       rocmEnv = pkgs.symlinkJoin {
@@ -51,11 +51,11 @@
       "L+ /opt/rocm - - - - ${rocmEnv}"
     ];
 
-  # Zmienne środowiskowe
+  # Environment variables
   environment.variables = {
     ROCM_PATH = "/opt/rocm";
     LD_LIBRARY_PATH = "/opt/rocm/lib";
-    HSA_OVERRIDE_GFX_VERSION = "11.0.0"; # Dla kart RX serii 7000 (RDNA 3)
+    HSA_OVERRIDE_GFX_VERSION = "11.0.0"; # For RX 7000 series cards (RDNA 3)
   };
 
   environment.systemPackages = with pkgs; [
@@ -73,12 +73,12 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.videoDrivers = [ "amdgpu" ];
-  # boot.initrd.kernelModules = [ "amdgpu" ];
+  boot.initrd.kernelModules = [ "amdgpu" ];
 
   # Mesa-git
   # chaotic.mesa-git.enable = true;
 
-  # Disable suspention on lid close
+  # Disable suspension on lid close
   # services.logind.lidSwitch = "lock";
 
   # Enables support for Bluetooth

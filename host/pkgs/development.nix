@@ -28,6 +28,7 @@
     kubectl
     kubernetes-helm
     lmstudio
+    gemini-cli
 
   ];
 

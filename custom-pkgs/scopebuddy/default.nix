@@ -1,4 +1,13 @@
-{ stdenv, lib, makeWrapper, bash, gamescope, perl, jq, inputs }:
+{
+  stdenv,
+  lib,
+  makeWrapper,
+  bash,
+  gamescope,
+  perl,
+  jq,
+  inputs,
+}:
 
 stdenv.mkDerivation {
   pname = "scopebuddy";

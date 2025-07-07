@@ -6,45 +6,8 @@ final: prev: {
 
   vintagestory = prev.callPackage ./custom-pkgs/vintagestory { };
 
-  scopebuddy = prev.stdenv.mkDerivation {
-    pname = "scopebuddy";
-    version = "unstable-${inputs.scopebuddy.shortRev or "dirty"}";
-
-    src = inputs.scopebuddy;
-
-    nativeBuildInputs = with prev; [ makeWrapper ];
-
-    buildInputs = with prev; [
-      bash
-      gamescope
-      perl
-      jq
-    ];
-
-    installPhase = with prev; ''
-      mkdir -p $out/bin
-      cp bin/scopebuddy $out/bin/scopebuddy
-      chmod +x $out/bin/scopebuddy
-      ln -s $out/bin/scopebuddy $out/bin/scb
-      wrapProgram $out/bin/scopebuddy \
-        --prefix PATH : ${
-          lib.makeBinPath [
-            bash
-            gamescope
-            perl
-            jq
-          ]
-        } \
-        --set SCB_AUTO_RES "1" \
-        --set SCB_AUTO_HDR "1" \
-        --set SCB_AUTO_VRR "1"
-    '';
-
-    meta = {
-      description = "A manager script to make gamescope easier to use on desktop";
-      homepage = "https://github.com/HikariKnight/ScopeBuddy";
-      license = prev.lib.licenses.asl20;
-    };
+  scopebuddy = prev.callPackage ./custom-pkgs/scopebuddy {
+    inherit inputs;
   };
 
   openmw-dev = inputs.openmw-nix.packages.${system}.openmw-dev.overrideAttrs (oldAttrs: {

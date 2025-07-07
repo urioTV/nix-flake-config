@@ -29,6 +29,7 @@
     kubernetes-helm
     lmstudio
     gemini-cli
+    zed-editor-fhs
 
   ];
 

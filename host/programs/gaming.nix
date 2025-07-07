@@ -14,7 +14,6 @@
     shadps4_git
     limo
     scopebuddy
-    inputs.eso-hub-client-flake.packages.${pkgs.system}.default
 
     # Morrowind
     # openmw

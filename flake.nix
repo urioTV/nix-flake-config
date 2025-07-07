@@ -57,10 +57,6 @@
       url = "git+https://codeberg.org/PopeRigby/openmw-nix.git";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    eso-hub-client-flake = {
-      url = "github:urioTV/eso-hub-client-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
   };
 

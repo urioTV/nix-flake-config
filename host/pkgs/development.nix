@@ -19,6 +19,8 @@
     micro
     btop
     nixfmt-rfc-style
+    nil
+    nixd
     dotnet-sdk
     # jetbrains-toolbox
     desktop-file-utils
@@ -29,7 +31,7 @@
     kubernetes-helm
     lmstudio
     gemini-cli
-    zed-editor-fhs
+    zed-editor
 
   ];
 

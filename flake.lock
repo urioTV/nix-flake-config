@@ -124,7 +124,7 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-Cjh9iOKDTJzutNB1Ai8fFWG9qhsF1vQoqNvn6OPd6xo=",
+        "narHash": "sha256-hHhgIpMgoeu/nG5nQd9piQNNuEbc0vdwRaANi7/sgmo=",
         "path": "./flakes/custom-packages",
         "type": "path"
       },

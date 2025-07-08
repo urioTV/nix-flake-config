@@ -21,12 +21,20 @@
     flake-utils.lib.eachDefaultSystem (
       system:
       let
-        pkgs = nixpkgs.legacyPackages.${system};
+        pkgs = import nixpkgs {
+          inherit system;
+          config = {
+            allowUnfree = true;
+            permittedInsecurePackages = [
+              "dotnet-runtime-7.0.20"
+              "dotnet-runtime-wrapped-7.0.20"
+            ];
+          };
+        };
 
         # Package definitions
         packages = {
           scopebuddy = pkgs.callPackage ./scopebuddy {
-            inherit inputs;
             inputs = inputs // {
               inherit scopebuddy;
             };
@@ -53,7 +61,6 @@
       # Export overlay for all systems
       overlays.default = final: prev: {
         scopebuddy = prev.callPackage ./scopebuddy {
-          inherit inputs;
           inputs = inputs // {
             scopebuddy = inputs.scopebuddy;
           };

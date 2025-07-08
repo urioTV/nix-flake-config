@@ -61,7 +61,86 @@ To use this configuration:
 
 ## Custom Packages
 
-This configuration includes a few custom Nix packages, located in the `custom-pkgs/` directory. These packages are defined using Nix expressions and can be built using the `nix build` command.
+This configuration includes custom Nix packages, organized as separate flakes in the `flakes/` directory. These packages are defined using Nix expressions and can be built using the `nix build` command.
+
+### Using Internal Flakes Externally
+
+You can use the internal flakes (like `custom-packages` or `apple-fonts`) in other projects without importing the entire configuration. Use the `dir` parameter in the git URL:
+
+#### Custom Packages Flake
+
+```nix
+{
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    custom-packages = {
+      url = "github:urioTV/nix-flake-config?dir=flakes/custom-packages";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+
+  outputs = { nixpkgs, custom-packages, ... }: {
+    nixosConfigurations.mySystem = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        {
+          nixpkgs.overlays = [
+            custom-packages.overlays.default
+          ];
+
+          environment.systemPackages = with pkgs; [
+            scopebuddy
+            vintagestory
+          ];
+        }
+      ];
+    };
+  };
+}
+```
+
+#### Apple Fonts Flake
+
+```nix
+{
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    apple-fonts.url = "github:urioTV/nix-flake-config?dir=flakes/apple-fonts";
+  };
+
+  outputs = { nixpkgs, apple-fonts, ... }: {
+    nixosConfigurations.mySystem = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        {
+          fonts.packages = [
+            apple-fonts.packages.x86_64-linux.sf-pro-nerd
+            apple-fonts.packages.x86_64-linux.sf-mono-nerd
+          ];
+        }
+      ];
+    };
+  };
+}
+```
+
+#### Available Internal Flakes
+
+- **custom-packages**: `?dir=flakes/custom-packages` - Custom packages (scopebuddy, vintagestory)
+- **apple-fonts**: `?dir=flakes/apple-fonts` - Apple fonts with Nerd Font patches
+
+#### Direct Package Usage
+
+You can also use packages directly without overlays:
+
+```bash
+# Build packages directly
+nix build github:urioTV/nix-flake-config?dir=flakes/custom-packages#scopebuddy
+nix build github:urioTV/nix-flake-config?dir=flakes/apple-fonts#sf-pro-nerd
+
+# Run packages directly
+nix run github:urioTV/nix-flake-config?dir=flakes/custom-packages#scopebuddy
+```
 
 ## Home Manager
 

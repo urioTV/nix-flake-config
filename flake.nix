@@ -20,7 +20,7 @@
       url = "github:nix-community/stylix";
     };
     apple-fonts = {
-      url = "path:./flakes/apple-fonts";
+      url = "git+file:.?dir=flakes/apple-fonts";
       # inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -54,7 +54,7 @@
 
     # Custom packages
     custom-packages = {
-      url = "path:./flakes/custom-packages";
+      url = "git+file:.?dir=flakes/custom-packages";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

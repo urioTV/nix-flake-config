@@ -18,6 +18,18 @@
       scopebuddy,
       ...
     }@inputs:
+    let
+      # Package definitions function - used by both packages and overlay
+      makePackages = pkgs: {
+        scopebuddy = pkgs.callPackage ./scopebuddy {
+          inputs = inputs // {
+            inherit scopebuddy;
+          };
+        };
+
+        vintagestory = pkgs.callPackage ./vintagestory { };
+      };
+    in
     flake-utils.lib.eachDefaultSystem (
       system:
       let
@@ -33,25 +45,11 @@
         };
 
         # Package definitions
-        packages = {
-          scopebuddy = pkgs.callPackage ./scopebuddy {
-            inputs = inputs // {
-              inherit scopebuddy;
-            };
-          };
-
-          vintagestory = pkgs.callPackage ./vintagestory { };
-        };
-
-        # Overlay definition
-        overlay = final: prev: packages;
+        packages = makePackages pkgs;
 
       in
       {
         inherit packages;
-
-        # Export the overlay
-        overlays.default = overlay;
 
         # Default package
         defaultPackage = packages.scopebuddy;
@@ -59,14 +57,6 @@
     )
     // {
       # Export overlay for all systems
-      overlays.default = final: prev: {
-        scopebuddy = prev.callPackage ./scopebuddy {
-          inputs = inputs // {
-            scopebuddy = inputs.scopebuddy;
-          };
-        };
-
-        vintagestory = prev.callPackage ./vintagestory { };
-      };
+      overlays.default = final: prev: makePackages prev;
     };
 }

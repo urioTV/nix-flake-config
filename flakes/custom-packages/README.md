@@ -87,16 +87,25 @@ To add a new custom package:
 
 1. Create a new directory under `flakes/custom-packages/`
 2. Add a `default.nix` file with the package definition
-3. Update the `packages` attribute in `flake.nix`
-4. Update the overlay to include the new package
-5. Run `nix flake lock` to update the lock file
+3. Update the `makePackages` function in `flake.nix` to include your package
+4. Run `nix flake lock` to update the lock file
 
 Example structure:
 ```
 flakes/custom-packages/
 ├── my-new-package/
 │   └── default.nix
-└── flake.nix              # Add package here
+└── flake.nix              # Add to makePackages function
+```
+
+The flake uses a single `makePackages` function that defines all packages. This function is used by both the `packages` output and the overlay, eliminating duplication. Simply add your package to this function:
+
+```nix
+makePackages = pkgs: {
+  scopebuddy = pkgs.callPackage ./scopebuddy { ... };
+  vintagestory = pkgs.callPackage ./vintagestory { };
+  my-new-package = pkgs.callPackage ./my-new-package { };  # Add here
+};
 ```
 
 ## Dependencies

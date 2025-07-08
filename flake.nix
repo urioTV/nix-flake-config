@@ -52,12 +52,14 @@
 
     # Gaming
     nix-gaming.url = "github:fufexan/nix-gaming";
-    scopebuddy = {
-      url = "github:HikariKnight/ScopeBuddy";
-      flake = false;
-    };
     openmw-nix = {
       url = "git+https://codeberg.org/PopeRigby/openmw-nix.git";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Custom packages
+    custom-packages = {
+      url = "path:./flakes/custom-packages";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -74,6 +76,7 @@
       nix-alien,
       plasma-manager,
       lix-module,
+      custom-packages,
       ...
     }@inputs:
     let
@@ -86,6 +89,7 @@
       commonNixpkgsConfig = {
         nixpkgs.overlays = [
           myOverlay
+          custom-packages.overlays.default
         ];
         nixpkgs.config.allowUnfree = true;
       };

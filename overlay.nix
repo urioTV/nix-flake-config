@@ -4,12 +4,6 @@ final: prev: {
 
   zen-browser = inputs.zen-browser.packages.${system}.default;
 
-  vintagestory = prev.callPackage ./custom-pkgs/vintagestory { };
-
-  scopebuddy = prev.callPackage ./custom-pkgs/scopebuddy {
-    inherit inputs;
-  };
-
   openmw-dev = inputs.openmw-nix.packages.${system}.openmw-dev.overrideAttrs (oldAttrs: {
     nativeBuildInputs = (oldAttrs.nativeBuildInputs or [ ]) ++ [ final.makeWrapper ];
 

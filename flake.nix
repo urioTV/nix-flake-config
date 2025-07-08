@@ -9,8 +9,8 @@
     };
 
     lix-module = {
-      # url = "git+https://git.lix.systems/lix-project/nixos-module?ref=release-2.93";
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.0.tar.gz";
+      url = "git+https://git.lix.systems/lix-project/nixos-module?ref=release-2.93";
+      # url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.0.tar.gz";
       inputs = {
         # flake-utils.follows = "flake-utils";
         nixpkgs.follows = "nixpkgs";
@@ -23,7 +23,10 @@
       url = "github:nix-community/stylix";
       # url = "https://flakehub.com/f/danth/stylix/0.1.*.tar.gz";
     };
-    apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
+    apple-fonts = {
+      url = "path:./flakes/apple-fonts";
+      # inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     chaotic = {
       url = "github:chaotic-cx/nyx/nyxpkgs-unstable";

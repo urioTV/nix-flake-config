@@ -1,7 +1,6 @@
 { inputs, system }:
 final: prev: {
   # gamescope = inputs.chaotic.packages.${system}.gamescope_git;
-  # zed-editor = inputs.chaotic.packages.${system}.zed-editor_git;
 
   zen-browser = inputs.zen-browser.packages.${system}.default;
 

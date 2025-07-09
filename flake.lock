@@ -14,18 +14,14 @@
         "sf-pro": "sf-pro"
       },
       "locked": {
-        "dir": "flakes/apple-fonts",
-        "dirtyRev": "d0d480763fa3d33a4d3615bcd897eae8fa478ff3-dirty",
-        "dirtyShortRev": "d0d4807-dirty",
-        "lastModified": 1751982610,
-        "narHash": "sha256-xl4e1L6WGKqRwy5f0YWlxOVLrkuL8+4MSwFP/YJMAFA=",
-        "type": "git",
-        "url": "file:."
+        "lastModified": 1,
+        "narHash": "sha256-sXi6XBAYft8VS/R2i8lgHmBcJRn8P04jqz6MfajsYGk=",
+        "path": "./flakes/apple-fonts",
+        "type": "path"
       },
       "original": {
-        "dir": "flakes/apple-fonts",
-        "type": "git",
-        "url": "file:."
+        "path": "./flakes/apple-fonts",
+        "type": "path"
       }
     },
     "base16": {
@@ -127,18 +123,14 @@
         "scopebuddy": "scopebuddy"
       },
       "locked": {
-        "dir": "flakes/custom-packages",
-        "dirtyRev": "d0d480763fa3d33a4d3615bcd897eae8fa478ff3-dirty",
-        "dirtyShortRev": "d0d4807-dirty",
-        "lastModified": 1751982610,
-        "narHash": "sha256-xl4e1L6WGKqRwy5f0YWlxOVLrkuL8+4MSwFP/YJMAFA=",
-        "type": "git",
-        "url": "file:."
+        "lastModified": 1,
+        "narHash": "sha256-hHhgIpMgoeu/nG5nQd9piQNNuEbc0vdwRaANi7/sgmo=",
+        "path": "./flakes/custom-packages",
+        "type": "path"
       },
       "original": {
-        "dir": "flakes/custom-packages",
-        "type": "git",
-        "url": "file:."
+        "path": "./flakes/custom-packages",
+        "type": "path"
       }
     },
     "fenix": {

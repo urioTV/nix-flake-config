@@ -50,12 +50,12 @@
 
     # Custom local flakes
     custom-packages = {
-      url = "git+file:.?dir=flakes/custom-packages";
+      url = "path:./flakes/custom-packages";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     apple-fonts = {
-      url = "git+file:.?dir=flakes/apple-fonts";
+      url = "path:./flakes/apple-fonts";
       # inputs.nixpkgs.follows = "nixpkgs";
     };
 

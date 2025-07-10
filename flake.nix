@@ -35,10 +35,20 @@
       inputs.home-manager.follows = "home-manager";
     };
 
+    apple-fonts = {
+      url = "github:Lyndeno/apple-fonts.nix";
+      # inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Apps
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    scopebuddy = {
+      url = "github:HikariKnight/ScopeBuddy";
+      flake = false;
     };
 
     # Gaming
@@ -46,17 +56,6 @@
     openmw-nix = {
       url = "git+https://codeberg.org/PopeRigby/openmw-nix.git";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # Custom local flakes
-    custom-packages = {
-      url = "path:./flakes/custom-packages";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    apple-fonts = {
-      url = "path:./flakes/apple-fonts";
-      # inputs.nixpkgs.follows = "nixpkgs";
     };
 
   };
@@ -72,21 +71,22 @@
       nix-alien,
       plasma-manager,
       lix-module,
-      custom-packages,
       ...
     }@inputs:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-      myOverlay = import ./overlay.nix {
-        inherit inputs system;
-      };
+      myOverlays = [
+        (import ./overlay.nix {
+          inherit inputs system;
+        })
+        (import ./custom-pkgs/overlay.nix {
+          inherit inputs system;
+        })
+      ];
       commonNixpkgsConfig = {
-        nixpkgs.overlays = [
-          myOverlay
-          custom-packages.overlays.default
-        ];
+        nixpkgs.overlays = myOverlays;
         nixpkgs.config.allowUnfree = true;
       };
     in

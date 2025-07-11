@@ -1,0 +1,13 @@
+diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_mes.c b/drivers/gpu/drm/amd/amdgpu/amdgpu_mes.c
+index 5590ad5e8cd7..ce9654ee7743 100644
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_mes.c
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_mes.c
+@@ -1678,6 +1678,8 @@ static int amdgpu_mes_set_enforce_isolation(struct amdgpu_device *adev,
+ 	struct mes_misc_op_input op_input = {0};
+ 	int r;
+ 
++	return 0;
++
+ 	op_input.op = MES_MISC_OP_CHANGE_CONFIG;
+ 	op_input.change_config.option.limit_single_process = enable ? 1 : 0;
+ 

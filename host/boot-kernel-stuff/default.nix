@@ -11,17 +11,17 @@
   # boot.kernelPackages = pkgs.linuxPackages_zen;
   # boot.kernelPackages = pkgs.linuxPackages_cachyos-lto;
   # boot.kernelPackages = pkgs.linuxPackages_cachyos;
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelPackages = pkgs.linuxPackages_6_12;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.kernelPackages = pkgs.linuxPackages_6_12;
   # boot.kernelPackages = inputs.nixpkgs-old.legacyPackages."x86_64-linux".linuxPackages_6_13;
 
   # Zastosuj patch do kernela
-  # boot.kernelPatches = [
-  #   {
-  #     name = "rx7900m-revert";
-  #     patch = ./rx7900m-revert.patch;
-  #   }
-  # ];
+  boot.kernelPatches = [
+    {
+      name = "issue4414test";
+      patch = ./issue4414test.patch;
+    }
+  ];
 
   # NTSYNC patch
   # boot.kernelPatches = [

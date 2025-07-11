@@ -593,6 +593,21 @@
         "type": "github"
       }
     },
+    "nixpkgs-old": {
+      "locked": {
+        "lastModified": 1744300210,
+        "narHash": "sha256-AZJ06ggwaNMOAZxM4ExqWf3J/CkBr2PfaMJgNB1+fKQ=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "f09feeca221c0d7eabb00b7dbcc989eafea61122",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "rev": "f09feeca221c0d7eabb00b7dbcc989eafea61122",
+        "type": "indirect"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1751984180,
@@ -765,6 +780,7 @@
         "nix-alien": "nix-alien",
         "nix-gaming": "nix-gaming",
         "nixpkgs": "nixpkgs_5",
+        "nixpkgs-old": "nixpkgs-old",
         "openmw-nix": "openmw-nix",
         "plasma-manager": "plasma-manager",
         "scopebuddy": "scopebuddy",

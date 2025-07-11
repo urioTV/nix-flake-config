@@ -12,6 +12,19 @@
     ./host
   ];
 
+  # services.journald = {
+  #   storage = "persistent";
+  #   extraConfig = ''
+  #     SystemMaxUse=2G
+  #     MaxRetentionSec=7day
+  #     ForwardToConsole=yes
+  #     MaxLevelConsole=debug
+  #     # Zapisuj wszystkie poziomy logowania
+  #     MaxLevelStore=debug
+  #     MaxLevelSyslog=debug
+  #   '';
+  # };
+
   # Set your time zone.
   time.timeZone = "Europe/Warsaw";
 

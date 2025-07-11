@@ -38,7 +38,9 @@
   #   extraGroups = [ "ntsync" ];
   # };
 
-  boot.kernelParams = [ "amdgpu.dcdebugmask=0x10" ];
+  boot.kernelParams = [
+    "amdgpu.dcdebugmask=0x10"
+  ];
 
   services.scx = {
     enable = true;

@@ -37,7 +37,7 @@
   #   }
   # ];
 
-  # boot.initrd.kernelModules = [ "ntsync" ];
+  boot.initrd.kernelModules = [ "ntsync" ];
 
   # users.groups.ntsync = { };
 

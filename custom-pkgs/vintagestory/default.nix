@@ -21,11 +21,11 @@
 
 stdenv.mkDerivation rec {
   pname = "vintagestory";
-  version = "1.20.10";
+  version = "1.20.12";
 
   src = fetchurl {
     url = "https://cdn.vintagestory.at/gamefiles/stable/vs_client_linux-x64_${version}.tar.gz";
-    hash = "sha256-AMXnq6fy1AtwmdhuuEawlWIyS4kq10HkgxnqgArqWR4=";
+    hash = "sha256-h6YXEZoVVV9IuKkgtK9Z3NTvJogVNHmXdAcKxwfvqcE=";
   };
 
   nativeBuildInputs = [
@@ -98,7 +98,6 @@ stdenv.mkDerivation rec {
     wrapProgram "$out/bin/vintagestory" \
       --set mesa_glthread true
   '';
-
 
   meta = with lib; {
     description = "In-development indie sandbox game about innovation and exploration";

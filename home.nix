@@ -37,8 +37,7 @@
 
   home.file = {
     ".config/zed" = {
-      # source = config.lib.file.mkOutOfStoreSymlink "/home/urio/nix-flake-config/dotfiles/zed";
-      source = ./dotfiles/zed;
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-flake-config/dotfiles/zed";
     };
   };
 

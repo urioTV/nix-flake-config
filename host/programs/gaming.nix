@@ -46,6 +46,7 @@
             keyutils
             curl
             openssl
+            xdg-utils
           ];
       };
       extraCompatPackages = with pkgs; [

@@ -62,6 +62,7 @@
     clinfo
     rocmPackages.rocminfo
     amdgpu_top
+    lsfg-vk
   ];
 
   hardware.amdgpu.opencl.enable = true;

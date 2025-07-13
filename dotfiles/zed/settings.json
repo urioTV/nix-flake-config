@@ -1,0 +1,65 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "context_servers": {
+    "mcp-server-context7": {
+      "source": "extension",
+      "enabled": true,
+      "settings": {}
+    }
+  },
+  "languages": {
+    "Nix": {
+      "language_servers": ["nixd", "!nil"]
+    }
+  },
+  "lsp": {
+    "nixd": {
+      "settings": {
+        "nixd": {
+          "nixpkgs": {
+            "expr": "import <nixpkgs> { }"
+          },
+          "formatting": {
+            "command": ["nixfmt"]
+          }
+        }
+      }
+    }
+  },
+  "agent": {
+    "inline_assistant_model": {
+      "provider": "openrouter",
+      "model": "google/gemini-2.0-flash-001"
+    },
+    "model_parameters": [],
+    "default_model": {
+      "provider": "openrouter",
+      "model": "google/gemini-2.5-pro"
+    },
+    "commit_message_model": {
+      "provider": "mistral",
+      "model": "devstral-small-latest"
+    },
+    "version": "2"
+  },
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
+  "icon_theme": "Material Icon Theme",
+  "ui_font_size": 16,
+  "buffer_font_size": 13,
+  "buffer_font_family": "SFMono Nerd Font",
+  "ui_font_family": "SFProText Nerd Font",
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "Catppuccin Mocha"
+  }
+}

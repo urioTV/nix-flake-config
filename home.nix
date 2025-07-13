@@ -35,6 +35,13 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
 
+  home.file = {
+    ".config/zed" = {
+      # source = config.lib.file.mkOutOfStoreSymlink "/home/urio/nix-flake-config/dotfiles/zed";
+      source = ./dotfiles/zed;
+    };
+  };
+
   # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {
     # EDITOR = "emacs";

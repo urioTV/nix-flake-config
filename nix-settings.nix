@@ -2,6 +2,7 @@
   pkgs,
   config,
   lib,
+  inputs,
   ...
 }:
 
@@ -28,6 +29,7 @@
       "urio"
     ];
   };
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
   nix.gc = {
     automatic = true;

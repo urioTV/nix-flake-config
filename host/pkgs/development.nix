@@ -19,7 +19,7 @@
     micro
     btop
     nixfmt-rfc-style
-    nil
+    # nil
     nixd
     dotnet-sdk
     # jetbrains-toolbox

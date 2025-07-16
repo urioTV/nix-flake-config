@@ -35,10 +35,7 @@
         }
       ];
     };
-    open-webui = {
-      enable = false;
-      port = 1111;
-    };
+    lsfg-vk.enable = true;
   };
   systemd.services.lact = {
     description = "AMDGPU Control Daemon";

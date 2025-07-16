@@ -58,6 +58,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    lsfg-vk-flake = {
+      url = "github:pabloaul/lsfg-vk-flake/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs =
@@ -71,6 +76,7 @@
       nix-alien,
       plasma-manager,
       lix-module,
+      lsfg-vk-flake,
       ...
     }@inputs:
     let
@@ -106,6 +112,7 @@
             chaotic.nixosModules.default
             lix-module.nixosModules.default
             home-manager.nixosModules.home-manager
+            lsfg-vk-flake.nixosModules.default
 
             # Home Manager Configuration
             {

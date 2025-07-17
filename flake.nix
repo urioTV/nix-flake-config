@@ -1,15 +1,16 @@
 {
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
-
+    # nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "nixpkgs/master";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     lix-module = {
-      url = "git+https://git.lix.systems/lix-project/nixos-module?ref=release-2.93";
-      # url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.0.tar.gz";
+      # url = "git+https://git.lix.systems/lix-project/nixos-module?ref=release-2.93";
+      # url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.2-1.tar.gz";
+      url = "git+https://git.lix.systems/lix-project/nixos-module?ref=main";
       inputs = {
         # flake-utils.follows = "flake-utils";
         nixpkgs.follows = "nixpkgs";

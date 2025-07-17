@@ -47,13 +47,12 @@
     "model_parameters": [],
     "default_model": {
       "provider": "openrouter",
-      "model": "moonshotai/kimi-k2"
+      "model": "mistralai/devstral-small"
     },
     "commit_message_model": {
-      "provider": "mistral",
-      "model": "devstral-small-latest"
-    },
-    "version": "2"
+      "provider": "openrouter",
+      "model": "mistralai/devstral-small"
+    }
   },
   "features": {
     "edit_prediction_provider": "zed"

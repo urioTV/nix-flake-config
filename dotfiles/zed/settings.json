@@ -47,7 +47,7 @@
     "model_parameters": [],
     "default_model": {
       "provider": "openrouter",
-      "model": "mistralai/devstral-small"
+      "model": "moonshotai/kimi-k2"
     },
     "commit_message_model": {
       "provider": "openrouter",

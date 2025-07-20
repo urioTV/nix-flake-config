@@ -14,6 +14,7 @@
     shadps4_git
     limo
     scopebuddy
+    protonplus
 
     # Morrowind
     # openmw

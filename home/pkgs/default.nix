@@ -7,7 +7,6 @@
 }:
 {
   home.packages = with pkgs; [
-    protonup-qt
 
     protonvpn-gui
     #vscode

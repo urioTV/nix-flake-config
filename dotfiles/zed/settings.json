@@ -47,7 +47,7 @@
     "model_parameters": [],
     "default_model": {
       "provider": "openrouter",
-      "model": "moonshotai/kimi-k2"
+      "model": "google/gemini-2.5-pro"
     },
     "commit_message_model": {
       "provider": "openrouter",

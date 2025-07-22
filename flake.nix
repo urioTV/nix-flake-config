@@ -54,6 +54,7 @@
 
     # Gaming
     nix-gaming.url = "github:fufexan/nix-gaming";
+
     openmw-nix = {
       url = "git+https://codeberg.org/PopeRigby/openmw-nix.git";
       inputs.nixpkgs.follows = "nixpkgs";

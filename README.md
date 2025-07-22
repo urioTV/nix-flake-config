@@ -11,7 +11,7 @@ If you decide to use this configuration, make sure to replace `hardware-configur
 This flake uses Nix to manage the entire system configuration, including:
 
 - **Operating System:** NixOS
-- **Window Managers:** 
+- **Window Managers:**
     - **KDE Plasma:** The default window manager (see `host/plasma6/default.nix`, `home/plasma-manager.nix`).
     - **Hyprland:** An optional, tiling window manager (see `host/hyprland/` and `home/hyprland/`).
 - **Home Manager:** Used to manage user-specific configurations (see `home.nix`).
@@ -82,3 +82,31 @@ Home Manager is used to manage user-specific configurations, such as dotfiles, s
 
 The `host/` directory contains NixOS host configurations. These configurations define system-wide settings, such as hardware configuration, networking, and services. The main file is `host/default.nix`, which imports other modules from the same directory.
 
+## Additional Features
+
+### Theming and Styling
+
+- **Stylix** is used for theming and styling (see `host/stylix.nix` and `home/stylixHome.nix`).
+- **Base16 Schemes** are available in `media/base16Schemes/` for consistent color schemes across applications.
+- **Apple Fonts** are included via the `apple-fonts` flake input.
+
+### Gaming
+
+- **Gamescope** is configured for better gaming performance (see `host/programs/gaming.nix`).
+- **Steam** is configured with custom compatibility packages (see `host/programs/gaming.nix`).
+- **Custom gaming packages** like `scopebuddy` and `vintagestory` are defined in `custom-pkgs/`.
+
+### Development
+
+- **Zed Editor** is configured with custom settings (see `dotfiles/zed/`).
+- **Development tools** like `dotnet-sdk`, `nixd`, and `nixfmt-rfc-style` are included (see `host/pkgs/development.nix`).
+
+### Virtualization
+
+- **Podman** is configured for container management (see `host/virtualisation/default.nix`).
+- **Qemu KVM** and **virt-manager** are available for virtualization (see `host/virtualisation/default.nix`).
+
+### VR Gaming
+
+- **ALVR** and **Envision** are configured for VR gaming (see `host/vr-gaming/default.nix`).
+- **OpenComposite** and **Wivrn** are available for VR compatibility (see `host/vr-gaming/default.nix`).

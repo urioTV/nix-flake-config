@@ -23,3 +23,7 @@ Thumbs.db
 
 # Direnv
 .direnv/
+
+# Zed
+dotfiles/zed/*
+!dotfiles/zed/settings.json

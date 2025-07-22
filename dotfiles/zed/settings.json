@@ -42,16 +42,16 @@
   "agent": {
     "inline_assistant_model": {
       "provider": "openrouter",
-      "model": "google/gemini-2.0-flash-001"
+      "model": "mistralai/devstral-medium"
     },
     "model_parameters": [],
     "default_model": {
       "provider": "openrouter",
-      "model": "google/gemini-2.5-pro"
+      "model": "mistralai/devstral-medium"
     },
     "commit_message_model": {
       "provider": "openrouter",
-      "model": "mistralai/devstral-small"
+      "model": "mistralai/devstral-medium"
     }
   },
   "features": {

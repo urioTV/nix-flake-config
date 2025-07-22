@@ -4,20 +4,20 @@ final: prev: {
 
   zen-browser = inputs.zen-browser.packages.${system}.default;
 
+  zed-editor = inputs.chaotic.packages.${system}.zed-editor_git;
+
   openmw-dev = inputs.openmw-nix.packages.${system}.openmw-dev.overrideAttrs (oldAttrs: {
     nativeBuildInputs = (oldAttrs.nativeBuildInputs or [ ]) ++ [ final.makeWrapper ];
 
-    postFixup =
-      (oldAttrs.postFixup or "")
-      + ''
-        echo "Applying mesa_glthread=true to all executables"
-        for bin in $out/bin/*; do
-          if [ -f "$bin" ] && [ -x "$bin" ]; then
-            wrapProgram "$bin" \
-              --set mesa_glthread true
-          fi
-        done
-      '';
+    postFixup = (oldAttrs.postFixup or "") + ''
+      echo "Applying mesa_glthread=true to all executables"
+      for bin in $out/bin/*; do
+        if [ -f "$bin" ] && [ -x "$bin" ]; then
+          wrapProgram "$bin" \
+            --set mesa_glthread true
+        fi
+      done
+    '';
   });
 
   # opencomposite = prev.opencomposite.overrideAttrs (prevAttrs: {

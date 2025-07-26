@@ -71,30 +71,19 @@
               48000
               96000
             ];
-            "default.clock.quantum" = 512;
-            "default.clock.min-quantum" = 256;
+            "default.clock.quantum" = 1024;
+            "default.clock.min-quantum" = 1024;
             "default.clock.max-quantum" = 2048;
           };
         };
       };
-      pipewire-pulse.conf.d = {
-        "92-low-latency" = {
-          context.modules = [
-            {
-              name = "libpipewire-module-protocol-pulse";
-              args = {
-                pulse.min.req = "256/48000";
-                pulse.default.req = "256/48000";
-                pulse.max.req = "256/48000";
-                pulse.min.quantum = "256/48000";
-                pulse.max.quantum = "256/48000";
-              };
-            }
-          ];
-          stream.properties = {
-            # Można dodatkowo obniżyć resample.quality = 1
-            node.latency = "256/48000";
-          };
+      "pipewire-pulse"."99-custom-quantum" = {
+        "pulse.properties" = {
+          "pulse.min.req" = "1024/48000";
+          "pulse.min.frag" = "1024/48000";
+          "pulse.min.quantum" = "1024/48000";
+          "pulse.max.quantum" = "2048/48000";
+          "pulse.default.quantum" = "1024/48000";
         };
       };
     };

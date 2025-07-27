@@ -35,7 +35,10 @@
         }
       ];
     };
-    lsfg-vk.enable = true;
+    lsfg-vk = {
+      enable = true;
+      ui.enable = true;
+    };
   };
   systemd.services.lact = {
     description = "AMDGPU Control Daemon";

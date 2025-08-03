@@ -21,6 +21,10 @@
       name = "issue4414test";
       patch = ./issue4414test.patch;
     }
+    {
+      name = "print_mes_fw_version";
+      patch = ./print_mes_fw_version.patch;
+    }
   ];
 
   # NTSYNC patch

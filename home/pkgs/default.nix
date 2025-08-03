@@ -10,13 +10,13 @@
 
     protonvpn-gui
     #vscode
-    (vscode.overrideAttrs (oldAttrs: {
-      postFixup =
-        oldAttrs.postFixup or ""
-        + ''
-          wrapProgram $out/bin/code \
-             --add-flags --ozone-platform=x11
-        '';
-    }))
+    # (vscode.overrideAttrs (oldAttrs: {
+    #   postFixup =
+    #     oldAttrs.postFixup or ""
+    #     + ''
+    #       wrapProgram $out/bin/code \
+    #          --add-flags --ozone-platform=x11
+    #     '';
+    # }))
   ];
 }

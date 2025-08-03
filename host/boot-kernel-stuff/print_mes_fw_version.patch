@@ -1,0 +1,14 @@
+diff --git a/drivers/gpu/drm/amd/amdgpu/mes_v11_0.c b/drivers/gpu/drm/amd/amdgpu/mes_v11_0.c
+index 28eb846280dd4..2530b91310327 100644
+--- a/drivers/gpu/drm/amd/amdgpu/mes_v11_0.c
++++ b/drivers/gpu/drm/amd/amdgpu/mes_v11_0.c
+@@ -906,6 +906,9 @@ static void mes_v11_0_get_fw_version(struct amdgpu_device *adev)
+ 
+ 	soc21_grbm_select(adev, 0, 0, 0, 0);
+ 	mutex_unlock(&adev->srbm_mutex);
++
++	printk("mes sched version: 0x%08x\n", adev->mes.sched_version);
++	printk("mes kiq version: 0x%08x\n", adev->mes.kiq_version);
+ }
+ 
+ static void mes_v11_0_enable(struct amdgpu_device *adev, bool enable)

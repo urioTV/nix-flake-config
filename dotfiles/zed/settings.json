@@ -48,7 +48,7 @@
     "model_parameters": [],
     "default_model": {
       "provider": "openrouter",
-      "model": "z-ai/glm-4.5"
+      "model": "qwen/qwen3-coder"
     },
     "commit_message_model": {
       "provider": "openrouter",

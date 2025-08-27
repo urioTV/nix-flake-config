@@ -16,4 +16,6 @@
   stylix.cursor.size = 20;
   stylix.polarity = "dark";
 
+  qt.platformTheme = lib.mkForce "kde";
+
 }

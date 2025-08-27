@@ -17,9 +17,13 @@
 
   # Zastosuj patch do kernela
   boot.kernelPatches = [
+    # {
+    #   name = "issue4414test";
+    #   patch = ./issue4414test.patch;
+    # }
     {
-      name = "issue4414test";
-      patch = ./issue4414test.patch;
+      name = "issue4414_no_error_single_process";
+      patch = ./issue4414_no_error_single_process.patch;
     }
     {
       name = "print_mes_fw_version";

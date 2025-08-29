@@ -15,6 +15,8 @@
     limo
     scopebuddy
     protonplus
+    lsfg-vk
+    lsfg-vk-ui
 
     # Morrowind
     # openmw

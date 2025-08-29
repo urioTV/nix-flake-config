@@ -119,6 +119,7 @@
       "video"
       "gamemode"
       "docker"
+      "render"
     ];
     packages = with pkgs; [
       #  firefox

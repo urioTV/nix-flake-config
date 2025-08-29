@@ -43,7 +43,7 @@
     "default_profile": "write",
     "inline_assistant_model": {
       "provider": "openrouter",
-      "model": "mistralai/devstral-medium"
+      "model": "qwen/qwen3-coder"
     },
     "model_parameters": [],
     "default_model": {
@@ -52,7 +52,7 @@
     },
     "commit_message_model": {
       "provider": "openrouter",
-      "model": "mistralai/devstral-medium"
+      "model": "qwen/qwen3-coder"
     }
   },
   "features": {

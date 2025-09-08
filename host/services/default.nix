@@ -18,6 +18,9 @@
       enable = true;
       settings.PermitRootLogin = "yes";
     };
+    # syncthing = {
+    #   enable = true;
+    # };
     # ollama = {
     #   enable = true;
     #   acceleration = "rocm";

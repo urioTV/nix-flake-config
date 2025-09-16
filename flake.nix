@@ -7,22 +7,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    lix = {
-      url = "git+https://git.lix.systems/lix-project/lix?ref=release-2.93";
-      flake = false;
-    };
-
-    lix-module = {
-      url = "git+https://git.lix.systems/lix-project/nixos-module?ref=release-2.93";
-      # url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.3-1.tar.gz";
-      # url = "git+https://git.lix.systems/lix-project/nixos-module?ref=main";
-      inputs = {
-        # flake-utils.follows = "flake-utils";
-        nixpkgs.follows = "nixpkgs";
-        lix.follows = "lix";
-      };
-    };
-
     stylix = {
       url = "github:nix-community/stylix";
     };
@@ -78,7 +62,6 @@
       chaotic,
       nix-alien,
       plasma-manager,
-      lix-module,
       ...
     }@inputs:
     let
@@ -112,7 +95,6 @@
             commonNixpkgsConfig
             stylix.nixosModules.stylix
             chaotic.nixosModules.default
-            lix-module.nixosModules.default
             home-manager.nixosModules.home-manager
 
             # Home Manager Configuration

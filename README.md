@@ -11,9 +11,8 @@ If you decide to use this configuration, make sure to replace `hardware-configur
 This flake uses Nix to manage the entire system configuration, including:
 
 - **Operating System:** NixOS
-- **Window Managers:**
+- **Window Manager:**
     - **KDE Plasma:** The default window manager (see `host/plasma6/default.nix`, `home/plasma-manager.nix`).
-    - **Hyprland:** An optional, tiling window manager (see `host/hyprland/` and `home/hyprland/`).
 - **Home Manager:** Used to manage user-specific configurations (see `home.nix`).
 - **Stylix:** Used for theming and styling (see `host/stylix.nix` and `home/stylixHome.nix`).
 - **Chaotic-Nyx:** An unofficial binary cache for a large collection of Nix packages, which can significantly speed up installations and system updates. It provides bleeding-edge packages, including `-git` versions, similar to the Chaotic-AUR project for Arch Linux.
@@ -33,7 +32,7 @@ The repository is structured as follows:
 - **`overlay.nix`:** Nix package overlay for custom packages and overrides.
 - **`vars.nix`:** Variables used in the configuration.
 - **`custom-pkgs/`:** Contains custom Nix package definitions.
-- **`dotfiles/`:** Contains dotfiles for various applications, such as Hyprland and Zed.
+- **`dotfiles/`:** Contains dotfiles for various applications, such as Zed.
 - **`home/`:** Contains Home Manager configurations.
 - **`host/`:** Contains NixOS host configurations.
 - **`media/`:** Contains media files, such as images and color schemes.
@@ -61,12 +60,9 @@ To use this configuration:
     sudo nixos-rebuild switch --flake .#konrad-m18
     ```
 
-## Window Managers
+## Window Manager
 
-This configuration supports both KDE Plasma and Hyprland.
-
-- **KDE Plasma** is enabled by default.
-- **To enable Hyprland**, uncomment the `./hyprland` line in `host/default.nix` and `home/default.nix`. You may also want to disable KDE Plasma by commenting out the `./plasma6` and `./plasma-manager.nix` lines in the same files.
+This configuration uses **KDE Plasma** as the default window manager.
 
 ## Custom Packages
 

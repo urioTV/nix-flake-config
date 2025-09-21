@@ -8,7 +8,6 @@
 {
   imports = [
     # Include the results of the hardware scan.
-    # ./hyprland
     ./stylixHome.nix
     ./plasma-manager.nix
     ./pkgs

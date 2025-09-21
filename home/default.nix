@@ -13,6 +13,5 @@
     ./pkgs
     ./programs
     ./services
-    ./vr-config.nix
   ];
 }

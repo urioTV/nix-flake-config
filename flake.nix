@@ -36,7 +36,6 @@
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     scopebuddy = {
       url = "github:HikariKnight/ScopeBuddy";
       flake = false;
@@ -44,7 +43,6 @@
 
     # Gaming
     nix-gaming.url = "github:fufexan/nix-gaming";
-
     openmw-nix = {
       url = "git+https://codeberg.org/PopeRigby/openmw-nix.git";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -108,7 +106,7 @@
               home-manager.sharedModules = [
                 ./vars.nix
                 chaotic.homeManagerModules.default
-                plasma-manager.homeManagerModules.plasma-manager
+                plasma-manager.homeModules.plasma-manager
                 commonNixpkgsConfig
               ];
               home-manager.users.urio = {

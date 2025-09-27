@@ -18,11 +18,6 @@
       enable = true;
       settings.PermitRootLogin = "yes";
     };
-    # ollama = {
-    #   enable = true;
-    #   acceleration = "rocm";
-    #   # rocmOverrideGfx = "11.0.0";
-    # };
     ananicy = {
       enable = true;
       package = pkgs.ananicy-cpp;

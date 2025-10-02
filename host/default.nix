@@ -18,5 +18,6 @@
     ./filesystems
     ./networking
     ./virtualisation
+    ./gaming            # Gaming modules
   ];
 }

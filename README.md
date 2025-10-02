@@ -17,6 +17,7 @@ This flake uses Nix to manage the entire system configuration, including:
 - **Chaotic-Nyx:** An unofficial binary cache for a large collection of Nix packages, which can significantly speed up installations and system updates. It provides bleeding-edge packages, including `-git` versions, similar to the Chaotic-AUR project for Arch Linux
 - **Custom Packages:** A collection of custom Nix packages (see `custom-pkgs/`)
 - **Dotfiles:** Manages dotfiles for various applications (see `dotfiles/`)
+- **Gaming:** Comprehensive gaming setup with modular configuration (see `host/gaming/`)
 
 ## Flake Inputs
 
@@ -50,7 +51,40 @@ The repository is structured as follows:
 - **`dotfiles/`:** Contains dotfiles for various applications
 - **`home/`:** Contains Home Manager configurations
 - **`host/`:** Contains NixOS host configurations
+  - **`gaming/`:** Modular gaming configuration (hardware, programs, audio)
 - **`media/`:** Contains media files, such as images and color schemes
+
+## Gaming Configuration
+
+This configuration includes a comprehensive, modular gaming setup organized in `host/gaming/`:
+
+```
+host/gaming/
+├── default.nix              # Main gaming module
+├── hardware/
+│   ├── default.nix         # Gaming hardware (Steam hardware, xpadneo)
+│   └── udev-rules.nix      # Gaming device udev rules
+├── programs/
+│   ├── default.nix         # Gaming programs module
+│   ├── steam.nix           # Steam with Proton-GE configuration
+│   ├── launchers.nix       # Heroic, Lutris game launchers
+│   ├── tools.nix           # Gaming tools (vkbasalt, protonplus, etc.)
+│   ├── games.nix           # Specific games (Vintage Story, OpenMW)
+│   └── gamescope.nix       # Gamescope and GameMode configuration
+└── audio/
+    ├── default.nix         # Audio module
+    └── pipewire-gaming.nix # Gaming-specific PipeWire rules (Warframe)
+```
+
+### Gaming Features
+
+- **Steam:** Full Steam configuration with Proton-GE compatibility layer
+- **Game Launchers:** Heroic Games Launcher for Epic Games, Lutris for various platforms
+- **Gaming Tools:** VkBasalt for visual enhancements, Protonplus for Proton management
+- **Hardware Support:** Xbox controller support via xpadneo, Steam hardware integration
+- **Audio Optimization:** Specialized PipeWire configuration for games like Warframe
+- **Gamescope:** Wayland compositor for improved gaming performance
+- **Custom Games:** Vintage Story, OpenMW (Morrowind), PlayStation 4 emulation
 
 ## Usage
 
@@ -75,6 +109,17 @@ To use this configuration:
     sudo nixos-rebuild switch --flake .#konrad-m18
     ```
 
+### Disabling Gaming
+
+To disable the entire gaming setup, simply comment out the gaming import in `host/default.nix`:
+
+```nix
+imports = [
+  # ... other imports ...
+  # ./gaming  # Comment this line to disable gaming
+];
+```
+
 ## Window Manager
 
 This configuration uses **KDE Plasma** as the desktop environment.
@@ -93,6 +138,20 @@ Home Manager is used to manage user-specific configurations, such as dotfiles, s
 
 The `host/` directory contains NixOS host configurations. These configurations define system-wide settings, such as hardware configuration, networking, and services. The main file is `host/default.nix`, which imports other modules from the same directory.
 
+### Host Modules
+
+- **`ai/`:** AI and LLM-related configurations
+- **`boot-kernel-stuff/`:** Boot and kernel configurations
+- **`filesystems/`:** Filesystem configurations
+- **`gaming/`:** Comprehensive gaming setup (Steam, launchers, tools)
+- **`hardware-stuff/`:** Hardware-specific configurations
+- **`networking/`:** Network configurations
+- **`pkgs/`:** System packages organized by category
+- **`plasma6/`:** KDE Plasma 6 configurations
+- **`programs/`:** System programs and applications
+- **`services/`:** System services
+- **`virtualisation/`:** Container and virtualization setup
+
 ## Additional Features
 
 ### Theming and Styling
@@ -100,12 +159,6 @@ The `host/` directory contains NixOS host configurations. These configurations d
 - **Stylix** is used for theming and styling (see `host/stylix.nix` and `home/stylixHome.nix`)
 - **Base16 Schemes** are available in `media/base16Schemes/` for consistent color schemes across applications
 - **Apple Fonts** are included via the `apple-fonts` flake input
-
-### Gaming
-
-- **Steam** and **Gamescope** are configured for gaming (see `host/programs/gaming.nix`)
-- **Nix-gaming** provides additional gaming optimizations and packages
-- **Custom gaming packages** like `scopebuddy` and `vintagestory` are defined in `custom-pkgs/`
 
 ### Development
 
@@ -117,7 +170,8 @@ The `host/` directory contains NixOS host configurations. These configurations d
 - **Podman** is configured for container management (see `host/virtualisation/default.nix`)
 - **Qemu KVM** and **virt-manager** are available for virtualization (see `host/virtualisation/default.nix`)
 
-### VR Gaming
+### Audio
 
-- **VR packages** are configured for VR gaming (see `host/vr-gaming/default.nix`)
-- **VR-related tools** are available for VR compatibility (see `host/vr-gaming/default.nix`)
+- **PipeWire** with custom configurations for optimal audio performance
+- **Gaming-specific audio rules** for applications like Warframe
+- **Professional audio support** with low-latency configurations

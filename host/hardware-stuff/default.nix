@@ -23,8 +23,9 @@
 
   hardware.amdgpu.opencl.enable = true;
 
-  hardware.steam-hardware.enable = true;
-  hardware.xpadneo.enable = true;
+  # Gaming hardware configurations moved to host/gaming/hardware/
+  # hardware.steam-hardware.enable = true;
+  # hardware.xpadneo.enable = true;
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;

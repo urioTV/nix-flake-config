@@ -8,7 +8,6 @@
 {
   imports = [
     ./nix-ld.nix
-    ./gaming.nix
     ./browsers.nix
   ];
   programs = {

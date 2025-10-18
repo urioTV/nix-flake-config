@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "nixpkgs/nixos-24.05";
     # nixpkgs.url = "nixpkgs/master";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -45,7 +46,7 @@
     nix-gaming.url = "github:fufexan/nix-gaming";
     openmw-nix = {
       url = "git+https://codeberg.org/PopeRigby/openmw-nix.git";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 
   };

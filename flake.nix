@@ -1,8 +1,8 @@
 {
   inputs = {
-    # nixpkgs.url = "nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "nixpkgs/nixos-24.05";
-    nixpkgs.url = "nixpkgs/95d8e5f411dc2fcc7f73a72766aaabfab1a1c456";
+    nixpkgs.url = "nixpkgs/nixos-unstable";
+    # nixpkgs-stable.url = "nixpkgs/nixos-24.05";
+    # nixpkgs.url = "nixpkgs/95d8e5f411dc2fcc7f73a72766aaabfab1a1c456";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -46,7 +46,7 @@
     nix-gaming.url = "github:fufexan/nix-gaming";
     openmw-nix = {
       url = "git+https://codeberg.org/PopeRigby/openmw-nix.git";
-      inputs.nixpkgs.follows = "nixpkgs-stable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
   };

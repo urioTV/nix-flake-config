@@ -10,10 +10,10 @@
     # Specific games
     vintagestory
     shadps4_git
-    
+
     # Morrowind
     # openmw
-    openmw-dev
+    # openmw-dev
   ];
 
   # For Vintage Story

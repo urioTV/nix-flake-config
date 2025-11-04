@@ -41,4 +41,8 @@
     kdePackages.kaccounts-integration
     kdePackages.kmail-account-wizard
   ];
+
+  environment.sessionVariables = {
+    KWIN_USE_OVERLAYS = "1";
+  };
 }

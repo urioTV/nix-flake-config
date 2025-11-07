@@ -8,14 +8,14 @@
   programs = {
     nix-ld = {
       enable = true;
-      package = pkgs.nix-ld-rs;
+      package = pkgs.nix-ld;
       libraries = with pkgs; [
         mono
         dotnet-sdk_8
         # msbuild
         xorg.libxshmfence
         xorg.libxkbfile
-        krb5Full
+        krb5
         gamemode
         gtkmm3
         atkmm

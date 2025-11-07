@@ -32,7 +32,7 @@
     lm_sensors
     libva-utils
     helvum
-    du-dust
+    dust
     tldr
     gping
     rm-improved
@@ -57,7 +57,7 @@
     rclone
     unrar
     bzip3
-    syncthingtray-qt6
+    syncthingtray
     cifs-utils
     nss
     lsof

@@ -14,6 +14,15 @@
   hardware.steam-hardware.enable = true;
   hardware.xpadneo.enable = true;
 
+  hardware.openrazer = {
+    enable = true;
+    users = [ "urio" ];
+  };
+
+  environment.systemPackages = with pkgs; [
+    razergenie
+  ];
+
   # Add user to gamemode group for gaming optimizations
   users.users.urio.extraGroups = [ "gamemode" ];
 }

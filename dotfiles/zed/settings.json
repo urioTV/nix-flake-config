@@ -52,7 +52,7 @@
     },
     "commit_message_model": {
       "provider": "openrouter",
-      "model": "z-ai/glm-4.6:exacto"
+      "model": "minimax/minimax-m2"
     }
   },
   "features": {

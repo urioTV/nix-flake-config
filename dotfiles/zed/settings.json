@@ -43,7 +43,7 @@
     "default_profile": "write",
     "inline_assistant_model": {
       "provider": "openrouter",
-      "model": "minimax/minimax-m2"
+      "model": "z-ai/glm-4.6:exacto"
     },
     "model_parameters": [],
     "default_model": {

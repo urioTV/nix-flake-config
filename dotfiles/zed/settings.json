@@ -48,11 +48,11 @@
     "model_parameters": [],
     "default_model": {
       "provider": "openrouter",
-      "model": "minimax/minimax-m2"
+      "model": "z-ai/glm-4.6:exacto"
     },
     "commit_message_model": {
       "provider": "openrouter",
-      "model": "minimax/minimax-m2"
+      "model": "z-ai/glm-4.6:exacto"
     }
   },
   "features": {

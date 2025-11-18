@@ -1,7 +1,7 @@
 {
   inputs = {
-    # nixpkgs.url = "nixpkgs/nixos-unstable";
-    nixpkgs.url = "nixpkgs/master";
+    nixpkgs.url = "nixpkgs/nixos-unstable";
+    # nixpkgs.url = "nixpkgs/master";
     # nixpkgs-stable.url = "nixpkgs/nixos-24.05";
     # nixpkgs.url = "nixpkgs/95d8e5f411dc2fcc7f73a72766aaabfab1a1c456";
     home-manager = {

@@ -14,8 +14,12 @@
   programs = {
     git = {
       enable = true;
-      userEmail = "uriootv@protonmail.com";
-      userName = "urioTV";
+      settings = {
+        user = {
+          email = "uriootv@protonmail.com";
+          name = "urioTV";
+        };
+      };
     };
     bat = {
       enable = true;

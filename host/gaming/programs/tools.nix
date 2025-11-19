@@ -14,5 +14,7 @@
     protonplus
     lsfg-vk
     lsfg-vk-ui
+    mangohud
+    goverlay
   ];
 }

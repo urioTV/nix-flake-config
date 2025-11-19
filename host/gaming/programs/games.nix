@@ -9,7 +9,7 @@
   environment.systemPackages = with pkgs; [
     # Specific games
     vintagestory
-    shadps4_git
+    # shadps4_git
 
     # Morrowind
     # openmw

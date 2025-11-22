@@ -43,16 +43,16 @@
     "default_profile": "write",
     "inline_assistant_model": {
       "provider": "openrouter",
-      "model": "z-ai/glm-4.6:exacto"
+      "model": "qwen/qwen3-coder:exacto"
     },
     "model_parameters": [],
     "default_model": {
       "provider": "openrouter",
-      "model": "z-ai/glm-4.6:exacto"
+      "model": "qwen/qwen3-coder:exacto"
     },
     "commit_message_model": {
       "provider": "openrouter",
-      "model": "minimax/minimax-m2"
+      "model": "qwen/qwen3-coder:exacto"
     }
   },
   "features": {

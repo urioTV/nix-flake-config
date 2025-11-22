@@ -29,6 +29,8 @@
     kubectl
     kubernetes-helm
     zed-editor
+    terraform
+    terraform-ls
 
   ];
 

@@ -24,12 +24,12 @@
           --add-flags --ozone-platform=x11
       '';
     }))
-    (teams-for-linux.overrideAttrs (oldAttrs: {
-      postFixup = oldAttrs.postFixup or "" + ''
-        wrapProgram $out/bin/teams-for-linux \
-          --add-flags --ozone-platform=x11
-      '';
-    }))
+    # (teams-for-linux.overrideAttrs (oldAttrs: {
+    #   postFixup = oldAttrs.postFixup or "" + ''
+    #     wrapProgram $out/bin/teams-for-linux \
+    #       --add-flags --ozone-platform=x11
+    #   '';
+    # }))
 
     # Fun and Miscellaneous
     lolcat

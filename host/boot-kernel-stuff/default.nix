@@ -69,10 +69,10 @@
 
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
-  zramSwap = {
-    enable = true;
-    memoryPercent = 50;
-  };
+  # zramSwap = {
+  #   enable = true;
+  #   memoryPercent = 50;
+  # };
 
   boot.loader = {
     efi = {

@@ -20,7 +20,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    razergenie
+    polychromatic
   ];
 
   # Add user to gamemode group for gaming optimizations

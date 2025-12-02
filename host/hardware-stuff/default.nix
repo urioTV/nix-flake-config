@@ -6,7 +6,9 @@
   ...
 }:
 {
-  # hardware.enableAllFirmware = true;
+  hardware.enableAllFirmware = true;
+  hardware.enableRedistributableFirmware = true;
+  hardware.cpu.amd.updateMicrocode = true;
 
   hardware.graphics = {
     enable = true;

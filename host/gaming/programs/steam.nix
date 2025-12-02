@@ -30,6 +30,7 @@
     };
     extraCompatPackages = with pkgs; [
       proton-ge-custom
+      proton-cachyos_nightly_x86_64_v4
     ];
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server

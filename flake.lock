@@ -103,18 +103,16 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1764351487,
-        "narHash": "sha256-7XJcTfz0dPhBd7nfyjcFxT1LIIctJZ2LthiI2Ltd7zY=",
-        "owner": "chaotic-cx",
-        "repo": "nyx",
-        "rev": "2031f4a0507d0f7ab3e1aaff4c027a010feee447",
-        "type": "github"
+        "lastModified": 1764596563,
+        "narHash": "sha256-tH3AGDWlAN3ImVuBBCLmqaqD0EbkISiPCHGeMcd430k=",
+        "rev": "0701ee838b0fb34a77b6dd4b35476b4bb09fbca9",
+        "revCount": 2467,
+        "type": "tarball",
+        "url": "https://api.flakehub.com/f/pinned/chaotic-cx/nyx/0.1.2467%2Brev-0701ee838b0fb34a77b6dd4b35476b4bb09fbca9/019ada94-f112-7131-9acf-0e9bc60549d2/source.tar.gz?rev=0701ee838b0fb34a77b6dd4b35476b4bb09fbca9&revCount=2467"
       },
       "original": {
-        "owner": "chaotic-cx",
-        "ref": "nyxpkgs-unstable",
-        "repo": "nyx",
-        "type": "github"
+        "type": "tarball",
+        "url": "https://flakehub.com/f/chaotic-cx/nyx/%2A.tar.gz"
       }
     },
     "fenix": {

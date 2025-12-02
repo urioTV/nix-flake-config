@@ -14,7 +14,8 @@
     };
 
     chaotic = {
-      url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+      # url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+      url = "https://flakehub.com/f/chaotic-cx/nyx/*.tar.gz";
     };
     nix-alien.url = "github:thiagokokada/nix-alien";
 

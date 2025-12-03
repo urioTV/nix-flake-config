@@ -17,7 +17,7 @@
     # Entertainment and Media
     vlc
     galaxy-buds-client
-    # calibre
+    calibre
   ];
 
 }

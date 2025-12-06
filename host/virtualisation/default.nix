@@ -43,7 +43,7 @@
     #     };
     #   };
     # };
-    vmware.host.enable = true;
+    # vmware.host.enable = true;
   };
 
   users.users.urio = {

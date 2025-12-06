@@ -12,7 +12,7 @@
 
   # Gaming hardware support
   hardware.steam-hardware.enable = true;
-  hardware.xpadneo.enable = true;
+  # hardware.xpadneo.enable = true;
 
   hardware.openrazer = {
     enable = true;

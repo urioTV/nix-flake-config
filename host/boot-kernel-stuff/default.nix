@@ -9,10 +9,10 @@
 }:
 {
   # boot.kernelPackages = pkgs.linuxPackages_zen;
-  # boot.kernelPackages = pkgs.linuxPackages_cachyos-lto;
-  # boot.kernelPackages = pkgs.linuxPackages_cachyos;
+  # boot.kernelPackages = pkgs.linuxPackages_cachyos-gcc;
+  # boot.kernelPackages = pkgs.linuxPackages_cachyos-lto-znver4;
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  # boot.kernelPackages = pkgs.linuxPackages_6_12;
+  # boot.kernelPackages = pkgs.linuxPackages_6_17;
   # boot.kernelPackages = inputs.nixpkgs-old.legacyPackages."x86_64-linux".linuxPackages_6_13;
 
   # Zastosuj patch do kernela

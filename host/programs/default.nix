@@ -21,7 +21,7 @@
     # };
     java = {
       enable = true;
-      package = pkgs.corretto21;
+      # package = pkgs.corretto21;
     };
     appimage = {
       enable = true;

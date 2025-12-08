@@ -337,11 +337,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1764952935,
-        "narHash": "sha256-cRPB2zESVMjIGxJ49qj4t4qnT0ae44E+fS/mkfOS/BY=",
+        "lastModified": 1765172714,
+        "narHash": "sha256-/cjofqGxSWpRj2XJM+Bd5VUgWDkBWSxxO//HE+zOHMY=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "519828bf1c97f8bc2ed2d3b79214067047d3c67d",
+        "rev": "a7887340779d5e70ef68012f3823568ee59eaa30",
         "type": "github"
       },
       "original": {
@@ -523,6 +523,21 @@
         "type": "github"
       }
     },
+    "nixpkgs-old": {
+      "locked": {
+        "lastModified": 1763419798,
+        "narHash": "sha256-3t2Krgc14o5zI0shvdPkUQ8PsMPCMw0pynTsWZbN9js=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "65674e545dbdaf4253501eb15c6df18023ab0b70",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "rev": "65674e545dbdaf4253501eb15c6df18023ab0b70",
+        "type": "indirect"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1764950072,
@@ -573,16 +588,16 @@
     },
     "nixpkgs_5": {
       "locked": {
-        "lastModified": 1763419798,
-        "narHash": "sha256-3t2Krgc14o5zI0shvdPkUQ8PsMPCMw0pynTsWZbN9js=",
+        "lastModified": 1764950072,
+        "narHash": "sha256-BmPWzogsG2GsXZtlT+MTcAWeDK5hkbGRZTeZNW42fwA=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "65674e545dbdaf4253501eb15c6df18023ab0b70",
+        "rev": "f61125a668a320878494449750330ca58b78c557",
         "type": "github"
       },
       "original": {
         "id": "nixpkgs",
-        "rev": "65674e545dbdaf4253501eb15c6df18023ab0b70",
+        "ref": "nixos-unstable",
         "type": "indirect"
       }
     },
@@ -694,6 +709,7 @@
         "nix-alien": "nix-alien",
         "nix-gaming": "nix-gaming",
         "nixpkgs": "nixpkgs_5",
+        "nixpkgs-old": "nixpkgs-old",
         "openmw-nix": "openmw-nix",
         "plasma-manager": "plasma-manager",
         "scopebuddy": "scopebuddy",
@@ -881,11 +897,11 @@
         "tinted-zed": "tinted-zed"
       },
       "locked": {
-        "lastModified": 1764961493,
-        "narHash": "sha256-IMv2/LdW6R+P82AFvAZdPAneQKmDRXQU1Qls64ORFh8=",
+        "lastModified": 1765047449,
+        "narHash": "sha256-VQcqjJ2g0kT9TW4ENwA2HBQJzfbCUd5s1Wm3K+R2QZY=",
         "owner": "nix-community",
         "repo": "stylix",
-        "rev": "46440f1bc877c467f2d31c5a825883437b8077f0",
+        "rev": "bd00e01aab676aee88e6cc5c9238b4a5a7d6639a",
         "type": "github"
       },
       "original": {

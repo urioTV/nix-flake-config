@@ -40,7 +40,8 @@ stdenv.mkDerivation {
       } \
       --set SCB_AUTO_RES "1" \
       --set SCB_AUTO_HDR "1" \
-      --set SCB_AUTO_VRR "1"
+      --set SCB_AUTO_VRR "1" \
+      --add-flags "--force-composition"
   '';
 
   meta = {

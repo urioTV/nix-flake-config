@@ -11,9 +11,13 @@
   # boot.kernelPackages = pkgs.linuxPackages_zen;
   # boot.kernelPackages = pkgs.linuxPackages_cachyos;
   # boot.kernelPackages = pkgs.linuxPackages_cachyos-lto-znver4;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
   # boot.kernelPackages = pkgs.linuxPackages_6_17;
-  # boot.kernelPackages = inputs.nixpkgs-old.legacyPackages."x86_64-linux".linuxPackages_6_13;
+  boot.kernelPackages = inputs.nixpkgs-old.legacyPackages."x86_64-linux".linuxPackages_latest;
+
+  hardware.firmware = [
+    (inputs.nixpkgs-old.legacyPackages."x86_64-linux".linux-firmware)
+  ];
 
   # Zastosuj patch do kernela
   # boot.kernelPatches = [

@@ -17,6 +17,7 @@
       "-w 1920"
       "-H 1200"
       "-W 1920"
+      "--force-composition"
       # "--adaptive-sync"
     ];
   };

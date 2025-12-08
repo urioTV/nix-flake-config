@@ -62,6 +62,8 @@
     nss
     lsof
     mission-center
+    efibootmgr
+    gnome-software
   ];
 
 }

@@ -27,20 +27,6 @@
   #   }
   # ];
 
-  # NTSYNC patch
-  # boot.kernelPatches = [
-  #   {
-  #     name = "ntsync";
-  #     patch = pkgs.fetchurl {
-  #       url = "https://raw.githubusercontent.com/CachyOS/kernel-patches/master/6.12/0005-ntsync.patch";
-  #       sha256 = "sha256-KaSOBV81NYET0kXMNwuFvIuy1pf3R04lNuE3ZjA4oak=";
-  #     };
-  #     extraConfig = ''
-  #       NTSYNC m
-  #     '';
-  #   }
-  # ];
-
   boot.initrd.kernelModules = [ "ntsync" ];
 
   # users.groups.ntsync = { };
@@ -55,6 +41,7 @@
 
   boot.kernelParams = [
     "amdgpu.dcdebugmask=0x10"
+    "pstore.backend=none"
   ];
 
   services.scx = {
@@ -85,7 +72,10 @@
     #  #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
     #  device = "nodev";
     #};
-    systemd-boot.enable = true;
+    systemd-boot = {
+      enable = true;
+      configurationLimit = 10;
+    };
   };
 
 }

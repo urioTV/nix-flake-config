@@ -12,11 +12,15 @@
     stylix = {
       url = "github:nix-community/stylix";
     };
-
-    chaotic = {
-      # url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-      url = "https://flakehub.com/f/chaotic-cx/nyx/*.tar.gz";
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
+    # zed = {
+    #   url = "github:zed-industries/zed";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+
     nix-alien.url = "github:thiagokokada/nix-alien";
 
     kwin-effects-forceblur = {
@@ -60,7 +64,7 @@
       home-manager,
       stylix,
       apple-fonts,
-      chaotic,
+      nur,
       nix-alien,
       plasma-manager,
       ...
@@ -95,7 +99,7 @@
             ./nix-settings.nix
             commonNixpkgsConfig
             stylix.nixosModules.stylix
-            chaotic.nixosModules.default
+            nur.modules.nixos.default
             home-manager.nixosModules.home-manager
 
             # Home Manager Configuration
@@ -108,7 +112,7 @@
               };
               home-manager.sharedModules = [
                 ./vars.nix
-                chaotic.homeManagerModules.default
+                nur.modules.homeManager.default
                 plasma-manager.homeModules.plasma-manager
                 commonNixpkgsConfig
               ];

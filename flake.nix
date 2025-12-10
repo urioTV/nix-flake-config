@@ -40,7 +40,7 @@
 
     # Apps
     zen-browser = {
-      url = "github:youwen5/zen-browser-flake/5355c0dc6857a2aa34b126fb4a93a454ed702f52";
+      url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     scopebuddy = {

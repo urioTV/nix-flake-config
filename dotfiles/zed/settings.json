@@ -42,16 +42,16 @@
     "default_profile": "write",
     "inline_assistant_model": {
       "provider": "openrouter",
-      "model": "mistralai/devstral-2512"
+      "model": "z-ai/glm-4.7"
     },
     "model_parameters": [],
     "default_model": {
       "provider": "openrouter",
-      "model": "mistralai/devstral-2512"
+      "model": "z-ai/glm-4.7"
     },
     "commit_message_model": {
       "provider": "openrouter",
-      "model": "mistralai/devstral-2512"
+      "model": "z-ai/glm-4.7"
     }
   },
   "features": {

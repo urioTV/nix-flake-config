@@ -10,52 +10,52 @@
   "context_servers": {
     "mcp-server-context7": {
       "enabled": true,
-      "settings": {}
-    }
+      "settings": {},
+    },
   },
   "languages": {
     "Nix": {
-      "language_servers": ["nixd", "!nil"]
-    }
+      "language_servers": ["nixd", "!nil"],
+    },
   },
   "lsp": {
     "nixd": {
       "settings": {
         "nixpkgs": {
-          "expr": "(builtins.getFlake \"github:urioTV/nix-flake-config\").nixosConfigurations.konrad-m18.pkgs"
+          "expr": "(builtins.getFlake \"github:urioTV/nix-flake-config\").nixosConfigurations.konrad-m18.pkgs",
         },
         "formatting": {
-          "command": ["nixfmt"]
+          "command": ["nixfmt"],
         },
         "options": {
           "nixos": {
-            "expr": "(builtins.getFlake \"github:urioTV/nix-flake-config\").nixosConfigurations.konrad-m18.options"
+            "expr": "(builtins.getFlake \"github:urioTV/nix-flake-config\").nixosConfigurations.konrad-m18.options",
           },
           "home_manager": {
-            "expr": "(builtins.getFlake \"github:urioTV/nix-flake-config\").nixosConfigurations.konrad-m18.config.home-manager.users.urio"
-          }
-        }
-      }
-    }
+            "expr": "(builtins.getFlake \"github:urioTV/nix-flake-config\").nixosConfigurations.konrad-m18.config.home-manager.users.urio",
+          },
+        },
+      },
+    },
   },
   "agent": {
     "default_profile": "write",
     "inline_assistant_model": {
       "provider": "openrouter",
-      "model": "z-ai/glm-4.7"
+      "model": "openai/gpt-5.2",
     },
     "model_parameters": [],
     "default_model": {
       "provider": "openrouter",
-      "model": "z-ai/glm-4.7"
+      "model": "mistralai/devstral-2512",
     },
     "commit_message_model": {
       "provider": "openrouter",
-      "model": "z-ai/glm-4.7"
-    }
+      "model": "anthropic/claude-haiku-4.5",
+    },
   },
   "features": {
-    "edit_prediction_provider": "zed"
+    "edit_prediction_provider": "zed",
   },
   "icon_theme": "Material Icon Theme",
   "ui_font_size": 16,
@@ -65,6 +65,6 @@
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "Catppuccin Mocha"
-  }
+    "dark": "Catppuccin Mocha",
+  },
 }

@@ -16,10 +16,6 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # zed = {
-    #   url = "github:zed-industries/zed";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
 
     nix-alien.url = "github:thiagokokada/nix-alien";
 

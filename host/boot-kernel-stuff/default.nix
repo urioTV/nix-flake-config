@@ -70,14 +70,10 @@
       canTouchEfiVariables = true;
       # efiSysMountPoint = "/boot/efi"; # ← use the same mount point here.
     };
-    #grub = {
-    #  enable = true;
-    #  efiSupport = true;
-    #  #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
-    #  device = "nodev";
-    #};
-    systemd-boot = {
+    grub = {
       enable = true;
+      device = "nodev";
+      efiSupport = true;
       configurationLimit = 10;
     };
   };

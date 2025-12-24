@@ -8,6 +8,10 @@
   ...
 }:
 {
+  imports = [
+    ./cpu-power.nix
+  ];
+
   # boot.kernelPackages = pkgs.linuxPackages_zen;
   boot.kernelPackages = pkgs.linuxPackages_latest;
   # boot.kernelPackages = pkgs.linuxPackages_testing;
@@ -17,35 +21,12 @@
     (inputs.nixpkgs-old.legacyPackages."x86_64-linux".linux-firmware)
   ];
 
-  # Zastosuj patch do kernela
-  # boot.kernelPatches = [
-  #   {
-  #     name = "issue4414_no_error_single_process";
-  #     patch = ./issue4414_no_error_single_process.patch;
-  #   }
-  #   {
-  #     name = "print_mes_fw_version";
-  #     patch = ./print_mes_fw_version.patch;
-  #   }
-  # ];
-
   boot.initrd.kernelModules = [ "ntsync" ];
-
-  # users.groups.ntsync = { };
-
-  # services.udev.extraRules = ''
-  #   KERNEL=="ntsync", GROUP="ntsync", MODE="0664"
-  # '';
-
-  # users.users.urio = {
-  #   extraGroups = [ "ntsync" ];
-  # };
 
   boot.kernelParams = [
     "amdgpu.dcdebugmask=0x10"
     "pstore.backend=none"
   ];
-
   services.scx = {
     enable = true;
     scheduler = "scx_lavd";

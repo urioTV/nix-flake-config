@@ -57,7 +57,7 @@
           idleTimeout = 14400;
           idleTimeoutWhenLocked = 14400;
         };
-        powerProfile = "balanced";
+        # powerProfile = "balanced";
         whenLaptopLidClosed = "sleep";
         whenSleepingEnter = "standbyThenHibernate";
         powerButtonAction = "showLogoutScreen";

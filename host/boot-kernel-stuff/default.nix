@@ -75,6 +75,7 @@
       device = "nodev";
       efiSupport = true;
       configurationLimit = 10;
+      theme = "${pkgs.cybergrub2077}/";
     };
   };
 

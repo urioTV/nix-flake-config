@@ -6,4 +6,7 @@ final: prev: {
 
   # Vintage Story game
   vintagestory = prev.callPackage ./vintagestory { };
+
+  # CyberGRUB-2077
+  cybergrub2077 = prev.callPackage ./cybergrub2077 { };
 }

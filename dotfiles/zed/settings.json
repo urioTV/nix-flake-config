@@ -51,7 +51,7 @@
     },
     "commit_message_model": {
       "provider": "openrouter",
-      "model": "openai/gpt-5.2",
+      "model": "mistralai/devstral-2512",
     },
   },
   "features": {

@@ -51,6 +51,7 @@
     hunspellDicts.pl_PL
     hyphen
     hyphenDicts.en_US
+    qbittorrent
 
     # Remote Desktop
     # krdc

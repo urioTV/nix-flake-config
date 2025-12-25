@@ -28,7 +28,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    qbittorrent
   ];
 
   environment.sessionVariables = {

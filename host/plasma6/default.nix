@@ -9,8 +9,6 @@
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
-    # theme = "sddm-chili-theme";
-    # package = pkgs.kdePackages.sddm;
   };
 
   services.desktopManager.plasma6.enable = true;
@@ -31,8 +29,6 @@
       [General]
       background=${config.vars.wallpaper}
     '')
-    # transmission_4-qt
-    qbittorrent
     inputs.kwin-effects-forceblur.packages.${pkgs.system}.default
     kdePackages.filelight
     kdePackages.kalk

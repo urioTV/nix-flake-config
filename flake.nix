@@ -8,6 +8,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
 
     stylix = {
       url = "github:nix-community/stylix";
@@ -63,6 +64,7 @@
       nur,
       nix-alien,
       plasma-manager,
+      determinate,
       ...
     }@inputs:
     let
@@ -94,6 +96,7 @@
             ./vars.nix
             ./nix-settings.nix
             commonNixpkgsConfig
+            determinate.nixosModules.default
             stylix.nixosModules.stylix
             nur.modules.nixos.default
             home-manager.nixosModules.home-manager

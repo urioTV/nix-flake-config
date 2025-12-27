@@ -17,9 +17,9 @@
   # boot.kernelPackages = pkgs.linuxPackages_testing;
   # boot.kernelPackages = inputs.nixpkgs-old.legacyPackages."x86_64-linux".linuxPackages_latest;
 
-  hardware.firmware = [
-    (inputs.nixpkgs-old.legacyPackages."x86_64-linux".linux-firmware)
-  ];
+  # hardware.firmware = [
+  #   (inputs.nixpkgs-old.legacyPackages."x86_64-linux".linux-firmware)
+  # ];
 
   boot.initrd.kernelModules = [ "ntsync" ];
 

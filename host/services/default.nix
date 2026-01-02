@@ -28,6 +28,11 @@
           type = "Game";
           nice = -20;
         }
+        {
+          name = "dwarfort";
+          type = "Game";
+          nice = -20;
+        }
       ];
     };
   };

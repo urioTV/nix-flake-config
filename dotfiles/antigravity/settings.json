@@ -24,7 +24,7 @@
     "git.autofetch": true,
     "git.confirmSync": false,
     "workbench.colorTheme": "Catppuccin Mocha",
-    "workbench.iconTheme": "catppuccin-mocha",
+    "workbench.iconTheme": "material-icon-theme",
     "editor.fontFamily": "SFMono Nerd Font",
     "editor.fontSize": 12,
     "antigravity.marketplaceGalleryItemURL": "https://marketplace.visualstudio.com/items",

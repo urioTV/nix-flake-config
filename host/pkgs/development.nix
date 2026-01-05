@@ -31,7 +31,7 @@
     zed-editor
     terraform
     terraform-ls
-
+    antigravity
   ];
 
 }

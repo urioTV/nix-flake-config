@@ -1,0 +1,32 @@
+{
+    "nix.enableLanguageServer": true,
+    "nix.serverPath": "nixd",
+    "nix.serverSettings": {
+        "nixd": {
+            "nixpkgs": {
+                "expr": "(builtins.getFlake \"github:urioTV/nix-flake-config\").nixosConfigurations.konrad-m18.pkgs"
+            },
+            "formatting": {
+                "command": [
+                    "nixfmt"
+                ]
+            },
+            "options": {
+                "nixos": {
+                    "expr": "(builtins.getFlake \"github:urioTV/nix-flake-config\").nixosConfigurations.konrad-m18.options"
+                },
+                "home_manager": {
+                    "expr": "(builtins.getFlake \"github:urioTV/nix-flake-config\").nixosConfigurations.konrad-m18.config.home-manager.users.urio"
+                }
+            }
+        }
+    },
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "workbench.iconTheme": "catppuccin-mocha",
+    "editor.fontFamily": "SFMono Nerd Font",
+    "editor.fontSize": 12,
+    "antigravity.marketplaceGalleryItemURL": "https://marketplace.visualstudio.com/items",
+    "antigravity.marketplaceExtensionGalleryServiceURL": "https://marketplace.visualstudio.com/_apis/public/gallery",
+}

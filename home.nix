@@ -22,6 +22,9 @@
     ".config/zed" = {
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-flake-config/dotfiles/zed";
     };
+    ".config/Antigravity/User/settings.json" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-flake-config/dotfiles/antigravity/settings.json";
+    };
   };
 
   home.sessionVariables = {

@@ -13,7 +13,7 @@ stdenv.mkDerivation {
     owner = "adnksharp";
     repo = "CyberGRUB-2077";
     rev = "master";
-    sha256 = "sha256-1gwg+VSpKmhXb+MCwN84aiZXLG9j9R5F7uLRNnt+vis=";
+    sha256 = "sha256-RyKs2tJBp/A4eqjvsPDBLttSL5Bw6U+fanwLZeC0wbg=";
   };
 
   # Faza instalacji odwzorowująca logikę skryptu install.sh

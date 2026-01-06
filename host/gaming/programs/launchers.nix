@@ -9,6 +9,6 @@
   environment.systemPackages = with pkgs; [
     # Gaming launchers
     heroic
-    # lutris
+    lutris
   ];
 }

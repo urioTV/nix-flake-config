@@ -5,19 +5,26 @@
   ...
 }:
 {
-  stylix.enable = true;
-  stylix.autoEnable = true;
-  stylix.image = config.vars.wallpaper;
-  stylix.base16Scheme = config.vars.base16Scheme;
-  stylix.cursor.package = pkgs.bibata-cursors;
-  stylix.cursor.name = "Bibata-Modern-Classic";
-  stylix.targets.gnome.enable = true;
-  stylix.targets.gtk.enable = true;
-  stylix.cursor.size = 20;
-  stylix.polarity = "dark";
+  stylix = {
+    enable = true;
+    autoEnable = true;
+    image = config.vars.wallpaper;
+    base16Scheme = config.vars.base16Scheme;
+    polarity = "dark";
 
-  stylix.targets.grub.enable = false;
+    cursor = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Classic";
+      size = 20;
+    };
+
+    targets = {
+      gnome.enable = true;
+      gtk.enable = true;
+      chromium.enable = false;
+      grub.enable = false;
+    };
+  };
 
   qt.platformTheme = lib.mkForce "kde";
-
 }

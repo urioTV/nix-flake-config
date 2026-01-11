@@ -27,9 +27,7 @@
       enable = true;
       binfmt = true;
     };
-    adb = {
-      enable = true;
-    };
+
     direnv = {
       enable = true;
       package = pkgs.direnv;

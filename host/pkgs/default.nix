@@ -42,6 +42,7 @@
     # handbrake
     obsidian
     # spacedrive
+    android-tools
 
     # Nice
     bleachbit

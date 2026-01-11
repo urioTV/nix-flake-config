@@ -9,6 +9,7 @@
 {
   imports = [
     ./shells.nix
+    ./browsers.nix
   ];
 
   programs = {

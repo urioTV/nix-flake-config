@@ -7,20 +7,20 @@
 }:
 {
   environment.systemPackages = with pkgs; [
-    brave
+    # brave
     zen-browser
   ];
 
   environment.etc = {
-    "brave/policies/managed/brave-debloat.json".text = builtins.toJSON {
-      "BraveRewardsDisabled" = true;
-      "BraveWalletDisabled" = true;
-      "BraveVPNDisabled" = 1;
-      "BraveAIChatEnabled" = false;
-      "TorDisabled" = true;
-      "DnsOverHttpsMode" = "automatic";
-      "PreferredOzonePlatform" = "wayland";
-    };
+    # "brave/policies/managed/brave-debloat.json".text = builtins.toJSON {
+    #   "BraveRewardsDisabled" = true;
+    #   "BraveWalletDisabled" = true;
+    #   "BraveVPNDisabled" = 1;
+    #   "BraveAIChatEnabled" = false;
+    #   "TorDisabled" = true;
+    #   "DnsOverHttpsMode" = "automatic";
+    #   "PreferredOzonePlatform" = "wayland";
+    # };
   };
 
   programs = {

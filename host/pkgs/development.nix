@@ -28,7 +28,7 @@
     alacritty
     kubectl
     kubernetes-helm
-    zed-editor
+    # zed-editor
     terraform
     terraform-ls
     antigravity

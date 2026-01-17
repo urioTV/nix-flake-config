@@ -20,28 +20,17 @@ final: prev: {
     '';
   });
 
-  # opencomposite = prev.opencomposite.overrideAttrs (prevAttrs: {
-  #   version = "git-2025-01-11";
+  wowup-cf = prev.symlinkJoin {
+    name = "wowup-cf-no-gpu";
+    paths = [ prev.wowup-cf ];
+    nativeBuildInputs = [ final.makeWrapper ];
+    postBuild = ''
+      # Usuwamy domyślny symlink do oryginalnej binarki
+      rm $out/bin/wowup-cf
 
-  #   src = prev.fetchFromGitLab {
-  #     owner = "znixian";
-  #     repo = "OpenOVR";
-  #     rev = "5c1439711084a1dfb5b9c5c2d87271685e84be0d";
-  #     fetchSubmodules = true;
-  #     hash = "sha256-WxSPmLAi8mdfj3NZDQK0MNUP861Y/D/T+NvAJe+LNYU=";
-  #   };
-  # });
-
-  # xrizer = prev.xrizer.overrideAttrs (prevAttrs: {
-  #   version = "git-2025-01-11";
-
-  #   src = prev.fetchFromGitHub {
-  #     owner = "Supreeeme";
-  #     repo = "xrizer";
-  #     rev = "1babbac76a275749ee4c93a57f64431bd5d71e6f";
-  #     hash = "sha256-KDRih95IcYDDOd6QMxqZI33TaCWI3/xOfzczlS1SyVI=";
-  #   };
-  # });
-
-  # alvr = inputs.nixpkgs-alvr.legacyPackages.${system}.alvr;
+      # Tworzymy nowy wrapper, który wywołuje oryginał z flagą wyłączającą GPU
+      makeWrapper ${prev.wowup-cf}/bin/wowup-cf $out/bin/wowup-cf \
+        --add-flags "--disable-gpu"
+    '';
+  };
 }

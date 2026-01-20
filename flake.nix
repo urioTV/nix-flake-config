@@ -8,6 +8,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    urio-nur = {
+      url = "github:urioTV/urio-nur";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
 
     stylix = {
@@ -59,6 +64,7 @@
       self,
       nixpkgs,
       home-manager,
+      urio-nur,
       stylix,
       apple-fonts,
       nur,
@@ -75,9 +81,7 @@
         (import ./overlay.nix {
           inherit inputs system;
         })
-        (import ./custom-pkgs/overlay.nix {
-          inherit inputs system;
-        })
+        (urio-nur.overlays.default)
       ];
       commonNixpkgsConfig = {
         nixpkgs.overlays = myOverlays;

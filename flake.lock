@@ -826,6 +826,7 @@
         "plasma-manager": "plasma-manager",
         "scopebuddy": "scopebuddy",
         "stylix": "stylix",
+        "urio-nur": "urio-nur",
         "zen-browser": "zen-browser"
       }
     },
@@ -1124,6 +1125,26 @@
       "original": {
         "owner": "tinted-theming",
         "repo": "base16-zed",
+        "type": "github"
+      }
+    },
+    "urio-nur": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1768912466,
+        "narHash": "sha256-T6S2yE/PHb/3fk8gP4H6ldQ9yqJe19FUa8i61DHn5hc=",
+        "owner": "urioTV",
+        "repo": "urio-nur",
+        "rev": "d009df26c067d4cabcbfdc754e14d9b90e5c115f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "urioTV",
+        "repo": "urio-nur",
         "type": "github"
       }
     },

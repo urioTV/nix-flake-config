@@ -100,6 +100,7 @@
             ./vars.nix
             ./nix-settings.nix
             commonNixpkgsConfig
+            urio-nur.nixosModules.default
             determinate.nixosModules.default
             stylix.nixosModules.stylix
             nur.modules.nixos.default

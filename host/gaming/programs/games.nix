@@ -6,9 +6,15 @@
   ...
 }:
 {
+  programs.vintagestory = {
+    enable = true;
+    version = "1.21.0";
+    hash = "sha256-90YQOur7UhXxDBkGLSMnXQK7iQ6+Z8Mqx9PEG6FEXBs=";
+  };
+
   environment.systemPackages = with pkgs; [
     # Specific games
-    vintagestory
+    # vintagestory
     # shadps4_git
 
     # Morrowind

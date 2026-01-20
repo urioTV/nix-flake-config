@@ -45,10 +45,6 @@
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    scopebuddy = {
-      url = "github:HikariKnight/ScopeBuddy";
-      flake = false;
-    };
 
     # Gaming
     nix-gaming.url = "github:fufexan/nix-gaming";

@@ -9,4 +9,7 @@ final: prev: {
 
   # CyberGRUB-2077
   cybergrub2077 = prev.callPackage ./cybergrub2077 { };
+
+  # WowUp-CF
+  wowup-cf = prev.callPackage ./wowup-cf { };
 }

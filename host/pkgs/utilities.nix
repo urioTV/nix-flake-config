@@ -54,7 +54,6 @@
     caligula
     resources
     yad
-    rclone
     unrar
     bzip3
     syncthingtray

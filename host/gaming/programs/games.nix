@@ -20,6 +20,7 @@
     # Morrowind
     # openmw
     # openmw-dev
+    inputs.hytale-launcher.packages.${pkgs.system}.default
   ];
 
   # For Vintage Story

@@ -52,6 +52,7 @@
       url = "git+https://codeberg.org/PopeRigby/openmw-nix.git";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hytale-launcher.url = "github:JPyke3/hytale-launcher-nix";
 
   };
 

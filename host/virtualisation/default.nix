@@ -10,6 +10,9 @@
     distrobox
     podman-tui
     podman-compose
+    OVMFFull
+    quickemu
+    quickgui
   ];
 
   environment.sessionVariables = {
@@ -19,37 +22,29 @@
 
   # Qemu KVM and virt-manager
 
-  # programs.virt-manager.enable = true;
+  programs.virt-manager.enable = true;
 
   virtualisation = {
     podman = {
       enable = true;
       dockerCompat = true;
     };
-    # libvirtd = {
-    #   enable = true;
-    #   qemu = {
-    #     package = pkgs.qemu_kvm;
-    #     # runAsRoot = true;
-    #     swtpm.enable = true;
-    #     ovmf = {
-    #       enable = true;
-    #       packages = [
-    #         (pkgs.OVMF.override {
-    #           secureBoot = true;
-    #           tpmSupport = true;
-    #         }).fd
-    #       ];
-    #     };
-    #   };
-    # };
-    vmware.host.enable = true;
+    libvirtd = {
+      enable = true;
+      qemu = {
+        package = pkgs.qemu_kvm;
+        runAsRoot = true;
+        swtpm.enable = true;
+      };
+    };
+    # vmware.host.enable = true;
   };
 
   users.users.urio = {
     extraGroups = [
       "libvirtd"
       "podman"
+      "kvm"
     ];
     # subGidRanges = [
     #   {

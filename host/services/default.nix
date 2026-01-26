@@ -33,6 +33,11 @@
           type = "Game";
           nice = -20;
         }
+        {
+          name = "WoW.exe";
+          type = "Game";
+          nice = -20;
+        }
       ];
     };
   };

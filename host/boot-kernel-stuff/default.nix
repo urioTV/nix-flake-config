@@ -24,11 +24,12 @@
 
   boot.initrd.kernelModules = [ "ntsync" ];
 
-  boot.blacklistedKernelModules = [ "efi_pstore" ];
+  # boot.blacklistedKernelModules = [ "efi_pstore" ];
 
   boot.kernelParams = [
     "amdgpu.dcdebugmask=0x10"
-    "pstore.backend=null"
+    "processor.max_cstate=1"
+    "idle=nomwait"
   ];
   services.scx = {
     enable = true;

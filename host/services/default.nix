@@ -53,7 +53,6 @@
   environment.systemPackages = with pkgs; [
     lact
   ];
-  boot.kernelParams = [ "amdgpu.ppfeaturemask=0xffffffff" ];
   # security.auditd.enable = true;
   programs.system-config-printer.enable = true;
 }

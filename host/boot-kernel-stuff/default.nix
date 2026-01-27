@@ -13,10 +13,8 @@
   ];
 
   # boot.kernelPackages = pkgs.linuxPackages_zen;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  # boot.kernelPackages = pkgs.linuxPackages_6_17;
-  # boot.kernelPackages = pkgs.linuxPackages_testing;
-  # boot.kernelPackages = inputs.nixpkgs-old.legacyPackages."x86_64-linux".linuxPackages_latest;
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_xanmod;
 
   # hardware.firmware = [
   #   (inputs.nixpkgs-old.legacyPackages."x86_64-linux".linux-firmware)
@@ -28,6 +26,7 @@
 
   boot.kernelParams = [
     "amdgpu.dcdebugmask=0x10"
+    "amdgpu.ppfeaturemask=0xffffffff"
     "processor.max_cstate=1"
     "idle=nomwait"
   ];

@@ -32,6 +32,9 @@
     terraform
     terraform-ls
     antigravity
+    sops
+    age
+    ssh-to-age
   ];
 
 }

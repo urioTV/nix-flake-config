@@ -14,7 +14,7 @@
 
   # boot.kernelPackages = pkgs.linuxPackages_zen;
   # boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelPackages = pkgs.linuxPackages_xanmod;
+  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
   # hardware.firmware = [
   #   (inputs.nixpkgs-old.legacyPackages."x86_64-linux".linux-firmware)

@@ -8,9 +8,6 @@
   ...
 }:
 {
-  imports = [
-    ./cpu-power.nix
-  ];
 
   # boot.kernelPackages = pkgs.linuxPackages_zen;
   # boot.kernelPackages = pkgs.linuxPackages_latest;

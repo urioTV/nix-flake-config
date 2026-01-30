@@ -6,10 +6,7 @@
   ...
 }:
 {
-  imports = [
-    ./nix-ld.nix
-    ./browsers.nix
-  ];
+
   programs = {
     zsh = {
       enable = true;

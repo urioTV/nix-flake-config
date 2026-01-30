@@ -1,63 +1,73 @@
+{ inputs, ... }:
+let
+  sharedConfig =
+    { inputs, inputs' }:
+    {
+      nixpkgs.overlays = [
+        (import ./overlay.nix { inherit inputs'; })
+        (inputs.urio-nur.overlays.default)
+      ];
+      nixpkgs.config.allowUnfree = true;
+    };
+in
 {
-  pkgs,
-  config,
-  lib,
-  inputs,
-  ...
-}:
+  flake.nixosModules.nix-settings =
+    {
+      config,
+      pkgs,
+      lib,
+      inputs,
+      inputs',
+      ...
+    }:
+    {
+      imports = [ (sharedConfig { inherit inputs inputs'; }) ];
 
-{
-  # nixpkgs.overlays = [
-  #   (final: prev: {
-  #     inherit (final.lixPackageSets.stable)
-  #       nixpkgs-review
-  #       # nix-direnv
-  #       nix-eval-jobs
-  #       nix-fast-build
-  #       colmena
-  #       ;
-  #   })
-  # ];
+      nix.settings = {
+        experimental-features = [
+          "nix-command"
+          "flakes"
+        ];
+        substituters = [
+          "https://nix-gaming.cachix.org"
+          "https://nix-community.cachix.org"
+        ];
+        trusted-public-keys = [
+          "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
+          "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        ];
+        auto-optimise-store = true;
+        trusted-users = [
+          "root"
+          "urio"
+        ];
+        eval-cores = 0;
+      };
 
-  # nix.package = pkgs.lixPackageSets.stable.lix;
+      nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
-  nix.settings = {
-    experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
+      nix.gc = {
+        automatic = true;
+        dates = "daily";
+        options = "--delete-older-than 2d";
+      };
 
-    substituters = [
-      "https://nix-gaming.cachix.org"
-      "https://nix-community.cachix.org"
-    ];
-    trusted-public-keys = [
-      "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-    ];
+      programs.nh = {
+        enable = true;
+        flake = "/home/urio/nix-flake-config";
+      };
+    };
 
-    auto-optimise-store = true;
-
-    trusted-users = [
-      "root"
-      "urio"
-    ];
-
-    # Determinate Nix Specific
-    eval-cores = 0;
-  };
-  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
-
-  nix.gc = {
-    automatic = true;
-    dates = "daily";
-    options = "--delete-older-than 2d";
-  };
-
-  programs.nh = {
-    enable = true;
-    # clean.enable = true;
-    # clean.extraArgs = "--keep-since 2d --keep 2";
-    flake = "/home/urio/nix-flake-config";
-  };
+  flake.homeModules.nix-settings =
+    {
+      config,
+      pkgs,
+      lib,
+      inputs,
+      inputs',
+      ...
+    }:
+    {
+      imports = [ (sharedConfig { inherit inputs inputs'; }) ];
+    };
 }

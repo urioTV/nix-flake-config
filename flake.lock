@@ -277,6 +277,24 @@
     },
     "flake-parts_3": {
       "inputs": {
+        "nixpkgs-lib": "nixpkgs-lib_2"
+      },
+      "locked": {
+        "lastModified": 1768135262,
+        "narHash": "sha256-PVvu7OqHBGWN16zSi6tEmPwwHQ4rLPU9Plvs8/1TUBY=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "80daad04eddbbf5a4d883996a73f3f542fa437ac",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
+    "flake-parts_4": {
+      "inputs": {
         "nixpkgs-lib": [
           "nur",
           "nixpkgs"
@@ -296,7 +314,7 @@
         "type": "github"
       }
     },
-    "flake-parts_4": {
+    "flake-parts_5": {
       "inputs": {
         "nixpkgs-lib": [
           "stylix",
@@ -472,6 +490,21 @@
         "type": "github"
       }
     },
+    "import-tree": {
+      "locked": {
+        "lastModified": 1763762820,
+        "narHash": "sha256-ZvYKbFib3AEwiNMLsejb/CWs/OL/srFQ8AogkebEPF0=",
+        "owner": "vic",
+        "repo": "import-tree",
+        "rev": "3c23749d8013ec6daa1d7255057590e9ca726646",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vic",
+        "repo": "import-tree",
+        "type": "github"
+      }
+    },
     "kwin-effects-forceblur": {
       "inputs": {
         "nixpkgs": [
@@ -552,7 +585,7 @@
     },
     "nix-gaming": {
       "inputs": {
-        "flake-parts": "flake-parts_2",
+        "flake-parts": "flake-parts_3",
         "nixpkgs": "nixpkgs_6"
       },
       "locked": {
@@ -634,6 +667,37 @@
       "original": {
         "owner": "nix-community",
         "repo": "nixpkgs.lib",
+        "type": "github"
+      }
+    },
+    "nixpkgs-lib_2": {
+      "locked": {
+        "lastModified": 1765674936,
+        "narHash": "sha256-k00uTP4JNfmejrCLJOwdObYC9jHRrr/5M/a/8L2EIdo=",
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "rev": "2075416fcb47225d9b68ac469a5c4801a9c4dd85",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "type": "github"
+      }
+    },
+    "nixpkgs-old": {
+      "locked": {
+        "lastModified": 1763419798,
+        "narHash": "sha256-3t2Krgc14o5zI0shvdPkUQ8PsMPCMw0pynTsWZbN9js=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "65674e545dbdaf4253501eb15c6df18023ab0b70",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "65674e545dbdaf4253501eb15c6df18023ab0b70",
         "type": "github"
       }
     },
@@ -763,7 +827,7 @@
     },
     "nur": {
       "inputs": {
-        "flake-parts": "flake-parts_3",
+        "flake-parts": "flake-parts_4",
         "nixpkgs": [
           "nixpkgs"
         ]
@@ -869,12 +933,15 @@
       "inputs": {
         "apple-fonts": "apple-fonts",
         "determinate": "determinate",
+        "flake-parts": "flake-parts_2",
         "home-manager": "home-manager",
         "hytale-launcher": "hytale-launcher",
+        "import-tree": "import-tree",
         "kwin-effects-forceblur": "kwin-effects-forceblur",
         "nix-alien": "nix-alien",
         "nix-gaming": "nix-gaming",
         "nixpkgs": "nixpkgs_7",
+        "nixpkgs-old": "nixpkgs-old",
         "nur": "nur",
         "openmw-nix": "openmw-nix",
         "plasma-manager": "plasma-manager",
@@ -1035,7 +1102,7 @@
         "base16-helix": "base16-helix",
         "base16-vim": "base16-vim",
         "firefox-gnome-theme": "firefox-gnome-theme",
-        "flake-parts": "flake-parts_4",
+        "flake-parts": "flake-parts_5",
         "gnome-shell": "gnome-shell",
         "nixpkgs": "nixpkgs_8",
         "nur": "nur_2",

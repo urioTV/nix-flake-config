@@ -8,13 +8,6 @@
 }:
 {
 
-  imports = [
-    ./development.nix
-    ./entertainment.nix
-    ./utilities.nix
-    ./fonts.nix
-  ];
-
   environment.systemPackages = with pkgs; [
 
     # Communication

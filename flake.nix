@@ -3,7 +3,11 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     # nixpkgs.url = "github:NixOS/nixpkgs/master";
     # nixpkgs-stable.url = "nixpkgs/nixos-24.05";
-    # nixpkgs-old.url = "github:NixOS/nixpkgs/65674e545dbdaf4253501eb15c6df18023ab0b70";
+    import-tree = {
+      url = "github:vic/import-tree";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixpkgs-old.url = "github:NixOS/nixpkgs/65674e545dbdaf4253501eb15c6df18023ab0b70";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -60,10 +64,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
   outputs =
-    {
+    inputs@{
       self,
       nixpkgs,
       home-manager,
@@ -75,64 +80,64 @@
       plasma-manager,
       determinate,
       sops-nix,
+      flake-parts,
+      import-tree,
       ...
-    }@inputs:
-    let
-      lib = nixpkgs.lib;
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-      myOverlays = [
-        (import ./overlay.nix {
-          inherit inputs system;
-        })
-        (urio-nur.overlays.default)
-      ];
-      commonNixpkgsConfig = {
-        nixpkgs.overlays = myOverlays;
-        nixpkgs.config.allowUnfree = true;
-      };
-    in
-    {
-      nixosConfigurations = {
-        konrad-m18 = lib.nixosSystem {
-          specialArgs = {
-            inherit inputs;
+    }:
+    flake-parts.lib.mkFlake { inherit inputs; } (
+      { withSystem, ... }:
+      {
+        imports = [
+          ./home.nix
+          ./nix-settings.nix
+        ];
+        systems = [ "x86_64-linux" ];
+
+        perSystem =
+          {
+            # config,
+            # self',
+            # inputs',
+            # pkgs,
+            # system,
+            ...
+          }:
+          {
+            # Per-system configuration can go here, e.g. devShells, packages, etc.
           };
-          inherit system;
-          modules = [
-            ./configuration.nix
-            ./vars.nix
-            ./nix-settings.nix
-            ./sops
-            commonNixpkgsConfig
-            urio-nur.nixosModules.default
-            determinate.nixosModules.default
-            stylix.nixosModules.stylix
-            nur.modules.nixos.default
-            sops-nix.nixosModules.sops
-            home-manager.nixosModules.home-manager
 
-            # Home Manager Configuration
-            {
-              # home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "bkpnix";
-              home-manager.extraSpecialArgs = {
-                inherit inputs;
-              };
-              home-manager.sharedModules = [
-                ./vars.nix
-                nur.modules.homeManager.default
-                plasma-manager.homeModules.plasma-manager
-                commonNixpkgsConfig
-              ];
-              home-manager.users.urio = {
-                imports = [ ./home.nix ];
-              };
-            }
-          ];
+        flake = {
+          nixosConfigurations = {
+            konrad-m18 = withSystem "x86_64-linux" (
+              { system, inputs', ... }:
+              let
+                lib = nixpkgs.lib;
+              in
+              lib.nixosSystem {
+                specialArgs = {
+                  inherit inputs;
+                  inherit import-tree;
+                  inherit inputs';
+                };
+                inherit system;
+                modules = [
+                  ./configuration.nix
+                  self.nixosModules.nix-settings
+                  # Home Manager Module
+                  home-manager.nixosModules.home-manager
+                  self.nixosModules.home
+
+                  # Other Modules
+                  urio-nur.nixosModules.default
+                  determinate.nixosModules.default
+                  stylix.nixosModules.stylix
+                  nur.modules.nixos.default
+                  sops-nix.nixosModules.sops
+                ];
+              }
+            );
+          };
         };
-      };
-    };
-
+      }
+    );
 }

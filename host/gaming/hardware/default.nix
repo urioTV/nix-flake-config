@@ -6,9 +6,6 @@
   ...
 }:
 {
-  imports = [
-    ./udev-rules.nix
-  ];
 
   # Gaming hardware support
   hardware.steam-hardware.enable = true;

@@ -1,12 +1,12 @@
-{ inputs, system }:
+{ inputs' }:
 final: prev: {
   # gamescope = inputs.chaotic.packages.${system}.gamescope_git;
 
-  zen-browser = inputs.zen-browser.packages.${system}.default;
+  zen-browser = inputs'.zen-browser.packages.default;
 
   # zed-editor = inputs.zed.packages.${system}.default;
 
-  openmw-dev = inputs.openmw-nix.packages.${system}.openmw-dev.overrideAttrs (oldAttrs: {
+  openmw-dev = inputs'.openmw-nix.packages.openmw-dev.overrideAttrs (oldAttrs: {
     nativeBuildInputs = (oldAttrs.nativeBuildInputs or [ ]) ++ [ final.makeWrapper ];
 
     postFixup = (oldAttrs.postFixup or "") + ''

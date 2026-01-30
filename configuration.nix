@@ -3,14 +3,17 @@
   config,
   pkgs,
   chaotic,
+  import-tree,
   ...
 }:
 {
   imports = [
-    # Include the results of the hardware scan.
+    # Include the hardware scan.
     ./hardware-configuration.nix
-    ./host
-  ];
+    ./vars.nix
+    ./sops
+  ]
+  ++ (import-tree ./host).imports;
 
   services.udev.packages = [
     (pkgs.writeTextFile {

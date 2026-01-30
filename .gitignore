@@ -27,3 +27,7 @@ Thumbs.db
 # Zed
 dotfiles/zed/*
 !dotfiles/zed/settings.json
+
+# SOPS - ignore unencrypted secrets (keep .example files)
+# The actual encrypted secrets.yaml should be committed
+sops/secrets/*.example

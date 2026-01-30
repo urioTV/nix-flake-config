@@ -54,6 +54,12 @@
     };
     hytale-launcher.url = "github:JPyke3/hytale-launcher-nix";
 
+    # Secrets Management
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs =
@@ -68,6 +74,7 @@
       nix-alien,
       plasma-manager,
       determinate,
+      sops-nix,
       ...
     }@inputs:
     let
@@ -96,11 +103,13 @@
             ./configuration.nix
             ./vars.nix
             ./nix-settings.nix
+            ./sops
             commonNixpkgsConfig
             urio-nur.nixosModules.default
             determinate.nixosModules.default
             stylix.nixosModules.stylix
             nur.modules.nixos.default
+            sops-nix.nixosModules.sops
             home-manager.nixosModules.home-manager
 
             # Home Manager Configuration

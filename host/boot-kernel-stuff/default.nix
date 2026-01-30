@@ -27,8 +27,6 @@
   boot.kernelParams = [
     "amdgpu.dcdebugmask=0x10"
     "amdgpu.ppfeaturemask=0xffffffff"
-    "processor.max_cstate=1"
-    "idle=nomwait"
   ];
   services.scx = {
     enable = true;

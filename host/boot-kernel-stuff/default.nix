@@ -19,11 +19,21 @@
 
   boot.initrd.kernelModules = [ "ntsync" ];
 
-  # boot.blacklistedKernelModules = [ "efi_pstore" ];
+  boot.blacklistedKernelModules = [
+    "ucsi_acpi" # WINOWAJCA: Interface ACPI do USB-C (to on sypie błędami ze zdjęcia)
+    "typec_ucsi" # Podsystem powiązany z powyższym
+    "sp5100_tco" # Watchdog, który może resetować/zamrażać system przy starcie
+    "i2c_piix4" # Częsty konflikt na płytach AMD, warto wyłączyć profilaktycznie
+  ];
 
   boot.kernelParams = [
     "amdgpu.dcdebugmask=0x10"
     "amdgpu.ppfeaturemask=0xffffffff"
+
+    "pcie_aspm=off"
+    "acpi_osi=!"
+    "acpi_osi=\"Windows 2020\""
+    "iommu=soft"
   ];
   services.scx = {
     enable = true;

@@ -7,7 +7,7 @@
       url = "github:vic/import-tree";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixpkgs-old.url = "github:NixOS/nixpkgs/65674e545dbdaf4253501eb15c6df18023ab0b70";
+    # nixpkgs-old.url = "github:NixOS/nixpkgs/65674e545dbdaf4253501eb15c6df18023ab0b70";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -95,19 +95,6 @@
         ];
 
         systems = [ "x86_64-linux" ];
-
-        perSystem =
-          {
-            # config,
-            # self',
-            # inputs',
-            # pkgs,
-            # system,
-            ...
-          }:
-          {
-            # Per-system configuration can go here, e.g. devShells, packages, etc.
-          };
 
         flake = {
           nixosConfigurations = {

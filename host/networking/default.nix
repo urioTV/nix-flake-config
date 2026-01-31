@@ -15,6 +15,7 @@
 
   services.tailscale = {
     enable = true;
+    extraSetFlags = [ "--operator=urio" ];
   };
 
   # Enable networking

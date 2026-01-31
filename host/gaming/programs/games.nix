@@ -10,6 +10,7 @@
     enable = true;
     version = "1.21.6";
     hash = "sha256-LkiL/8W9MKpmJxtK+s5JvqhOza0BLap1SsaDvbLYR0c=";
+    dGPU = true;
   };
 
   environment.systemPackages = with pkgs; [

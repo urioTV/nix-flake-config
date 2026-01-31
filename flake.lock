@@ -1292,11 +1292,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1769866841,
-        "narHash": "sha256-j7lNKE1GNQM9h4FBeZ3KTKSKl3EQnnx5t1wJyijBLj4=",
+        "lastModified": 1769888639,
+        "narHash": "sha256-TX6V0rz5JlZBbDWROeHfYx0hMl3qmA272xAf3QwijKE=",
         "owner": "urioTV",
         "repo": "urio-nur",
-        "rev": "2d26382db3d1845ccdb6ab0922cbfef934b344b7",
+        "rev": "bd4dd3732feb636ec43387375632d7ee1d0b0893",
         "type": "github"
       },
       "original": {

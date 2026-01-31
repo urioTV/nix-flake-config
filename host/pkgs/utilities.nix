@@ -63,6 +63,7 @@
     mission-center
     efibootmgr
     gnome-software
+    openvpn
   ];
 
 }

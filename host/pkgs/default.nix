@@ -36,6 +36,7 @@
     obsidian
     # spacedrive
     android-tools
+    tailscale
 
     # Nice
     bleachbit

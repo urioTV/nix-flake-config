@@ -9,7 +9,12 @@
   networking.hostName = "konrad-m18"; # Define your hostname.
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    plugins = with pkgs; [
+      networkmanager-openvpn
+    ];
+  };
 
   # Open ports in the firewall.
   networking.firewall = {

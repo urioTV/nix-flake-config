@@ -21,6 +21,7 @@
         nur.modules.homeManager.default
         plasma-manager.homeModules.plasma-manager
         self.homeModules.nix-settings
+        self.homeModules.stylix-config
       ];
       home-manager.users.urio =
         { config, ... }:

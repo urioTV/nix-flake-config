@@ -85,12 +85,15 @@
       ...
     }:
     flake-parts.lib.mkFlake { inherit inputs; } (
-      { withSystem, ... }:
+      { withSystem, lib, ... }:
       {
         imports = [
+          home-manager.flakeModules.home-manager
           ./home.nix
           ./nix-settings.nix
+          ./stylix-config.nix
         ];
+
         systems = [ "x86_64-linux" ];
 
         perSystem =
@@ -123,6 +126,8 @@
                 modules = [
                   ./configuration.nix
                   self.nixosModules.nix-settings
+                  # Stylix Configuration
+                  self.nixosModules.stylix-config
                   # Home Manager Module
                   home-manager.nixosModules.home-manager
                   self.nixosModules.home

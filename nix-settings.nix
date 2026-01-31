@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, self, ... }:
 let
   sharedConfig =
     { inputs, inputs' }:
@@ -13,7 +13,6 @@ in
 {
   flake.nixosModules.nix-settings =
     {
-      config,
       pkgs,
       lib,
       inputs,
@@ -60,7 +59,6 @@ in
 
   flake.homeModules.nix-settings =
     {
-      config,
       pkgs,
       lib,
       inputs,

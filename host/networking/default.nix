@@ -8,6 +8,15 @@
 {
   networking.hostName = "konrad-m18"; # Define your hostname.
 
+  environment.systemPackages = with pkgs; [
+    openvpn
+    tailscale
+  ];
+
+  services.tailscale = {
+    enable = true;
+  };
+
   # Enable networking
   networking.networkmanager = {
     enable = true;

@@ -12,6 +12,8 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    flake-parts.url = "github:hercules-ci/flake-parts";
+
     urio-nur = {
       url = "github:urioTV/urio-nur";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -63,8 +65,6 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
   outputs =

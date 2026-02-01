@@ -1,18 +1,12 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    # nixpkgs.url = "github:NixOS/nixpkgs/master";
-    # nixpkgs-stable.url = "nixpkgs/nixos-24.05";
-    import-tree = {
-      url = "github:vic/import-tree";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    # nixpkgs-old.url = "github:NixOS/nixpkgs/65674e545dbdaf4253501eb15c6df18023ab0b70";
+    import-tree.url = "github:vic/import-tree";
+    flake-parts.url = "github:hercules-ci/flake-parts";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    flake-parts.url = "github:hercules-ci/flake-parts";
 
     urio-nur = {
       url = "github:urioTV/urio-nur";

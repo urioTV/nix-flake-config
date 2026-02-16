@@ -27,4 +27,5 @@
     "workbench.iconTheme": "material-icon-theme",
     "editor.fontFamily": "SFMono Nerd Font",
     "editor.fontSize": 12,
+    "python.languageServer": "Default",
 }

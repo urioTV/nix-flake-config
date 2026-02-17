@@ -14,8 +14,25 @@
 
   services.desktopManager.plasma6.enable = true;
 
-  services = {
-    flatpak.enable = true;
+  services.flatpak = {
+    enable = true;
+    update = {
+      onActivation = true;
+    };
+    packages = [
+      "com.github.tchx84.Flatseal"
+      "com.microsoft.Edge"
+      "com.mikrotik.WinBox"
+      "com.rustdesk.RustDesk"
+      "com.spotify.Client"
+      "com.stremio.Stremio"
+      # "gg.minion.Minion"
+      "io.github.flattool.Warehouse"
+      # "io.github.ryubing.Ryujinx"
+      # "la.ogri.strongbox"
+      "net.codelogistics.clicker"
+      # "org.prismlauncher.PrismLauncher"
+    ];
   };
 
   xdg.portal = {

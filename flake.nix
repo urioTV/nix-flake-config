@@ -59,6 +59,8 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
   };
 
   outputs =
@@ -76,6 +78,7 @@
       sops-nix,
       flake-parts,
       import-tree,
+      nix-flatpak,
       ...
     }:
     flake-parts.lib.mkFlake { inherit inputs; } (
@@ -119,6 +122,7 @@
                   stylix.nixosModules.stylix
                   nur.modules.nixos.default
                   sops-nix.nixosModules.sops
+                  nix-flatpak.nixosModules.nix-flatpak
                 ];
               }
             );

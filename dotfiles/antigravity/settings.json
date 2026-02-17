@@ -28,4 +28,5 @@
     "editor.fontFamily": "SFMono Nerd Font",
     "editor.fontSize": 12,
     "python.languageServer": "Default",
+    "json.schemaDownload.enable": false,
 }

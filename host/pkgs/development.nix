@@ -17,7 +17,7 @@
     git
     micro
     btop
-    nixfmt-rfc-style
+    nixfmt
     # nil
     nixd
     dotnet-sdk

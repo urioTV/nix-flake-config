@@ -32,6 +32,7 @@
     terraform
     terraform-ls
     antigravity
+    uv
   ];
 
 }

@@ -89,6 +89,7 @@
           ./home.nix
           ./nix-settings.nix
           ./stylix-config.nix
+          ./sops-config.nix
         ];
 
         systems = [ "x86_64-linux" ];
@@ -116,12 +117,15 @@
                   home-manager.nixosModules.home-manager
                   self.nixosModules.home
 
+                  # NUR
+                  nur.modules.nixos.default
+
                   # Other Modules
                   urio-nur.nixosModules.default
                   determinate.nixosModules.default
                   stylix.nixosModules.stylix
-                  nur.modules.nixos.default
                   sops-nix.nixosModules.sops
+                  self.nixosModules.sops-config
                   nix-flatpak.nixosModules.nix-flatpak
                 ];
               }

@@ -11,7 +11,6 @@
     # Include the hardware scan.
     ./hardware-configuration.nix
     ./vars.nix
-    ./sops
   ]
   ++ (import-tree ./host).imports;
 

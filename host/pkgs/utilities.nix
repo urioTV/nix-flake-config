@@ -64,6 +64,7 @@
     efibootmgr
     gnome-software
     cryptsetup
+    jq
   ];
 
 }

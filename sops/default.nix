@@ -27,15 +27,8 @@
       generateKey = true;
     };
 
-    # Example secrets - uncomment and adjust to your needs
-    # secrets = {
-    #   "example_secret" = { };
-    #   "api_key" = {
-    #     owner = "urio";
-    #   };
-    #   "database_password" = {
-    #     mode = "0400";
-    #   };
-    # };
+    secrets.openrouter_api_key = {
+      owner = "urio";
+    };
   };
 }

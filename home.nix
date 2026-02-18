@@ -22,6 +22,8 @@
         plasma-manager.homeModules.plasma-manager
         self.homeModules.nix-settings
         self.homeModules.stylix-config
+        sops-nix.homeModules.sops
+        self.homeModules.sops-config
       ];
       home-manager.users.urio =
         { config, ... }:

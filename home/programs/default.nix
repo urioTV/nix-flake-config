@@ -31,8 +31,12 @@
     rclone = {
       enable = true;
     };
+    opencode = {
+      enable = true;
+    };
   };
   home.packages = with pkgs; [
     rclone-browser
+    opencode-desktop
   ];
 }

@@ -26,13 +26,18 @@
       "com.rustdesk.RustDesk"
       "com.spotify.Client"
       "com.stremio.Stremio"
-      # "gg.minion.Minion"
       "io.github.flattool.Warehouse"
-      # "io.github.ryubing.Ryujinx"
-      # "la.ogri.strongbox"
       "net.codelogistics.clicker"
-      # "org.prismlauncher.PrismLauncher"
+      "com.usebottles.bottles"
     ];
+    overrides = {
+      global = {
+        Context.filesystems = [
+          "/run/current-system/sw/share/icons:ro"
+          "/run/current-system/sw/share/fonts:ro"
+        ];
+      };
+    };
   };
 
   xdg.portal = {
@@ -54,6 +59,7 @@
     kdePackages.kaccounts-providers
     kdePackages.kaccounts-integration
     kdePackages.kmail-account-wizard
+    adwaita-icon-theme
   ];
 
   environment.sessionVariables = {

@@ -14,6 +14,7 @@ let
 
         secrets.openrouter_api_key = { };
         secrets.context7_api_key = { };
+        secrets.github_token = { };
       };
     };
 in

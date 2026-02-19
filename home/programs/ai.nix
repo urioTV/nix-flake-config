@@ -96,8 +96,14 @@
               apiKey = "{file:${config.sops.secrets.openrouter_api_key.path}}";
             };
           };
+          nano-gpt = {
+            options = {
+              apiKey = "{file:${config.sops.secrets.nano-gpt_api_key.path}}";
+            };
+          };
         };
         plugin = [
+          "@tarquinen/opencode-dcp@latest"
           "@simonwjackson/opencode-direnv"
           "oh-my-opencode@latest"
           "opencode-gemini-auth@latest"

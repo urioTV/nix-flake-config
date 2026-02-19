@@ -1,143 +1,134 @@
 # AGENTS.md - Development Guidelines for NixOS Flake Configuration
 
-## Build / Lint / Test Commands
+## Project Overview
+This repository contains a NixOS configuration using **Flakes**, **Home Manager**, and **flake-parts**.
+It manages the system configuration for host `konrad-m18` and home configuration for user `urio`.
 
-### Building the Configuration
-```bash
-nh os build                              # Build NixOS config (recommended)
-sudo nixos-rebuild switch --flake .#konrad-m18  # Alternative
-home-manager switch --flake .#urio       # Build Home Manager config
-nix flake check                          # Check flake for errors
-nix-instantiate --parse <file.nix>       # Syntax check without building
-```
+## Build, Lint, and Test Commands
 
-### Formatting
-```bash
-nixfmt --check .                         # Check formatting
-nixfmt <file.nix>                        # Format specific file
-```
+### 1. Build Configuration
+*   **NixOS System (Preferred)**:
+    ```bash
+    nh os build
+    ```
+*   **NixOS System (Alternative)**:
+    ```bash
+    sudo nixos-rebuild switch --flake .#konrad-m18
+    ```
+*   **Home Manager**:
+    ```bash
+    home-manager switch --flake .#urio
+    ```
 
-### Testing / Validation
-No formal unit tests. Validate via:
-```bash
-nix-instantiate --parse <file.nix>       # Quick syntax check
-nix eval .#nixosConfigurations.konrad-m18.config.system.build.toplevel
-nix eval .#nixosConfigurations.konrad-m18.config.environment.systemPackages
-```
+### 2. Linting and Formatting
+*   **Check Formatting**:
+    ```bash
+    nixfmt --check .
+    ```
+*   **Format All Files**:
+    ```bash
+    nixfmt .
+    ```
+*   **Format Single File**:
+    ```bash
+    nixfmt path/to/file.nix
+    ```
+
+### 3. Testing and Validation
+Since this is a configuration repo, "testing" means validating syntax and evaluation.
+
+*   **Syntax Check (Fast)**:
+    ```bash
+    nix-instantiate --parse .
+    ```
+*   **Full Flake Check**:
+    ```bash
+    nix flake check
+    ```
+*   **Validate Specific Attribute (Single Test Equivalent)**:
+    Use `nix eval` to check if a specific part of the config evaluates correctly.
+    ```bash
+    # Check system packages
+    nix eval .#nixosConfigurations.konrad-m18.config.environment.systemPackages
+    
+    # Check a specific service enablement
+    nix eval .#nixosConfigurations.konrad-m18.config.services.openssh.enable
+    ```
 
 ## Code Style Guidelines
 
-### File Structure
-- **Modular organization**: Configurations under `host/`, `home/`, `sops/`
-- **Use `import-tree`**: Automatic module discovery via `(import-tree ./dir).imports`
-- **Naming**: Lowercase with hyphens (`boot-kernel-stuff/`, `hardware-stuff/`)
-- **Entry points**: Each module has `default.nix` as main file
+### File Structure & Organization
+*   **Modular Design**: Keep configs small and focused.
+    *   `host/`: Machine-specific configurations.
+    *   `home/`: User-specific Home Manager configurations.
+    *   `sops/`: Secrets management.
+*   **Import Tree**: Use `import-tree` for automatic module discovery.
+    ```nix
+    imports = [ ./manual-import.nix ] ++ (import-tree ./directory).imports;
+    ```
+*   **Entry Points**: Use `default.nix` as the entry point for directories.
 
-### Imports Pattern
-```nix
-{ config, lib, pkgs, inputs, ... }:
-{
-  imports = [ ./submodule.nix ] ++ (import-tree ./subdir).imports;
-  # Configuration here
-}
-```
-
-### Function Arguments
-- Destructure attribute sets in function arguments
-- Order: `config`, `lib`, `pkgs`, `inputs`, then `...`
-- Use `@` pattern when needing both set and individual fields
-
-### Formatting (nixfmt)
-- 2-space indentation
-- No trailing commas in attribute sets
-- Break long lines at 80-100 characters
-- Empty line between top-level attribute sets
+### Nix Language Patterns
+*   **Function Arguments**: Always destructure. Use `...` for extensibility.
+    ```nix
+    { config, lib, pkgs, inputs, ... }:
+    ```
+*   **Indentation**: 2 spaces. No tabs.
+*   **Lists**: Multi-line lists should have one element per line.
+*   **Attribute Sets**: No trailing commas. Empty line between top-level attributes.
 
 ### Naming Conventions
-- **Files/Directories**: lowercase with hyphens (`development.nix`, `gaming/`)
-- **Variables**: camelCase (`nixpkgs`, `importTree`, `systemPackages`)
-- **Configuration keys**: dot-separated lowercase (`services.xserver.enable`)
-- **Hostnames**: lowercase with hyphens (`konrad-m18`)
+*   **Files/Directories**: `kebab-case` (e.g., `hardware-configuration.nix`, `gaming-laptop/`).
+*   **Variables**: `camelCase` (e.g., `systemPackages`, `myCustomVar`).
+*   **Hostnames**: `kebab-case` (e.g., `konrad-m18`).
 
 ### Types and Values
-- Use `lib.mkDefault` for overridable defaults
-- Use `lib.mkForce` to override hard values
-- Use `config.lib.file.mkOutOfStoreSymlink` for dotfile symlinks
-- Prefer `with pkgs; [...]` for package lists
+*   **Defaults**: Use `lib.mkDefault` for values that might be overridden.
+*   **Forcing**: Use `lib.mkForce` sparingly, only when necessary to override defaults.
+*   **Packages**: Prefer `with pkgs; [ ... ]` for readability in package lists.
 
 ### Error Handling
-- Nix is declarative - errors caught at evaluation time
-- Use `lib.mkIf` for conditional configuration
-- Use `lib.optional` for optional list elements
-- Use `lib.optionalString` for optional strings
+*   **Conditionals**: Use `lib.mkIf` for enabling modules/settings conditionally.
+*   **Optionals**: Use `lib.optional` (list) or `lib.optionalString` (string) to avoid null errors.
+*   **Assertions**: Use `assertions` list in modules to enforce valid configurations.
+    ```nix
+    config.assertions = [
+      { assertion = config.services.foo.enable -> config.services.bar.enable;
+        message = "Foo requires Bar"; }
+    ];
+    ```
 
-### Module Patterns
+## Flake & Module Architecture
 
-#### NixOS Module
+### Flake Parts
+This repo uses `flake-parts` to structure the flake.
+*   Define reusable modules in `flake.nixosModules` or `flake.homeModules`.
+*   Use `perSystem` for system-specific outputs (devShells, packages).
+
+### Shared Configuration
+Share config between NixOS and Home Manager using the shared module pattern:
 ```nix
-{ config, lib, pkgs, ... }:
-{
-  imports = [ ./other.nix ];
-  services.someService.enable = true;
-  environment.systemPackages = with pkgs; [ package1 package2 ];
+let shared = { ... }: { ... }; in {
+  flake.nixosModules.shared = shared;
+  flake.homeModules.shared = shared;
 }
 ```
 
-#### Home Manager Module
-```nix
-{ config, pkgs, lib, ... }:
-{
-  home.packages = with pkgs; [ ... ];
-  programs.someApp.enable = true;
-  xdg.configFile."app/config".source = ./config;
-}
-```
+## Security & Secrets
+*   **Tool**: `sops-nix` is used for secret management.
+*   **Rule**: **NEVER** commit plain-text secrets (passwords, keys, tokens).
+*   **Config**: Secrets are defined in `sops/` and referenced via `config.sops.secrets`.
+*   **SSH Keys**: Only commit public keys.
 
-### Flake Structure
-- Use `.follows` for sharing nixpkgs across flakes
-- Comment inputs by category (`# Apps`, `# Gaming`, `# Secrets`)
-- Use `flake-parts` for modular structure
-- Define reusable modules in `flake.nixosModules.*` and `flake.homeModules.*`
+## Agent Workflow
+1.  **Discovery**: Before making changes, run `ls -R` or `find .` to understand the directory structure.
+2.  **Validation**: ALWAYS run `nix-instantiate --parse .` after modifying `.nix` files to catch syntax errors immediately.
+3.  **Formatting**: Run `nixfmt <file>` on any file you modify.
+4.  **Verification**: If possible, run `nix flake check` before finishing a task.
+5.  **Commit Messages**: Use conventional commits (e.g., `feat: add zsh plugin`, `fix: correct font path`).
 
-### Sensitive Data
-- **NEVER** commit passwords, API keys, or secrets
-- Use `sops-nix` for encrypted secrets (see `sops/`)
-- SSH keys: public keys only
-- Reference secrets via `sops-config.nix`
-
-### Common Patterns
-
-#### Shared Module Pattern (NixOS + Home Manager)
-```nix
-let
-  sharedConfig = { inputs, inputs' }: { ... };
-in
-{
-  flake.nixosModules.nix-settings = { ... }: { imports = [ (sharedConfig { inherit inputs inputs'; }) ]; };
-  flake.homeModules.nix-settings = { ... }: { imports = [ (sharedConfig { inherit inputs inputs'; }) ]; };
-}
-```
-
-#### Package Overlays
-```nix
-final: prev: {
-  custom-package = prev.callPackage ./custom-pkgs/package.nix { };
-}
-```
-
-## Pre-commit Checklist
-- [ ] Configuration builds: `nh os build`
-- [ ] No syntax errors: `nix-instantiate --parse`
-- [ ] Formatted: `nixfmt --check`
-- [ ] Flake checks pass: `nix flake check`
-- [ ] Changes documented in comments
-- [ ] Module imports correct and complete
-- [ ] No unnecessary/commented-out code
-- [ ] No sensitive info committed (use sops-nix)
-
-## Useful Commands
-```bash
-nix search nixpkgs <package-name>        # Search packages
-nix-collect-garbage -d                   # Garbage collection
-nix flake update <input-name>            # Update flake inputs
-```
+## Useful Commands Reference
+*   `nix search nixpkgs <query>`: Find packages.
+*   `nix repl`: Interactive shell to explore `pkgs` or `lib`.
+*   `nix-collect-garbage -d`: Clean up old generations.
+*   `nix flake update`: Update lockfile.

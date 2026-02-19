@@ -13,9 +13,8 @@ This flake uses Nix to manage the entire system configuration, including:
 - **Operating System:** NixOS
 - **Window Manager:** **KDE Plasma** (see `host/plasma6/default.nix`, `home/plasma-manager.nix`)
 - **Home Manager:** Used to manage user-specific configurations (see `home.nix`)
-- **Stylix:** Used for theming and styling (see `host/stylix.nix` and `home/stylixHome.nix`)
-- **Chaotic-Nyx:** An unofficial binary cache for a large collection of Nix packages, which can significantly speed up installations and system updates. It provides bleeding-edge packages, including `-git` versions, similar to the Chaotic-AUR project for Arch Linux
-- **Custom Packages:** A collection of custom Nix packages (see `custom-pkgs/`)
+- **Stylix:** Used for theming and styling (see `stylix-config.nix`)
+- **Custom Packages:** Custom packages defined in `overlay.nix` and `urio-nur` flake input
 - **Dotfiles:** Manages dotfiles for various applications (see `dotfiles/`)
 - **Gaming:** Comprehensive gaming setup with modular configuration (see `host/gaming/`)
 
@@ -26,7 +25,7 @@ This configuration uses the following main flake inputs:
 - **nixpkgs:** NixOS unstable packages
 - **home-manager:** User environment management
 - **stylix:** System-wide styling and theming
-- **chaotic:** Chaotic-Nyx binary cache and packages
+- **urio-nur:** Personal NUR repository
 - **plasma-manager:** KDE Plasma configuration management
 - **apple-fonts:** Apple font collection
 - **nix-alien:** Tool for running unpatched binaries
@@ -34,6 +33,8 @@ This configuration uses the following main flake inputs:
 - **nix-gaming:** Gaming-related packages and optimizations
 - **openmw-nix:** OpenMW game engine packages
 - **kwin-effects-forceblur:** Additional KDE effects
+- **determinate:** Determinate Systems Nix installer
+- **nix-flatpak:** Declarative Flatpak management
 
 ## Structure
 
@@ -47,7 +48,6 @@ The repository is structured as follows:
 - **`nix-settings.nix`:** Nix settings
 - **`overlay.nix`:** Nix package overlay for custom packages and overrides
 - **`vars.nix`:** Variables used in the configuration
-- **`custom-pkgs/`:** Contains custom Nix package definitions
 - **`dotfiles/`:** Contains dotfiles for various applications
 - **`home/`:** Contains Home Manager configurations
 - **`host/`:** Contains NixOS host configurations
@@ -58,23 +58,9 @@ The repository is structured as follows:
 
 This configuration includes a comprehensive, modular gaming setup organized in `host/gaming/`:
 
-```
-host/gaming/
-├── default.nix              # Main gaming module
-├── hardware/
-│   ├── default.nix         # Gaming hardware (Steam hardware, xpadneo)
-│   └── udev-rules.nix      # Gaming device udev rules
-├── programs/
-│   ├── default.nix         # Gaming programs module
-│   ├── steam.nix           # Steam with Proton-GE configuration
-│   ├── launchers.nix       # Heroic, Lutris game launchers
-│   ├── tools.nix           # Gaming tools (vkbasalt, protonplus, etc.)
-│   ├── games.nix           # Specific games (Vintage Story, OpenMW)
-│   └── gamescope.nix       # Gamescope and GameMode configuration
-└── audio/
-    ├── default.nix         # Audio module
-    └── pipewire-gaming.nix # Gaming-specific PipeWire rules (Warframe)
-```
+- **Hardware:** `host/gaming/hardware/` (Steam hardware, udev rules)
+- **Programs:** `host/gaming/programs/` (Steam, Launchers, Tools, Gamescope)
+- **Audio:** `host/gaming/audio/` (Gaming-specific PipeWire rules)
 
 ### Gaming Features
 
@@ -111,14 +97,7 @@ To use this configuration:
 
 ### Disabling Gaming
 
-To disable the entire gaming setup, simply comment out the gaming import in `host/default.nix`:
-
-```nix
-imports = [
-  # ... other imports ...
-  # ./gaming  # Comment this line to disable gaming
-];
-```
+To disable the entire gaming setup, you can comment out the gaming imports in `host/default.nix` (if present) or the relevant modules in `configuration.nix`.
 
 ## Window Manager
 
@@ -126,9 +105,7 @@ This configuration uses **KDE Plasma** as the desktop environment.
 
 ## Custom Packages
 
-This configuration includes custom Nix packages defined in `custom-pkgs/overlay.nix`. These packages are automatically loaded via a Nix overlay and can be used throughout the configuration.
-
-For example, `scopebuddy` and `vintagestory` are defined in `custom-pkgs/` and can be added to your environment like any other package.
+This configuration includes custom Nix packages defined in `overlay.nix` and imported from `urio-nur`. These packages are automatically loaded via a Nix overlay and can be used throughout the configuration.
 
 ## Home Manager
 
@@ -136,7 +113,7 @@ Home Manager is used to manage user-specific configurations, such as dotfiles, s
 
 ## Host Configuration
 
-The `host/` directory contains NixOS host configurations. These configurations define system-wide settings, such as hardware configuration, networking, and services. The main file is `host/default.nix`, which imports other modules from the same directory.
+The `host/` directory contains NixOS host configurations. These configurations define system-wide settings, such as hardware configuration, networking, and services.
 
 ### Host Modules
 
@@ -156,7 +133,7 @@ The `host/` directory contains NixOS host configurations. These configurations d
 
 ### Theming and Styling
 
-- **Stylix** is used for theming and styling (see `host/stylix.nix` and `home/stylixHome.nix`)
+- **Stylix** is used for theming and styling (see `stylix-config.nix`)
 - **Base16 Schemes** are available in `media/base16Schemes/` for consistent color schemes across applications
 - **Apple Fonts** are included via the `apple-fonts` flake input
 

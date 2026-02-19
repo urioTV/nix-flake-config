@@ -39,7 +39,10 @@
             };
           };
         };
-        plugin = [ "@simonwjackson/opencode-direnv" ];
+        plugin = [
+          "@simonwjackson/opencode-direnv"
+          "opencode-gemini-auth@latest"
+        ];
       };
     };
   };

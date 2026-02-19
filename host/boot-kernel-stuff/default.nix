@@ -20,10 +20,10 @@
   boot.initrd.kernelModules = [ "ntsync" ];
 
   boot.blacklistedKernelModules = [
-    "ucsi_acpi" # WINOWAJCA: Interface ACPI do USB-C (to on sypie błędami ze zdjęcia)
-    "typec_ucsi" # Podsystem powiązany z powyższym
-    "sp5100_tco" # Watchdog, który może resetować/zamrażać system przy starcie
-    "i2c_piix4" # Częsty konflikt na płytach AMD, warto wyłączyć profilaktycznie
+    "ucsi_acpi" # CULPRIT: USB-C ACPI Interface (causes errors)
+    "typec_ucsi" # Related subsystem
+    "sp5100_tco" # Watchdog (can freeze system on boot)
+    "i2c_piix4" # Frequent AMD board conflict
   ];
 
   boot.kernelParams = [
@@ -55,7 +55,7 @@
   boot.loader = {
     efi = {
       canTouchEfiVariables = true;
-      # efiSysMountPoint = "/boot/efi"; # ← use the same mount point here.
+      # efiSysMountPoint = "/boot/efi"; # Must match hardware-configuration.nix
     };
     grub = {
       enable = true;

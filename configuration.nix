@@ -35,7 +35,7 @@
   #     MaxRetentionSec=7day
   #     ForwardToConsole=yes
   #     MaxLevelConsole=debug
-  #     # Zapisuj wszystkie poziomy logowania
+  #     # Save all logging levels
   #     MaxLevelStore=debug
   #     MaxLevelSyslog=debug
   #   '';

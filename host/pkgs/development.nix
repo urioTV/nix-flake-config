@@ -33,6 +33,8 @@
     terraform-ls
     antigravity
     uv
+    bun
+    nodejs
   ];
 
 }

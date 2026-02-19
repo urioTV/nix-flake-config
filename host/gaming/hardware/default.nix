@@ -11,19 +11,16 @@
   hardware.steam-hardware.enable = true;
   # hardware.xpadneo.enable = true;
 
-  # 1. Obsługa demona `ratbagd` (niezbędne dla Pipera)
-  # To włącza usługę w tle i nadaje odpowiednie uprawnienia DBus.
+  # Mouse configuration daemon (required for Piper)
   services.ratbagd.enable = true;
 
-  # 2. Instalacja graficznego interfejsu Piper
   environment.systemPackages = with pkgs; [
     piper
   ];
 
-  # 3. Obsługa sprzętu Logitech (Solaar i reguły udev)
-  # To automatycznie instaluje Solaar i wgrywa reguły udev dla odbiorników Lightspeed/Unifying.
+  # Logitech hardware support (Solaar + udev rules)
   hardware.logitech.wireless.enable = true;
-  hardware.logitech.wireless.enableGraphical = true; # To instaluje GUI Solaar
+  hardware.logitech.wireless.enableGraphical = true; # Installs Solaar GUI
 
   # hardware.openrazer = {
   #   enable = true;

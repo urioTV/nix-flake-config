@@ -1,4 +1,21 @@
 { config, pkgs, ... }:
+let
+  # ── Edit models here ─────────────────────────────────────────────────
+  premiumModel = "github-copilot/claude-sonnet-4.6";
+  premiumFallbacks = [
+    "google/gemini-3.1-pro"
+    "openrouter/zhipuai/glm-5"
+    "github-copilot/gpt-5-mini"
+  ];
+
+  freeModel = "github-copilot/gpt-5-mini";
+  freeFallbacks = [
+    "google/gemini-3.0-flash"
+    "openrouter/meta-llama/llama-3.1-8b-instruct"
+    "github-copilot/gpt-4.1"
+  ];
+  # ─────────────────────────────────────────────────────────────────────
+in
 {
   # oh-my-opencode config: GitHub Copilot — tiered model routing
   # Agents inherit model/fallback from their assigned category.
@@ -49,80 +66,48 @@
     categories = {
       # --- Premium categories: complex reasoning & generation ---
 
+      # Heavier unspecified tasks (default for premium agents)
+      "unspecified-high" = {
+        model = premiumModel;
+        fallback_models = premiumFallbacks;
+      };
       # Hardest logic-heavy tasks
       ultrabrain = {
-        model = "github-copilot/claude-sonnet-4.6";
-        fallback_models = [
-          "google/gemini-3.1-pro"
-          "openrouter/zhipuai/glm-5"
-          "github-copilot/gpt-5-mini"
-        ];
+        model = premiumModel;
+        fallback_models = premiumFallbacks;
       };
       # Autonomous deep problem-solving
       deep = {
-        model = "github-copilot/claude-sonnet-4.6";
-        fallback_models = [
-          "google/gemini-3.1-pro"
-          "openrouter/zhipuai/glm-5"
-          "github-copilot/gpt-5-mini"
-        ];
+        model = premiumModel;
+        fallback_models = premiumFallbacks;
       };
       # Creative, unconventional approaches
       artistry = {
-        model = "github-copilot/claude-sonnet-4.6";
-        fallback_models = [
-          "google/gemini-3.1-pro"
-          "openrouter/zhipuai/glm-5"
-          "github-copilot/gpt-5-mini"
-        ];
+        model = premiumModel;
+        fallback_models = premiumFallbacks;
       };
       # Frontend / UI / UX implementation
       "visual-engineering" = {
-        model = "github-copilot/claude-sonnet-4.6";
-        fallback_models = [
-          "google/gemini-3.1-pro"
-          "openrouter/zhipuai/glm-5"
-          "github-copilot/gpt-5-mini"
-        ];
-      };
-      # Heavier unspecified tasks (default for premium agents)
-      "unspecified-high" = {
-        model = "github-copilot/claude-sonnet-4.6";
-        fallback_models = [
-          "google/gemini-3.1-pro"
-          "openrouter/zhipuai/glm-5"
-          "github-copilot/gpt-5-mini"
-        ];
+        model = premiumModel;
+        fallback_models = premiumFallbacks;
       };
 
       # --- Free 0x categories: simple/trivial tasks ---
 
       # Single-file trivial tasks (default for free subagents)
       quick = {
-        model = "github-copilot/gpt-5-mini";
-        fallback_models = [
-          "google/gemini-3.0-flash"
-          "openrouter/meta-llama/llama-3.1-8b-instruct"
-          "github-copilot/gpt-4.1"
-        ];
+        model = freeModel;
+        fallback_models = freeFallbacks;
       };
       # Light unspecified tasks
       "unspecified-low" = {
-        model = "github-copilot/gpt-5-mini";
-        fallback_models = [
-          "google/gemini-3.0-flash"
-          "openrouter/meta-llama/llama-3.1-8b-instruct"
-          "github-copilot/gpt-4.1"
-        ];
+        model = freeModel;
+        fallback_models = freeFallbacks;
       };
       # Documentation / prose writing
       writing = {
-        model = "github-copilot/gpt-5-mini";
-        fallback_models = [
-          "google/gemini-3.0-flash"
-          "openrouter/meta-llama/llama-3.1-8b-instruct"
-          "github-copilot/gpt-4.1"
-        ];
+        model = freeModel;
+        fallback_models = freeFallbacks;
       };
     };
   };

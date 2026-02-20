@@ -1,11 +1,12 @@
 { config, pkgs, ... }:
 {
   # oh-my-opencode config: GitHub Copilot — tiered model routing
-  # Premium agents (coder/architect) → claude-sonnet-4.6  (premium, counted request)
-  # Utility subagents (explore/summarize) → gpt-4.1        (free 0x multiplier)
+  # Premium agents/categories → claude-sonnet-4.6  (premium, counted request)
+  # Utility subagents/categories → gpt-5-mini       (free 0x multiplier)
   # fallback_models: tried in order when primary model fails (429/503/529)
   xdg.configFile."opencode/oh-my-opencode.json".text = builtins.toJSON {
     google_auth = false; # Disable built-in auth
+
     agents = {
       # --- Premium Agents: logic generation & file modifications ---
 
@@ -16,6 +17,14 @@
           "google/gemini-3.1-pro"
           "github-copilot/gpt-5-mini"
           "openrouter/zhipuai/glm-5"
+        ];
+      };
+      # Sisyphus-Junior: Subagent executor (spawned via task()) — fast & free
+      sisyphus-junior = {
+        model = "github-copilot/gpt-5-mini";
+        fallback_models = [
+          "google/gemini-3.0-flash"
+          "github-copilot/gpt-4.1"
         ];
       };
       # Prometheus: Strategic planning consultant
@@ -72,15 +81,6 @@
           "openrouter/zhipuai/glm-5"
         ];
       };
-      # Frontend Engineer: UI/UX implementation
-      "frontend-ui-ux-engineer" = {
-        model = "github-copilot/claude-sonnet-4.6";
-        fallback_models = [
-          "google/gemini-3.1-pro"
-          "github-copilot/gpt-5-mini"
-          "openrouter/zhipuai/glm-5"
-        ];
-      };
 
       # --- Free 0x Subagents: exploration, summarization & documentation ---
 
@@ -108,16 +108,77 @@
           "github-copilot/gpt-4.1"
         ];
       };
-      # Document Writer: Documentation writing
-      "document-writer" = {
+    };
+
+    categories = {
+      # --- Premium categories: complex reasoning & generation (claude-sonnet-4.6) ---
+
+      # Hardest logic-heavy tasks
+      ultrabrain = {
+        model = "github-copilot/claude-sonnet-4.6";
+        fallback_models = [
+          "google/gemini-3.1-pro"
+          "github-copilot/gpt-5-mini"
+          "openrouter/zhipuai/glm-5"
+        ];
+      };
+      # Autonomous deep problem-solving
+      deep = {
+        model = "github-copilot/claude-sonnet-4.6";
+        fallback_models = [
+          "google/gemini-3.1-pro"
+          "github-copilot/gpt-5-mini"
+          "openrouter/zhipuai/glm-5"
+        ];
+      };
+      # Creative, unconventional approaches
+      artistry = {
+        model = "github-copilot/claude-sonnet-4.6";
+        fallback_models = [
+          "google/gemini-3.1-pro"
+          "github-copilot/gpt-5-mini"
+          "openrouter/zhipuai/glm-5"
+        ];
+      };
+      # Frontend / UI / UX implementation
+      visual-engineering = {
+        model = "github-copilot/claude-sonnet-4.6";
+        fallback_models = [
+          "google/gemini-3.1-pro"
+          "github-copilot/gpt-5-mini"
+          "openrouter/zhipuai/glm-5"
+        ];
+      };
+      # Heavier unspecified tasks
+      unspecified-high = {
+        model = "github-copilot/claude-sonnet-4.6";
+        fallback_models = [
+          "google/gemini-3.1-pro"
+          "github-copilot/gpt-5-mini"
+          "openrouter/zhipuai/glm-5"
+        ];
+      };
+
+      # --- Free 0x categories: simple/trivial tasks (gpt-5-mini) ---
+
+      # Single-file trivial tasks
+      quick = {
         model = "github-copilot/gpt-5-mini";
         fallback_models = [
           "google/gemini-3.0-flash"
           "github-copilot/gpt-4.1"
         ];
       };
-      # General: Multi-step research and parallelizable tasks
-      general = {
+      # Light unspecified tasks
+      unspecified-low = {
+        model = "github-copilot/gpt-5-mini";
+        fallback_models = [
+          "google/gemini-3.0-flash"
+          "github-copilot/gpt-4.1"
+        ];
+      };
+      # Documentation / prose writing
+      writing = {
         model = "github-copilot/gpt-5-mini";
         fallback_models = [
           "google/gemini-3.0-flash"

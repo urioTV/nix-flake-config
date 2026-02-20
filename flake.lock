@@ -504,7 +504,7 @@
         "type": "github"
       }
     },
-    "kwin-effects-forceblur": {
+    "kwin-effects-better-blur-dx": {
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
@@ -512,16 +512,16 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1755098995,
-        "narHash": "sha256-6FN7XEf27DenQHDIKjrjOW3tGIaJlyqRlXarmt1v+M0=",
-        "owner": "taj-ny",
-        "repo": "kwin-effects-forceblur",
-        "rev": "51a1d49d7fd7df3ce40ccf6ba4c4410cf6f510e1",
+        "lastModified": 1770933286,
+        "narHash": "sha256-a8rsmzawYHz7AeUpblC4jhKCM6JuZeGDpHqoItWLhZc=",
+        "owner": "xarblu",
+        "repo": "kwin-effects-better-blur-dx",
+        "rev": "4a0dec12318393d1abdb512a189184b07c84e565",
         "type": "github"
       },
       "original": {
-        "owner": "taj-ny",
-        "repo": "kwin-effects-forceblur",
+        "owner": "xarblu",
+        "repo": "kwin-effects-better-blur-dx",
         "type": "github"
       }
     },
@@ -951,7 +951,7 @@
         "home-manager": "home-manager",
         "hytale-launcher": "hytale-launcher",
         "import-tree": "import-tree",
-        "kwin-effects-forceblur": "kwin-effects-forceblur",
+        "kwin-effects-better-blur-dx": "kwin-effects-better-blur-dx",
         "nix-alien": "nix-alien",
         "nix-flatpak": "nix-flatpak",
         "nix-gaming": "nix-gaming",

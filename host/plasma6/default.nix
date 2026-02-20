@@ -52,7 +52,7 @@
       [General]
       background=${config.vars.wallpaper}
     '')
-    inputs.kwin-effects-forceblur.packages.${pkgs.system}.default
+    inputs.kwin-effects-better-blur-dx.packages.${pkgs.system}.default
     kdePackages.filelight
     kdePackages.kalk
     kdePackages.accounts-qt

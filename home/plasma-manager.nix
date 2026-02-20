@@ -131,6 +131,12 @@
       "services/org.kde.spectacle.desktop"."_launch" = "Print";
     };
     configFile = {
+      "kwinrc"."Effect-better-blur-dx"."BlurDecorations" = true;
+      "kwinrc"."Effect-better-blur-dx"."BlurDocks" = true;
+      "kwinrc"."Effect-better-blur-dx"."BlurMatching" = false;
+      "kwinrc"."Effect-better-blur-dx"."BlurMenus" = true;
+      "kwinrc"."Effect-better-blur-dx"."BlurNonMatching" = true;
+      "kwinrc"."Effect-better-blur-dx"."BlurStrength" = 3;
       "kwinrc"."Effect-blurplus"."BlurDecorations" = true;
       "kwinrc"."Effect-blurplus"."BlurMatching" = false;
       "kwinrc"."Effect-blurplus"."BlurNonMatching" = true;
@@ -141,8 +147,10 @@
       "kwinrc"."Effect-blurplus"."NoiseStrength" = 0;
       "kwinrc"."Effect-blurplus"."TopCornerRadius" = 25;
       "kwinrc"."Effect-blurplus"."WindowClasses" = "";
+      "kwinrc"."Plugins"."better_blur_dxEnabled" = true;
       "kwinrc"."Plugins"."blurEnabled" = false;
       "kwinrc"."Plugins"."forceblurEnabled" = true;
+
       "kwinrc"."TabBox"."DesktopMode" = 0;
       "kwinrc"."Xwayland"."Scale" = 1;
       "kwinrulesrc"."1"."Description" = "Konsole Blur";
@@ -217,6 +225,12 @@
       "kwinrulesrc"."e95ec1aa-5f55-42db-9408-1be622a641b6"."opacityactiverule" = 2;
       "kwinrulesrc"."e95ec1aa-5f55-42db-9408-1be622a641b6"."wmclass" = "vesktop";
       "kwinrulesrc"."e95ec1aa-5f55-42db-9408-1be622a641b6"."wmclassmatch" = 2;
+      "kwinrulesrc"."2c925338-d6f8-4e6a-916f-6fe5526b22ed"."Description" = "Antigravity Blur";
+      "kwinrulesrc"."2c925338-d6f8-4e6a-916f-6fe5526b22ed"."opacityactive" = 97;
+      "kwinrulesrc"."2c925338-d6f8-4e6a-916f-6fe5526b22ed"."opacityactiverule" = 2;
+      "kwinrulesrc"."2c925338-d6f8-4e6a-916f-6fe5526b22ed"."wmclass" = "antigravity";
+      "kwinrulesrc"."2c925338-d6f8-4e6a-916f-6fe5526b22ed"."wmclassmatch" = 1;
+
       "plasma-localerc"."Formats"."LANG" = "pl_PL.UTF-8";
 
       # Mouse and Touchpad

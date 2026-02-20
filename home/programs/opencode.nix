@@ -1,125 +1,61 @@
 { config, pkgs, ... }:
 {
   # oh-my-opencode config: GitHub Copilot — tiered model routing
-  # Premium agents/categories → claude-sonnet-4.6  (premium, counted request)
-  # Utility subagents/categories → gpt-5-mini       (free 0x multiplier)
-  # fallback_models: tried in order when primary model fails (429/503/529)
+  # Agents inherit model/fallback from their assigned category.
+  # Premium categories → claude-sonnet-4.6  (premium, counted request)
+  # Free    categories → gpt-5-mini         (free 0x multiplier)
   xdg.configFile."opencode/oh-my-opencode.json".text = builtins.toJSON {
-    google_auth = false; # Disable built-in auth
+    google_auth = false;
 
     agents = {
-      # --- Premium Agents: logic generation & file modifications ---
-
-      # Sisyphus: Main orchestrator (Ultraworker)
+      # --- Premium agents: inherit from unspecified-high ---
       sisyphus = {
-        model = "github-copilot/claude-sonnet-4.6";
-        fallback_models = [
-          "google/gemini-3.1-pro"
-          "github-copilot/gpt-5-mini"
-          "openrouter/zhipuai/glm-5"
-        ];
+        category = "unspecified-high";
       };
-      # Sisyphus-Junior: Subagent executor (spawned via task()) — fast & free
-      sisyphus-junior = {
-        model = "github-copilot/gpt-5-mini";
-        fallback_models = [
-          "google/gemini-3.0-flash"
-          "github-copilot/gpt-4.1"
-        ];
-      };
-      # Prometheus: Strategic planning consultant
       prometheus = {
-        model = "github-copilot/claude-sonnet-4.6";
-        fallback_models = [
-          "google/gemini-3.1-pro"
-          "github-copilot/gpt-5-mini"
-          "openrouter/zhipuai/glm-5"
-        ];
+        category = "unspecified-high";
       };
-      # Metis: Plan analysis and review
       metis = {
-        model = "github-copilot/claude-sonnet-4.6";
-        fallback_models = [
-          "google/gemini-3.1-pro"
-          "github-copilot/gpt-5-mini"
-          "openrouter/zhipuai/glm-5"
-        ];
+        category = "unspecified-high";
       };
-      # Atlas: Master orchestrator & todo management
       atlas = {
-        model = "github-copilot/claude-sonnet-4.6";
-        fallback_models = [
-          "google/gemini-3.1-pro"
-          "github-copilot/gpt-5-mini"
-          "openrouter/zhipuai/glm-5"
-        ];
+        category = "unspecified-high";
       };
-      # Hephaestus: Deep autonomous coding worker
       hephaestus = {
-        model = "github-copilot/claude-sonnet-4.6";
-        fallback_models = [
-          "google/gemini-3.1-pro"
-          "github-copilot/gpt-5-mini"
-          "openrouter/zhipuai/glm-5"
-        ];
+        category = "unspecified-high";
       };
-      # Oracle: Strategic advisor & architecture/debugging
       oracle = {
-        model = "github-copilot/claude-sonnet-4.6";
-        fallback_models = [
-          "google/gemini-3.1-pro"
-          "github-copilot/gpt-5-mini"
-          "openrouter/zhipuai/glm-5"
-        ];
+        category = "unspecified-high";
       };
-      # Momus: Verification, review and QA
       momus = {
-        model = "github-copilot/claude-sonnet-4.6";
-        fallback_models = [
-          "google/gemini-3.1-pro"
-          "github-copilot/gpt-5-mini"
-          "openrouter/zhipuai/glm-5"
-        ];
+        category = "unspecified-high";
       };
 
-      # --- Free 0x Subagents: exploration, summarization & documentation ---
-
-      # Explore: Fast read-only code search (grep/find)
+      # --- Free 0x subagents: inherit from quick ---
+      sisyphus-junior = {
+        category = "quick";
+      };
       explore = {
-        model = "github-copilot/gpt-5-mini";
-        fallback_models = [
-          "google/gemini-3.0-flash"
-          "github-copilot/gpt-4.1"
-        ];
+        category = "quick";
       };
-      # Librarian: Documentation and code exploration
       librarian = {
-        model = "github-copilot/gpt-5-mini";
-        fallback_models = [
-          "google/gemini-3.0-flash"
-          "github-copilot/gpt-4.1"
-        ];
+        category = "quick";
       };
-      # Multimodal Looker: Image/Screenshot analysis
       "multimodal-looker" = {
-        model = "github-copilot/gpt-5-mini";
-        fallback_models = [
-          "google/gemini-3.0-flash"
-          "github-copilot/gpt-4.1"
-        ];
+        category = "quick";
       };
     };
 
     categories = {
-      # --- Premium categories: complex reasoning & generation (claude-sonnet-4.6) ---
+      # --- Premium categories: complex reasoning & generation ---
 
       # Hardest logic-heavy tasks
       ultrabrain = {
         model = "github-copilot/claude-sonnet-4.6";
         fallback_models = [
           "google/gemini-3.1-pro"
-          "github-copilot/gpt-5-mini"
           "openrouter/zhipuai/glm-5"
+          "github-copilot/gpt-5-mini"
         ];
       };
       # Autonomous deep problem-solving
@@ -127,8 +63,8 @@
         model = "github-copilot/claude-sonnet-4.6";
         fallback_models = [
           "google/gemini-3.1-pro"
-          "github-copilot/gpt-5-mini"
           "openrouter/zhipuai/glm-5"
+          "github-copilot/gpt-5-mini"
         ];
       };
       # Creative, unconventional approaches
@@ -136,44 +72,46 @@
         model = "github-copilot/claude-sonnet-4.6";
         fallback_models = [
           "google/gemini-3.1-pro"
-          "github-copilot/gpt-5-mini"
           "openrouter/zhipuai/glm-5"
+          "github-copilot/gpt-5-mini"
         ];
       };
       # Frontend / UI / UX implementation
-      visual-engineering = {
+      "visual-engineering" = {
         model = "github-copilot/claude-sonnet-4.6";
         fallback_models = [
           "google/gemini-3.1-pro"
-          "github-copilot/gpt-5-mini"
           "openrouter/zhipuai/glm-5"
+          "github-copilot/gpt-5-mini"
         ];
       };
-      # Heavier unspecified tasks
-      unspecified-high = {
+      # Heavier unspecified tasks (default for premium agents)
+      "unspecified-high" = {
         model = "github-copilot/claude-sonnet-4.6";
         fallback_models = [
           "google/gemini-3.1-pro"
-          "github-copilot/gpt-5-mini"
           "openrouter/zhipuai/glm-5"
+          "github-copilot/gpt-5-mini"
         ];
       };
 
-      # --- Free 0x categories: simple/trivial tasks (gpt-5-mini) ---
+      # --- Free 0x categories: simple/trivial tasks ---
 
-      # Single-file trivial tasks
+      # Single-file trivial tasks (default for free subagents)
       quick = {
         model = "github-copilot/gpt-5-mini";
         fallback_models = [
           "google/gemini-3.0-flash"
+          "openrouter/meta-llama/llama-3.1-8b-instruct"
           "github-copilot/gpt-4.1"
         ];
       };
       # Light unspecified tasks
-      unspecified-low = {
+      "unspecified-low" = {
         model = "github-copilot/gpt-5-mini";
         fallback_models = [
           "google/gemini-3.0-flash"
+          "openrouter/meta-llama/llama-3.1-8b-instruct"
           "github-copilot/gpt-4.1"
         ];
       };
@@ -182,6 +120,7 @@
         model = "github-copilot/gpt-5-mini";
         fallback_models = [
           "google/gemini-3.0-flash"
+          "openrouter/meta-llama/llama-3.1-8b-instruct"
           "github-copilot/gpt-4.1"
         ];
       };

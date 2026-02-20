@@ -14,6 +14,7 @@
         model = "github-copilot/claude-sonnet-4.6";
         fallback_models = [
           "google/gemini-3.1-pro"
+          "github-copilot/gpt-5-mini"
           "openrouter/zhipuai/glm-5"
         ];
       };
@@ -22,6 +23,7 @@
         model = "github-copilot/claude-sonnet-4.6";
         fallback_models = [
           "google/gemini-3.1-pro"
+          "github-copilot/gpt-5-mini"
           "openrouter/zhipuai/glm-5"
         ];
       };
@@ -30,6 +32,7 @@
         model = "github-copilot/claude-sonnet-4.6";
         fallback_models = [
           "google/gemini-3.1-pro"
+          "github-copilot/gpt-5-mini"
           "openrouter/zhipuai/glm-5"
         ];
       };
@@ -38,6 +41,7 @@
         model = "github-copilot/claude-sonnet-4.6";
         fallback_models = [
           "google/gemini-3.1-pro"
+          "github-copilot/gpt-5-mini"
           "openrouter/zhipuai/glm-5"
         ];
       };
@@ -46,6 +50,7 @@
         model = "github-copilot/claude-sonnet-4.6";
         fallback_models = [
           "google/gemini-3.1-pro"
+          "github-copilot/gpt-5-mini"
           "openrouter/zhipuai/glm-5"
         ];
       };
@@ -54,6 +59,7 @@
         model = "github-copilot/claude-sonnet-4.6";
         fallback_models = [
           "google/gemini-3.1-pro"
+          "github-copilot/gpt-5-mini"
           "openrouter/zhipuai/glm-5"
         ];
       };
@@ -62,6 +68,7 @@
         model = "github-copilot/claude-sonnet-4.6";
         fallback_models = [
           "google/gemini-3.1-pro"
+          "github-copilot/gpt-5-mini"
           "openrouter/zhipuai/glm-5"
         ];
       };
@@ -70,6 +77,7 @@
         model = "github-copilot/claude-sonnet-4.6";
         fallback_models = [
           "google/gemini-3.1-pro"
+          "github-copilot/gpt-5-mini"
           "openrouter/zhipuai/glm-5"
         ];
       };
@@ -78,42 +86,42 @@
 
       # Explore: Fast read-only code search (grep/find)
       explore = {
-        model = "github-copilot/gpt-4.1";
+        model = "github-copilot/gpt-5-mini";
         fallback_models = [
           "google/gemini-3.0-flash"
-          "openrouter/meta-llama/llama-3.1-8b-instruct"
+          "github-copilot/gpt-4.1"
         ];
       };
       # Librarian: Documentation and code exploration
       librarian = {
-        model = "github-copilot/gpt-4.1";
+        model = "github-copilot/gpt-5-mini";
         fallback_models = [
           "google/gemini-3.0-flash"
-          "openrouter/meta-llama/llama-3.1-8b-instruct"
+          "github-copilot/gpt-4.1"
         ];
       };
       # Multimodal Looker: Image/Screenshot analysis
       "multimodal-looker" = {
-        model = "github-copilot/gpt-4o";
+        model = "github-copilot/gpt-5-mini";
         fallback_models = [
           "google/gemini-3.0-flash"
-          "openrouter/meta-llama/llama-3.1-8b-instruct"
+          "github-copilot/gpt-4.1"
         ];
       };
       # Document Writer: Documentation writing
       "document-writer" = {
-        model = "github-copilot/gpt-4.1";
+        model = "github-copilot/gpt-5-mini";
         fallback_models = [
           "google/gemini-3.0-flash"
-          "openrouter/meta-llama/llama-3.1-8b-instruct"
+          "github-copilot/gpt-4.1"
         ];
       };
       # General: Multi-step research and parallelizable tasks
       general = {
-        model = "github-copilot/gpt-4.1";
+        model = "github-copilot/gpt-5-mini";
         fallback_models = [
           "google/gemini-3.0-flash"
-          "openrouter/meta-llama/llama-3.1-8b-instruct"
+          "github-copilot/gpt-4.1"
         ];
       };
     };

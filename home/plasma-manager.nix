@@ -235,6 +235,8 @@
 
       # Mouse and Touchpad
 
+      "kcminputrc"."Keyboard"."NumLock" = 0;
+
       "kcminputrc"."Libinput/1267/12938/DELL0C4C:00 04F3:328A Mouse"."NaturalScroll" = false;
       "kcminputrc"."Libinput/1267/12938/DELL0C4C:00 04F3:328A Touchpad"."ClickMethod" = 2;
       "kcminputrc"."Libinput/1267/12938/DELL0C4C:00 04F3:328A Touchpad"."NaturalScroll" = true;

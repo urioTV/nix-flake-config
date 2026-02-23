@@ -1,113 +1,87 @@
 { config, pkgs, ... }:
 let
-  # ── Edit models here ─────────────────────────────────────────────────
-  premiumModel = "github-copilot/claude-sonnet-4.6";
-  premiumFallbacks = [
-    "google/gemini-3.1-pro"
-    "openrouter/zhipuai/glm-5"
-    "github-copilot/gpt-5-mini"
-  ];
-
-  freeModel = "github-copilot/gpt-5-mini";
-  freeFallbacks = [
-    "google/gemini-3.0-flash"
-    "openrouter/meta-llama/llama-3.1-8b-instruct"
-    "github-copilot/gpt-4.1"
-  ];
-  # ─────────────────────────────────────────────────────────────────────
 in
 {
-  # oh-my-opencode config: GitHub Copilot — tiered model routing
-  # Agents inherit model/fallback from their assigned category.
-  # Premium categories → claude-sonnet-4.6  (premium, counted request)
-  # Free    categories → gpt-5-mini         (free 0x multiplier)
   xdg.configFile."opencode/oh-my-opencode.json".text = builtins.toJSON {
     google_auth = false;
-
-    agents = {
-      # --- Premium agents: inherit from unspecified-high ---
-      sisyphus = {
-        category = "unspecified-high";
-      };
-      prometheus = {
-        category = "unspecified-high";
-      };
-      metis = {
-        category = "unspecified-high";
-      };
-      atlas = {
-        category = "unspecified-high";
-      };
-      hephaestus = {
-        category = "unspecified-high";
-      };
-      oracle = {
-        category = "unspecified-high";
-      };
-      momus = {
-        category = "unspecified-high";
-      };
-
-      # --- Free 0x subagents: inherit from quick ---
-      sisyphus-junior = {
-        category = "quick";
-      };
-      explore = {
-        category = "quick";
-      };
-      librarian = {
-        category = "quick";
-      };
-      "multimodal-looker" = {
-        category = "quick";
-      };
+    runtime_fallback = {
+      enabled = true;
+      retry_on_errors = [
+        400
+        401
+        402
+        403
+        404
+        429
+        500
+        503
+        529
+      ];
+      max_fallback_attempts = 5;
+      cooldown_seconds = 60;
+      timeout_seconds = 10;
+      notify_on_fallback = true;
     };
 
-    categories = {
-      # --- Premium categories: complex reasoning & generation ---
-
-      # Heavier unspecified tasks (default for premium agents)
-      "unspecified-high" = {
-        model = premiumModel;
-        fallback_models = premiumFallbacks;
+    agents = {
+      # --- Z.ai Coding Plan Agents ---
+      sisyphus = {
+        model = "zai-coding-plan/glm-4.7";
+        fallback_models = [
+          "github-copilot/claude-sonnet-4.6"
+          "openrouter/zhipuai/glm-5"
+        ];
       };
-      # Hardest logic-heavy tasks
-      ultrabrain = {
-        model = premiumModel;
-        fallback_models = premiumFallbacks;
-      };
-      # Autonomous deep problem-solving
-      deep = {
-        model = premiumModel;
-        fallback_models = premiumFallbacks;
-      };
-      # Creative, unconventional approaches
-      artistry = {
-        model = premiumModel;
-        fallback_models = premiumFallbacks;
-      };
-      # Frontend / UI / UX implementation
-      "visual-engineering" = {
-        model = premiumModel;
-        fallback_models = premiumFallbacks;
+      metis = {
+        model = "zai-coding-plan/glm-4.7";
+        fallback_models = [
+          "github-copilot/claude-sonnet-4.6"
+          "openrouter/zhipuai/glm-5"
+        ];
       };
 
-      # --- Free 0x categories: simple/trivial tasks ---
+      # --- Dual-Prompt Agents ---
+      prometheus = {
+        model = "zai-coding-plan/glm-4.7";
+        fallback_models = [
+          "github-copilot/claude-sonnet-4.6"
+          "openrouter/zhipuai/glm-5"
+        ];
+      };
+      atlas = {
+        model = "zai-coding-plan/glm-4.7";
+        fallback_models = [
+          "github-copilot/claude-sonnet-4.6"
+          "openrouter/zhipuai/glm-5"
+        ];
+      };
 
-      # Single-file trivial tasks (default for free subagents)
-      quick = {
-        model = freeModel;
-        fallback_models = freeFallbacks;
+      # --- GPT-Native Agents (GPT family only) ---
+      hephaestus = {
+        model = "openrouter/openai/gpt-5.1-codex-mini";
+        fallback_models = [ "github-copilot/gpt-5-mini" ];
       };
-      # Light unspecified tasks
-      "unspecified-low" = {
-        model = freeModel;
-        fallback_models = freeFallbacks;
+      oracle = {
+        model = "openrouter/openai/gpt-5.1-codex-mini";
+        fallback_models = [ "github-copilot/gpt-5-mini" ];
       };
-      # Documentation / prose writing
-      writing = {
-        model = freeModel;
-        fallback_models = freeFallbacks;
+      momus = {
+        model = "openrouter/openai/gpt-5.1-codex-mini";
+        fallback_models = [ "github-copilot/gpt-5-mini" ];
+      };
+
+      # --- Utility / Subagents (Speed and cost focused) ---
+      "sisyphus-junior" = {
+        model = "github-copilot/gpt-5-mini";
+      };
+      explore = {
+        model = "github-copilot/gpt-5-mini";
+      };
+      librarian = {
+        model = "github-copilot/gpt-5-mini";
+      };
+      "multimodal-looker" = {
+        model = "github-copilot/gpt-5-mini";
       };
     };
   };
@@ -130,10 +104,10 @@ in
         };
       };
       plugin = [
+        "opencode-gemini-auth@latest"
         "@tarquinen/opencode-dcp@latest"
         "@simonwjackson/opencode-direnv"
-        "oh-my-opencode@latest"
-        "opencode-gemini-auth@latest"
+        "oh-my-opencode"
       ];
     };
   };

@@ -1,134 +1,115 @@
-# AGENTS.md - Development Guidelines for NixOS Flake Configuration
+# AGENTS.md - NixOS Flake Configuration
 
-## Project Overview
-This repository contains a NixOS configuration using **Flakes**, **Home Manager**, and **flake-parts**.
-It manages the system configuration for host `konrad-m18` and home configuration for user `urio`.
+**Host:** konrad-m18 | **User:** urio
 
-## Build, Lint, and Test Commands
+## OVERVIEW
+NixOS config using **Flakes**, **Home Manager**, **flake-parts**, **sops-nix**. Single-host laptop with gaming support.
 
-### 1. Build Configuration
-*   **NixOS System (Preferred)**:
-    ```bash
-    nh os build
-    ```
-*   **NixOS System (Alternative)**:
-    ```bash
-    sudo nixos-rebuild switch --flake .#konrad-m18
-    ```
-*   **Home Manager**:
-    ```bash
-    home-manager switch --flake .#urio
-    ```
+## STRUCTURE
+```
+./
+├── flake.nix          # Entry point, nixosConfigurations
+├── configuration.nix  # System module (imports host/* via import-tree)
+├── home.nix           # Home-Manager module (imports home/*)
+├── vars.nix           # Shared options (wallpaper, base16Scheme)
+├── host/              # System-level configs
+│   ├── gaming/        # Gaming (audio, hardware, programs)
+│   ├── pkgs/          # Custom packages
+│   └── */             # ai, plasma6, networking, etc.
+├── home/              # User-level (programs, services, pkgs)
+├── sops/              # Secrets (secrets.yaml)
+└── dotfiles/          # Editor configs (zed, antigravity)
+```
 
-### 2. Linting and Formatting
-*   **Check Formatting**:
-    ```bash
-    nixfmt --check .
-    ```
-*   **Format All Files**:
-    ```bash
-    nixfmt .
-    ```
-*   **Format Single File**:
-    ```bash
-    nixfmt path/to/file.nix
-    ```
+## WHERE TO LOOK
+| Task | Location |
+|------|----------|
+| System package | `host/programs/` or module-specific |
+| User package | `home/programs/`, `home/pkgs/` |
+| Gaming | `host/gaming/{audio,hardware,programs}/` |
+| Secrets | `sops/secrets/secrets.yaml` → `config.sops.secrets.*` |
+| Custom packages | `host/pkgs/*.nix` |
+| Shared options | `vars.nix` |
+| Module providers | Search `flake.nixosModules`, `flake.homeModules` |
 
-### 3. Testing and Validation
-Since this is a configuration repo, "testing" means validating syntax and evaluation.
+## COMMANDS
 
-*   **Syntax Check (Fast)**:
-    ```bash
-    nix-instantiate --parse .
-    ```
-*   **Full Flake Check**:
-    ```bash
-    nix flake check
-    ```
-*   **Validate Specific Attribute (Single Test Equivalent)**:
-    Use `nix eval` to check if a specific part of the config evaluates correctly.
-    ```bash
-    # Check system packages
-    nix eval .#nixosConfigurations.konrad-m18.config.environment.systemPackages
-    
-    # Check a specific service enablement
-    nix eval .#nixosConfigurations.konrad-m18.config.services.openssh.enable
-    ```
+### Build
+```bash
+nh os build                           # Preferred
+sudo nixos-rebuild switch --flake .#konrad-m18
+home-manager switch --flake .#urio
+```
 
-## Code Style Guidelines
+### Lint & Format
+```bash
+nixfmt --check .                      # Check
+nixfmt .                              # Format all
+nixfmt path/to/file.nix               # Format single
+```
 
-### File Structure & Organization
-*   **Modular Design**: Keep configs small and focused.
-    *   `host/`: Machine-specific configurations.
-    *   `home/`: User-specific Home Manager configurations.
-    *   `sops/`: Secrets management.
-*   **Import Tree**: Use `import-tree` for automatic module discovery.
-    ```nix
-    imports = [ ./manual-import.nix ] ++ (import-tree ./directory).imports;
-    ```
-*   **Entry Points**: Use `default.nix` as the entry point for directories.
+### Validate
+```bash
+nix-instantiate --parse .             # Syntax (fast)
+nix flake check                       # Full check
+nix eval .#nixosConfigurations.konrad-m18.config.environment.systemPackages
+```
 
-### Nix Language Patterns
-*   **Function Arguments**: Always destructure. Use `...` for extensibility.
-    ```nix
-    { config, lib, pkgs, inputs, ... }:
-    ```
-*   **Indentation**: 2 spaces. No tabs.
-*   **Lists**: Multi-line lists should have one element per line.
-*   **Attribute Sets**: No trailing commas. Empty line between top-level attributes.
+## CONVENTIONS
 
-### Naming Conventions
-*   **Files/Directories**: `kebab-case` (e.g., `hardware-configuration.nix`, `gaming-laptop/`).
-*   **Variables**: `camelCase` (e.g., `systemPackages`, `myCustomVar`).
-*   **Hostnames**: `kebab-case` (e.g., `konrad-m18`).
+### Naming
+*   **Files/Dirs:** `kebab-case`
+*   **Variables:** `camelCase`
+*   **Hostnames:** `kebab-case`
 
-### Types and Values
-*   **Defaults**: Use `lib.mkDefault` for values that might be overridden.
-*   **Forcing**: Use `lib.mkForce` sparingly, only when necessary to override defaults.
-*   **Packages**: Prefer `with pkgs; [ ... ]` for readability in package lists.
-
-### Error Handling
-*   **Conditionals**: Use `lib.mkIf` for enabling modules/settings conditionally.
-*   **Optionals**: Use `lib.optional` (list) or `lib.optionalString` (string) to avoid null errors.
-*   **Assertions**: Use `assertions` list in modules to enforce valid configurations.
-    ```nix
-    config.assertions = [
-      { assertion = config.services.foo.enable -> config.services.bar.enable;
-        message = "Foo requires Bar"; }
-    ];
-    ```
-
-## Flake & Module Architecture
-
-### Flake Parts
-This repo uses `flake-parts` to structure the flake.
-*   Define reusable modules in `flake.nixosModules` or `flake.homeModules`.
-*   Use `perSystem` for system-specific outputs (devShells, packages).
-
-### Shared Configuration
-Share config between NixOS and Home Manager using the shared module pattern:
+### Module Pattern
 ```nix
+{ config, lib, pkgs, inputs, ... }:  # Always destructure with ...
+```
+
+```nix
+# Shared between NixOS and HM
 let shared = { ... }: { ... }; in {
   flake.nixosModules.shared = shared;
   flake.homeModules.shared = shared;
 }
 ```
 
-## Security & Secrets
-*   **Tool**: `sops-nix` is used for secret management.
-*   **Rule**: **NEVER** commit plain-text secrets (passwords, keys, tokens).
-*   **Config**: Secrets are defined in `sops/` and referenced via `config.sops.secrets`.
-*   **SSH Keys**: Only commit public keys.
+### Style
+*   **Indentation:** 2 spaces, no tabs
+*   **Lists:** One element per line (multi-line)
+*   **Packages:** `with pkgs; [ ... ]`
+*   **Defaults:** `lib.mkDefault` for overridable, `lib.mkForce` sparingly
+*   **Conditionals:** `lib.mkIf`, `lib.optional`, `lib.optionalString`
+*   **Imports:** `(import-tree ./directory).imports` for auto-discovery
 
-## Agent Workflow
-1.  **Discovery**: Before making changes, run `ls -R` or `find .` to understand the directory structure.
-2.  **Validation**: ALWAYS run `nix-instantiate --parse .` after modifying `.nix` files to catch syntax errors immediately.
-3.  **Formatting**: Run `nixfmt <file>` on any file you modify.
-4.  **Verification**: If possible, run `nix flake check` before finishing a task.
-5.  **Commit Messages**: Use conventional commits (e.g., `feat: add zsh plugin`, `fix: correct font path`).
+## ANTI-PATTERNS
+*   **NEVER** commit plain-text secrets (passwords, keys, tokens)
+*   **NEVER** modify `hardware-configuration.nix` (generated)
+*   **ALWAYS** run `nix-instantiate --parse .` after editing `.nix` files
+*   **DON'T** use `lib.mkForce` unless necessary
+*   **DON'T** skip `nixfmt` before committing
 
-## Useful Commands Reference
-*   `nix search nixpkgs <query>`: Find packages.
-*   `nix repl`: Interactive shell to explore `pkgs` or `lib`.
-*   `nix-collect-garbage -d`: Clean up old generations.
-*   `nix flake update`: Update lockfile.
+## WORKFLOW
+1.  **Discovery:** `find . -type f -name "*.nix"` to understand structure
+2.  **Edit:** Make changes
+3.  **Validate:** `nix-instantiate --parse .`
+4.  **Format:** `nixfmt <modified-files>`
+5.  **Verify:** `nix flake check` (if possible)
+6.  **Commit:** Conventional commits (`feat:`, `fix:`, `refactor:`)
+
+## SECRETS
+*   **Tool:** `sops-nix`
+*   **Location:** `sops/secrets/secrets.yaml`
+*   **Age key:** `/home/urio/.ssh/id_ed25519`
+*   **Usage:** `config.sops.secrets.<name>.path`
+*   **Available:** `openrouter_api_key`, `context7_api_key`, `github_token`, `nano-gpt_api_key`, `z-ai_api_key`
+
+## USEFUL COMMANDS
+```bash
+nix search nixpkgs <query>    # Find packages
+nix repl                      # Interactive pkgs/lib exploration
+nix-collect-garbage -d        # Clean old generations
+nix flake update              # Update lockfile
+nh os switch                  # Build + switch (nh helper)
+```

@@ -26,7 +26,10 @@ in
     agents = {
       # --- Z.ai Coding Plan Agents ---
       sisyphus = {
-        model = "zai-coding-plan/glm-4.7";
+        model = "zai-coding-plan/glm-5";
+        thinking = {
+          type = "disabled";
+        };
         fallback_models = [
           "github-copilot/claude-sonnet-4.6"
           "openrouter/zhipuai/glm-5"

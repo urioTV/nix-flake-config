@@ -16,6 +16,7 @@ let
         secrets.context7_api_key = { };
         secrets.github_token = { };
         secrets.nano-gpt_api_key = { };
+        secrets.z-ai_api_key = { };
       };
     };
 in

@@ -3,10 +3,6 @@
   programs.mcp = {
     enable = true;
     servers = {
-      ddg-search = {
-        command = "bunx";
-        args = [ "duckduckgo-mcp-server" ];
-      };
       nixos = {
         command = "${pkgs.mcp-nixos}/bin/mcp-nixos";
       };
@@ -22,6 +18,27 @@
         url = "https://api.githubcopilot.com/mcp/";
         headers = {
           "Authorization" = "Bearer {file:${config.sops.secrets.github_token.path}}";
+        };
+      };
+      web-search-prime = {
+        type = "remote";
+        url = "https://api.z.ai/api/mcp/web_search_prime/mcp";
+        headers = {
+          "Authorization" = "Bearer {file:${config.sops.secrets.z-ai_api_key.path}}";
+        };
+      };
+      web-reader = {
+        type = "remote";
+        url = "https://api.z.ai/api/mcp/web_reader/mcp";
+        headers = {
+          "Authorization" = "Bearer {file:${config.sops.secrets.z-ai_api_key.path}}";
+        };
+      };
+      zread = {
+        type = "remote";
+        url = "https://api.z.ai/api/mcp/zread/mcp";
+        headers = {
+          "Authorization" = "Bearer {file:${config.sops.secrets.z-ai_api_key.path}}";
         };
       };
     };

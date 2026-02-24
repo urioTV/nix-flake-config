@@ -4,7 +4,12 @@
     enable = true;
     servers = {
       nixos = {
-        command = "${pkgs.mcp-nixos}/bin/mcp-nixos";
+        command = "nix";
+        args = [
+          "run"
+          "github:utensils/mcp-nixos"
+          "--"
+        ];
       };
       context7 = {
         type = "remote";

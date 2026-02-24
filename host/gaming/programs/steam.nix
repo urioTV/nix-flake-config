@@ -31,7 +31,7 @@
     extraCompatPackages = with pkgs; [
       nur.repos.mio.proton-ge-custom
       # nur.repos.forkprince.proton-em-bin
-      nur.repos.mio.proton-cachyos_nightly_x86_64_v4
+      # nur.repos.mio.proton-cachyos_nightly_x86_64_v4
     ];
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server

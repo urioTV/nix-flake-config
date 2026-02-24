@@ -35,6 +35,7 @@
     uv
     bun
     nodejs
+    gh
   ];
 
 }

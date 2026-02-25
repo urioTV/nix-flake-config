@@ -27,10 +27,8 @@ in
       # --- Z.ai Coding Plan Agents ---
       sisyphus = {
         model = "zai-coding-plan/glm-5";
-        thinking = {
-          type = "disabled";
-        };
         fallback_models = [
+          "nano-gpt/qwen3.5-122b-a10b:thinking"
           "github-copilot/claude-sonnet-4.6"
           "openrouter/zhipuai/glm-5"
         ];
@@ -38,6 +36,7 @@ in
       metis = {
         model = "zai-coding-plan/glm-4.7";
         fallback_models = [
+          "nano-gpt/qwen3.5-122b-a10b:thinking"
           "github-copilot/claude-sonnet-4.6"
           "openrouter/zhipuai/glm-5"
         ];
@@ -47,6 +46,7 @@ in
       prometheus = {
         model = "zai-coding-plan/glm-4.7";
         fallback_models = [
+          "nano-gpt/qwen3.5-122b-a10b:thinking"
           "github-copilot/claude-sonnet-4.6"
           "openrouter/zhipuai/glm-5"
         ];
@@ -54,6 +54,7 @@ in
       atlas = {
         model = "zai-coding-plan/glm-4.7";
         fallback_models = [
+          "nano-gpt/qwen3.5-122b-a10b:thinking"
           "github-copilot/claude-sonnet-4.6"
           "openrouter/zhipuai/glm-5"
         ];
@@ -75,16 +76,16 @@ in
 
       # --- Utility / Subagents (Speed and cost focused) ---
       "sisyphus-junior" = {
-        model = "github-copilot/gpt-5-mini";
+        model = "nano-gpt/qwen3.5-122b-a10b";
       };
       explore = {
-        model = "github-copilot/gpt-5-mini";
+        model = "nano-gpt/qwen3.5-122b-a10b";
       };
       librarian = {
-        model = "github-copilot/gpt-5-mini";
+        model = "nano-gpt/qwen3.5-122b-a10b";
       };
       "multimodal-looker" = {
-        model = "github-copilot/gpt-5-mini";
+        model = "nano-gpt/qwen3.5-122b-a10b";
       };
     };
   };
@@ -101,6 +102,20 @@ in
           };
         };
         nano-gpt = {
+          models = {
+            "qwen3.5-35b-a3b" = {
+              name = "Qwen3.5 35B";
+            };
+            "qwen3.5-35b-a3b:thinking" = {
+              name = "Qwen3.5 35B Thinking";
+            };
+            "qwen3.5-122b-a10b" = {
+              name = "Qwen3.5 122B";
+            };
+            "qwen3.5-122b-a10b:thinking" = {
+              name = "Qwen3.5 122B Thinking";
+            };
+          };
           options = {
             apiKey = "{file:${config.sops.secrets.nano-gpt_api_key.path}}";
           };

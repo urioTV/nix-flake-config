@@ -29,6 +29,9 @@
       enable = true;
       dockerCompat = true;
     };
+    # docker = {
+    #   enable = true;
+    # };
     libvirtd = {
       enable = true;
       qemu = {
@@ -44,6 +47,7 @@
     extraGroups = [
       "libvirtd"
       "podman"
+      "docker"
       "kvm"
     ];
     # subGidRanges = [

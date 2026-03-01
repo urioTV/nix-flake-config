@@ -1,6 +1,4 @@
 { config, pkgs, ... }:
-let
-in
 {
   xdg.configFile."opencode/oh-my-opencode.json".text = builtins.toJSON {
     google_auth = false;
@@ -129,4 +127,5 @@ in
       ];
     };
   };
+
 }

@@ -118,6 +118,22 @@
             apiKey = "{file:${config.sops.secrets.nano-gpt_api_key.path}}";
           };
         };
+        ramalama = {
+          npm = "@ai-sdk/openai-compatible";
+          name = "RamaLama (Local)";
+          options = {
+            baseURL = "http://127.0.0.1:8080/v1";
+            apiKey = "";
+          };
+          models = {
+            "unsloth/GLM-4.6V-Flash-GGUF:Q6_K" = {
+              name = "GLM-4.6V Flash";
+            };
+            "TeichAI/Qwen3-14B-Claude-4.5-Opus-High-Reasoning-Distill-GGUF:Q4_K_M" = {
+              name = "Qwen3-14B Claude 4.5 Opus Distill";
+            };
+          };
+        };
       };
       plugin = [
         "opencode-gemini-auth@latest"

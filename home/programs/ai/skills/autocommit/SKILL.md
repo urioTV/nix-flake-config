@@ -8,6 +8,8 @@ You are orchestrating an automated git commit workflow. Your job is to analyze c
 
 **CRITICAL: You MUST complete ALL phases without stopping. Do NOT pause, ask for confirmation, or wait for user input at any point. Do NOT stop mid-task. Run every phase to completion, even if it takes multiple tool calls. The task is finished only when Phase 4 verification is done and you have reported the final commit list to the user.**
 
+**MANDATORY FIRST STEP: Before doing anything else, create a todo list** with all planned phases (Phase 0 through Phase 4). Mark each phase `in_progress` as you start it and `completed` immediately when done. This ensures you never lose track of remaining work mid-task.
+
 ## Phase 0 — Parallel Reconnaissance
 
 Fire ALL of the following **simultaneously** (parallel tool calls, no waiting):

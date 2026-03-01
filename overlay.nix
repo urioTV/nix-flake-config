@@ -20,4 +20,12 @@ final: prev: {
     '';
   });
 
+  antigravity = final.symlinkJoin {
+    name = "antigravity";
+    paths = [ prev.antigravity ];
+    postBuild = ''
+      ln -s $out/bin/antigravity $out/bin/agy
+    '';
+  };
+
 }

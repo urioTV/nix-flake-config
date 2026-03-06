@@ -25,26 +25,9 @@
           "Authorization" = "Bearer {file:${config.sops.secrets.github_token.path}}";
         };
       };
-      web-search-prime = {
-        type = "remote";
-        url = "https://api.z.ai/api/mcp/web_search_prime/mcp";
-        headers = {
-          "Authorization" = "Bearer {file:${config.sops.secrets.z-ai_api_key.path}}";
-        };
-      };
-      web-reader = {
-        type = "remote";
-        url = "https://api.z.ai/api/mcp/web_reader/mcp";
-        headers = {
-          "Authorization" = "Bearer {file:${config.sops.secrets.z-ai_api_key.path}}";
-        };
-      };
-      zread = {
-        type = "remote";
-        url = "https://api.z.ai/api/mcp/zread/mcp";
-        headers = {
-          "Authorization" = "Bearer {file:${config.sops.secrets.z-ai_api_key.path}}";
-        };
+      jdocmunch = {
+        command = "uvx";
+        args = [ "jdocmunch-mcp" ];
       };
     };
   };

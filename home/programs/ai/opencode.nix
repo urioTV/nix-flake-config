@@ -24,36 +24,36 @@
     agents = {
       # --- Z.ai Coding Plan Agents ---
       sisyphus = {
-        model = "zai-coding-plan/glm-5";
+        model = "github-copilot/claude-sonnet-4.6";
         fallback_models = [
+          "zai-coding-plan/glm-5"
           "nano-gpt/qwen3.5-122b-a10b:thinking"
-          "github-copilot/claude-sonnet-4.6"
           "openrouter/zhipuai/glm-5"
         ];
       };
       metis = {
-        model = "zai-coding-plan/glm-4.7";
+        model = "google/gemini-3.1-pro-preview";
         fallback_models = [
-          "nano-gpt/qwen3.5-122b-a10b:thinking"
           "github-copilot/claude-sonnet-4.6"
-          "openrouter/zhipuai/glm-5"
+          "zai-coding-plan/glm-5"
+          "nano-gpt/qwen3.5-122b-a10b:thinking"
         ];
       };
 
       # --- Dual-Prompt Agents ---
       prometheus = {
-        model = "zai-coding-plan/glm-4.7";
+        model = "github-copilot/claude-sonnet-4.6";
         fallback_models = [
+          "zai-coding-plan/glm-5"
           "nano-gpt/qwen3.5-122b-a10b:thinking"
-          "github-copilot/claude-sonnet-4.6"
           "openrouter/zhipuai/glm-5"
         ];
       };
       atlas = {
-        model = "zai-coding-plan/glm-4.7";
+        model = "github-copilot/claude-sonnet-4.6";
         fallback_models = [
+          "zai-coding-plan/glm-5"
           "nano-gpt/qwen3.5-122b-a10b:thinking"
-          "github-copilot/claude-sonnet-4.6"
           "openrouter/zhipuai/glm-5"
         ];
       };
@@ -74,16 +74,16 @@
 
       # --- Utility / Subagents (Speed and cost focused) ---
       "sisyphus-junior" = {
-        model = "nano-gpt/qwen3.5-122b-a10b";
+        model = "github-copilot/gpt-5-mini";
       };
       explore = {
-        model = "nano-gpt/qwen3.5-122b-a10b";
+        model = "github-copilot/gpt-5-mini";
       };
       librarian = {
-        model = "nano-gpt/qwen3.5-122b-a10b";
+        model = "github-copilot/gpt-5-mini";
       };
       "multimodal-looker" = {
-        model = "nano-gpt/qwen3.5-122b-a10b";
+        model = "github-copilot/gpt-5-mini";
       };
     };
   };

@@ -33,3 +33,4 @@ dotfiles/zed/*
 # SOPS - ignore unencrypted secrets (keep .example files)
 # The actual encrypted secrets.yaml should be committed
 sops/secrets/*.example
+.decrypted~secrets.yaml

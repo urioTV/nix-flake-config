@@ -37,8 +37,8 @@
         "unsloth/GLM-4.6V-Flash-GGUF:Q6_K" = {
           name = "GLM-4.6V Flash";
         };
-        "TeichAI/Qwen3-14B-Claude-4.5-Opus-High-Reasoning-Distill-GGUF:Q4_K_M" = {
-          name = "Qwen3-14B Claude 4.5 Opus Distill";
+        "Jackrong/Qwen3.5-9B-Claude-4.6-Opus-Reasoning-Distilled-GGUF:Q6_K" = {
+          name = "Qwen3.5 9B Claude 4.6 Opus Reasoning Distilled";
         };
       };
     };

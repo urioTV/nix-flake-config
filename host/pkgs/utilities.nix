@@ -31,7 +31,7 @@
     pciutils
     lm_sensors
     libva-utils
-    helvum
+    crosspipe
     dust
     tldr
     gping

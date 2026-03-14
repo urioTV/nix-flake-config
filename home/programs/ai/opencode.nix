@@ -1,4 +1,57 @@
 { config, pkgs, ... }:
+let
+  litellmProvider = {
+    npm = "@ai-sdk/openai-compatible";
+    name = "LiteLLM Proxy";
+    options = {
+      baseURL = "https://litellm.urio.dev/v1";
+      apiKey = "{file:${config.sops.secrets.litellm_api_key.path}}";
+    };
+    models = {
+      # Gemini Family (via Google)
+      "gemini-3.1-pro-preview" = {
+        name = "Gemini 3.1 Pro Preview";
+      };
+      "gemini-3-flash-preview" = {
+        name = "Gemini 3 Flash Preview";
+      };
+
+      # Antigravity Family
+      "antigravity-claude-opus-4-6-thinking" = {
+        name = "Claude Opus 4.6 Thinking (Antigravity)";
+      };
+      "antigravity-claude-sonnet-4-6" = {
+        name = "Claude Sonnet 4.6 (Antigravity)";
+      };
+      "antigravity-gemini-3-flash" = {
+        name = "Gemini 3 Flash (Antigravity)";
+      };
+      "antigravity-gemini-3.1-pro-high" = {
+        name = "Gemini 3.1 Pro High (Antigravity)";
+      };
+      "antigravity-gemini-3.1-pro-low" = {
+        name = "Gemini 3.1 Pro Low (Antigravity)";
+      };
+    };
+  };
+  commonModels = {
+    model = "zai-coding-plan/glm-5";
+    fallback_models = [
+      "github-copilot/claude-sonnet-4.6"
+      "nano-gpt/qwen3.5-122b-a10b:thinking"
+      "openrouter/zhipuai/glm-5"
+    ];
+  };
+
+  gptModels = {
+    model = "openrouter/openai/gpt-5.1-codex-mini";
+    fallback_models = [ "github-copilot/gpt-5-mini" ];
+  };
+
+  miniModels = {
+    model = "github-copilot/gpt-5-mini";
+  };
+in
 {
   xdg.configFile."opencode/oh-my-opencode.json".text = builtins.toJSON {
     google_auth = false;
@@ -23,14 +76,7 @@
 
     agents = {
       # --- Z.ai Coding Plan Agents ---
-      sisyphus = {
-        model = "github-copilot/claude-sonnet-4.6";
-        fallback_models = [
-          "zai-coding-plan/glm-5"
-          "nano-gpt/qwen3.5-122b-a10b:thinking"
-          "openrouter/zhipuai/glm-5"
-        ];
-      };
+      sisyphus = commonModels;
       metis = {
         model = "google/gemini-3.1-pro-preview";
         fallback_models = [
@@ -41,50 +87,19 @@
       };
 
       # --- Dual-Prompt Agents ---
-      prometheus = {
-        model = "github-copilot/claude-sonnet-4.6";
-        fallback_models = [
-          "zai-coding-plan/glm-5"
-          "nano-gpt/qwen3.5-122b-a10b:thinking"
-          "openrouter/zhipuai/glm-5"
-        ];
-      };
-      atlas = {
-        model = "github-copilot/claude-sonnet-4.6";
-        fallback_models = [
-          "zai-coding-plan/glm-5"
-          "nano-gpt/qwen3.5-122b-a10b:thinking"
-          "openrouter/zhipuai/glm-5"
-        ];
-      };
+      prometheus = commonModels;
+      atlas = commonModels;
 
       # --- GPT-Native Agents (GPT family only) ---
-      hephaestus = {
-        model = "openrouter/openai/gpt-5.1-codex-mini";
-        fallback_models = [ "github-copilot/gpt-5-mini" ];
-      };
-      oracle = {
-        model = "openrouter/openai/gpt-5.1-codex-mini";
-        fallback_models = [ "github-copilot/gpt-5-mini" ];
-      };
-      momus = {
-        model = "openrouter/openai/gpt-5.1-codex-mini";
-        fallback_models = [ "github-copilot/gpt-5-mini" ];
-      };
+      hephaestus = gptModels;
+      oracle = gptModels;
+      momus = gptModels;
 
       # --- Utility / Subagents (Speed and cost focused) ---
-      "sisyphus-junior" = {
-        model = "github-copilot/gpt-5-mini";
-      };
-      explore = {
-        model = "github-copilot/gpt-5-mini";
-      };
-      librarian = {
-        model = "github-copilot/gpt-5-mini";
-      };
-      "multimodal-looker" = {
-        model = "github-copilot/gpt-5-mini";
-      };
+      "sisyphus-junior" = miniModels;
+      explore = miniModels;
+      librarian = miniModels;
+      "multimodal-looker" = miniModels;
     };
   };
 
@@ -134,6 +149,7 @@
             };
           };
         };
+        litellm = litellmProvider;
       };
       plugin = [
         "opencode-gemini-auth@latest"

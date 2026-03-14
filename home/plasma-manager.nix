@@ -234,12 +234,25 @@
       "plasma-localerc"."Formats"."LANG" = "pl_PL.UTF-8";
 
       # Mouse and Touchpad
-
       "kcminputrc"."Keyboard"."NumLock" = 0;
-
+      "kcminputrc"."Libinput/1133/16543/Logitech G502 X LS"."PointerAccelerationProfile" = 1;
+      "kcminputrc"."Libinput/1133/16543/Logitech G502 X LS"."ScrollFactor" = 5;
+      "kcminputrc"."Libinput/1133/16543/Logitech Wireless Mouse PID:409f Mouse"."PointerAccelerationProfile" =
+        1;
+      "kcminputrc"."Libinput/1133/49304/Logitech G502 X LIGHTSPEED"."PointerAccelerationProfile" = 1;
+      "kcminputrc"."Libinput/1133/50503/Logitech USB Receiver"."PointerAccelerationProfile" = 1;
+      "kcminputrc"."Libinput/1133/50504/Logitech USB Receiver Mouse"."PointerAccelerationProfile" = 1;
+      "kcminputrc"."Libinput/1133/50504/Logitech USB Receiver Mouse"."ScrollFactor" = 3;
       "kcminputrc"."Libinput/1267/12938/DELL0C4C:00 04F3:328A Mouse"."NaturalScroll" = false;
       "kcminputrc"."Libinput/1267/12938/DELL0C4C:00 04F3:328A Touchpad"."ClickMethod" = 2;
+      "kcminputrc"."Libinput/1267/12938/DELL0C4C:00 04F3:328A Touchpad"."Enabled" = true;
       "kcminputrc"."Libinput/1267/12938/DELL0C4C:00 04F3:328A Touchpad"."NaturalScroll" = true;
+      "kcminputrc"."Libinput/5426/131/Razer Razer Basilisk X HyperSpeed"."PointerAcceleration" = 0.0;
+      "kcminputrc"."Libinput/5426/131/Razer Razer Basilisk X HyperSpeed"."PointerAccelerationProfile" = 1;
+      "kcminputrc"."Libinput/5426/180/Razer Razer Naga V2 HyperSpeed"."PointerAccelerationProfile" = 1;
+      "kcminputrc"."Libinput/5426/185/Razer Razer Basilisk V3 X HyperSpeed"."PointerAccelerationProfile" =
+        1;
+      "kcminputrc"."Mouse"."cursorTheme" = "Bibata-Modern-Classic";
 
     };
   };

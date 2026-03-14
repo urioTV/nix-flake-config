@@ -17,6 +17,7 @@ let
         secrets.github_token = { };
         secrets.nano-gpt_api_key = { };
         secrets.z-ai_api_key = { };
+        secrets.litellm_api_key = { };
       };
     };
 in

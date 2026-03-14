@@ -10,7 +10,7 @@
   programs = {
     nushell = {
       enable = true;
-      extraConfig = ''$env.config.show_banner = false'';
+      extraConfig = "$env.config.show_banner = false";
     };
     zsh = {
       enable = true;

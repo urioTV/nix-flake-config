@@ -94,6 +94,17 @@ After all commits:
 
 ## Rules
 
+### ⚠️ CRITICAL CONSTRAINT: NO FILE EDITING
+
+**YOU MUST NOT EDIT ANY FILES. Your ONLY task is to create git commits.**
+
+- Do NOT modify, create, or delete any source code files
+- Do NOT use write/edit tools on repository files
+- Stage and commit ONLY existing changes detected by `git diff`
+- If user requests file edits, decline and explain this is a commit-only skill
+
+### Commit Guidelines
+
 - **NEVER** commit secrets, `.env` files, or credentials
 - **NEVER** use `--no-verify` or skip hooks
 - **NEVER** amend commits that were already pushed

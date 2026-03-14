@@ -51,15 +51,21 @@ Plan:
 2. chore: update flake inputs
 ```
 
-## Phase 3 — Delegate to git-master
+## Phase 3 — Execute Commits
 
-For each planned commit, invoke the **git-master skill** as a subagent:
+For each planned commit, use the `bash` tool directly to:
+
+1. Stage the files: `git add <file1> <file2> ...`
+2. Verify staging: `git status --short`
+3. Commit with message: `git commit -m "<message>"`
+
+Execute commits **sequentially** (not parallel) to avoid staging conflicts.
+
+Alternative: For complex multi-file commits requiring careful orchestration, delegate to `@fixer` subagent:
 
 ```
 task(
-  category="quick",
-  load_skills=["git-master"],
-  run_in_background=false,
+  subagent_type="fixer",
   description="Atomic commit: <commit subject>",
   prompt="""
   TASK: Create exactly ONE atomic git commit for the following files: <file list>
@@ -77,8 +83,6 @@ task(
   """
 )
 ```
-
-Execute commits **sequentially** (not parallel) to avoid staging conflicts.
 
 ## Phase 4 — Verification
 

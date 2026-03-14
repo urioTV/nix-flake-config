@@ -11,7 +11,7 @@
       exec ${python3Packages.huggingface-hub}/bin/hf "$@"
     '')
 
-    (pkgs.writeShellScriptBin "ramalama-optimized" ''
+    (pkgs.writeShellScriptBin "rlama" ''
       # Ukrycie układu zintegrowanego (Radeon 610M) dla stabilności wnioskowania ROCm
       export HIP_VISIBLE_DEVICES=0
 

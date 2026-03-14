@@ -37,8 +37,8 @@
         "unsloth/GLM-4.6V-Flash-GGUF:Q6_K" = {
           name = "GLM-4.6V Flash";
         };
-        "Jackrong/Qwen3.5-9B-Claude-4.6-Opus-Reasoning-Distilled-GGUF:Q6_K" = {
-          name = "Qwen3.5 9B Claude 4.6 Opus Reasoning Distilled";
+        "crownelius/Crow-9B-Opus-4.6-Distill-Heretic_Qwen3.5:Q8_0" = {
+          name = "Crow 9B Opus 4.6 Distill Heretic Qwen3.5";
         };
       };
     };

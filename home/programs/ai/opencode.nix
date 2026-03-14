@@ -34,72 +34,49 @@ let
       };
     };
   };
-  commonModels = {
-    model = "zai-coding-plan/glm-5";
-    fallback_models = [
-      "github-copilot/claude-sonnet-4.6"
-      "nano-gpt/qwen3.5-122b-a10b:thinking"
-      "openrouter/zhipuai/glm-5"
-    ];
-  };
-
-  gptModels = {
-    model = "openrouter/openai/gpt-5.1-codex-mini";
-    fallback_models = [ "github-copilot/gpt-5-mini" ];
-  };
-
-  miniModels = {
-    model = "github-copilot/gpt-5-mini";
-  };
 in
 {
-  xdg.configFile."opencode/oh-my-opencode.json".text = builtins.toJSON {
-    google_auth = false;
-    runtime_fallback = {
+  xdg.configFile."opencode/oh-my-opencode-slim.json".text = builtins.toJSON {
+    fallback = {
       enabled = true;
-      retry_on_errors = [
-        400
-        401
-        402
-        403
-        404
-        429
-        500
-        503
-        529
-      ];
-      max_fallback_attempts = 5;
-      cooldown_seconds = 60;
-      timeout_seconds = 10;
-      notify_on_fallback = true;
+      chains = {
+        orchestrator = [
+          "github-copilot/claude-sonnet-4.6"
+          "nano-gpt/qwen3.5-122b-a10b:thinking"
+          "litellm/antigravity-gemini-3.1-pro-high"
+        ];
+        oracle = [
+          "litellm/antigravity-gemini-3.1-pro-high"
+        ];
+        designer = [
+          "litellm/antigravity-gemini-3.1-pro-high"
+        ];
+        fixer = [
+          "openrouter/x-ai/grok-4.1-fast"
+          "github-copilot/gpt-5-mini"
+        ];
+      };
     };
 
     agents = {
-      # --- Z.ai Coding Plan Agents ---
-      sisyphus = commonModels;
-      metis = {
-        model = "google/gemini-3.1-pro-preview";
-        fallback_models = [
-          "github-copilot/claude-sonnet-4.6"
-          "zai-coding-plan/glm-5"
-          "nano-gpt/qwen3.5-122b-a10b:thinking"
-        ];
+      orchestrator = {
+        model = "zai-coding-plan/glm-5";
       };
-
-      # --- Dual-Prompt Agents ---
-      prometheus = commonModels;
-      atlas = commonModels;
-
-      # --- GPT-Native Agents (GPT family only) ---
-      hephaestus = gptModels;
-      oracle = gptModels;
-      momus = gptModels;
-
-      # --- Utility / Subagents (Speed and cost focused) ---
-      "sisyphus-junior" = miniModels;
-      explore = miniModels;
-      librarian = miniModels;
-      "multimodal-looker" = miniModels;
+      oracle = {
+        model = "google/gemini-3.1-pro-preview";
+      };
+      explorer = {
+        model = "github-copilot/gpt-5-mini";
+      };
+      librarian = {
+        model = "github-copilot/gpt-5-mini";
+      };
+      designer = {
+        model = "google/gemini-3.1-pro-preview";
+      };
+      fixer = {
+        model = "nano-gpt/qwen3.5-122b-a10b";
+      };
     };
   };
 
@@ -155,7 +132,7 @@ in
         "opencode-gemini-auth@latest"
         "@tarquinen/opencode-dcp@latest"
         "@simonwjackson/opencode-direnv"
-        "oh-my-opencode"
+        "oh-my-opencode-slim@latest"
       ];
     };
   };

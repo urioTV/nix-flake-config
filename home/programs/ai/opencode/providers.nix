@@ -37,8 +37,8 @@
         "unsloth/GLM-4.6V-Flash-GGUF:Q6_K" = {
           name = "GLM-4.6V Flash";
         };
-        "crownelius/Crow-9B-Opus-4.6-Distill-Heretic_Qwen3.5:Q8_0" = {
-          name = "Crow 9B Opus 4.6 Distill Heretic Qwen3.5";
+        "Tesslate/OmniCoder-9B-GGUF:Q6_K" = {
+          name = "OmniCoder 9B Q6_K";
         };
       };
     };

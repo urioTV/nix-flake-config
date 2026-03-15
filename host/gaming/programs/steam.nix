@@ -29,7 +29,7 @@
         ];
     };
     extraCompatPackages = with pkgs; [
-      nur.repos.mio.proton-ge-custom
+      # nur.repos.mio.proton-ge-custom
       # nur.repos.forkprince.proton-em-bin
       # nur.repos.mio.proton-cachyos_nightly_x86_64_v4
     ];

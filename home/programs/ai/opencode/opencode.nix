@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  inputs',
+  ...
+}:
 {
   programs.opencode = {
     enable = true;

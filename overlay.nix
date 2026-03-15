@@ -43,4 +43,5 @@ final: prev: {
       '';
     };
 
+  opencode = inputs'.opencode-dev.packages.opencode;
 }

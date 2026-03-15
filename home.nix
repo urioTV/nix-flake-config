@@ -5,6 +5,7 @@
       config,
       pkgs,
       inputs,
+      inputs',
       import-tree,
       ...
     }:
@@ -14,6 +15,7 @@
       home-manager.backupFileExtension = "bkpnix";
       home-manager.extraSpecialArgs = {
         inherit inputs;
+        inherit inputs';
         inherit import-tree;
       };
       home-manager.sharedModules = with inputs; [

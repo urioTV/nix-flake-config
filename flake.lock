@@ -959,6 +959,27 @@
         "url": "https://devimages-cdn.apple.com/design/resources/download/NY.dmg"
       }
     },
+    "opencode-dev": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1773539812,
+        "narHash": "sha256-/JRHFN4hzBJv2Yvp0x1G6wpNzNBpbzEOftD50HeZU8I=",
+        "owner": "anomalyco",
+        "repo": "opencode",
+        "rev": "2fc06c5a179b53d041a77093564bbee937e7b70c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "anomalyco",
+        "ref": "dev",
+        "repo": "opencode",
+        "type": "github"
+      }
+    },
     "openmw-nix": {
       "inputs": {
         "fenix": "fenix",
@@ -1019,6 +1040,7 @@
         "nix-gaming": "nix-gaming",
         "nixpkgs": "nixpkgs_7",
         "nur": "nur",
+        "opencode-dev": "opencode-dev",
         "openmw-nix": "openmw-nix",
         "plasma-manager": "plasma-manager",
         "sops-nix": "sops-nix",

@@ -74,6 +74,20 @@
         "antigravity-gemini-3.1-pro-low" = {
           name = "Gemini 3.1 Pro Low (Antigravity)";
         };
+
+        # Claude Code Family
+        "claudecode-opus-4.6" = {
+          name = "Claude Opus 4.6 (Claude Code)";
+        };
+        "claudecode-opus-4.6-fast" = {
+          name = "Claude Opus 4.6 Fast (Claude Code)";
+        };
+        "claudecode-sonnet-4.6" = {
+          name = "Claude Sonnet 4.6 (Claude Code)";
+        };
+        "claudecode-haiku-4.5" = {
+          name = "Claude Haiku 4.5 (Claude Code)";
+        };
       };
     };
   };

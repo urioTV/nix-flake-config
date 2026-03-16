@@ -1,4 +1,10 @@
 { config, pkgs, ... }:
+let
+  githubMcpWrapper = pkgs.writeShellScript "github-mcp-wrapper" ''
+    export GITHUB_PERSONAL_ACCESS_TOKEN="$(cat ${config.sops.secrets.github_token.path})"
+    exec ${pkgs.github-mcp-server}/bin/github-mcp-server stdio
+  '';
+in
 {
   programs.mcp = {
     enable = true;
@@ -14,20 +20,20 @@
       context7 = {
         type = "remote";
         url = "https://mcp.context7.com/mcp";
-        headers = {
-          "CONTEXT7_API_KEY" = "{file:${config.sops.secrets.context7_api_key.path}}";
-        };
+        # headers = {
+        #   "CONTEXT7_API_KEY" = "{file:${config.sops.secrets.context7_api_key.path}}";
+        # };
       };
       github = {
-        type = "remote";
-        url = "https://api.githubcopilot.com/mcp/";
-        headers = {
-          "Authorization" = "Bearer {file:${config.sops.secrets.github_token.path}}";
-        };
+        command = "${githubMcpWrapper}";
       };
-      jdocmunch = {
-        command = "uvx";
-        args = [ "jdocmunch-mcp" ];
+      websearch = {
+        type = "remote";
+        url = "https://mcp.exa.ai/mcp?tools=web_search_exa";
+      };
+      grep_app = {
+        type = "remote";
+        url = "https://mcp.grep.app";
       };
     };
   };

@@ -11,6 +11,7 @@
     settings = {
       plugin = [
         "opencode-gemini-auth@latest"
+        "opencode-lmstudio@latest"
         "@tarquinen/opencode-dcp@latest"
         "@simonwjackson/opencode-direnv"
         "oh-my-opencode-slim@latest"

@@ -5,41 +5,44 @@
       enabled = true;
       chains = {
         orchestrator = [
-          "github-copilot/claude-sonnet-4.6"
+          "opencode-go/glm-5"
           "nano-gpt/qwen3.5-122b-a10b:thinking"
           "litellm/antigravity-gemini-3.1-pro-high"
         ];
         oracle = [
+          "opencode-go/kimi-k2.5"
           "litellm/antigravity-gemini-3.1-pro-high"
         ];
         designer = [
+          "opencode-go/kimi-k2.5"
           "litellm/antigravity-gemini-3.1-pro-high"
         ];
         fixer = [
-          "openrouter/x-ai/grok-4.1-fast"
+          "opencode-go/minimax-m2.5"
           "github-copilot/gpt-5-mini"
+          "openrouter/x-ai/grok-4.1-fast"
         ];
       };
     };
 
     agents = {
       orchestrator = {
-        model = "zai-coding-plan/glm-5";
+        model = "opencode-go/glm-5";
       };
       oracle = {
-        model = "google/gemini-3.1-pro-preview";
+        model = "opencode-go/kimi-k2.5";
       };
       explorer = {
-        model = "github-copilot/gpt-5-mini";
+        model = "opencode-go/minimax-m2.5";
       };
       librarian = {
-        model = "github-copilot/gpt-5-mini";
+        model = "opencode-go/minimax-m2.5";
       };
       designer = {
-        model = "google/gemini-3.1-pro-preview";
+        model = "opencode-go/kimi-k2.5";
       };
       fixer = {
-        model = "nano-gpt/qwen3.5-122b-a10b";
+        model = "opencode-go/minimax-m2.5";
       };
     };
   };

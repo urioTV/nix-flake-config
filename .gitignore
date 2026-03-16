@@ -38,3 +38,7 @@ sops/secrets/*.example
 
 # Agent instructions - local only
 AGENTS.md
+dotfiles/pi/agent/auth.json
+dotfiles/pi/agent/sessions
+dotfiles/pi/agent/mcp-cache.json
+dotfiles/pi/agent/mcp-npx-cache.json

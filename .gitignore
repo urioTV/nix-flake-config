@@ -35,3 +35,6 @@ dotfiles/zed/*
 # The actual encrypted secrets.yaml should be committed
 sops/secrets/*.example
 .decrypted~secrets.yaml
+
+# Agent instructions - local only
+AGENTS.md

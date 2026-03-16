@@ -18,6 +18,7 @@ flakes/*/result-*
 .idea/
 .crush/
 .opencode/
+.claude/
 
 # OS files
 .DS_Store

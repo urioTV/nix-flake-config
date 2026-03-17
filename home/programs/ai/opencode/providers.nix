@@ -26,22 +26,6 @@
         apiKey = "{file:${config.sops.secrets.nano-gpt_api_key.path}}";
       };
     };
-    ramalama = {
-      npm = "@ai-sdk/openai-compatible";
-      name = "RamaLama (Local)";
-      options = {
-        baseURL = "http://127.0.0.1:8080/v1";
-        apiKey = "";
-      };
-      models = {
-        "unsloth/GLM-4.6V-Flash-GGUF:Q6_K" = {
-          name = "GLM-4.6V Flash";
-        };
-        "Tesslate/OmniCoder-9B-GGUF:Q6_K" = {
-          name = "OmniCoder 9B Q6_K";
-        };
-      };
-    };
     litellm = {
       npm = "@ai-sdk/openai-compatible";
       name = "LiteLLM Proxy";

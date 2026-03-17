@@ -29,4 +29,5 @@
     "editor.fontSize": 12,
     "python.languageServer": "Default",
     "json.schemaDownload.enable": false,
+    "vscode-office.editorTheme": "Auto",
 }

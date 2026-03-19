@@ -32,9 +32,13 @@ This configuration uses the following main flake inputs:
 - **zen-browser:** Privacy-focused Firefox fork
 - **nix-gaming:** Gaming-related packages and optimizations
 - **openmw-nix:** OpenMW game engine packages
-- **kwin-effects-forceblur:** Additional KDE effects
+- **kwin-effects-better-blur-dx:** Better blur effect for KWin (replacing forceblur)
 - **determinate:** Determinate Systems Nix installer
 - **nix-flatpak:** Declarative Flatpak management
+- **sops-nix:** Secrets management using sops
+- **opencode-dev:** Developer version of Opencode AI
+- **import-tree:** Automated directory importing for Nix
+- **flake-parts:** Modular flake organization
 
 ## Structure
 
@@ -48,10 +52,13 @@ The repository is structured as follows:
 - **`nix-settings.nix`:** Nix settings
 - **`overlay.nix`:** Nix package overlay for custom packages and overrides
 - **`vars.nix`:** Variables used in the configuration
+- **`sops-config.nix`:** Configuration for `sops-nix`
+- **`AGENTS.md`:** Documentation and conventions for AI assistants
 - **`dotfiles/`:** Contains dotfiles for various applications
-- **`home/`:** Contains Home Manager configurations
+- **`home/`:** Contains Home Manager configurations (AI, programs, services)
 - **`host/`:** Contains NixOS host configurations
-  - **`gaming/`:** Modular gaming configuration (hardware, programs, audio)
+- **`sops/`:** Contains encrypted secrets
+- **`host/gaming/`:** Modular gaming configuration (hardware, programs, audio)
 - **`media/`:** Contains media files, such as images and color schemes
 
 ## Gaming Configuration
@@ -91,8 +98,19 @@ To use this configuration:
 
 3.  Apply the configuration:
 
+    Using **nh** (preferred):
+    ```bash
+    nh os switch
+    ```
+
+    Standard rebuild:
     ```bash
     sudo nixos-rebuild switch --flake .#konrad-m18
+    ```
+
+4.  Updating inputs:
+    ```bash
+    nix flake update
     ```
 
 ### Disabling Gaming
@@ -147,8 +165,30 @@ The `host/` directory contains NixOS host configurations. These configurations d
 - **Podman** is configured for container management (see `host/virtualisation/default.nix`)
 - **Qemu KVM** and **virt-manager** are available for virtualization (see `host/virtualisation/default.nix`)
 
-### Audio
+## AI & Agent Configuration
 
-- **PipeWire** with custom configurations for optimal audio performance
-- **Gaming-specific audio rules** for applications like Warframe
-- **Professional audio support** with low-latency configurations
+This configuration includes advanced AI and coding agent setups:
+
+- **Opencode:** Configured in `home/programs/ai/opencode/` with various providers and models.
+- **Claude Code:** Configured in `home/programs/ai/claude-code/`.
+- **System-level AI:** AI bundles and packages handled in `host/ai/`.
+
+## Secrets Management
+
+Secrets like API keys are managed using **sops-nix**.
+
+- **Secrets file:** `sops/secrets/secrets.yaml` (encrypted with `age`).
+- **Configuration:** `sops-config.nix`.
+- **Usage:** Secrets are referenced via `config.sops.secrets.<name>.path`.
+
+## Technical Documentation for AI
+
+For detailed technical information, coding conventions, and common commands, refer to [AGENTS.md](file:///home/urio/nix-flake-config/AGENTS.md). This file is specifically maintained to help AI assistants understand and work with this codebase.
+
+## Formatting
+
+The project uses `nixfmt` for consistent formatting:
+
+```bash
+nixfmt .
+```

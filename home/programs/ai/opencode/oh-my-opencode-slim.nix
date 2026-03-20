@@ -18,7 +18,7 @@
           "litellm/antigravity-gemini-3.1-pro-high"
         ];
         fixer = [
-          "opencode-go/minimax-m2.5"
+          "opencode-go/minimax-m2.7"
           "github-copilot/gpt-5-mini"
           "openrouter/x-ai/grok-4.1-fast"
         ];
@@ -33,16 +33,16 @@
         model = "opencode-go/kimi-k2.5";
       };
       explorer = {
-        model = "opencode-go/minimax-m2.5";
+        model = "opencode-go/minimax-m2.7";
       };
       librarian = {
-        model = "opencode-go/minimax-m2.5";
+        model = "opencode-go/minimax-m2.7";
       };
       designer = {
         model = "opencode-go/kimi-k2.5";
       };
       fixer = {
-        model = "opencode-go/minimax-m2.5";
+        model = "opencode-go/minimax-m2.7";
       };
     };
   };

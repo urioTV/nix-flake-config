@@ -14,8 +14,9 @@ final: prev: {
       hash = "";
     };
 
-    # Remove nixpkgs' version-specific patches — they won't apply to git HEAD
-    patches = [ ];
+    # Keep nixpkgs patches (opencl.patch for Rusticl/LLVM integration)
+    # May fail to apply if git HEAD diverged from stable version
+    patches = oldAttrs.patches or [ ];
   });
 
   # gamescope = inputs.chaotic.packages.${system}.gamescope_git;

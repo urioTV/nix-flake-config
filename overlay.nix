@@ -1,13 +1,5 @@
-{ inputs', inputs }:
+{ inputs' }:
 final: prev: {
-  # Use mesa source from nixpkgs master (newer than nixos-unstable)
-  # but keep dependencies and patches from nixos-unstable
-  # Use ${final.system} to support both x86_64 and i686 architectures
-  mesa = prev.mesa.overrideAttrs (oldAttrs: {
-    src = inputs.nixpkgs-master.legacyPackages.${final.system}.mesa.src;
-    version = inputs.nixpkgs-master.legacyPackages.${final.system}.mesa.version;
-  });
-
   # gamescope = inputs.chaotic.packages.${system}.gamescope_git;
 
   zen-browser = inputs'.zen-browser.packages.default;

@@ -4,7 +4,7 @@ let
     { inputs, inputs' }:
     {
       nixpkgs.overlays = [
-        (import ./overlay.nix { inherit inputs inputs'; })
+        (import ./overlay.nix { inherit inputs'; })
         (inputs.urio-nur.overlays.default)
       ];
       nixpkgs.config.allowUnfree = true;

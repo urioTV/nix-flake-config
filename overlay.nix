@@ -1,7 +1,11 @@
 { inputs', inputs }:
 final: prev: {
-  # Use mesa from nixpkgs master branch (newer than nixos-unstable)
-  mesa = inputs.nixpkgs-master.legacyPackages.${final.system}.mesa;
+  # Use mesa source from nixpkgs master (newer than nixos-unstable)
+  # but keep dependencies and patches from nixos-unstable
+  mesa = prev.mesa.overrideAttrs (oldAttrs: {
+    src = inputs'.nixpkgs-master.legacyPackages.mesa.src;
+    version = inputs'.nixpkgs-master.legacyPackages.mesa.version;
+  });
 
   # gamescope = inputs.chaotic.packages.${system}.gamescope_git;
 

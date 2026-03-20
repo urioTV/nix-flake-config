@@ -1,5 +1,23 @@
 { inputs' }:
 final: prev: {
+  # Mesa bleeding-edge from git main branch.
+  # Update with: nix-update --flake --version=branch mesa
+  mesa = prev.mesa.overrideAttrs (oldAttrs: {
+    pname = "mesa-git";
+    version = "2026-03-20";
+
+    src = prev.fetchFromGitLab {
+      domain = "gitlab.freedesktop.org";
+      owner = "mesa";
+      repo = "mesa";
+      rev = "main";
+      hash = "";
+    };
+
+    # Remove nixpkgs' version-specific patches — they won't apply to git HEAD
+    patches = [ ];
+  });
+
   # gamescope = inputs.chaotic.packages.${system}.gamescope_git;
 
   zen-browser = inputs'.zen-browser.packages.default;

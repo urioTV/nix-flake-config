@@ -42,6 +42,4 @@ final: prev: {
         ln -s $out/bin/antigravity $out/bin/agy
       '';
     };
-
-  opencode = inputs'.opencode-dev.packages.opencode;
 }

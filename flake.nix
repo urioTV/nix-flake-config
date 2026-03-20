@@ -47,10 +47,6 @@
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    opencode-dev = {
-      url = "github:anomalyco/opencode/dev";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     # Gaming
     nix-gaming.url = "github:fufexan/nix-gaming";
@@ -85,7 +81,6 @@
       flake-parts,
       import-tree,
       nix-flatpak,
-      opencode-dev,
       ...
     }:
     flake-parts.lib.mkFlake { inherit inputs; } (

@@ -1,23 +1,7 @@
-{ inputs' }:
+{ inputs', inputs }:
 final: prev: {
-  # Mesa bleeding-edge from git main branch.
-  # Update with: nix-update --flake --version=branch mesa
-  mesa = prev.mesa.overrideAttrs (oldAttrs: {
-    pname = "mesa-git";
-    version = "2026-03-20";
-
-    src = prev.fetchFromGitLab {
-      domain = "gitlab.freedesktop.org";
-      owner = "mesa";
-      repo = "mesa";
-      rev = "main";
-      hash = "";
-    };
-
-    # Keep nixpkgs patches (opencl.patch for Rusticl/LLVM integration)
-    # May fail to apply if git HEAD diverged from stable version
-    patches = oldAttrs.patches or [ ];
-  });
+  # Use mesa from nixpkgs master branch (newer than nixos-unstable)
+  mesa = inputs.nixpkgs-master.legacyPackages.${final.system}.mesa;
 
   # gamescope = inputs.chaotic.packages.${system}.gamescope_git;
 

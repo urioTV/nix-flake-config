@@ -777,6 +777,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-master": {
+      "locked": {
+        "lastModified": 1774045235,
+        "narHash": "sha256-XO+8quEceug8hNuzQul2wBxUWsx9nFg5ouNyUL38yaA=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "185a49bfa3d6315fead10b550fb0ea9c5911efa5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "master",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-regression": {
       "locked": {
         "lastModified": 1643052045,
@@ -1018,6 +1034,7 @@
         "nix-flatpak": "nix-flatpak",
         "nix-gaming": "nix-gaming",
         "nixpkgs": "nixpkgs_7",
+        "nixpkgs-master": "nixpkgs-master",
         "nur": "nur",
         "openmw-nix": "openmw-nix",
         "plasma-manager": "plasma-manager",

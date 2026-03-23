@@ -21,5 +21,8 @@
     gperftools
 
     wowup-cf
+
+    optiscaler-install
+    optipatcher-install
   ];
 }

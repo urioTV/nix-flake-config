@@ -1,10 +1,10 @@
-{ ... }:
+{ inputs, self, ... }:
 let
   sharedConfig =
     { ... }:
     {
       sops = {
-        defaultSopsFile = ./sops/secrets/secrets.yaml;
+        defaultSopsFile = "${self}/sops/secrets/secrets.yaml";
 
         age = {
           sshKeyPaths = [ "/home/urio/.ssh/id_ed25519" ];
@@ -28,9 +28,11 @@ in
       ...
     }:
     {
-      imports = [ sharedConfig ];
+      imports = [
+        inputs.sops-nix.nixosModules.sops
+        sharedConfig
+      ];
 
-      # Install sops and age tools for secrets management
       environment.systemPackages = with pkgs; [
         sops
         age
@@ -43,6 +45,9 @@ in
       ...
     }:
     {
-      imports = [ sharedConfig ];
+      imports = [
+        inputs.sops-nix.homeManagerModules.sops
+        sharedConfig
+      ];
     };
 }

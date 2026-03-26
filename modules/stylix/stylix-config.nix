@@ -32,6 +32,7 @@ in
     }:
     {
       imports = [
+        inputs.stylix.nixosModules.stylix
         sharedConfig
       ];
 
@@ -58,14 +59,12 @@ in
         fonts = {
           serif = {
             package = inputs.apple-fonts.packages.${pkgs.system}.sf-pro-nerd;
-            # name = "SFProDisplay Nerd Font";
             name = "SFProText Nerd Font";
           };
 
           sansSerif = {
             package = inputs.apple-fonts.packages.${pkgs.system}.sf-pro-nerd;
             name = "SFProText Nerd Font";
-            # name = "SFProDisplay Nerd Font";
           };
 
           monospace = {
@@ -101,7 +100,6 @@ in
 
         gtk4.extraConfig = {
           gtk-application-prefer-dark-theme = 1;
-          #gtk-cursor-theme-name = "Qogir Cursors";
         };
       };
 

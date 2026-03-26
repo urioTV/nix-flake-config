@@ -1,17 +1,17 @@
-{ inputs, self, ... }:
+{ inputs, ... }:
 let
   sharedConfig =
-    { inputs, inputs' }:
+    { inputs' }:
     {
       nixpkgs.overlays = [
-        (import ./overlay.nix { inherit inputs'; })
+        (import ./_overlay.nix { inherit inputs'; })
         (inputs.urio-nur.overlays.default)
       ];
       nixpkgs.config.allowUnfree = true;
     };
 in
 {
-  flake.nixosModules.nix-settings =
+  flake.nixosModules.nix-config =
     {
       pkgs,
       lib,
@@ -20,7 +20,7 @@ in
       ...
     }:
     {
-      imports = [ (sharedConfig { inherit inputs inputs'; }) ];
+      imports = [ (sharedConfig { inherit inputs'; }) ];
 
       nix.settings = {
         experimental-features = [
@@ -57,7 +57,7 @@ in
       };
     };
 
-  flake.homeModules.nix-settings =
+  flake.homeModules.nix-config =
     {
       pkgs,
       lib,
@@ -66,6 +66,6 @@ in
       ...
     }:
     {
-      imports = [ (sharedConfig { inherit inputs inputs'; }) ];
+      imports = [ (sharedConfig { inherit inputs'; }) ];
     };
 }

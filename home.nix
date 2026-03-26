@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  flake.nixosModules.home =
+  flake.nixosModules.home-urio =
     {
       config,
       pkgs,
@@ -10,7 +10,8 @@
       ...
     }:
     {
-      # home-manager.useGlobalPkgs = true;
+      imports = [ inputs.home-manager.nixosModules.home-manager ];
+
       home-manager.useUserPackages = true;
       home-manager.backupFileExtension = "bkpnix";
       home-manager.extraSpecialArgs = {
@@ -19,44 +20,49 @@
         inherit import-tree;
       };
       home-manager.sharedModules = with inputs; [
-        ./vars.nix
         nur.modules.homeManager.default
         plasma-manager.homeModules.plasma-manager
-        self.homeModules.nix-settings
+        self.homeModules.vars
+        self.homeModules.nix-config
         self.homeModules.stylix-config
-        sops-nix.homeModules.sops
         self.homeModules.sops-config
+        self.homeModules.ai
       ];
-      home-manager.users.urio =
-        { config, ... }:
-        {
-          imports = (import-tree ./home).imports;
+      home-manager.users.urio = {
+        imports = [ inputs.self.homeModules.home-urio ];
+      };
+    };
 
-          home.username = "urio";
-          home.homeDirectory = "/home/urio";
+  flake.homeModules.home-urio =
+    {
+      config,
+      import-tree,
+      ...
+    }:
+    {
+      imports = (import-tree ./home).imports;
 
-          home.stateVersion = "23.11"; # Please read the comment before changing.
+      home.username = "urio";
+      home.homeDirectory = "/home/urio";
 
-          xdg.systemDirs.data = [
-            "/var/lib/flatpak/exports/share"
-            "${config.home.homeDirectory}/.local/share/flatpak/exports/share"
-          ];
+      home.stateVersion = "23.11";
 
-          home.file = {
-            ".config/zed" = {
-              source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-flake-config/dotfiles/zed";
-            };
-            ".config/Antigravity/User/settings.json" = {
-              source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-flake-config/dotfiles/antigravity/settings.json";
-            };
-          };
+      xdg.systemDirs.data = [
+        "/var/lib/flatpak/exports/share"
+        "${config.home.homeDirectory}/.local/share/flatpak/exports/share"
+      ];
 
-          home.sessionVariables = {
-            EDITOR = "micro";
-          };
-
-          # Let Home Manager install and manage itself.
-          # programs.home-manager.enable = true;
+      home.file = {
+        ".config/zed" = {
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-flake-config/dotfiles/zed";
         };
+        ".config/Antigravity/User/settings.json" = {
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-flake-config/dotfiles/antigravity/settings.json";
+        };
+      };
+
+      home.sessionVariables = {
+        EDITOR = "micro";
+      };
     };
 }

@@ -88,10 +88,8 @@
       {
         imports = [
           home-manager.flakeModules.home-manager
+          (import-tree ./modules)
           ./home.nix
-          ./nix-settings.nix
-          ./stylix-config.nix
-          ./sops-config.nix
         ];
 
         systems = [ "x86_64-linux" ];
@@ -112,22 +110,16 @@
                 inherit system;
                 modules = [
                   ./configuration.nix
-                  self.nixosModules.nix-settings
-                  # Stylix Configuration
+                  self.nixosModules.nix-config
                   self.nixosModules.stylix-config
-                  # Home Manager Module
-                  home-manager.nixosModules.home-manager
-                  self.nixosModules.home
+                  self.nixosModules.sops-config
+                  self.nixosModules.vars
+                  self.nixosModules.home-urio
 
                   # NUR
                   nur.modules.nixos.default
-
-                  # Other Modules
                   urio-nur.nixosModules.default
                   determinate.nixosModules.default
-                  stylix.nixosModules.stylix
-                  sops-nix.nixosModules.sops
-                  self.nixosModules.sops-config
                   nix-flatpak.nixosModules.nix-flatpak
                 ];
               }

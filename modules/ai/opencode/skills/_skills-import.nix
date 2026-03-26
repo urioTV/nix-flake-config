@@ -1,5 +1,3 @@
-# home/programs/ai/skills/skills-import.nix
-#
 # Każdy podfolder w tym katalogu trafia do ~/.config/opencode/skills/<name>/SKILL.md
 # i jest dostępny jako skill w opencode.
 #

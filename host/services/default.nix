@@ -6,6 +6,31 @@
 }:
 {
   services = {
+    services.flatpak = {
+      enable = true;
+      update = {
+        onActivation = true;
+      };
+      packages = [
+        "com.github.tchx84.Flatseal"
+        "com.microsoft.Edge"
+        "com.mikrotik.WinBox"
+        "com.rustdesk.RustDesk"
+        "com.spotify.Client"
+        "com.stremio.Stremio"
+        "io.github.flattool.Warehouse"
+        "net.codelogistics.clicker"
+        "com.usebottles.bottles"
+      ];
+      overrides = {
+        global = {
+          Context.filesystems = [
+            "/run/current-system/sw/share/icons:ro"
+            "/run/current-system/sw/share/fonts:ro"
+          ];
+        };
+      };
+    };
     printing.enable = true;
     avahi = {
       enable = true;

@@ -20,12 +20,12 @@
       };
       home-manager.sharedModules = with inputs; [
         nur.modules.homeManager.default
-        plasma-manager.homeModules.plasma-manager
         self.homeModules.vars
         self.homeModules.nix-config
         self.homeModules.stylix-config
         self.homeModules.sops-config
         self.homeModules.ai
+        self.homeModules.plasma
       ];
       home-manager.users.urio = {
         imports = [ inputs.self.homeModules.home-urio ];

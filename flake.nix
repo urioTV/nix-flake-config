@@ -37,11 +37,6 @@
       inputs.home-manager.follows = "home-manager";
     };
 
-    apple-fonts = {
-      url = "github:Lyndeno/apple-fonts.nix";
-      # inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Apps
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
@@ -72,7 +67,6 @@
       home-manager,
       urio-nur,
       stylix,
-      apple-fonts,
       nur,
       nix-alien,
       plasma-manager,
@@ -115,6 +109,7 @@
                   self.nixosModules.sops-config
                   self.nixosModules.vars
                   self.nixosModules.home-urio
+                  self.nixosModules.plasma-module
 
                   # NUR
                   nur.modules.nixos.default

@@ -58,18 +58,18 @@ in
 
         fonts = {
           serif = {
-            package = inputs.apple-fonts.packages.${pkgs.system}.sf-pro-nerd;
-            name = "SFProText Nerd Font";
+            package = pkgs.inter-nerdfont;
+            name = "Inter Nerd Font";
           };
 
           sansSerif = {
-            package = inputs.apple-fonts.packages.${pkgs.system}.sf-pro-nerd;
-            name = "SFProText Nerd Font";
+            package = pkgs.inter-nerdfont;
+            name = "Inter Nerd Font";
           };
 
           monospace = {
-            package = inputs.apple-fonts.packages.${pkgs.system}.sf-mono-nerd;
-            name = "SFMono Nerd Font";
+            package = pkgs.nerd-fonts.jetbrains-mono;
+            name = "JetBrainsMono Nerd Font Mono";
           };
 
           emoji = {

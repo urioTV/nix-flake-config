@@ -69,14 +69,8 @@
       nerd-fonts.hack
       nerd-fonts.noto
       nerd-fonts.open-dyslexic
-      inputs'.apple-fonts.packages.sf-pro-nerd
-      inputs'.apple-fonts.packages.sf-compact-nerd
-      inputs'.apple-fonts.packages.sf-mono-nerd
-      inputs'.apple-fonts.packages.sf-arabic-nerd
-      inputs'.apple-fonts.packages.sf-armenian-nerd
-      inputs'.apple-fonts.packages.sf-georgian-nerd
-      inputs'.apple-fonts.packages.sf-hebrew-nerd
-      inputs'.apple-fonts.packages.ny-nerd
+      nerd-fonts.jetbrains-mono
+      inter-nerdfont
     ];
   };
 

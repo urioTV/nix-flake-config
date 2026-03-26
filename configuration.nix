@@ -10,7 +10,6 @@
   imports = [
     # Include the hardware scan.
     ./hardware-configuration.nix
-    ./vars.nix
   ]
   ++ (import-tree ./host).imports;
 

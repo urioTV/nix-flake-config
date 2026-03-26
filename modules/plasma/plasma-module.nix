@@ -92,7 +92,7 @@
           # };
           windowTitle = {
             family = "Inter Nerd Font";
-            pointSize = 11;
+            pointSize = 12;
           };
         };
         powerdevil = {

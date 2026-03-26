@@ -6,7 +6,7 @@
 }:
 {
   services = {
-    services.flatpak = {
+    flatpak = {
       enable = true;
       update = {
         onActivation = true;

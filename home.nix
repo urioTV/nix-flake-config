@@ -25,7 +25,7 @@
         self.homeModules.stylix-config
         self.homeModules.sops-config
         self.homeModules.ai
-        self.homeModules.plasma
+        self.homeModules.plasma-module
       ];
       home-manager.users.urio = {
         imports = [ inputs.self.homeModules.home-urio ];

@@ -15,9 +15,8 @@
       home-manager.useUserPackages = true;
       home-manager.backupFileExtension = "bkpnix";
       home-manager.extraSpecialArgs = {
-        inherit inputs;
-        inherit inputs';
-        inherit import-tree;
+        inherit inputs inputs' import-tree;
+        self = inputs.self;
       };
       home-manager.sharedModules = with inputs; [
         nur.modules.homeManager.default

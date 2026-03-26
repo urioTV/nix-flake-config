@@ -2,6 +2,7 @@
 {
   flake.nixosModules.plasma-module =
     {
+      config,
       pkgs,
       lib,
       ...
@@ -53,7 +54,6 @@
     {
       imports = [
         inputs.plasma-manager.homeModules.plasma-manager
-        inputs.stylix.homeModules.stylix
       ];
 
       home.packages = with pkgs; [ catppuccin-qt5ct ];
@@ -91,7 +91,7 @@
           #   pointSize = 11;
           # };
           windowTitle = {
-            family = "SFCompactDisplay Nerd Font";
+            family = "Inter Nerd Font";
             pointSize = 11;
           };
         };

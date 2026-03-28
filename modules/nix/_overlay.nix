@@ -1,10 +1,11 @@
 { inputs' }:
 final: prev: {
-  # gamescope = inputs.chaotic.packages.${system}.gamescope_git;
 
   zen-browser = inputs'.zen-browser.packages.default;
 
-  # zed-editor = inputs.zed.packages.${system}.default;
+  gamescope = prev.gamescope.overrideAttrs (_: {
+    NIX_CFLAGS_COMPILE = [ "-fno-fast-math" ];
+  });
 
   openmw-dev = inputs'.openmw-nix.packages.openmw-dev.overrideAttrs (oldAttrs: {
     nativeBuildInputs = (oldAttrs.nativeBuildInputs or [ ]) ++ [ final.makeWrapper ];

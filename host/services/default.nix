@@ -63,6 +63,21 @@
           type = "Game";
           nice = -20;
         }
+        {
+          name = "CrimsonDesert.exe";
+          type = "Game";
+          nice = -20;
+        }
+        {
+          name = "wine-preloader";
+          type = "WineServer";
+          nice = -20;
+        }
+        {
+          name = "wineserver";
+          type = "WineServer";
+          nice = -20;
+        }
       ];
     };
   };

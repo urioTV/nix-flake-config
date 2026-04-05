@@ -1,7 +1,7 @@
 { inputs' }:
 final: prev: {
 
-  zen-browser = inputs'.zen-browser.packages.default;
+  zen-browser = (inputs'.zen-browser.packages.default);
 
   gamescope = prev.gamescope.overrideAttrs (_: {
     NIX_CFLAGS_COMPILE = [ "-fno-fast-math" ];

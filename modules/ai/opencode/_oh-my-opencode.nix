@@ -5,7 +5,7 @@
       enabled = true;
       chains = {
         orchestrator = [
-          "opencode-go/glm-5"
+          "opencode-go/glm-5.1"
           "nano-gpt/qwen3.5-122b-a10b:thinking"
           "litellm/antigravity-gemini-3.1-pro-high"
         ];
@@ -27,7 +27,7 @@
 
     agents = {
       orchestrator = {
-        model = "opencode-go/glm-5";
+        model = "opencode-go/glm-5.1";
       };
       oracle = {
         model = "opencode-go/kimi-k2.5";

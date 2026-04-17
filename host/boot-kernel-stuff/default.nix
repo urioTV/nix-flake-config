@@ -11,7 +11,8 @@
 
   # boot.kernelPackages = pkgs.linuxPackages_zen;
   # boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelPackages = pkgs.linuxPackages_xanmod_stable;
+  # boot.kernelPackages = pkgs.linuxPackages_xanmod_stable;
+  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-zen4;
 
   # hardware.firmware = [
   #   (inputs.nixpkgs-old.legacyPackages."x86_64-linux".linux-firmware)

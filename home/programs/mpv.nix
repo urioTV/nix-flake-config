@@ -88,12 +88,13 @@
       volume-max = 200;
 
       #---------------------------------------------------------
-      # INTERFEJS — VLC-like
+      # INTERFEJS — VLC-like (pełna obsługa myszką)
       #---------------------------------------------------------
       osc = false; # wyłącz domyślny OSC — używamy uosc
       osd-bar = false; # uosc ma własny pasek
       border = false; # brak ramki okna
       force-window = "immediate"; # zawsze pokaż okno (nawet dla audio)
+      idle = "yes"; # utrzymuj okno mpv gdy brak pliku (GUI do otwierania)
       keep-open = true; # nie zamykaj po końcu filmu
       save-position-on-quit = true; # zapamiętaj pozycję
       resume-playback = true; # wznów odtwarzanie
@@ -160,10 +161,10 @@
         timeline_persistency = "paused,audio-tracks";
         timeline_border = 1;
 
-        # Pasek kontrolny (jak w VLC)
-        controls = "menu,gap,subtitles,<has_many_audio>audio,<has_chapter>chapters,gap,speed:button,stream-quality,gap,fullscreen";
+        # Pasek kontrolny — pełna obsługa myszką (VLC-like)
+        controls = "play-pause,prev,next,gap,menu,subtitles,<has_many_audio>audio,<has_chapter>chapters,gap,speed,stream-quality,gap,toggle:mute:mute,fullscreen";
         controls_size = 32;
-        controls_persistency = "paused";
+        controls_persistency = "paused,idle";
 
         # Pasek głośności po prawej
         volume = "right";

@@ -6,7 +6,7 @@ let
       nixpkgs.overlays = [
         (import ./_overlay.nix { inherit inputs'; })
         (inputs.urio-nur.overlays.default)
-        (inputs.nix-cachyos-kernel.overlays.default)
+        (inputs.nix-cachyos-kernel.overlays.pinned)
       ];
       nixpkgs.config.allowUnfree = true;
     };

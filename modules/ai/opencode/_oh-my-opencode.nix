@@ -7,15 +7,15 @@
         orchestrator = [
           "opencode-go/glm-5.1"
           "nano-gpt/qwen3.5-122b-a10b:thinking"
-          "litellm/antigravity-gemini-3.1-pro-high"
         ];
         oracle = [
           "opencode-go/kimi-k2.5"
-          "litellm/antigravity-gemini-3.1-pro-high"
+        ];
+        council = [
+          "opencode-go/glm-5.1"
         ];
         designer = [
           "opencode-go/kimi-k2.5"
-          "litellm/antigravity-gemini-3.1-pro-high"
         ];
         fixer = [
           "opencode-go/minimax-m2.7"
@@ -43,6 +43,9 @@
       };
       fixer = {
         model = "opencode-go/minimax-m2.7";
+      };
+      council = {
+        model = "opencode-go/glm-5.1";
       };
     };
   };

@@ -1,4 +1,9 @@
-{ config, pkgs, inputs', ... }:
+{
+  config,
+  pkgs,
+  inputs',
+  ...
+}:
 {
   imports = [
     ./_opencode-providers.nix
@@ -12,7 +17,7 @@
     settings = {
       plugin = [
         "opencode-gemini-auth@latest"
-        "opencode-lmstudio@latest"
+        # "opencode-lmstudio@latest"
         "@tarquinen/opencode-dcp@latest"
         "@simonwjackson/opencode-direnv"
         "oh-my-opencode-slim@latest"

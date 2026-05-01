@@ -7,12 +7,103 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "context_servers": {
-    "mcp-server-context7": {
-      "enabled": true,
-      "settings": {},
+  // --- UI & THEME ---
+  "edit_predictions": {
+    "provider": "copilot",
+    "mode": "eager",
+    "disabled_globs": ["**/.env*", "**/*.pem", "**/*.key"],
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+  },
+  "base_keymap": "VSCode",
+  "buffer_font_fallbacks": ["JetBrainsMono Nerd Font Mono"],
+  "theme": {
+    "mode": "system",
+    "light": "Catppuccin Latte",
+    "dark": "Catppuccin Mocha",
+  },
+  "icon_theme": {
+    "mode": "system",
+    "light": "Material Icon Theme",
+    "dark": "Material Icon Theme",
+  },
+  "ui_font_family": "Inter Nerd Font",
+  "ui_font_size": 12,
+  "buffer_font_family": "JetBrainsMono Nerd Font Mono",
+  "buffer_font_size": 12,
+
+  // --- AI AGENTS & CONTEXT SERVERS ---
+  "language_models": {
+    "openai_compatible": {
+      "opencode-go": {
+        "api_url": "https://opencode.ai/zen/go/v1",
+        "available_models": [
+          {
+            "name": "glm-5.1",
+            "display_name": "GLM 5.1",
+            "max_tokens": 200000,
+            "max_output_tokens": 128000,
+          },
+          {
+            "name": "kimi-k2.5",
+            "display_name": "Kimi K2.5",
+            "max_tokens": 256000,
+            "max_output_tokens": 32768,
+          },
+          {
+            "name": "minimax-m2.7",
+            "display_name": "MiniMax M2.7",
+            "max_tokens": 204800,
+            "max_output_tokens": 131072,
+          },
+        ],
+      },
     },
   },
+  "agent": {
+    "dock": "right",
+    "default_width": 280,
+    "default_profile": "write",
+    "default_model": {
+      "provider": "opencode-go",
+      "model": "glm-5.1",
+    },
+    "inline_assistant_model": {
+      "provider": "opencode-go",
+      "model": "kimi-k2.5",
+    },
+    "commit_message_model": {
+      "provider": "copilot",
+      "model": "gpt-5-mini",
+    },
+    "play_sound_when_agent_done": "when_hidden",
+    "tool_permissions": {
+      "default": "allow",
+    },
+  },
+  "context_servers": {
+    "context7": {
+      "url": "https://mcp.context7.com/mcp",
+    },
+    "nixos": {
+      "command": "uvx",
+      "args": ["mcp-nixos"],
+    },
+    "github": {
+      "command": "github-mcp-server",
+      "args": ["stdio"],
+    },
+    "websearch": {
+      "url": "https://mcp.exa.ai/mcp?tools=web_search_exa",
+    },
+    "grep_app": {
+      "url": "https://mcp.grep.app",
+    },
+  },
+
+  // --- LANGUAGE & LSP ---
   "languages": {
     "Nix": {
       "language_servers": ["nixd", "!nil"],
@@ -38,33 +129,82 @@
       },
     },
   },
-  "agent": {
-    "default_profile": "write",
-    "inline_assistant_model": {
-      "provider": "openrouter",
-      "model": "minimax/minimax-m2.1",
+
+  // --- TERMINAL ---
+  "terminal": {
+    "font_family": "JetBrainsMono Nerd Font Mono",
+    "shell": {
+      "program": "/bin/zsh",
     },
-    "model_parameters": [],
-    "default_model": {
-      "provider": "openrouter",
-      "model": "minimax/minimax-m2.1",
-    },
-    "commit_message_model": {
-      "provider": "openrouter",
-      "model": "minimax/minimax-m2.1",
+    "detect_venv": {
+      "on": {
+        "directories": [".venv", "venv"],
+        "activate_script": "default",
+      },
     },
   },
-  "features": {
-    "edit_prediction_provider": "zed",
+
+  // --- EDITOR BEHAVIOR (VS Code-like) ---
+  "autosave": "on_focus_change",
+  "format_on_save": "on",
+  "soft_wrap": "bounded",
+  "preferred_line_length": 120,
+  "tab_size": 2,
+  "cursor_shape": "bar",
+  "cursor_blink": true,
+  "current_line_highlight": "all",
+  "selection_highlight": true,
+  "inlay_hints": {
+    "enabled": true,
   },
-  "icon_theme": "Material Icon Theme",
-  "ui_font_size": 16,
-  "buffer_font_size": 13,
-  "buffer_font_family": "SFMono Nerd Font",
-  "ui_font_family": "SFProText Nerd Font",
-  "theme": {
-    "mode": "system",
-    "light": "One Light",
-    "dark": "Catppuccin Mocha",
+
+  // --- UI ELEMENTS (VS Code-like) ---
+  "minimap": {
+    "show": "always",
+    "thumb": "always",
+    "current_line_highlight": "line",
+  },
+  "scrollbar": {
+    "axes": {
+      "horizontal": true,
+      "vertical": true,
+    },
+    "cursors": true,
+    "git_diff": true,
+    "search_results": true,
+    "selected_symbol": true,
+  },
+  "tab_bar": {
+    "show": true,
+  },
+  "tabs": {
+    "show_diagnostics": "errors",
+    "file_icons": true,
+  },
+  "indent_guides": {
+    "enabled": true,
+    "coloring": "indent_aware",
+  },
+  "colorize_brackets": true,
+  "sticky_scroll": {
+    "enabled": true,
+  },
+  "gutter": {
+    "line_numbers": true,
+    "folds": true,
+  },
+  "outline_panel": {
+    "dock": "right",
+  },
+  "file_finder": {
+    "modal_max_width": "xlarge",
+  },
+
+  // --- PANELS ---
+  "project_panel": {
+    "dock": "left",
+  },
+  "git_panel": {
+    "dock": "left",
   },
 }

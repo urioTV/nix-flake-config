@@ -28,7 +28,6 @@
     lolcat
     cmatrix
     fastfetch
-    wine
     localsend
     nmap
     ffmpeg-full

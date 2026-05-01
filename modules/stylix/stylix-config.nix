@@ -46,6 +46,7 @@ in
 
   flake.homeModules.stylix-config =
     {
+      config,
       pkgs,
       inputs,
       ...
@@ -98,8 +99,11 @@ in
           gtk-application-prefer-dark-theme = 1;
         };
 
-        gtk4.extraConfig = {
-          gtk-application-prefer-dark-theme = 1;
+        gtk4 = {
+          theme = config.gtk.theme;
+          extraConfig = {
+            gtk-application-prefer-dark-theme = 1;
+          };
         };
       };
 

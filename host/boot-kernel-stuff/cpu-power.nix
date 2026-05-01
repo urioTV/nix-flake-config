@@ -4,7 +4,6 @@
   pkgs,
   chaotic,
   inputs,
-  system,
   ...
 }:
 {

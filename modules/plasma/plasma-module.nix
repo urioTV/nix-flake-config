@@ -5,6 +5,7 @@
       config,
       pkgs,
       lib,
+      inputs',
       ...
     }:
     {
@@ -28,7 +29,7 @@
           [General]
           background=${config.vars.wallpaper}
         '')
-        inputs.kwin-effects-better-blur-dx.packages.${pkgs.system}.default
+        inputs'.kwin-effects-better-blur-dx.packages.default
         kdePackages.filelight
         kdePackages.kalk
         kdePackages.accounts-qt

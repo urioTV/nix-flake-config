@@ -3,6 +3,7 @@
   lib,
   pkgs,
   inputs,
+  inputs',
   ...
 }:
 {
@@ -14,7 +15,7 @@
     # Morrowind
     # openmw
     # openmw-dev
-    inputs.hytale-launcher.packages.${pkgs.system}.default
+    inputs'.hytale-launcher.packages.default
     vs-launcher
   ];
 

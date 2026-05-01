@@ -4,6 +4,7 @@
   pkgs,
   chaotic,
   inputs,
+  inputs',
   ...
 }:
 {
@@ -37,7 +38,7 @@
     gping
     rm-improved
     fzf
-    inputs.nix-alien.packages.${system}.nix-alien
+    inputs'.nix-alien.packages.nix-alien
     headsetcontrol
     alsa-utils
     smartmontools
@@ -65,6 +66,8 @@
     gnome-software
     cryptsetup
     jq
+    zenity
+    cabextract
   ];
 
 }

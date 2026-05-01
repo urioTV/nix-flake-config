@@ -8,6 +8,9 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   // --- UI & THEME ---
+  "collaboration_panel": {
+    "dock": "left",
+  },
   "edit_predictions": {
     "provider": "copilot",
     "mode": "eager",
@@ -133,9 +136,6 @@
   // --- TERMINAL ---
   "terminal": {
     "font_family": "JetBrainsMono Nerd Font Mono",
-    "shell": {
-      "program": "/bin/zsh",
-    },
     "detect_venv": {
       "on": {
         "directories": [".venv", "venv"],

@@ -7,6 +7,13 @@ final: prev: {
     NIX_CFLAGS_COMPILE = [ "-fno-fast-math" ];
   });
 
+  # openldap has flaky tests on i686 (test008-concurrency, test017-syncreplication-refresh, etc.)
+  # Disable checks for 32-bit only — steam/lutris depend on pkgsi686Linux.openldap
+  # See: https://github.com/NixOS/nixpkgs/issues/513245
+  openldap = prev.openldap.overrideAttrs {
+    doCheck = !prev.stdenv.hostPlatform.isi686;
+  };
+
   openmw-dev = inputs'.openmw-nix.packages.openmw-dev.overrideAttrs (oldAttrs: {
     nativeBuildInputs = (oldAttrs.nativeBuildInputs or [ ]) ++ [ final.makeWrapper ];
 

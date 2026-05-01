@@ -4,6 +4,7 @@ let
     { inputs' }:
     {
       nixpkgs.overlays = [
+        (inputs.nur.overlays.default)
         (import ./_overlay.nix { inherit inputs'; })
         (inputs.urio-nur.overlays.default)
         (inputs.nix-cachyos-kernel.overlays.pinned)

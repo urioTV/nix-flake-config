@@ -46,6 +46,22 @@
 
     # Gaming
     nix-gaming.url = "github:fufexan/nix-gaming";
+
+    # Valve VRAM Fix (dmemcg-booster + foreground-booster + kf5cgroups library)
+    dmemcg-booster = {
+      url = "git+https://gitlab.steamos.cloud/holo/dmemcg-booster.git";
+      flake = false;
+    };
+    # KF5CGroups library (dmemcg branch) — required by foreground-booster
+    kcgroups-lib = {
+      url = "github:pixelcluster/kcgroups/dmemcg";
+      flake = false;
+    };
+    # foreground-booster executable (booster-dmemcg-experimental tag)
+    kcgroups-dmemcg = {
+      url = "github:pixelcluster/kcgroups/booster-dmemcg-experimental";
+      flake = false;
+    };
     openmw-nix = {
       url = "git+https://codeberg.org/PopeRigby/openmw-nix.git";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -112,6 +128,7 @@
                   self.nixosModules.vars
                   self.nixosModules.home-urio
                   self.nixosModules.plasma-module
+                  self.nixosModules.vram-fix
 
                   # NUR
                   nur.modules.nixos.default

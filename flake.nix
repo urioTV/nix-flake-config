@@ -128,7 +128,6 @@
                   self.nixosModules.vars
                   self.nixosModules.home-urio
                   self.nixosModules.plasma-module
-                  self.nixosModules.vram-fix
 
                   # NUR
                   nur.modules.nixos.default

@@ -21,6 +21,13 @@
             output = 16384;
           };
         };
+        "qwen3.6-35b-a3b-opus-APEX" = {
+          name = "Qwen3.6-35B-A3B-Opus-APEX";
+          limit = {
+            context = 120000;
+            output = 32768;
+          };
+        };
       };
     };
   };

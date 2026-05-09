@@ -1,11 +1,26 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }:
+let
+  # Override pi to use a temp directory on the same filesystem as /home.
+  # Fixes EXDEV (cross-device link) errors caused by /tmp being tmpfs
+  # while ~/.pi is on ext4. See: anthropics/claude-code#24043
+  #
+  # Uses overrideAttrs instead of symlinkJoin to preserve the original
+  # package identity (name, version) — visible in nh os switch output.
+  pi = pkgs.llm-agents.pi.overrideAttrs (oldAttrs: {
+    postInstall = (oldAttrs.postInstall or "") + ''
+      # Inject TMPDIR setup before the final exec in pi's wrapper script.
+      sed -i 's@^exec @export TMPDIR="$HOME/.pi/tmp"\nmkdir -p "$TMPDIR" 2>/dev/null || true\nexec @' $out/bin/pi
+    '';
+  });
+in
 {
   home.packages = with pkgs; [
-    llm-agents.pi
+    pi
   ];
 
   # npm on NixOS can't write to /nix/store, so global installs fail.

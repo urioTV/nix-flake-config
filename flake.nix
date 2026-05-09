@@ -44,6 +44,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    llm-agents = {
+      url = "github:numtide/llm-agents.nix";
+    };
+
     # Apps
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
@@ -99,6 +103,7 @@
       flake-parts,
       import-tree,
       nix-flatpak,
+      llm-agents,
       ...
     }:
     flake-parts.lib.mkFlake { inherit inputs; } (

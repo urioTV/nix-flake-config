@@ -38,6 +38,12 @@
       inputs.home-manager.follows = "home-manager";
     };
 
+    # AI Tools
+    forgecode = {
+      url = "github:tailcallhq/forgecode";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Apps
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";

@@ -462,6 +462,26 @@
         "type": "github"
       }
     },
+    "forgecode": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1778048738,
+        "narHash": "sha256-j1+k8XqJbXQacqSf7fV8uoh9iBIRPBFJuAGl374oAAc=",
+        "owner": "tailcallhq",
+        "repo": "forgecode",
+        "rev": "7261cdb5e039218a371ea8dd376b55ac2e22e109",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tailcallhq",
+        "repo": "forgecode",
+        "type": "github"
+      }
+    },
     "fromYaml": {
       "flake": false,
       "locked": {
@@ -1123,6 +1143,7 @@
         "determinate": "determinate",
         "dmemcg-booster": "dmemcg-booster",
         "flake-parts": "flake-parts_2",
+        "forgecode": "forgecode",
         "home-manager": "home-manager",
         "hytale-launcher": "hytale-launcher",
         "import-tree": "import-tree",

@@ -2,6 +2,18 @@
   "settings": {
     "toolPrefix": "short",
     "idleTimeout": 10,
-    "directTools": true
+    "directTools": false
+  },
+  "mcpServers": {
+    "websearch": {
+      "type": "remote",
+      "url": "https://mcp.exa.ai/mcp?tools=web_search_exa",
+      "directTools": ["web_search_exa"]
+    },
+    "grep_app": {
+      "type": "remote",
+      "url": "https://mcp.grep.app",
+      "directTools": true
+    }
   }
 }

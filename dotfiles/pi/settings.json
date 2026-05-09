@@ -1,11 +1,18 @@
 {
   "lastChangelogVersion": "0.74.0",
-  "defaultProvider": "opencode-go",
-  "defaultModel": "glm-5.1",
-  "defaultThinkingLevel": "medium",
+  "defaultProvider": "openrouter",
+  "defaultModel": "deepseek/deepseek-v4-pro",
+  "defaultThinkingLevel": "high",
   "packages": [
     "npm:moonpi",
     "npm:@aliou/pi-guardrails",
-    "npm:pi-mcp-adapter"
-  ]
+    "npm:pi-mcp-adapter",
+    "npm:@alexanderfortin/pi-loaded-tools",
+    "npm:pi-terminal-theme",
+    "npm:pi-claude-style-tools",
+    "npm:pi-smart-fetch",
+    "npm:@complexthings/pi-dynamic-context-pruning",
+    "git:github.com/urioTV/pi-hermes-memory@feat/projects-memory-reorg"
+  ],
+  "theme": "terminal"
 }

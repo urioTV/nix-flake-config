@@ -7,6 +7,10 @@
 !.gitignore
 !extensions/
 !extensions/guardrails.json
+!extensions/*.ts
+!extensions/tool-collapse/
+!extensions/tool-collapse/config.json
 !skills/
 !skills/autocommit/
 !skills/autocommit/SKILL.md
+!*.ts

@@ -12,8 +12,6 @@
     {
       imports = [
         ./_ai.nix
-        ./_claude-code.nix
-        ./_forge.nix
         self.homeModules.ai-opencode
       ];
     };

@@ -1,0 +1,11 @@
+{
+  "lastChangelogVersion": "0.74.0",
+  "defaultProvider": "opencode-go",
+  "defaultModel": "glm-5.1",
+  "defaultThinkingLevel": "medium",
+  "packages": [
+    "npm:moonpi",
+    "npm:@aliou/pi-guardrails",
+    "npm:pi-mcp-adapter"
+  ]
+}

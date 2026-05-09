@@ -1,0 +1,7 @@
+{
+  "settings": {
+    "toolPrefix": "short",
+    "idleTimeout": 10,
+    "directTools": true
+  }
+}

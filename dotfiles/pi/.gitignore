@@ -1,0 +1,12 @@
+# Pi Coding Agent - whitelist only tracked files
+# Everything is ignored by default, only explicit files are tracked
+*
+!settings.json
+!moonpi.json
+!mcp.json
+!.gitignore
+!extensions/
+!extensions/guardrails.json
+!skills/
+!skills/autocommit/
+!skills/autocommit/SKILL.md

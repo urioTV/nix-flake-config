@@ -1,0 +1,72 @@
+{
+  "defaultMode": "auto",
+  "preserveExternalTools": true,
+  "customEditor": true,
+  "contextFiles": {
+    "enabled": true,
+    "fileNames": ["README.md", "AGENTS.md", "SPRINT.md"],
+    "maxTotalBytes": 120000,
+    "maxDepth": 4,
+    "maxScannedEntries": 10000,
+    "maxDefaultFiles": 25,
+    "pickableExtensions": [
+      ".nix",
+      ".ts",
+      ".js",
+      ".py",
+      ".rs",
+      ".go",
+      ".md",
+      ".json",
+      ".yaml",
+      ".toml",
+      ".sql",
+      ".html",
+      ".css",
+      ".bash",
+      ".sh",
+      ".zsh",
+      "Dockerfile",
+      "Makefile",
+      ".conf",
+      ".cfg",
+      ".ini",
+      ".xml",
+      ".env",
+      ".service",
+      ".mount",
+      ".timer",
+      ".lock"
+    ],
+    "ignoreDirs": [
+      ".git",
+      ".svn",
+      ".hg",
+      "node_modules",
+      ".next",
+      ".turbo",
+      ".venv",
+      "venv",
+      "__pycache__",
+      "target",
+      "dist",
+      "build",
+      "coverage",
+      ".env",
+      ".gradle",
+      ".idea",
+      ".vscode",
+      "result",
+      "result-*"
+    ]
+  },
+  "guards": {
+    "cwdOnly": true,
+    "allowedPaths": ["~/.pi/agent"],
+    "readBeforeWrite": true
+  },
+  "keybindings": {
+    "cycleNext": "tab",
+    "cyclePrevious": ""
+  }
+}

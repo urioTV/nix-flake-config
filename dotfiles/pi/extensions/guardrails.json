@@ -1,0 +1,329 @@
+{
+  "enabled": true,
+  "features": {
+    "policies": true,
+    "permissionGate": true,
+    "pathAccess": false
+  },
+  "policies": {
+    "rules": [
+      {
+        "id": "secret-files",
+        "description": "Block access to secret and credential files",
+        "patterns": [
+          {
+            "pattern": ".env"
+          },
+          {
+            "pattern": ".env.local"
+          },
+          {
+            "pattern": ".env.production"
+          },
+          {
+            "pattern": ".env.prod"
+          },
+          {
+            "pattern": ".env.staging"
+          },
+          {
+            "pattern": ".env.dev"
+          },
+          {
+            "pattern": ".dev.vars"
+          },
+          {
+            "pattern": "auth.json"
+          },
+          {
+            "pattern": "oauth.json"
+          },
+          {
+            "pattern": "credentials.json"
+          },
+          {
+            "pattern": "*.pem"
+          },
+          {
+            "pattern": "*.key"
+          },
+          {
+            "pattern": "*.p12"
+          },
+          {
+            "pattern": "*.pfx"
+          },
+          {
+            "pattern": ".decrypted~*"
+          },
+          {
+            "pattern": "sops/secrets/*.example"
+          },
+          {
+            "pattern": "*.secret"
+          },
+          {
+            "pattern": "*.credentials"
+          }
+        ],
+        "allowedPatterns": [
+          {
+            "pattern": ".env.example"
+          },
+          {
+            "pattern": ".env.sample"
+          },
+          {
+            "pattern": ".env.test"
+          },
+          {
+            "pattern": "*.example.env"
+          },
+          {
+            "pattern": "*.sample.env"
+          },
+          {
+            "pattern": "*.test.env"
+          }
+        ],
+        "protection": "noAccess",
+        "onlyIfExists": true
+      },
+      {
+        "id": "home-ssh",
+        "description": "Block access to SSH directory and keys",
+        "patterns": [
+          {
+            "pattern": "~/.ssh/**"
+          }
+        ],
+        "allowedPatterns": [
+          {
+            "pattern": "~/.ssh/*.pub"
+          }
+        ],
+        "protection": "noAccess",
+        "onlyIfExists": true
+      },
+      {
+        "id": "home-config",
+        "description": "Block access to sensitive config directories (credentials, tokens, encrypted data)",
+        "patterns": [
+          {
+            "pattern": "~/.config/gh/**"
+          },
+          {
+            "pattern": "~/.config/gcloud/**"
+          },
+          {
+            "pattern": "~/.config/op/**"
+          },
+          {
+            "pattern": "~/.config/sops/**"
+          }
+        ],
+        "protection": "noAccess",
+        "onlyIfExists": true
+      },
+      {
+        "id": "home-gpg",
+        "description": "Block access to GPG keys and configuration",
+        "patterns": [
+          {
+            "pattern": "~/.gnupg/**"
+          },
+          {
+            "pattern": "~/*.gpg"
+          }
+        ],
+        "protection": "noAccess",
+        "onlyIfExists": true
+      },
+      {
+        "id": "build-artifacts",
+        "description": "Block access to build output directories and artifacts",
+        "patterns": [
+          {
+            "pattern": "result"
+          },
+          {
+            "pattern": "result-*"
+          },
+          {
+            "pattern": "dist"
+          },
+          {
+            "pattern": "build"
+          },
+          {
+            "pattern": "target"
+          },
+          {
+            "pattern": "out"
+          },
+          {
+            "pattern": ".direnv"
+          },
+          {
+            "pattern": ".tmp"
+          },
+          {
+            "pattern": ".temp"
+          }
+        ],
+        "protection": "noAccess",
+        "onlyIfExists": true
+      },
+      {
+        "id": "package-manager-dirs",
+        "description": "Block access to package manager and cache directories",
+        "patterns": [
+          {
+            "pattern": "node_modules"
+          },
+          {
+            "pattern": ".venv"
+          },
+          {
+            "pattern": "venv"
+          },
+          {
+            "pattern": "__pycache__"
+          },
+          {
+            "pattern": ".gradle"
+          },
+          {
+            "pattern": ".cache"
+          },
+          {
+            "pattern": ".turbo"
+          },
+          {
+            "pattern": ".next"
+          }
+        ],
+        "protection": "noAccess",
+        "onlyIfExists": true
+      },
+      {
+        "id": "editor-agent-dirs",
+        "description": "Block access to editor and AI agent directories",
+        "patterns": [
+          {
+            "pattern": ".vscode"
+          },
+          {
+            "pattern": ".idea"
+          },
+          {
+            "pattern": ".claude"
+          },
+          {
+            "pattern": ".opencode"
+          },
+          {
+            "pattern": ".crush"
+          },
+          {
+            "pattern": "sessions"
+          },
+          {
+            "pattern": ".svn"
+          },
+          {
+            "pattern": ".hg"
+          },
+          {
+            "pattern": "zed"
+          }
+        ],
+        "protection": "noAccess",
+        "onlyIfExists": true
+      },
+      {
+        "id": "cache-and-temp-files",
+        "description": "Block access to cache, session, and temporary data directories",
+        "patterns": [
+          {
+            "pattern": "*-cache.json"
+          },
+          {
+            "pattern": "*-cache"
+          },
+          {
+            "pattern": ".cache/**"
+          },
+          {
+            "pattern": "coverage"
+          }
+        ],
+        "protection": "noAccess",
+        "onlyIfExists": true
+      },
+      {
+        "id": "temp-files",
+        "description": "Allow reading but block editing of temporary and OS files",
+        "patterns": [
+          {
+            "pattern": "*.swp"
+          },
+          {
+            "pattern": "*.swo"
+          },
+          {
+            "pattern": "*~"
+          },
+          {
+            "pattern": ".DS_Store"
+          },
+          {
+            "pattern": "Thumbs.db"
+          },
+          {
+            "pattern": "*.log"
+          }
+        ],
+        "protection": "readOnly",
+        "onlyIfExists": true
+      }
+    ]
+  },
+  "permissionGate": {
+    "requireConfirmation": true,
+    "customPatterns": [
+      {
+        "pattern": "git push --force",
+        "description": "Force push to remote",
+        "regex": true
+      },
+      {
+        "pattern": "git push -f",
+        "description": "Force push to remote (short flag)",
+        "regex": true
+      },
+      {
+        "pattern": "npm publish",
+        "description": "NPM package publishing",
+        "regex": true
+      },
+      {
+        "pattern": "docker system prune",
+        "description": "Docker system cleanup",
+        "regex": true
+      },
+      {
+        "pattern": "docker compose down",
+        "description": "Docker Compose service teardown",
+        "regex": true
+      }
+    ]
+  },
+  "version": "0.9.0-20260327",
+  "applyBuiltinDefaults": true,
+  "onboarding": {
+    "completed": true,
+    "completedAt": "2026-05-09T11:54:51.100Z",
+    "version": "0.9.0-20260327"
+  }
+}

@@ -2,6 +2,11 @@
   "defaultMode": "auto",
   "preserveExternalTools": true,
   "customEditor": true,
+  "synthetic": {
+    "search": {
+      "enabled": false
+    }
+  },
   "contextFiles": {
     "enabled": true,
     "fileNames": ["README.md", "AGENTS.md", "SPRINT.md"],

@@ -1,8 +1,8 @@
 {
   "lastChangelogVersion": "0.74.0",
-  "defaultProvider": "github-copilot",
-  "defaultModel": "claude-haiku-4.5",
-  "defaultThinkingLevel": "high",
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-5.5",
+  "defaultThinkingLevel": "medium",
   "packages": [
     "npm:moonpi",
     "npm:@aliou/pi-guardrails",
@@ -11,7 +11,8 @@
     "npm:pi-terminal-theme",
     "npm:pi-claude-style-tools",
     "npm:pi-smart-fetch",
-    "git:github.com/chandra447/pi-hermes-memory@main"
+    "git:github.com/chandra447/pi-hermes-memory@main",
+    "npm:pi-bar"
   ],
   "theme": "terminal"
 }

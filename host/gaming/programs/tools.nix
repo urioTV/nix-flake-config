@@ -24,5 +24,7 @@
 
     optiscaler-install
     optipatcher-install
+
+    optiscaler-client
   ];
 }

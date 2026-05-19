@@ -17,6 +17,7 @@
     # openmw-dev
     inputs'.hytale-launcher.packages.default
     vs-launcher
+    cemu
   ];
 
   # # For Vintage Story

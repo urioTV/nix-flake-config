@@ -10,8 +10,8 @@
   // --- UI & THEME ---
   "agent_servers": {
     "pi-acp": {
-      "type": "registry"
-    }
+      "type": "registry",
+    },
   },
   "cli_default_open_behavior": "existing_window",
   "collaboration_panel": {
@@ -76,15 +76,17 @@
     "default_width": 280,
     "default_profile": "write",
     "default_model": {
-      "provider": "opencode-go",
-      "model": "glm-5.1",
+      "effort": "high",
+      "enable_thinking": true,
+      "provider": "copilot_chat",
+      "model": "gpt-5.2-codex",
     },
     "inline_assistant_model": {
       "provider": "opencode-go",
       "model": "kimi-k2.5",
     },
     "commit_message_model": {
-      "provider": "copilot",
+      "provider": "copilot_chat",
       "model": "gpt-5-mini",
     },
     "play_sound_when_agent_done": "when_hidden",

@@ -18,6 +18,7 @@
     inputs'.hytale-launcher.packages.default
     vs-launcher
     cemu
+    umu-launcher
   ];
 
   # # For Vintage Story

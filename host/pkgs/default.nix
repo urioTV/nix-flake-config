@@ -45,6 +45,7 @@
     hyphen
     hyphenDicts.en_US
     qbittorrent
+    gopeed
 
     # Remote Desktop
     # krdc

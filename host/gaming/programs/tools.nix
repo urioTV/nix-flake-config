@@ -26,5 +26,7 @@
     optipatcher-install
 
     optiscaler-client
+
+    rimsort
   ];
 }

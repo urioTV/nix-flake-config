@@ -1,8 +1,8 @@
 {
-  "lastChangelogVersion": "0.74.1",
-  "defaultProvider": "openai-codex",
-  "defaultModel": "gpt-5.5",
-  "defaultThinkingLevel": "medium",
+  "lastChangelogVersion": "0.75.3",
+  "defaultProvider": "openrouter",
+  "defaultModel": "deepseek/deepseek-v4-pro",
+  "defaultThinkingLevel": "high",
   "packages": [
     "npm:moonpi",
     "npm:@aliou/pi-guardrails",
@@ -12,7 +12,8 @@
     "npm:pi-claude-style-tools",
     "npm:pi-smart-fetch",
     "git:github.com/chandra447/pi-hermes-memory@main",
-    "npm:pi-bar"
+    "npm:pi-bar",
+    "npm:context-mode"
   ],
   "theme": "terminal"
 }

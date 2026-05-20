@@ -38,12 +38,6 @@
       inputs.home-manager.follows = "home-manager";
     };
 
-    # AI Tools
-    forgecode = {
-      url = "github:tailcallhq/forgecode";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     llm-agents = {
       url = "github:numtide/llm-agents.nix";
     };

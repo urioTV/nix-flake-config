@@ -1,7 +1,7 @@
 {
   "lastChangelogVersion": "0.75.3",
-  "defaultProvider": "openrouter",
-  "defaultModel": "deepseek/deepseek-v4-pro",
+  "defaultProvider": "google",
+  "defaultModel": "gemini-3-flash-preview",
   "defaultThinkingLevel": "high",
   "packages": [
     "npm:moonpi",

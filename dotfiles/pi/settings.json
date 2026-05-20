@@ -1,7 +1,7 @@
 {
   "lastChangelogVersion": "0.75.3",
-  "defaultProvider": "google",
-  "defaultModel": "gemini-3-flash-preview",
+  "defaultProvider": "openrouter",
+  "defaultModel": "deepseek/deepseek-v4-pro",
   "defaultThinkingLevel": "high",
   "packages": [
     "npm:moonpi",
@@ -12,8 +12,7 @@
     "npm:pi-claude-style-tools",
     "npm:pi-smart-fetch",
     "git:github.com/chandra447/pi-hermes-memory@main",
-    "npm:pi-bar",
-    "npm:context-mode"
+    "npm:pi-bar"
   ],
   "theme": "terminal"
 }

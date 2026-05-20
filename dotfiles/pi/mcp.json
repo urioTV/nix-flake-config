@@ -14,9 +14,6 @@
       "type": "remote",
       "url": "https://mcp.grep.app",
       "directTools": true
-    },
-    "context-mode": {
-      "command": "context-mode"
     }
   }
 }

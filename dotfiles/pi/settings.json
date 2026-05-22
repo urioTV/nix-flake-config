@@ -1,8 +1,8 @@
 {
   "lastChangelogVersion": "0.75.3",
-  "defaultProvider": "openrouter",
-  "defaultModel": "deepseek/deepseek-v4-pro",
-  "defaultThinkingLevel": "high",
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-5.5",
+  "defaultThinkingLevel": "medium",
   "packages": [
     "npm:moonpi",
     "npm:@aliou/pi-guardrails",

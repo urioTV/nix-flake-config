@@ -3,11 +3,8 @@ final: prev:
 let
   load = path: import path { inherit final prev inputs'; };
 in
-load ./overlays/_optiscaler-install.nix
-// load ./overlays/_optipatcher-install.nix
-// load ./overlays/_antigravity.nix
+load ./overlays/_antigravity.nix
 // load ./overlays/_openmw-dev.nix
-// load ./overlays/_rimsort-appimage.nix
 // {
 
   zen-browser = (inputs'.zen-browser.packages.default);

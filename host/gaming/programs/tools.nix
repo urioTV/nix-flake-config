@@ -27,6 +27,6 @@
 
     optiscaler-client
 
-    rimsort
+    rimsort-appimage
   ];
 }

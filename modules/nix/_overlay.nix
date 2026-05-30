@@ -3,8 +3,7 @@ final: prev:
 let
   load = path: import path { inherit final prev inputs'; };
 in
-load ./overlays/_antigravity.nix
-// load ./overlays/_openmw-dev.nix
+load ./overlays/_openmw-dev.nix
 // {
 
   zen-browser = (inputs'.zen-browser.packages.default);

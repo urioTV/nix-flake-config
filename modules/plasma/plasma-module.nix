@@ -277,12 +277,6 @@
           "kwinrulesrc"."e95ec1aa-5f55-42db-9408-1be622a641b6"."opacityactiverule" = 2;
           "kwinrulesrc"."e95ec1aa-5f55-42db-9408-1be622a641b6"."wmclass" = "vesktop";
           "kwinrulesrc"."e95ec1aa-5f55-42db-9408-1be622a641b6"."wmclassmatch" = 2;
-          "kwinrulesrc"."2c925338-d6f8-4e6a-916f-6fe5526b22ed"."Description" = "Antigravity Blur";
-          "kwinrulesrc"."2c925338-d6f8-4e6a-916f-6fe5526b22ed"."opacityactive" = 97;
-          "kwinrulesrc"."2c925338-d6f8-4e6a-916f-6fe5526b22ed"."opacityactiverule" = 2;
-          "kwinrulesrc"."2c925338-d6f8-4e6a-916f-6fe5526b22ed"."wmclass" = "antigravity";
-          "kwinrulesrc"."2c925338-d6f8-4e6a-916f-6fe5526b22ed"."wmclassmatch" = 1;
-
           "plasma-localerc"."Formats"."LANG" = "pl_PL.UTF-8";
 
           # Mouse and Touchpad

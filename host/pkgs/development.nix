@@ -31,7 +31,6 @@
     # zed-editor
     terraform
     terraform-ls
-    antigravity
     uv
     bun
     nodejs

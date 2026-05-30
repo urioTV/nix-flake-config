@@ -52,12 +52,6 @@
         "${config.home.homeDirectory}/.local/share/flatpak/exports/share"
       ];
 
-      home.file = {
-        ".config/Antigravity/User/settings.json" = {
-          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-flake-config/dotfiles/antigravity/settings.json";
-        };
-      };
-
       home.sessionVariables = {
         EDITOR = "micro";
       };

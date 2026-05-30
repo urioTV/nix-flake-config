@@ -16,6 +16,8 @@
     lsfg-vk-ui
     mangohud
     goverlay
+    winetricks
+    wineWow64Packages.stable
 
     # Custom tools
     gperftools

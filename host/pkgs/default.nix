@@ -45,7 +45,7 @@
     hyphen
     hyphenDicts.en_US
     qbittorrent
-    gopeed
+    motrix-next
 
     # Remote Desktop
     # krdc

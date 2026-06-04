@@ -39,6 +39,7 @@ in
       stylix.targets = {
         chromium.enable = false;
         grub.enable = false;
+        kmscon.enable = false;
       };
 
       qt.platformTheme = lib.mkForce "kde";
@@ -100,7 +101,8 @@ in
         };
 
         gtk4 = {
-          theme = config.gtk.theme;
+          # Conflicts with Stylix/Home Manager GTK4 theme definition.
+          # theme = config.gtk.theme;
           extraConfig = {
             gtk-application-prefer-dark-theme = 1;
           };

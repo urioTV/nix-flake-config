@@ -16,8 +16,10 @@ let
   });
 in
 {
-  environment.systemPackages = [
+  environment.systemPackages = with pkgs; [
     # Gaming launchers
     hydralauncher-wayland
+    heroic
+    lutris
   ];
 }

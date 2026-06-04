@@ -43,51 +43,23 @@
   "buffer_font_family": "JetBrainsMono Nerd Font Mono",
   "buffer_font_size": 12,
 
-  // --- AI AGENTS & CONTEXT SERVERS ---
-  "language_models": {
-    "openai_compatible": {
-      "opencode-go": {
-        "api_url": "https://opencode.ai/zen/go/v1",
-        "available_models": [
-          {
-            "name": "glm-5.1",
-            "display_name": "GLM 5.1",
-            "max_tokens": 200000,
-            "max_output_tokens": 128000,
-          },
-          {
-            "name": "kimi-k2.5",
-            "display_name": "Kimi K2.5",
-            "max_tokens": 256000,
-            "max_output_tokens": 32768,
-          },
-          {
-            "name": "minimax-m2.7",
-            "display_name": "MiniMax M2.7",
-            "max_tokens": 204800,
-            "max_output_tokens": 131072,
-          },
-        ],
-      },
-    },
-  },
   "agent": {
     "dock": "right",
     "default_width": 280,
     "default_profile": "write",
     "default_model": {
-      "effort": "high",
+      "effort": "medium",
       "enable_thinking": true,
-      "provider": "copilot_chat",
-      "model": "gpt-5.2-codex",
+      "provider": "openai-subscribed",
+      "model": "gpt-5.5",
     },
     "inline_assistant_model": {
-      "provider": "opencode-go",
-      "model": "kimi-k2.5",
+      "provider": "openai-subscribed",
+      "model": "gpt-5.5",
     },
     "commit_message_model": {
-      "provider": "copilot_chat",
-      "model": "gpt-5-mini",
+      "provider": "openai-subscribed",
+      "model": "gpt-5.4",
     },
     "play_sound_when_agent_done": "when_hidden",
     "tool_permissions": {

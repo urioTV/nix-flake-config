@@ -39,31 +39,18 @@ in
         llama-cpp
         llamaCppZshCompletions
       ];
-
-      # konrad-m18 hardware assumptions:
-      # - CPU: Ryzen 9 7945HX, 16C/32T Zen 4 with AVX-512.
-      # - Vulkan0: AMD Radeon 610M iGPU.
-      # - Vulkan1: AMD Radeon RX 7900M (Navi 31) dGPU via RADV.
-      # We use Vulkan rather than ROCm for llama.cpp because it gives explicit
-      # device selection and avoids ROCm/HIP package conflicts for this setup.
       environment.sessionVariables = {
         # Force all model layers and KV cache work onto the RX 7900M.
         LLAMA_ARG_DEVICE = "Vulkan1";
-        LLAMA_ARG_SPLIT_MODE = "none";
-        LLAMA_ARG_N_GPU_LAYERS = "-1";
+        # LLAMA_ARG_SPLIT_MODE = "none";
+        # LLAMA_ARG_N_GPU_LAYERS = "-1";
 
-        # KV cache quantization saves VRAM and allows larger contexts while
-        # keeping quality/performance balance good for local coding models.
         LLAMA_ARG_CACHE_TYPE_K = "q8_0";
         LLAMA_ARG_CACHE_TYPE_V = "q8_0";
 
-        # Larger prompt batches are efficient on the 7900M; ubatch stays smaller
-        # to limit transient VRAM pressure and latency spikes.
-        LLAMA_ARG_BATCH = "4096";
-        LLAMA_ARG_UBATCH = "1024";
+        LLAMA_ARG_BATCH = "8192";
+        LLAMA_ARG_UBATCH = "512";
 
-        # CPU threads: use physical cores for token generation, all SMT threads
-        # for prompt/batch preprocessing.
         LLAMA_ARG_THREADS = "16";
         LLAMA_ARG_THREADS_BATCH = "32";
 

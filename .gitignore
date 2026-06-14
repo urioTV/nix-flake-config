@@ -17,7 +17,6 @@ flakes/*/result-*
 .vscode/
 .idea/
 .crush/
-.opencode/
 .claude/
 
 # OS files

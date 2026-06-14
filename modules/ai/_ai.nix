@@ -6,6 +6,10 @@ let
   '';
 in
 {
+  home.packages = with pkgs; [
+    claude-code
+  ];
+
   programs.mcp = {
     enable = true;
     servers = {

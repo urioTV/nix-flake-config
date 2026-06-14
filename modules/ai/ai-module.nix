@@ -12,7 +12,6 @@
     {
       imports = [
         ./_ai.nix
-        self.homeModules.ai-opencode
         self.homeModules.ai-pi
       ];
     };

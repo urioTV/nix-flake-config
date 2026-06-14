@@ -36,7 +36,6 @@ This configuration uses the following main flake inputs:
 - **determinate:** Determinate Systems Nix installer
 - **nix-flatpak:** Declarative Flatpak management
 - **sops-nix:** Secrets management using sops
-- **opencode-dev:** Developer version of Opencode AI
 - **import-tree:** Automated directory importing for Nix
 - **flake-parts:** Modular flake organization
 
@@ -169,9 +168,9 @@ The `host/` directory contains NixOS host configurations. These configurations d
 
 This configuration includes advanced AI and coding agent setups:
 
-- **Opencode:** Configured in `home/programs/ai/opencode/` with various providers and models.
-- **Claude Code:** Configured in `home/programs/ai/claude-code/`.
-- **System-level AI:** AI bundles and packages handled in `host/ai/`.
+- **Claude Code:** Installed through the Home Manager AI module in `modules/ai/_ai.nix`.
+- **Pi coding agent:** Configured in `modules/ai/pi/` with agent files in `dotfiles/pi/`.
+- **System-level AI:** AI bundles and packages handled in `modules/ai/` and `host/ai/`.
 
 ## Secrets Management
 

@@ -35,6 +35,5 @@
   };
   home.packages = with pkgs; [
     rclone-browser
-    opencode-desktop
   ];
 }

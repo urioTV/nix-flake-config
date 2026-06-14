@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   # ROCm Graphics Support for AI/LLM workloads
   hardware.graphics = {

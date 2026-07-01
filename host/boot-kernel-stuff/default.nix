@@ -57,12 +57,17 @@
       canTouchEfiVariables = true;
       # efiSysMountPoint = "/boot/efi"; # Must match hardware-configuration.nix
     };
-    grub = {
+    # grub = {
+    #   enable = true;
+    #   device = "nodev";
+    #   efiSupport = true;
+    #   configurationLimit = 10;
+    #   theme = "${pkgs.cybergrub2077}/";
+    # };
+    limine = {
       enable = true;
-      device = "nodev";
       efiSupport = true;
-      configurationLimit = 10;
-      theme = "${pkgs.cybergrub2077}/";
+      maxGenerations = 10;
     };
   };
 

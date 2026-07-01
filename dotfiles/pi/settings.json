@@ -1,7 +1,7 @@
 {
-  "lastChangelogVersion": "0.79.0",
-  "defaultProvider": "claude-bridge",
-  "defaultModel": "claude-sonnet-4-6",
+  "lastChangelogVersion": "0.79.8",
+  "defaultProvider": "Neuralwatt",
+  "defaultModel": "glm-5.2-short",
   "defaultThinkingLevel": "medium",
   "packages": [
     "npm:moonpi",
@@ -13,7 +13,8 @@
     "npm:pi-smart-fetch",
     "git:github.com/chandra447/pi-hermes-memory@main",
     "npm:pi-bar",
-    "npm:pi-claude-bridge"
+    "npm:pi-claude-bridge",
+    "npm:pi-smart-compact"
   ],
   "theme": "terminal"
 }

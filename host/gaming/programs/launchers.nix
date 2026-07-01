@@ -21,5 +21,7 @@ in
     hydralauncher-wayland
     heroic
     lutris
+
+    xivlauncher
   ];
 }

@@ -9,6 +9,9 @@
 {
   // --- UI & THEME ---
   "agent_servers": {
+    "opencode": {
+      "type": "registry"
+    },
     "pi-acp": {
       "type": "registry",
     },

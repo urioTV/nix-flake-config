@@ -5,22 +5,42 @@
   ...
 }:
 let
-  # Override pi to use a temp directory on the same filesystem as /home.
-  # Fixes EXDEV (cross-device link) errors caused by /tmp being tmpfs
-  # while ~/.pi is on ext4. See: anthropics/claude-code#24043
-  #
-  # Uses overrideAttrs instead of symlinkJoin to preserve the original
-  # package identity (name, version) — visible in nh os switch output.
-  pi = pkgs.llm-agents.pi.overrideAttrs (oldAttrs: {
-    postInstall = (oldAttrs.postInstall or "") + ''
-      # Inject TMPDIR setup before the final exec in pi's wrapper script.
-      sed -i 's@^exec @export TMPDIR="$HOME/.pi/tmp"\nmkdir -p "$TMPDIR" 2>/dev/null || true\nexec @' $out/bin/pi
+  engram = pkgs.stdenv.mkDerivation rec {
+    pname = "engram";
+    version = "1.16.3";
+
+    src = pkgs.fetchurl {
+      url = "https://github.com/Gentleman-Programming/engram/releases/download/v${version}/engram_${version}_linux_amd64.tar.gz";
+      hash = "sha256-AWt+dfeI7vqyAmbL/kcthsiwjnKPr6ojecnKqzQpWuk=";
+    };
+
+    nativeBuildInputs = [ pkgs.autoPatchelfHook ];
+
+    # CGO binary dynamically linked against glibc (SQLite via mattn/go-sqlite3)
+    buildInputs = [ pkgs.stdenv.cc.libc ];
+
+    unpackPhase = ''
+      tar xzf $src
     '';
-  });
+
+    installPhase = ''
+      mkdir -p $out/bin
+      cp engram $out/bin/
+    '';
+
+    meta = {
+      description = "Persistent memory for AI coding agents — local SQLite + MCP";
+      homepage = "https://github.com/Gentleman-Programming/engram";
+      license = lib.licenses.mit;
+      mainProgram = "engram";
+      platforms = [ "x86_64-linux" ];
+    };
+  };
 in
 {
   home.packages = with pkgs; [
-    pi
+    llm-agents.pi
+    engram
   ];
 
   # npm on NixOS can't write to /nix/store, so global installs fail.
@@ -32,8 +52,13 @@ in
     };
   };
 
+  home.sessionVariables = {
+    ENGRAM_BIN = "${engram}/bin/engram";
+  };
+
   home.sessionPath = [
     "${config.home.homeDirectory}/.local/share/npm/bin"
+    "${config.home.homeDirectory}/nix-flake-config/dotfiles/pi/npm/node_modules/.bin"
   ];
 
   home.file = {

@@ -1,7 +1,7 @@
 {
   "lastChangelogVersion": "0.79.8",
-  "defaultProvider": "Neuralwatt",
-  "defaultModel": "glm-5.2-short",
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-5.5",
   "defaultThinkingLevel": "medium",
   "packages": [
     "npm:moonpi",
@@ -11,10 +11,19 @@
     "npm:pi-terminal-theme",
     "npm:pi-claude-style-tools",
     "npm:pi-smart-fetch",
-    "git:github.com/chandra447/pi-hermes-memory@main",
+    "npm:pi-smart-web-search",
     "npm:pi-bar",
-    "npm:pi-claude-bridge",
-    "npm:pi-smart-compact"
+    "npm:pi-ultra-compact",
+    "npm:@vanillagreen/pi-claude-bridge",
+    {
+      "source": "npm:@latentminds/pi-quotas",
+      "extensions": [
+        "-src/extensions/command-quotas/index.ts"
+      ]
+    },
+    "npm:gentle-engram",
+    "npm:@hypabolic/pi-hypa",
+    "npm:gentle-engram@0.1.8"
   ],
   "theme": "terminal"
 }

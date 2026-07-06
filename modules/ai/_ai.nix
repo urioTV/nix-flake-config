@@ -6,19 +6,13 @@ let
   '';
 in
 {
-  home.packages = with pkgs; [
-    claude-code
-  ];
-
   programs.mcp = {
     enable = true;
     servers = {
       nixos = {
-        command = "nix";
+        command = "uvx";
         args = [
-          "run"
-          "github:utensils/mcp-nixos"
-          "--"
+          "mcp-nixos"
         ];
       };
       context7 = {

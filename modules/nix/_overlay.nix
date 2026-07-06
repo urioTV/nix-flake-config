@@ -12,6 +12,14 @@ load ./overlays/_openmw-dev.nix
     NIX_CFLAGS_COMPILE = [ "-fno-fast-math" ];
   });
 
+  # Shared Engram derivation from modules/ai/_engram.nix.
+  engram = (
+    import ./../ai/_engram.nix {
+      pkgs = final;
+      lib = final.lib;
+    }
+  );
+
   # openldap has flaky tests on i686 (test008-concurrency, test017-syncreplication-refresh, etc.)
   # Disable checks for 32-bit only — steam/lutris depend on pkgsi686Linux.openldap
   # See: https://github.com/NixOS/nixpkgs/issues/513245

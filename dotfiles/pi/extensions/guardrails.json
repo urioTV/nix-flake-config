@@ -329,6 +329,10 @@
       {
         "kind": "directory",
         "path": "/tmp"
+      },
+      {
+        "kind": "directory",
+        "path": "/nix"
       }
     ]
   },

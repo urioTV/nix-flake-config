@@ -6,8 +6,8 @@ let
   llama-cpp-src = final.fetchFromGitHub {
     owner = "ggml-org";
     repo = "llama.cpp";
-    rev = "2d973636e292ee6f75fadcf08d29cb33511f509f";
-    hash = "sha256-zl/g5aQMKbV02dCyQM8YUO9pI2YVmIQWOhH63AeNooQ=";
+    rev = "c92e806d1c81091c9035edce99c35374da1b465e";
+    hash = "sha256-YnV5Ouhv2+WfmPqvBIDanSZldXN6YzY6iewdjQ2AXDk=";
     leaveDotGit = true;
     postFetch = ''
       git -C "$out" rev-parse --short HEAD > $out/COMMIT
@@ -36,12 +36,12 @@ let
 in
 {
   llama-cpp = llama-cpp-vulkan.overrideAttrs (old: {
-    version = "b9870-unstable-2026-07-03";
+    version = "b9967-unstable-2026-07-11";
     src = llama-cpp-src;
 
     # Keep this in the module because it belongs to the pinned upstream src.
     npmRoot = "tools/ui";
-    npmDepsHash = "sha256-X1DZgmhS/zHTqDT5zq0kywwntthcJ9vRXeqyO3zz6UU=";
+    npmDepsHash = "sha256-6s9skw1wzEfm9QKktTqea3J+oudQAsS6O2VnZEMXAdw=";
 
     nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [ final.perl ];
 

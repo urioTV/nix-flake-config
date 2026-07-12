@@ -11,12 +11,7 @@
   environment.systemPackages = with pkgs; [
 
     # Communication
-    (vesktop.overrideAttrs (oldAttrs: {
-      postFixup = oldAttrs.postFixup or "" + ''
-        wrapProgram $out/bin/vesktop \
-          --add-flags --ozone-platform=x11
-      '';
-    }))
+    vesktop
     # (teams-for-linux.overrideAttrs (oldAttrs: {
     #   postFixup = oldAttrs.postFixup or "" + ''
     #     wrapProgram $out/bin/teams-for-linux \

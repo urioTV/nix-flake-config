@@ -50,9 +50,15 @@ in
           "urio"
         ];
         eval-cores = 0;
+        extra-sandbox-paths = [ "/var/cache/ccache" ];
       };
 
       nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+
+      programs.ccache = {
+        enable = true;
+        packageNames = [ "llama-cpp" ];
+      };
 
       nix.gc = {
         automatic = true;

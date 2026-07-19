@@ -1,14 +1,15 @@
 {
   inputs = {
-    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:NixOS/nixpkgs/master";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:NixOS/nixpkgs/master";
     import-tree.url = "github:vic/import-tree";
     flake-parts.url = "github:hercules-ci/flake-parts";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
+    # `release` only advances after Hydra uploads every kernel output to the cache.
+    nix-cachyos-kernel.url = "git+https://github.com/xddxdd/nix-cachyos-kernel.git?ref=release";
 
     urio-nur = {
       url = "github:urioTV/urio-nur";

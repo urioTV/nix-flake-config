@@ -1,6 +1,6 @@
 {
   "lastChangelogVersion": "0.80.6",
-  "defaultThinkingLevel": "xhigh",
+  "defaultThinkingLevel": "medium",
   "packages": [
     "npm:@vanillagreen/pi-task-panel",
     "npm:@vanillagreen/pi-questions",
@@ -29,7 +29,7 @@
   ],
   "theme": "terminal",
   "defaultProvider": "openai-codex",
-  "defaultModel": "gpt-5.6-luna",
+  "defaultModel": "gpt-5.6-sol",
   "enabledModels": [
     "openai-codex/gpt-5.6-sol:medium",
     "openai-codex/gpt-5.6-terra:high",

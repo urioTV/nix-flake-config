@@ -279,6 +279,10 @@
           "kwinrulesrc"."e95ec1aa-5f55-42db-9408-1be622a641b6"."wmclassmatch" = 2;
           "plasma-localerc"."Formats"."LANG" = "pl_PL.UTF-8";
 
+          # Keyboard layout
+          "kxkbrc"."Layout"."LayoutList" = "pl";
+          "kxkbrc"."Layout"."Use" = true;
+
           # Mouse and Touchpad
           "kcminputrc"."Keyboard"."NumLock" = 0;
           "kcminputrc"."Libinput/1133/16543/Logitech G502 X LS"."PointerAccelerationProfile" = 1;

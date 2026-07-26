@@ -10,7 +10,7 @@
   // --- UI & THEME ---
   "agent_servers": {
     "opencode": {
-      "type": "registry"
+      "type": "registry",
     },
     "pi-acp": {
       "type": "registry",
@@ -54,15 +54,15 @@
       "effort": "medium",
       "enable_thinking": true,
       "provider": "openai-subscribed",
-      "model": "gpt-5.5",
+      "model": "gpt-5.6-sol",
     },
     "inline_assistant_model": {
       "provider": "openai-subscribed",
-      "model": "gpt-5.5",
+      "model": "gpt-5.6-sol",
     },
     "commit_message_model": {
       "provider": "openai-subscribed",
-      "model": "gpt-5.4",
+      "model": "gpt-5.6-terra",
     },
     "play_sound_when_agent_done": "when_hidden",
     "tool_permissions": {

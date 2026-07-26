@@ -2,7 +2,7 @@
 # Everything is ignored by default, only explicit files are tracked
 *
 !settings.json
-!moonpi.json
+!web-search.json
 !mcp.json
 !.gitignore
 !extensions/

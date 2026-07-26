@@ -16,6 +16,7 @@ in
 {
   flake.nixosModules.nix-config =
     {
+      config,
       pkgs,
       lib,
       inputs,
@@ -24,6 +25,14 @@ in
     }:
     {
       imports = [ (sharedConfig { inherit inputs'; }) ];
+
+      sops.templates."nix-access-tokens.conf".content = ''
+        access-tokens = github.com=${config.sops.placeholder.github_token}
+      '';
+
+      nix.extraOptions = ''
+        !include ${config.sops.templates."nix-access-tokens.conf".path}
+      '';
 
       nix.settings = {
         experimental-features = [

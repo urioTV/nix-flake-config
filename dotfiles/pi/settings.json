@@ -1,6 +1,6 @@
 {
-  "lastChangelogVersion": "0.80.6",
-  "defaultThinkingLevel": "medium",
+  "lastChangelogVersion": "0.82.0",
+  "defaultThinkingLevel": "high",
   "packages": [
     "npm:@vanillagreen/pi-task-panel",
     "npm:@vanillagreen/pi-questions",
@@ -13,28 +13,24 @@
     "npm:pi-mcp-adapter",
     "npm:@alexanderfortin/pi-loaded-tools",
     "npm:pi-terminal-theme",
-    "npm:pi-smart-fetch",
-    "npm:pi-smart-web-search",
+    "npm:pi-web-access",
     "npm:pi-bar",
     "npm:@sting8k/pi-vcc",
     {
       "source": "npm:@latentminds/pi-quotas",
-      "extensions": [
-        "-src/extensions/command-quotas/index.ts"
-      ]
+      "extensions": ["-src/extensions/command-quotas/index.ts"]
     },
     "npm:gentle-engram",
     "npm:@hypabolic/pi-hypa",
     "npm:@aliou/pi-synthetic"
   ],
   "theme": "terminal",
-  "defaultProvider": "openai-codex",
-  "defaultModel": "gpt-5.6-sol",
   "enabledModels": [
     "openai-codex/gpt-5.6-sol:medium",
     "openai-codex/gpt-5.6-terra:high",
     "openai-codex/gpt-5.6-luna:xhigh",
     "synthetic/hf:zai-org/GLM-5.2:high",
+    "LiteLLM/Qwen3.5 397b INT4 Autoround:medium",
     "openrouter/deepseek/deepseek-v4-pro:medium"
   ],
   "vstack": {
@@ -45,8 +41,13 @@
           "renderMutationTools": true,
           "mcpOutputMode": "summary",
           "pendingStatusAnimation": true
+        },
+        "@vanillagreen/pi-web-tools": {
+          "exaDeepResearchEnabled": false
         }
       }
     }
-  }
+  },
+  "defaultProvider": "synthetic",
+  "defaultModel": "hf:zai-org/GLM-5.2"
 }

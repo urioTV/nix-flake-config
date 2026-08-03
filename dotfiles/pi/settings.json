@@ -1,6 +1,6 @@
 {
-  "lastChangelogVersion": "0.82.0",
-  "defaultThinkingLevel": "high",
+  "lastChangelogVersion": "0.82.1",
+  "defaultThinkingLevel": "medium",
   "packages": [
     "npm:@vanillagreen/pi-task-panel",
     "npm:@vanillagreen/pi-questions",
@@ -18,7 +18,9 @@
     "npm:@sting8k/pi-vcc",
     {
       "source": "npm:@latentminds/pi-quotas",
-      "extensions": ["-src/extensions/command-quotas/index.ts"]
+      "extensions": [
+        "-src/extensions/command-quotas/index.ts"
+      ]
     },
     "npm:gentle-engram",
     "npm:@hypabolic/pi-hypa",
@@ -48,6 +50,6 @@
       }
     }
   },
-  "defaultProvider": "synthetic",
-  "defaultModel": "hf:zai-org/GLM-5.2"
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-5.6-sol"
 }

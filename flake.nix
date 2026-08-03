@@ -1,7 +1,7 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    # nixpkgs.url = "github:NixOS/nixpkgs/master";
+    # Temporary pin: includes the LACT libdisplay-info_0_3 fix from nixpkgs#546155.
+    nixpkgs.url = "github:NixOS/nixpkgs/bcca8dd3bba0686b330fba113dc545b5988f4235";
     import-tree.url = "github:vic/import-tree";
     flake-parts.url = "github:hercules-ci/flake-parts";
     home-manager = {

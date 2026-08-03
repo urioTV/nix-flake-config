@@ -7,11 +7,11 @@
 
 pkgs.stdenv.mkDerivation rec {
   pname = "engram";
-  version = "1.18.0";
+  version = "1.20.0";
 
   src = pkgs.fetchurl {
     url = "https://github.com/Gentleman-Programming/engram/releases/download/v${version}/engram_${version}_linux_amd64.tar.gz";
-    hash = "sha256-IyNQ14LOOpbfKb85KDf7s93EKChnP5M1mTCEvTO5EN8=";
+    hash = "sha256-fcMAMxjjA77iaaR3IUTzzgHI7HAL/VJKrsdncKzTico=";
   };
 
   nativeBuildInputs = [ pkgs.autoPatchelfHook ];

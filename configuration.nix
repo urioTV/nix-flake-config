@@ -7,11 +7,7 @@
   ...
 }:
 {
-  imports = [
-    # Include the hardware scan.
-    ./hardware-configuration.nix
-  ]
-  ++ (import-tree ./host).imports;
+  imports = (import-tree ./host).imports;
 
   services.udev.packages = [
     (pkgs.writeTextFile {

@@ -112,40 +112,54 @@
 
         systems = [ "x86_64-linux" ];
 
-        flake = {
-          nixosConfigurations = {
-            konrad-m18 = withSystem "x86_64-linux" (
-              { system, inputs', ... }:
-              let
-                lib = nixpkgs.lib;
-              in
-              lib.nixosSystem {
-                specialArgs = {
-                  inherit inputs;
-                  inherit import-tree;
-                  inherit inputs';
-                };
-                inherit system;
-                modules = [
-                  ./configuration.nix
-                  self.nixosModules.nix-config
-                  self.nixosModules.stylix-config
-                  self.nixosModules.sops-config
-                  self.nixosModules.vars
-                  self.nixosModules.llama-cpp
-                  self.nixosModules.home-urio
-                  self.nixosModules.plasma-module
+        flake =
+          let
+            mkNixosConfiguration =
+              hostName: hardwareModule:
+              withSystem "x86_64-linux" (
+                { system, inputs', ... }:
+                nixpkgs.lib.nixosSystem {
+                  specialArgs = {
+                    inherit inputs;
+                    inherit import-tree;
+                    inherit inputs';
+                  };
+                  inherit system;
+                  modules = [
+                    ./configuration.nix
+                    hardwareModule
+                    { networking.hostName = hostName; }
+                    self.nixosModules.nix-config
+                    self.nixosModules.stylix-config
+                    self.nixosModules.sops-config
+                    self.nixosModules.vars
+                    self.nixosModules.llama-cpp
+                    self.nixosModules.home-urio
+                    self.nixosModules.plasma-module
 
-                  # NUR
-                  nur.modules.nixos.default
-                  urio-nur.nixosModules.default
-                  determinate.nixosModules.default
-                  nix-flatpak.nixosModules.nix-flatpak
-                ];
+                    # NUR
+                    nur.modules.nixos.default
+                    urio-nur.nixosModules.default
+                    determinate.nixosModules.default
+                    nix-flatpak.nixosModules.nix-flatpak
+                  ];
+                }
+              );
+            mkInstallerConfiguration = withSystem "x86_64-linux" (
+              { system, ... }:
+              nixpkgs.lib.nixosSystem {
+                inherit system;
+                modules = [ ./hosts/konrad-desktop/installer.nix ];
               }
             );
+          in
+          {
+            nixosConfigurations = {
+              konrad-m18 = mkNixosConfiguration "konrad-m18" ./hardware-configuration.nix;
+              konrad-desktop = mkNixosConfiguration "konrad-desktop" ./hosts/konrad-desktop/hardware-configuration.nix;
+              konrad-desktop-installer = mkInstallerConfiguration;
+            };
           };
-        };
       }
     );
 }

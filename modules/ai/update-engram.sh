@@ -25,4 +25,4 @@ nix run github:Mic92/nix-update -- \
   --flake \
   "${VERSION_ARG[@]}" \
   --override-filename modules/ai/_engram.nix \
-  nixosConfigurations.konrad-m18.pkgs.engram
+  nixosConfigurations.konrad-desktop.pkgs.engram

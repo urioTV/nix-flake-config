@@ -1,10 +1,10 @@
-# NixOS Configuration for konrad-m18
+# NixOS Configuration for konrad-desktop
 
-This is my personal NixOS configuration for quickly setting up my laptop, codenamed `konrad-m18`. It may be somewhat chaotic, as it's primarily intended for my own use.
+This is my personal NixOS configuration for `konrad-desktop`. It may be somewhat chaotic, as it's primarily intended for my own use.
 
 ## Important
 
-If you decide to use this configuration, make sure to replace `hardware-configuration.nix` with your own file, generated for your specific hardware.
+If you decide to use this configuration, make sure to replace `hosts/konrad-desktop/hardware-configuration.nix` with your own file, generated for your specific hardware.
 
 ## Overview
 
@@ -46,7 +46,7 @@ The repository is structured as follows:
 - **`configuration.nix`:** Main NixOS system configuration file
 - **`flake.nix`:** Defines the flake inputs and outputs, including NixOS configurations and Home Manager modules
 - **`flake.lock`:** Records the exact versions of all flake inputs
-- **`hardware-configuration.nix`:** Hardware-specific configuration (should be replaced with your own)
+- **`hosts/konrad-desktop/hardware-configuration.nix`:** Hardware-specific configuration for the desktop (should be replaced with your own)
 - **`home.nix`:** Home Manager configuration for the `urio` user
 - **`nix-settings.nix`:** Nix settings
 - **`overlay.nix`:** Nix package overlay for custom packages and overrides
@@ -89,10 +89,10 @@ To use this configuration:
     cd nix-flake-config
     ```
 
-2.  Replace `hardware-configuration.nix` with your own hardware configuration. You can generate one using:
+2.  Replace `hosts/konrad-desktop/hardware-configuration.nix` with your own hardware configuration. You can generate one using:
 
     ```bash
-    sudo nixos-generate-config --show-hardware-config > hardware-configuration.nix
+    sudo nixos-generate-config --show-hardware-config > hosts/konrad-desktop/hardware-configuration.nix
     ```
 
 3.  Apply the configuration:
@@ -104,7 +104,7 @@ To use this configuration:
 
     Standard rebuild:
     ```bash
-    sudo nixos-rebuild switch --flake .#konrad-m18
+    sudo nixos-rebuild switch --flake .#konrad-desktop
     ```
 
 4.  Updating inputs:

@@ -99,17 +99,17 @@
     "nixd": {
       "settings": {
         "nixpkgs": {
-          "expr": "(builtins.getFlake \"github:urioTV/nix-flake-config\").nixosConfigurations.konrad-m18.pkgs",
+          "expr": "(builtins.getFlake \"github:urioTV/nix-flake-config\").nixosConfigurations.konrad-desktop.pkgs",
         },
         "formatting": {
           "command": ["nixfmt"],
         },
         "options": {
           "nixos": {
-            "expr": "(builtins.getFlake \"github:urioTV/nix-flake-config\").nixosConfigurations.konrad-m18.options",
+            "expr": "(builtins.getFlake \"github:urioTV/nix-flake-config\").nixosConfigurations.konrad-desktop.options",
           },
           "home_manager": {
-            "expr": "(builtins.getFlake \"github:urioTV/nix-flake-config\").nixosConfigurations.konrad-m18.config.home-manager.users.urio",
+            "expr": "(builtins.getFlake \"github:urioTV/nix-flake-config\").nixosConfigurations.konrad-desktop.config.home-manager.users.urio",
           },
         },
       },

@@ -10,4 +10,4 @@ nix run github:Mic92/nix-update -- \
   --flake \
   --version=branch=master \
   --override-filename modules/llama-cpp/_overlay.nix \
-  nixosConfigurations.konrad-m18.pkgs.llama-cpp
+  nixosConfigurations.konrad-desktop.pkgs.llama-cpp

@@ -1,60 +1,49 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
-{
-  # ROCm Graphics Support for AI/LLM workloads
-  hardware.graphics = {
-    extraPackages = with pkgs; [
-      # ROCm packages
-      rocmPackages.clr.icd
-      rocmPackages.rocblas
-      rocmPackages.hipblas
-      rocmPackages.clr
-      rocmPackages.rocm-runtime
-      rocmPackages.rocm-device-libs
-      rocmPackages.rocm-comgr
-      rocmPackages.rpp
+{ pkgs, ... }:
+let
+  # Radeon RX 9070 XT (Navi 48 / RDNA 4) is exposed by ROCm as gfx1201.
+  # ROCm 7.2 packages include native gfx1201 kernels; using the regular package
+  # set keeps binary-cache compatibility and avoids rebuilding the whole stack.
+  rocmPackages = pkgs.rocmPackages;
+
+  rocmEnv = pkgs.symlinkJoin {
+    name = "rocm-gfx1201";
+    paths = with rocmPackages; [
+      rocblas
+      hipblas
+      hipblaslt
+      clr
+      clr.icd
+      rocm-runtime
+      rocm-device-libs
+      rocm-comgr
+      rpp
     ];
   };
+in
+{
+  # OpenCL/HIP ICD used by applications going through hardware.graphics.
+  hardware.graphics.extraPackages = [ rocmPackages.clr.icd ];
 
-  # Symlink for applications requiring /opt/rocm
-  systemd.tmpfiles.rules =
-    let
-      rocmEnv = pkgs.symlinkJoin {
-        name = "rocm-combined";
-        paths = with pkgs.rocmPackages; [
-          rocblas
-          hipblas
-          clr
-          clr.icd
-          rocm-runtime
-          rocm-device-libs
-          rocm-comgr
-          rpp
-        ];
-      };
-    in
-    [
-      "L+ /opt/rocm - - - - ${rocmEnv}"
-    ];
-
-  # Environment variables for ROCm
-  environment.variables = {
-    ROCM_PATH = "/opt/rocm";
-    LD_LIBRARY_PATH = "/opt/rocm/lib";
-    HSA_OVERRIDE_GFX_VERSION = "11.0.0"; # For RX 7000 series cards (RDNA 3)
-  };
-
-  # ROCm utility packages
-  environment.systemPackages = with pkgs; [
-    clinfo
-    rocmPackages.rocminfo
-    amdgpu_top
+  # Compatibility path for software expecting the conventional ROCm layout.
+  systemd.tmpfiles.rules = [
+    "L+ /opt/rocm - - - - ${rocmEnv}"
   ];
 
-  # Enable ROCm support in nixpkgs
+  environment.variables = {
+    ROCM_PATH = "/opt/rocm";
+    HIP_PATH = "/opt/rocm";
+
+    # Build third-party HIP code specifically for Navi 48. ROCm 7.2 detects
+    # gfx1201 natively, so HSA_OVERRIDE_GFX_VERSION must not be set.
+    AMDGPU_TARGETS = "gfx1201";
+    GPU_TARGETS = "gfx1201";
+  };
+
+  environment.systemPackages = [
+    pkgs.clinfo
+    rocmPackages.rocminfo
+    pkgs.amdgpu_top
+  ];
+
   nixpkgs.config.rocmSupport = true;
 }

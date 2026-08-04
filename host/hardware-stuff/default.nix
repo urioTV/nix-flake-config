@@ -33,13 +33,9 @@
   services.xserver.enable = true;
   services.xserver.videoDrivers = [ "amdgpu" ];
   boot.initrd.kernelModules = [ "amdgpu" ];
-  boot.kernelParams = [ "amdgpu.overdrive=0" ];
 
   # Mesa-git
   # chaotic.mesa-git.enable = true;
-
-  # Disable suspension on lid close
-  # services.logind.lidSwitch = "lock";
 
   # Enables support for Bluetooth
   hardware.bluetooth.enable = true;

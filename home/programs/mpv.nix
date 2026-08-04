@@ -134,16 +134,6 @@
         ytdl-format = "bestvideo[height<=?2160][vcodec^=av01]+bestaudio/bestvideo[height<=?2160][vcodec^=vp9]+bestaudio/best";
         scale = "ewa_lanczossharp";
       };
-
-      # Profil oszczędnościowy (bateria)
-      "battery" = {
-        hwdec = "vaapi";
-        vo = "gpu-next";
-        gpu-api = "vulkan";
-        scale = "bilinear";
-        video-sync = "audio";
-        interpolation = false;
-      };
     };
 
     # script-opts — opcje skryptów

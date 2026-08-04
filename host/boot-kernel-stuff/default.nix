@@ -11,7 +11,7 @@
   # boot.kernelPackages = pkgs.linuxPackages_zen;
   # boot.kernelPackages = pkgs.linuxPackages_latest;
   # boot.kernelPackages = pkgs.linuxPackages_xanmod_stable;
-  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-zen4;
+  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v4;
 
   # hardware.firmware = [
   #   (inputs.nixpkgs-old.legacyPackages."x86_64-linux".linux-firmware)
@@ -19,21 +19,8 @@
 
   boot.initrd.kernelModules = [ "ntsync" ];
 
-  boot.blacklistedKernelModules = [
-    "ucsi_acpi" # CULPRIT: USB-C ACPI Interface (causes errors)
-    "typec_ucsi" # Related subsystem
-    "sp5100_tco" # Watchdog (can freeze system on boot)
-    "i2c_piix4" # Frequent AMD board conflict
-  ];
-
   boot.kernelParams = [
-    "amdgpu.dcdebugmask=0x10"
     "amdgpu.ppfeaturemask=0xffffffff"
-
-    "pcie_aspm=off"
-    "acpi_osi=!"
-    "acpi_osi=\"Windows 2020\""
-    "iommu=soft"
   ];
   services.scx = {
     enable = true;

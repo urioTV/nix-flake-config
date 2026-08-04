@@ -16,7 +16,7 @@
     # Programming and Development
     git
     micro
-    btop
+    btop-rocm
     nixfmt
     # nil
     nixd

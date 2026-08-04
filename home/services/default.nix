@@ -10,8 +10,5 @@
     syncthing = {
       enable = true;
     };
-    tailscale-systray = {
-      enable = true;
-    };
   };
 }

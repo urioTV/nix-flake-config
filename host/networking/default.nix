@@ -1,19 +1,23 @@
 {
   config,
-  lib,
   pkgs,
-  chaotic,
   ...
 }:
 {
   environment.systemPackages = with pkgs; [
     openvpn
-    tailscale
   ];
 
-  services.tailscale = {
+  services.netbird = {
+    # The compatibility client runs like the upstream service and exposes its
+    # daemon socket to the desktop GUI without a dedicated system group.
     enable = true;
-    extraSetFlags = [ "--operator=urio" ];
+    ui.enable = true;
+
+    clients.default.login = {
+      enable = true;
+      setupKeyFile = config.sops.secrets.netbird_authkey.path;
+    };
   };
 
   # Enable networking

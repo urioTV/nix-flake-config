@@ -25,7 +25,7 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDRfYCXQz7XXM9pupEpNw949Yh2fuMvfJouJZi6+HOIH urio@konrad-m18"
   ];
 
-  services.tailscale.enable = true;
+  services.netbird.enable = true;
 
   nixpkgs.config.allowUnfree = true;
   hardware.enableAllFirmware = true;

@@ -18,6 +18,7 @@ let
         secrets.nano-gpt_api_key = { };
         secrets.z-ai_api_key = { };
         secrets.litellm_api_key = { };
+        secrets.netbird_authkey = { };
       };
     };
 in

@@ -50,6 +50,6 @@
       }
     }
   },
-  "defaultProvider": "synthetic",
-  "defaultModel": "hf:zai-org/GLM-5.2"
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-5.6-terra"
 }

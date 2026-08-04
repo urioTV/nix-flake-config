@@ -6,7 +6,7 @@ let
   llama-cpp-src = final.fetchFromGitHub {
     owner = "ggml-org";
     repo = "llama.cpp";
-    rev = "0e4a0362239713ea95a6864a17a8de4b0ad90d62";
+    rev = "07132750825a4f2d27a547cd9cdde1c6f6001885";
     hash = "sha256-p7us5WEU+Pdommjc8+OOcmaNdY0wY4zXaQ7KAwbkLbc=";
     leaveDotGit = true;
     postFetch = ''
@@ -36,7 +36,7 @@ let
 in
 {
   llama-cpp = llama-cpp-vulkan.overrideAttrs (old: {
-    version = "b10154-unstable-2026-07-27";
+    version = "b10267-unstable-2026-08-04";
     src = llama-cpp-src;
 
     # Keep this in the module because it belongs to the pinned upstream src.

@@ -50,6 +50,6 @@
       }
     }
   },
-  "defaultProvider": "openai-codex",
-  "defaultModel": "gpt-5.6-terra"
+  "defaultProvider": "openrouter",
+  "defaultModel": "deepseek/deepseek-v4-pro"
 }

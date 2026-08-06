@@ -56,6 +56,7 @@ in
   };
 
   users.users.urio = {
+    linger = true;
     extraGroups = [
       "libvirtd"
       "podman"

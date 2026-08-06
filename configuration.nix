@@ -131,6 +131,7 @@
       "gamemode"
       "docker"
       "render"
+      "input"  # Moonshine: virtual gamepads when streaming headless (no active desktop)
     ];
     packages = with pkgs; [
       #  firefox

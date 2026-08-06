@@ -54,6 +54,9 @@
     # Gaming
     nix-gaming.url = "github:fufexan/nix-gaming";
 
+    # Moonshine game streaming (Sunshine alternative with isolated compositor)
+    moonshine.url = "github:hgaiser/moonshine";
+
     # Valve VRAM Fix (dmemcg-booster + foreground-booster + kf5cgroups library)
     dmemcg-booster = {
       url = "git+https://gitlab.steamos.cloud/holo/dmemcg-booster.git";
@@ -144,6 +147,10 @@
                     urio-nur.nixosModules.default
                     determinate.nixosModules.default
                     nix-flatpak.nixosModules.nix-flatpak
+
+                    # Moonshine game streaming
+                    inputs.moonshine.nixosModules.default
+                    self.nixosModules."moonshine-config"
                   ];
                 }
               );

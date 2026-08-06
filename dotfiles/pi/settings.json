@@ -50,6 +50,6 @@
       }
     }
   },
-  "defaultProvider": "openrouter",
-  "defaultModel": "deepseek/deepseek-v4-pro"
+  "defaultProvider": "synthetic",
+  "defaultModel": "hf:zai-org/GLM-5.2"
 }

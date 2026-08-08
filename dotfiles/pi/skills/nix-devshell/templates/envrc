@@ -1,0 +1,19 @@
+# Skopiuj do .envrc i uruchom `direnv allow`.
+# Wymaga direnv oraz najlepiej nix-direnv (cacheowanie flake).
+#
+# Prawdziwy .envrc jest bezpieczny do commitowania; gitignore'uj tylko
+# pliki lokalnych sekretów (np. fnox.local.toml, .envrc.local).
+
+# Opcjonalnie: przeładuj środowisko, gdy zmieni się kontrakt sekretów
+# lub lokalne mapowanie. `watch_file` działa też przed utworzeniem
+# gitignored pliku lokalnego.
+# watch_file <contract>.toml
+# watch_file <contract>.local.toml
+
+# Domyślnie ładuje pełny profil agregujący.
+use flake
+
+# Alternatywnie, żeby ładować tylko jeden profil, odkomentuj jedną z linii:
+# use flake .#toolA
+# use flake .#toolB
+# use flake .#ci

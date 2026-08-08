@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.83.0",
+  "lastChangelogVersion": "0.84.0",
   "defaultThinkingLevel": "high",
   "packages": [
     "npm:@vanillagreen/pi-task-panel",
@@ -24,7 +24,8 @@
     },
     "npm:gentle-engram",
     "npm:@hypabolic/pi-hypa",
-    "npm:@aliou/pi-synthetic"
+    "npm:@aliou/pi-synthetic",
+    "npm:@narumitw/pi-usage"
   ],
   "theme": "terminal",
   "enabledModels": [
@@ -32,7 +33,9 @@
     "openai-codex/gpt-5.6-terra:high",
     "openai-codex/gpt-5.6-luna:xhigh",
     "synthetic/hf:zai-org/GLM-5.2:high",
-    "LiteLLM/Qwen3.5 397b INT4 Autoround:medium",
+    "synthetic/hf:moonshotai/Kimi-K3:high",
+    "llama-swap/qwen3.5-397b-int4-autoround:medium",
+    "llama.cpp/Qwen3.5-122B-A10B-APEX:high",
     "openrouter/deepseek/deepseek-v4-pro:medium"
   ],
   "vstack": {

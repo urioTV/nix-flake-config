@@ -7,13 +7,12 @@
 !.gitignore
 !extensions/
 !extensions/guardrails.json
-!extensions/*.ts
 !extensions/tool-collapse/
 !extensions/tool-collapse/config.json
 !extensions/lsp/
 !extensions/lsp/config.json
 !extensions/quotas.json
+!extensions/synthetic.json
 !skills/
-!skills/autocommit/
-!skills/autocommit/SKILL.md
+!skills/**
 !*.ts

@@ -32,7 +32,7 @@
   "base_keymap": "VSCode",
   "buffer_font_fallbacks": ["JetBrainsMono Nerd Font Mono"],
   "theme": {
-    "mode": "system",
+    "mode": "dark",
     "light": "Catppuccin Latte",
     "dark": "Catppuccin Mocha",
   },
@@ -51,10 +51,9 @@
     "default_width": 280,
     "default_profile": "write",
     "default_model": {
-      "effort": "medium",
       "enable_thinking": true,
-      "provider": "openai-subscribed",
-      "model": "gpt-5.6-sol",
+      "provider": "openrouter",
+      "model": "deepseek/deepseek-v4-pro",
     },
     "inline_assistant_model": {
       "provider": "openai-subscribed",

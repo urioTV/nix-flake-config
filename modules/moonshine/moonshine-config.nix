@@ -1,8 +1,23 @@
 { self, ... }:
 let
   moonshineModule =
-    { config, pkgs, lib, ... }:
     {
+      config,
+      pkgs,
+      lib,
+      ...
+    }:
+    {
+      # Full COSMIC desktop environment, installed as a regular desktop
+      # (session shows up in SDDM next to Plasma, so it can also be tested
+      # locally). It doubles as the "COSMIC Desktop" stream in Moonshine:
+      # cosmic-session spawns its components by looking them up in PATH, and
+      # start-cosmic re-execs itself through a login shell that sources
+      # /etc/profile — with the desktopManager module enabled, all components
+      # are in the system profile, so the upstream start-cosmic flow works
+      # unmodified inside Moonshine's headless compositor.
+      services.desktopManager.cosmic.enable = true;
+
       # Moonshine — game streaming host for Moonlight clients.
       # Reachable over both the LAN (enp8s0) and the Netbird VPN (wt0).
       services.moonshine = {
@@ -63,6 +78,15 @@ let
 
           # --- Applications ---
           application = [
+            {
+              # Full remote desktop: boots the COSMIC desktop environment
+              # nested inside Moonshine's headless compositor (see TIPS.md
+              # "Run a desktop environment for a full remote desktop").
+              # Independent from the host's Plasma session — the physical
+              # desktop stays usable while streaming.
+              title = "COSMIC Desktop";
+              command = [ "${pkgs.cosmic-session}/bin/start-cosmic" ];
+            }
             {
               title = "Steam";
               command = [

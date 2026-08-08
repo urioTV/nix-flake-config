@@ -52,13 +52,19 @@ in
           "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
           "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
         ];
-        auto-optimise-store = true;
+        auto-optimise-store = false;
         trusted-users = [
           "root"
           "urio"
         ];
         eval-cores = 0;
         extra-sandbox-paths = [ "/var/cache/ccache" ];
+
+        # Substitution throughput; defaults are 16 / 25 / 1 MiB, and that small
+        # buffer is what causes "download buffer is full" stalls.
+        max-substitution-jobs = 32;
+        http-connections = 50;
+        download-buffer-size = 134217728; # 128 MiB
       };
 
       nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
@@ -72,6 +78,13 @@ in
         automatic = true;
         dates = "daily";
         options = "--delete-older-than 2d";
+      };
+
+      # Deduplicate on a timer rather than inline on every store write (inline
+      # costs a scan + hard link per file).
+      nix.optimise = {
+        automatic = true;
+        dates = [ "03:45" ];
       };
 
       programs.nh = {

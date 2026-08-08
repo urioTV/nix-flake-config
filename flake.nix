@@ -145,7 +145,7 @@
                     # NUR
                     nur.modules.nixos.default
                     urio-nur.nixosModules.default
-                    determinate.nixosModules.default
+                    self.nixosModules.determinate
                     nix-flatpak.nixosModules.nix-flatpak
 
                     # Moonshine game streaming

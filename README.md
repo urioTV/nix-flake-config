@@ -112,6 +112,34 @@ To use this configuration:
     nix flake update
     ```
 
+### First switch onto Determinate Nix
+
+`modules/nix/determinate.nix` replaces `nix.package` with Determinate Nix and the
+nix-daemon with `determinate-nixd`. Its binary cache is declared in
+`nix.settings.extra-substituters`, but that only lands in `/etc/nix/nix.custom.conf`
+*after* the switch — so the very first switchover needs the cache passed on the
+command line, otherwise Nix is built from source:
+
+```bash
+sudo nixos-rebuild switch --flake .#konrad-desktop \
+  --option extra-substituters https://install.determinate.systems \
+  --option extra-trusted-public-keys "cache.flakehub.com-3:hJuILl5sVK4iKm86JzgdXW12Y2Hwd5G07qKtHTOcDCM="
+```
+
+Verify afterwards with `nix --version` (expect `nix (Determinate Nix 3.x.y) 2.z`)
+and `systemctl status nix-daemon`. Later `nixos-rebuild` runs need no extra flags.
+
+The performance settings live in `modules/nix/determinate.nix` and
+`modules/nix/nix-config.nix`; confirm they survived into the daemon-managed
+`/etc/nix/nix.conf`, which `!include`s the NixOS-generated `nix.custom.conf`:
+
+```bash
+nix config show | grep -E '^(lazy-trees|eval-cores|max-substitution-jobs|http-connections|download-buffer-size|auto-optimise-store) '
+```
+
+FlakeHub Cache and private flakes additionally require `determinate-nixd login`
+plus a paid FlakeHub plan; nothing here depends on that.
+
 ### Disabling Gaming
 
 To disable the entire gaming setup, you can comment out the gaming imports in `host/default.nix` (if present) or the relevant modules in `configuration.nix`.

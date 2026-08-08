@@ -2,6 +2,7 @@
 # Everything is ignored by default, only explicit files are tracked
 *
 !settings.json
+!models.json
 !web-search.json
 !mcp.json
 !.gitignore

@@ -1,0 +1,26 @@
+{
+  "providers": {
+    "lm-studio": {
+      "baseUrl": "http://127.0.0.1:1234/v1",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "qwen3.5-122b-a10b-apex",
+          "name": "Qwen3.5 122B A10B Apex",
+          "reasoning": true,
+          "contextWindow": 262144,
+          "maxTokens": 32768,
+          "input": ["text", "image"]
+        },
+        {
+          "id": "thinkingcap-qwen3.6-27b",
+          "name": "ThinkingCap Qwen3.6 27B",
+          "reasoning": true,
+          "contextWindow": 262144,
+          "maxTokens": 32768,
+          "input": ["text", "image"]
+        }
+      ]
+    }
+  }
+}

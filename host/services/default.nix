@@ -41,7 +41,7 @@
     fwupd.enable = true;
     openssh = {
       enable = true;
-      settings.PermitRootLogin = "yes";
+      settings.PermitRootLogin = "no";
     };
     ananicy = {
       enable = true;

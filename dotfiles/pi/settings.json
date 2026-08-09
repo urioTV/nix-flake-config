@@ -15,7 +15,6 @@
     "npm:pi-terminal-theme",
     "npm:pi-web-access",
     "npm:pi-bar",
-    "npm:@sting8k/pi-vcc",
     {
       "source": "npm:@latentminds/pi-quotas",
       "extensions": [
@@ -54,5 +53,5 @@
     }
   },
   "defaultProvider": "synthetic",
-  "defaultModel": "hf:zai-org/GLM-5.2"
+  "defaultModel": "hf:moonshotai/Kimi-K3"
 }

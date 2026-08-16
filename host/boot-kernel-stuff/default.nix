@@ -17,10 +17,16 @@
   #   (inputs.nixpkgs-old.legacyPackages."x86_64-linux".linux-firmware)
   # ];
 
-  boot.initrd.kernelModules = [ "ntsync" ];
+  # Load amdgpu in the initrd so KMS takes over before the root filesystem mounts.
+  boot.initrd.kernelModules = [
+    "ntsync"
+    # "amdgpu"
+  ];
 
   boot.kernelParams = [
     "amdgpu.ppfeaturemask=0xffffffff"
+    # Use the primary monitor's native mode for the early framebuffer and TTYs.
+    "video=DP-1:2560x1440"
   ];
   services.scx = {
     enable = true;

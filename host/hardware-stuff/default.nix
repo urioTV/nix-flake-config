@@ -32,7 +32,6 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.videoDrivers = [ "amdgpu" ];
-  boot.initrd.kernelModules = [ "amdgpu" ];
 
   # Mesa-git
   # chaotic.mesa-git.enable = true;

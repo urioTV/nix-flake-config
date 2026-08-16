@@ -1,5 +1,5 @@
 {
-  "$schema": "https://unpkg.com/@aliou/pi-guardrails@0.15.0/schema.json",
+  "$schema": "https://unpkg.com/@aliou/pi-guardrails@0.17.0/schema.json",
   "enabled": true,
   "features": {
     "policies": true,
@@ -332,7 +332,7 @@
       }
     ]
   },
-  "version": "0.13.0-20260619",
+  "version": "0.16.2",
   "applyBuiltinDefaults": true,
   "onboarding": {
     "completed": true,

@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.84.1",
+  "lastChangelogVersion": "0.84.2",
   "defaultThinkingLevel": "high",
   "packages": [
     "npm:@vanillagreen/pi-task-panel",
@@ -22,9 +22,9 @@
       ]
     },
     "npm:gentle-engram",
-    "npm:@hypabolic/pi-hypa",
     "npm:@aliou/pi-synthetic",
-    "npm:@narumitw/pi-usage"
+    "npm:@narumitw/pi-usage",
+    "npm:@ogulcancelik/pi-herdr"
   ],
   "theme": "terminal",
   "enabledModels": [
@@ -35,7 +35,7 @@
     "synthetic/hf:moonshotai/Kimi-K3:high",
     "llama-swap/qwen3.5-397b-int4-autoround:medium",
     "llama.cpp/Qwen3.5-122B-A10B-APEX:high",
-    "openrouter/deepseek/deepseek-v4-pro:medium"
+    "openrouter/deepseek/deepseek-v4-pro:high"
   ],
   "vstack": {
     "extensionManager": {
@@ -52,6 +52,6 @@
       }
     }
   },
-  "defaultProvider": "synthetic",
-  "defaultModel": "hf:moonshotai/Kimi-K3"
+  "defaultProvider": "llama-swap",
+  "defaultModel": "qwen3.5-397b-int4-autoround"
 }

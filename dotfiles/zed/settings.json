@@ -53,15 +53,15 @@
     "default_model": {
       "enable_thinking": true,
       "provider": "openrouter",
-      "model": "deepseek/deepseek-v4-pro",
+      "model": "deepseek/deepseek-v4-pro-0813",
     },
     "inline_assistant_model": {
       "provider": "openai-subscribed",
       "model": "gpt-5.6-sol",
     },
     "commit_message_model": {
-      "provider": "openai-subscribed",
-      "model": "gpt-5.6-terra",
+      "provider": "openrouter",
+      "model": "deepseek/deepseek-v4-pro-0813",
     },
     "play_sound_when_agent_done": "when_hidden",
     "tool_permissions": {

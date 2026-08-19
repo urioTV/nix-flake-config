@@ -1,7 +1,8 @@
 {
   inputs = {
     # Temporary pin: includes the LACT libdisplay-info_0_3 fix from nixpkgs#546155.
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/master";
     # Pinned to master for packages not yet in nixos-unstable (e.g. huggingface-hub 1.26.0).
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
     import-tree.url = "github:vic/import-tree";

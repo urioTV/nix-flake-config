@@ -21,11 +21,16 @@
           "input": ["text", "image"]
         },
         {
-          "id": "laguna-s-2.1"
-        },
-        {
           "id": "prism-ml/bonsai-27b",
           "name": "Bonsai 27B",
+          "reasoning": true,
+          "contextWindow": 262144,
+          "maxTokens": 32768,
+          "input": ["text", "image"]
+        },
+        {
+          "id": "ornith-1.5-35b-a3b",
+          "name": "Ornith 1.5 35B A3B",
           "reasoning": true,
           "contextWindow": 262144,
           "maxTokens": 32768,

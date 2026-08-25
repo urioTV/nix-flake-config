@@ -1,6 +1,6 @@
 {
   "lastChangelogVersion": "0.84.2",
-  "defaultThinkingLevel": "high",
+  "defaultThinkingLevel": "medium",
   "packages": [
     "npm:@vanillagreen/pi-task-panel",
     "npm:@vanillagreen/pi-questions",
@@ -24,7 +24,8 @@
     "npm:gentle-engram",
     "npm:@aliou/pi-synthetic",
     "npm:@narumitw/pi-usage",
-    "npm:@ogulcancelik/pi-herdr"
+    "npm:@ogulcancelik/pi-herdr",
+    "npm:pi-agent-browser-native@0.5.0"
   ],
   "theme": "terminal",
   "enabledModels": [
@@ -35,9 +36,9 @@
     "synthetic/hf:moonshotai/Kimi-K3:high",
     "llama-swap/qwen3.5-397b-int4-autoround:medium",
     "llama.cpp/Qwen3.5-122B-A10B-APEX:high",
-    "openrouter/deepseek/deepseek-v4-pro:high"
+    "openrouter/deepseek/deepseek-v4-pro-0813:high"
   ],
-  "vstack": {
+  "kendex": {
     "extensionManager": {
       "disabledItems": [],
       "config": {
@@ -52,6 +53,6 @@
       }
     }
   },
-  "defaultProvider": "llama-swap",
-  "defaultModel": "qwen3.5-397b-int4-autoround"
+  "defaultProvider": "openrouter",
+  "defaultModel": "deepseek/deepseek-v4-pro"
 }

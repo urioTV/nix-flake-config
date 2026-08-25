@@ -29,7 +29,12 @@ in
     llm-agents.pi
     pi-update
     engram
-    codegraph
+
+    # Keep the browser CLI aligned with pi-agent-browser-native's exact
+    # upstream target. llm-agents.nix provides the current cached build.
+    agent-browser
+    chromium
+    ffmpeg
   ];
 
   # npm on NixOS can't write to /nix/store, so global installs fail.
@@ -43,11 +48,10 @@ in
 
   home.sessionVariables = {
     ENGRAM_BIN = "${pkgs.engram}/bin/engram";
-    # Respect the user's local-first stance: no anonymous usage telemetry.
-    CODEGRAPH_TELEMETRY = "0";
-    # Absolute path to the codegraph CLI for the prompt-hook extension
-    # (dotfiles/pi/extensions/codegraph.ts). Falls back to PATH lookup.
-    CODEGRAPH_BIN = "${pkgs.codegraph}/bin/codegraph";
+
+    # Never use agent-browser's imperative Chrome download on NixOS. Point it
+    # at the Chromium build managed by the system generation instead.
+    AGENT_BROWSER_EXECUTABLE_PATH = lib.getExe pkgs.chromium;
   };
 
   home.sessionPath = [

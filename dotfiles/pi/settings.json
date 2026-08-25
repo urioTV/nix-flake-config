@@ -1,6 +1,6 @@
 {
   "lastChangelogVersion": "0.84.2",
-  "defaultThinkingLevel": "medium",
+  "defaultThinkingLevel": "high",
   "packages": [
     "npm:@vanillagreen/pi-task-panel",
     "npm:@vanillagreen/pi-questions",
@@ -54,5 +54,5 @@
     }
   },
   "defaultProvider": "openrouter",
-  "defaultModel": "deepseek/deepseek-v4-pro"
+  "defaultModel": "deepseek/deepseek-v4-pro-0813"
 }

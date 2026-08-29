@@ -25,6 +25,7 @@
         self.homeModules.stylix-config
         self.homeModules.sops-config
         self.homeModules.ai
+        self.homeModules.llama-cpp
         self.homeModules.zed
         self.homeModules.plasma-module
       ];

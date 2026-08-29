@@ -60,8 +60,6 @@ in
           "urio"
         ];
         eval-cores = 0;
-        extra-sandbox-paths = [ "/var/cache/ccache" ];
-
         # Substitution throughput; defaults are 16 / 25 / 1 MiB, and that small
         # buffer is what causes "download buffer is full" stalls.
         max-substitution-jobs = 32;
@@ -70,11 +68,6 @@ in
       };
 
       nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
-
-      programs.ccache = {
-        enable = true;
-        packageNames = [ "llama-cpp" ];
-      };
 
       nix.gc = {
         automatic = true;

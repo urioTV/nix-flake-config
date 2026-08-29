@@ -121,7 +121,6 @@
                     self.nixosModules.stylix-config
                     self.nixosModules.sops-config
                     self.nixosModules.vars
-                    self.nixosModules.llama-cpp
                     self.nixosModules.home-urio
                     self.nixosModules.plasma-module
 

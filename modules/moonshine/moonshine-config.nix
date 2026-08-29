@@ -23,18 +23,18 @@ let
       services.moonshine = {
         enable = true;
         user = "urio";
-        # 1000 is urio's uid; required since it's not declared via users.users.<name>.uid
-        uid = 1000;
+        # The built-in nixpkgs module reads the uid from users.users.<user>
+        # and enables lingering automatically — no `uid` option anymore.
 
-        # Let the moonshine module open the GameStream ports (TCP 47984/47989/48010,
-        # UDP 47998/47999/48000) on all interfaces. This host is on LAN behind
-        # NAT with no public port-forwarding, so exposing them broadly is fine
-        # and makes the stream reachable over both LAN (enp8s0) and Netbird (wt0).
-        openFirewall = true;
-
-        # Silences the per-5s "TLS handshake failed" spam from Moonlight clients
-        # idling on the Computers screen (they poll the HTTPS port).
-        logFilter = "moonshine=info,moonshine_core::tls=error";
+        # Open the GameStream ports (TCP 47984/47989/48010,
+        # UDP 47998/47999/48000) only on the listed interfaces. This host is
+        # on LAN behind NAT with no public port-forwarding; exposing them on
+        # the LAN (enp8s0) and the Netbird VPN (wt0) keeps them off any other
+        # interface while the stream stays reachable from both.
+        firewallInterfaces = [
+          "enp8s0"
+          "wt0"
+        ];
 
         settings = {
           name = "konrad-desktop";
@@ -121,10 +121,12 @@ let
         };
       };
 
-      # Add urio to the moonshine group so the suspend-inhibit polkit rule
-      # (shipped in the package) lets Moonshine hold a sleep block inhibitor
-      # for the duration of every stream. inhibit_sleep is on by default.
-      users.users.urio.extraGroups = [ "moonshine" ];
+      # The built-in nixpkgs module already creates the `moonshine` group,
+      # enables lingering on `user`, and runs the service with
+      # SupplementaryGroups = [ "moonshine" ], so the suspend-inhibit polkit
+      # rule (shipped in the package) lets Moonshine hold a sleep block
+      # inhibitor for the duration of every stream. No manual group
+      # membership needed.
     };
 in
 {

@@ -8,6 +8,22 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   // --- UI & THEME ---
+  "ssh_connections": [
+    {
+      "host": "asus-klemanski.netbird.cloud",
+      "username": "urio",
+      "port": 8022,
+      "args": [],
+      "projects": [
+        {
+          "paths": ["/home/urio/Projects/nix-on-droid-config"],
+        },
+        {
+          "paths": ["/home/urio/nixos-wsl-config"],
+        },
+      ],
+    },
+  ],
   "agent_servers": {
     "opencode": {
       "type": "registry",
@@ -53,7 +69,7 @@
     "default_model": {
       "enable_thinking": true,
       "provider": "openrouter",
-      "model": "deepseek/deepseek-v4-pro-0813",
+      "model": "z-ai/glm-5.3-flash",
     },
     "inline_assistant_model": {
       "provider": "openai-subscribed",
@@ -61,7 +77,7 @@
     },
     "commit_message_model": {
       "provider": "openrouter",
-      "model": "deepseek/deepseek-v4-pro-0813",
+      "model": "z-ai/glm-5.3-flash",
     },
     "play_sound_when_agent_done": "when_hidden",
     "tool_permissions": {

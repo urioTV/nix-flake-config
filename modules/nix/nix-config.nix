@@ -43,12 +43,14 @@ in
         substituters = [
           "https://nix-gaming.cachix.org"
           "https://nix-community.cachix.org"
+          "https://nix-on-droid.cachix.org"
           "https://attic.xuyh0120.win/lantian"
           "https://cache.numtide.com"
         ];
         trusted-public-keys = [
           "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
           "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+          "nix-on-droid.cachix.org-1:56snoMJTXmDRC1Ei24CmKoUqvHJ9XCp+nidK7qkMQrU="
           "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
           "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
         ];
@@ -91,6 +93,7 @@ in
         enable = true;
         flake = "/home/urio/nix-flake-config";
       };
+
     };
 
   flake.homeModules.nix-config =

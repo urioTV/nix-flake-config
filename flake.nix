@@ -1,8 +1,8 @@
 {
   inputs = {
     # Temporary pin: includes the LACT libdisplay-info_0_3 fix from nixpkgs#546155.
-    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:NixOS/nixpkgs/master";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:NixOS/nixpkgs/master";
     # Pinned to master for packages not yet in nixos-unstable (e.g. huggingface-hub 1.26.0).
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
     import-tree.url = "github:vic/import-tree";
@@ -55,24 +55,6 @@
     # Gaming
     nix-gaming.url = "github:fufexan/nix-gaming";
 
-    # Moonshine game streaming (Sunshine alternative with isolated compositor)
-    moonshine.url = "github:hgaiser/moonshine";
-
-    # Valve VRAM Fix (dmemcg-booster + foreground-booster + kf5cgroups library)
-    dmemcg-booster = {
-      url = "git+https://gitlab.steamos.cloud/holo/dmemcg-booster.git";
-      flake = false;
-    };
-    # KF5CGroups library (dmemcg branch) — required by foreground-booster
-    kcgroups-lib = {
-      url = "github:pixelcluster/kcgroups/dmemcg";
-      flake = false;
-    };
-    # foreground-booster executable (booster-dmemcg-experimental tag)
-    kcgroups-dmemcg = {
-      url = "github:pixelcluster/kcgroups/booster-dmemcg-experimental";
-      flake = false;
-    };
     openmw-nix = {
       url = "git+https://codeberg.org/PopeRigby/openmw-nix.git";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -149,8 +131,9 @@
                     self.nixosModules.determinate
                     nix-flatpak.nixosModules.nix-flatpak
 
-                    # Moonshine game streaming
-                    inputs.moonshine.nixosModules.default
+                    # Moonshine game streaming — now provided by the
+                    # `services.moonshine.*` module shipped in nixpkgs itself
+                    # (commit nixpkgs@26523b4c, "nixos/moonshine: init").
                     self.nixosModules."moonshine-config"
                   ];
                 }

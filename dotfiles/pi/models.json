@@ -5,36 +5,43 @@
       "api": "openai-completions",
       "models": [
         {
-          "id": "qwen3.5-122b-a10b-apex",
-          "name": "Qwen3.5 122B A10B Apex",
-          "reasoning": true,
-          "contextWindow": 262144,
-          "maxTokens": 32768,
-          "input": ["text", "image"]
-        },
-        {
-          "id": "thinkingcap-qwen3.6-27b",
-          "name": "ThinkingCap Qwen3.6 27B",
-          "reasoning": true,
-          "contextWindow": 262144,
-          "maxTokens": 32768,
-          "input": ["text", "image"]
-        },
-        {
-          "id": "prism-ml/bonsai-27b",
-          "name": "Bonsai 27B",
-          "reasoning": true,
-          "contextWindow": 262144,
-          "maxTokens": 32768,
-          "input": ["text", "image"]
-        },
-        {
           "id": "ornith-1.5-35b-a3b",
           "name": "Ornith 1.5 35B A3B",
           "reasoning": true,
           "contextWindow": 262144,
           "maxTokens": 32768,
           "input": ["text", "image"]
+        },
+        {
+          "id": "qwen3.8-27b-qat",
+          "name": "Qwen3.8 27B QAT",
+          "reasoning": true,
+          "contextWindow": 262144,
+          "maxTokens": 32768,
+          "input": ["text", "image"]
+        }
+      ]
+    },
+    "llama-swap": {
+      "baseUrl": "http://172.16.25.15:9292/v1",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "qwen3.5-397b-int4-autoround",
+          "name": "Qwen3.5 397B A17B INT4 AutoRound (TP=2, 2x GB10)",
+          "reasoning": true,
+          "contextWindow": 262144,
+          "input": ["text"],
+          "compat": {
+            "supportsDeveloperRole": false,
+            "supportsReasoningEffort": false,
+            "thinkingFormat": "chat-template",
+            "chatTemplateKwargs": {
+              "enable_thinking": {
+                "$var": "thinking.enabled"
+              }
+            }
+          }
         }
       ]
     }

@@ -36,6 +36,11 @@
         package = pkgs.nix-direnv;
       };
     };
+
+    mosh = {
+      enable = true;
+      openFirewall = true;
+    };
   };
 
 }

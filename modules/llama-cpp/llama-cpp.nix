@@ -3,16 +3,19 @@
   flake.nixosModules.llama-cpp =
     { pkgs, ... }:
     let
-      # llama-cpp from nixpkgs master — newer than nixos-unstable and avoids the
-      # hand-maintained upstream pin / npmDepsHash / cmakeFlags we previously
-      # carried in _overlay.nix. Vulkan-only build matches the RX 9070 XT.
-      # master's `cpuArchDynamicDispatch` builds all CPU variants and dispatches
-      # at runtime, so native -march=znver5 tuning is no longer required to get
-      # full AVX-512 performance on the Ryzen 7 9800X3D.
+      # llama-cpp from nixpkgs master via a plain package override (like the
+      # original _overlay.nix approach, but using the flake's nixpkgs-master
+      # input instead of a vendored package.nix). ROCm is enabled and set as
+      # the default backend; Vulkan stays enabled as a fallback.
+      # gfx1151: Ryzen 9 9800X3D iGPU (RDNA 3.5); gfx1201: RX 9070 XT (RDNA 4).
       masterPkgs = inputs.nixpkgs-master.legacyPackages."${pkgs.system}";
       llama-cpp = masterPkgs.llama-cpp.override {
+        rocmSupport = true;
+        rocmGpuTargets = [
+          "gfx1151"
+          "gfx1201"
+        ];
         vulkanSupport = true;
-        rocmSupport = false;
         cudaSupport = false;
         openclSupport = false;
         rpcSupport = false;
@@ -44,8 +47,12 @@
         llamaCppZshCompletions
       ];
       environment.sessionVariables = {
-        # Force all model layers and KV cache work onto the discrete RX 9070 XT.
-        LLAMA_ARG_DEVICE = "Vulkan0";
+        # ROCm (HIP) is the default backend: all model layers and KV cache work
+        # goes to the discrete RX 9070 XT (gfx1201), listed by llama.cpp as
+        # "ROCm0". rocminfo enumerates gfx1201 as the first GPU agent, and
+        # HIP_VISIBLE_DEVICES pins it in case the agent order ever changes.
+        HIP_VISIBLE_DEVICES = "0";
+        LLAMA_ARG_DEVICE = "ROCm0";
         # LLAMA_ARG_SPLIT_MODE = "none";
         # LLAMA_ARG_N_GPU_LAYERS = "-1";
 
@@ -60,11 +67,6 @@
 
         LLAMA_ARG_FLASH_ATTN = "1";
         LLAMA_ARG_NO_MMAP = "1";
-
-        # Vulkan backend: request VRAM memory priority when RADV exposes
-        # VK_EXT_memory_priority; leave host-memory/sysmem fallback disabled for
-        # best performance on the discrete GPU.
-        GGML_VK_ENABLE_MEMORY_PRIORITY = "1";
       };
     };
 }

@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.84.2",
+  "lastChangelogVersion": "0.84.3",
   "defaultThinkingLevel": "high",
   "packages": [
     "npm:@vanillagreen/pi-task-panel",
@@ -54,5 +54,8 @@
     }
   },
   "defaultProvider": "openrouter",
-  "defaultModel": "deepseek/deepseek-v4-pro-0813"
+  "defaultModel": "deepseek/deepseek-v4-pro-0813",
+  "modelThinkingLevels": {
+    "openrouter/z-ai/glm-5.3": "low"
+  }
 }

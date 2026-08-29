@@ -44,6 +44,29 @@
           }
         }
       ]
+    },
+    "llama.cpp": {
+      "baseUrl": "http://127.0.0.1:8080/v1",
+      "api": "openai-completions",
+      "modelOverrides": {
+        "ornith-1.5-35b-apex-mtp": {
+          "name": "Ornith 1.5 35B A3B APEX MTP (local)",
+          "reasoning": true,
+          "contextWindow": 260000,
+          "maxTokens": 32768,
+          "input": ["text", "image"],
+          "compat": {
+            "supportsDeveloperRole": false,
+            "supportsReasoningEffort": false,
+            "thinkingFormat": "chat-template",
+            "chatTemplateKwargs": {
+              "enable_thinking": {
+                "$var": "thinking.enabled"
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

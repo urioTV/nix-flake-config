@@ -11,7 +11,17 @@
       update = {
         onActivation = true;
       };
+      remotes = lib.mkOptionDefault [
+        {
+          name = "modmanager-origin";
+          location = "https://chrisdkn.github.io/Amethyst-Mod-Manager/amethyst.flatpakrepo";
+        }
+      ];
       packages = [
+        {
+          appId = "io.github.Amethyst.ModManager";
+          origin = "modmanager-origin";
+        }
         "com.github.tchx84.Flatseal"
         "com.microsoft.Edge"
         "com.mikrotik.WinBox"

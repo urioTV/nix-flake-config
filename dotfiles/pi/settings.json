@@ -29,14 +29,14 @@
   ],
   "theme": "terminal",
   "enabledModels": [
+    "llama.cpp/ornith-1.5-35b-apex-mtp:high",
+    "llama.cpp/Qwen3.8-27B-QAT-Q2_0:medium",
     "openai-codex/gpt-5.6-sol:medium",
     "openai-codex/gpt-5.6-terra:high",
     "openai-codex/gpt-5.6-luna:xhigh",
-    "synthetic/hf:zai-org/GLM-5.2:high",
+    "synthetic/hf:zai-org/GLM-5.3-Flash:high",
     "synthetic/hf:moonshotai/Kimi-K3:high",
-    "llama-swap/qwen3.5-397b-int4-autoround:medium",
-    "llama.cpp/Qwen3.5-122B-A10B-APEX:high",
-    "openrouter/deepseek/deepseek-v4-pro-0813:high"
+    "llama-swap/qwen3.5-397b-int4-autoround:medium"
   ],
   "kendex": {
     "extensionManager": {
@@ -53,8 +53,8 @@
       }
     }
   },
-  "defaultProvider": "openrouter",
-  "defaultModel": "deepseek/deepseek-v4-pro-0813",
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-5.6-terra",
   "modelThinkingLevels": {
     "openrouter/z-ai/glm-5.3": "low"
   }

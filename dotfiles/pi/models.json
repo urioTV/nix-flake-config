@@ -1,27 +1,5 @@
 {
   "providers": {
-    "lm-studio": {
-      "baseUrl": "http://127.0.0.1:1234/v1",
-      "api": "openai-completions",
-      "models": [
-        {
-          "id": "ornith-1.5-35b-a3b",
-          "name": "Ornith 1.5 35B A3B",
-          "reasoning": true,
-          "contextWindow": 262144,
-          "maxTokens": 32768,
-          "input": ["text", "image"]
-        },
-        {
-          "id": "qwen3.8-27b-qat",
-          "name": "Qwen3.8 27B QAT",
-          "reasoning": true,
-          "contextWindow": 262144,
-          "maxTokens": 32768,
-          "input": ["text", "image"]
-        }
-      ]
-    },
     "llama-swap": {
       "baseUrl": "http://172.16.25.15:9292/v1",
       "api": "openai-completions",
@@ -62,6 +40,35 @@
             "chatTemplateKwargs": {
               "enable_thinking": {
                 "$var": "thinking.enabled"
+              }
+            }
+          }
+        },
+        "Qwen3.8-27B-QAT-Q2_0": {
+          "name": "Qwen3.8 27B QAT Q2_0 (local)",
+          "reasoning": true,
+          "thinkingLevelMap": {
+            "minimal": null,
+            "low": "low",
+            "medium": "medium",
+            "high": null,
+            "xhigh": "xhigh",
+            "max": null
+          },
+          "contextWindow": 260000,
+          "maxTokens": 32768,
+          "input": ["text"],
+          "compat": {
+            "supportsDeveloperRole": false,
+            "supportsReasoningEffort": false,
+            "thinkingFormat": "chat-template",
+            "chatTemplateKwargs": {
+              "enable_thinking": {
+                "$var": "thinking.enabled"
+              },
+              "reasoning_effort": {
+                "$var": "thinking.effort",
+                "omitWhenOff": true
               }
             }
           }

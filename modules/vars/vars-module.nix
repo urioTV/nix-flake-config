@@ -19,6 +19,9 @@ let
     };
 in
 {
-  flake.nixosModules.vars = sharedVars;
-  flake.homeModules.vars = sharedVars;
+  flake.nixosModules.vars = {
+    imports = [ sharedVars ];
+
+    home-manager.sharedModules = [ sharedVars ];
+  };
 }

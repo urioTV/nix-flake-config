@@ -10,9 +10,13 @@ keys:
   # Generated with: nix-shell -p ssh-to-age --run 'cat ~/.ssh/id_ed25519.pub | ssh-to-age'
   - &user_urio age1ru42q2zrya053ntkv0z5m0la7udssjnzuqtplx0qqs9pl2dcs9es5kdpxg
 
+  # System host key, available during NixOS activation
+  - &host_konrad_desktop age1k6js0vy2hfjh785gnsgg7k9dglavl2p4ff4azmdqztmkwunthc8s60jrxr
+
 creation_rules:
   # Default rule for all files in secrets/ directory
   - path_regex: secrets/.*\.yaml$
     key_groups:
       - age:
           - *user_urio
+          - *host_konrad_desktop

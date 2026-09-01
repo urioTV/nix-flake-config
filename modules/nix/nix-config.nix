@@ -6,7 +6,6 @@ let
       nixpkgs.overlays = [
         (inputs.nur.overlays.default)
         (import ./_overlay.nix { inherit inputs'; })
-        (inputs.urio-nur.overlays.default)
         (inputs.llm-agents.overlays.shared-nixpkgs)
         (inputs.nix-cachyos-kernel.overlays.pinned)
       ];
@@ -26,9 +25,17 @@ in
     {
       imports = [ (sharedConfig { inherit inputs'; }) ];
 
-      sops.templates."nix-access-tokens.conf".content = ''
-        access-tokens = github.com=${config.sops.placeholder.github_token}
-      '';
+      home-manager.sharedModules = [ (sharedConfig { inherit inputs'; }) ];
+
+      sops.templates."nix-access-tokens.conf" = {
+        content = ''
+          access-tokens = github.com=${config.sops.placeholder.github_token}
+        '';
+        # Nix reads this file as the invoking user; keep it readable by the
+        # `keys` group (urio is a member) instead of root-only 0400.
+        group = "keys";
+        mode = "0440";
+      };
 
       nix.extraOptions = ''
         !include ${config.sops.templates."nix-access-tokens.conf".path}
@@ -89,15 +96,4 @@ in
 
     };
 
-  flake.homeModules.nix-config =
-    {
-      pkgs,
-      lib,
-      inputs,
-      inputs',
-      ...
-    }:
-    {
-      imports = [ (sharedConfig { inherit inputs'; }) ];
-    };
 }

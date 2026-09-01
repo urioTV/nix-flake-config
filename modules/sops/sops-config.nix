@@ -6,12 +6,6 @@ let
       sops = {
         defaultSopsFile = "${self}/sops/secrets/secrets.yaml";
 
-        age = {
-          sshKeyPaths = [ "/home/urio/.ssh/id_ed25519" ];
-          keyFile = "/home/urio/.config/sops/age/keys.txt";
-          generateKey = true;
-        };
-
         secrets.openrouter_api_key = { };
         secrets.context7_api_key = { };
         secrets.github_token = { };
@@ -29,6 +23,11 @@ in
       ...
     }:
     {
+      sops = {
+        age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+        useSystemdActivation = true;
+      };
+
       imports = [
         inputs.sops-nix.nixosModules.sops
         sharedConfig
@@ -42,13 +41,17 @@ in
     };
 
   flake.homeModules.sops-config =
-    {
-      ...
-    }:
+    { config, ... }:
     {
       imports = [
         inputs.sops-nix.homeManagerModules.sops
         sharedConfig
       ];
+
+      sops.age = {
+        sshKeyPaths = [ "${config.home.homeDirectory}/.ssh/id_ed25519" ];
+        keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
+        generateKey = true;
+      };
     };
 }

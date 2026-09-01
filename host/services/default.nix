@@ -23,7 +23,6 @@
           origin = "modmanager-origin";
         }
         "com.github.tchx84.Flatseal"
-        "com.microsoft.Edge"
         "com.mikrotik.WinBox"
         "com.rustdesk.RustDesk"
         "com.spotify.Client"

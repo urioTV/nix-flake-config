@@ -90,6 +90,9 @@
         # Enable llama-server router mode and load model presets managed from
         # dotfiles/llama-cpp/models.ini.
         LLAMA_ARG_MODELS_PRESET = "${config.home.homeDirectory}/.config/llama.cpp/models.ini";
+        # Router server: load at most one model at a time so switching between
+        # presets frees VRAM instead of holding every model resident (default: 4).
+        LLAMA_ARG_MODELS_MAX = "1";
       };
 
       home.file.".config/llama.cpp/models.ini".source =

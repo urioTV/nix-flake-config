@@ -10,7 +10,6 @@
     # Gaming tools and utilities
     vkbasalt
     limo
-    scopebuddy
     protonplus
     lsfg-vk
     lsfg-vk-ui
@@ -22,13 +21,5 @@
     # Custom tools
     gperftools
 
-    wowup-cf
-
-    optiscaler-install
-    optipatcher-install
-
-    optiscaler-client
-
-    rimsort-appimage
   ];
 }

@@ -17,7 +17,6 @@
     # openmw-dev
     # Disabled: the pinned upstream release archive currently returns HTTP 404.
     # inputs'.hytale-launcher.packages.default
-    vs-launcher
     cemu
     umu-launcher
   ];

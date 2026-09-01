@@ -126,7 +126,7 @@
 
                     # NUR
                     nur.modules.nixos.default
-                    urio-nur.nixosModules.default
+                    self.nixosModules.urio-nur
                     self.nixosModules.determinate
                     nix-flatpak.nixosModules.nix-flatpak
 

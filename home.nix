@@ -20,8 +20,6 @@
       };
       home-manager.sharedModules = with inputs; [
         nur.modules.homeManager.default
-        self.homeModules.vars
-        self.homeModules.nix-config
         self.homeModules.stylix-config
         self.homeModules.sops-config
         self.homeModules.ai

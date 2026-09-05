@@ -7,7 +7,7 @@
   ...
 }:
 {
-  imports = (import-tree ./host).imports;
+  imports = [ (import-tree ./host) ];
 
   services.udev.packages = [
     (pkgs.writeTextFile {

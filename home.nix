@@ -39,7 +39,7 @@
       ...
     }:
     {
-      imports = (import-tree ./home).imports;
+      imports = [ (import-tree ./home) ];
 
       home.username = "urio";
       home.homeDirectory = "/home/urio";

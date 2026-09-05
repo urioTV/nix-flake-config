@@ -1,6 +1,6 @@
 {
   "lastChangelogVersion": "0.84.4",
-  "defaultThinkingLevel": "high",
+  "defaultThinkingLevel": "medium",
   "packages": [
     "npm:@vanillagreen/pi-task-panel",
     "npm:@vanillagreen/pi-questions",
@@ -25,7 +25,9 @@
     "npm:@aliou/pi-synthetic",
     "npm:@narumitw/pi-usage",
     "npm:@ogulcancelik/pi-herdr",
-    "npm:pi-agent-browser-native@0.5.0"
+    "npm:pi-agent-browser-native",
+    "npm:pi-safe-compact",
+    "npm:@upstash/context7-pi"
   ],
   "theme": "terminal",
   "enabledModels": [
@@ -36,7 +38,8 @@
     "openai-codex/gpt-5.6-luna:xhigh",
     "synthetic/hf:zai-org/GLM-5.3-Flash:high",
     "synthetic/hf:moonshotai/Kimi-K3:high",
-    "llama-swap/qwen3.5-397b-int4-autoround:medium"
+    "llama-swap/qwen3.5-397b-int4-autoround:medium",
+    "llama-swap/qwen3.8-flash-next-nvfp4:medium"
   ],
   "kendex": {
     "extensionManager": {

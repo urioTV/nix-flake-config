@@ -30,6 +30,15 @@ in
         type = "remote";
         url = "https://mcp.grep.app";
       };
+      linkedin = {
+        command = "uvx";
+        args = [
+          "mcp-server-linkedin@latest"
+        ];
+        env = {
+          UV_HTTP_TIMEOUT = "300";
+        };
+      };
     };
   };
 }

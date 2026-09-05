@@ -7,21 +7,8 @@
 let
   pi-update = pkgs.writeShellApplication {
     name = "pi-update";
-    runtimeInputs = [
-      pkgs.llm-agents.pi
-      pkgs.nodejs
-    ];
-    text = ''
-      pi update --extensions "$@"
-
-      npm_dir="''${PI_CODING_AGENT_DIR:-$HOME/.pi/agent}/npm"
-      if [[ -f "$npm_dir/package.json" ]]; then
-        npm --prefix "$npm_dir" install --legacy-peer-deps
-        npm --prefix "$npm_dir" prune --legacy-peer-deps
-      fi
-
-      npm cache clean --force
-    '';
+    runtimeInputs = [ pkgs.coreutils ];
+    text = builtins.readFile ./pi-update.sh;
   };
 in
 {

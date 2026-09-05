@@ -12,10 +12,15 @@
   # hardware.xpadneo.enable = true;
 
   # Mouse configuration daemon (required for Piper)
+  # NOTE: nixpkgs ships libratbag 0.18, which detects the G502 X Lightspeed
+  # only when connected via USB cable (046d:c098). Wireless dongle support
+  # (046d:409f) is in libratbag master. Profiles save to mouse onboard memory,
+  # so configure via cable once and it works wirelessly afterwards.
   services.ratbagd.enable = true;
 
   environment.systemPackages = with pkgs; [
     solaar
+    piper # GUI for ratbagd - remap G502 X buttons (use USB cable, see note above)
   ];
 
   boot.blacklistedKernelModules = [ "hid_logitech_hidpp" ];

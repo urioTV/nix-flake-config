@@ -69,6 +69,7 @@
     zenity
     cabextract
     ventoy-full
+    qbittorrent-enhanced
     herdr
   ];
   nixpkgs.config.permittedInsecurePackages = [

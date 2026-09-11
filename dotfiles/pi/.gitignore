@@ -6,6 +6,8 @@
 !web-search.json
 !mcp.json
 !.gitignore
+!agents/
+!agents/*.md
 !extensions/
 !extensions/guardrails.json
 !extensions/tool-collapse/

@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.85.0",
+  "lastChangelogVersion": "0.85.1",
   "defaultThinkingLevel": "medium",
   "packages": [
     "npm:@vanillagreen/pi-task-panel",
@@ -25,9 +25,12 @@
     "npm:@aliou/pi-synthetic",
     "npm:@narumitw/pi-usage",
     "npm:@ogulcancelik/pi-herdr",
+    "git:github.com/nicobailon/pi-subagents@d9864f8288152e83270f62090d7d66eb5ff729bb",
     "npm:pi-agent-browser-native",
-    "npm:pi-safe-compact",
-    "npm:@upstash/context7-pi"
+    "npm:billion-context",
+    "npm:billion-context-pi",
+    "npm:@upstash/context7-pi",
+    "npm:@aliou/pi-neuralwatt"
   ],
   "theme": "terminal",
   "enabledModels": [
@@ -58,6 +61,9 @@
   },
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.6-terra",
+  "subagents": {
+    "disableBuiltins": true
+  },
   "modelThinkingLevels": {
     "openrouter/z-ai/glm-5.3": "low"
   }

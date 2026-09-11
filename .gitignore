@@ -19,6 +19,11 @@ flakes/*/result-*
 .crush/
 .claude/
 
+/.pi/
+
+# Local package-manager artifacts
+node_modules/
+
 # OS files
 .DS_Store
 Thumbs.db

@@ -1,21 +1,7 @@
-# Pi Coding Agent - whitelist only tracked files
-# Everything is ignored by default, only explicit files are tracked
+# ~/.pi mirror — whitelist only versioned configuration.
+# agent/ has its own whitelist; runtime state remains untracked.
 *
-!settings.json
-!models.json
-!web-search.json
-!mcp.json
 !.gitignore
-!agents/
-!agents/*.md
-!extensions/
-!extensions/guardrails.json
-!extensions/tool-collapse/
-!extensions/tool-collapse/config.json
-!extensions/lsp/
-!extensions/lsp/config.json
-!extensions/quotas.json
-!extensions/synthetic.json
-!skills/
-!skills/**
-!*.ts
+!agent/
+!agent/**
+!acp.json

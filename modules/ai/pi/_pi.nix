@@ -43,11 +43,11 @@ in
 
   home.sessionPath = [
     "${config.home.homeDirectory}/.local/share/npm/bin"
-    "${config.home.homeDirectory}/nix-flake-config/dotfiles/pi/npm/node_modules/.bin"
   ];
 
   home.file = {
-    ".pi/agent" = {
+    # ~/.pi mirrors dotfiles/pi; agent config lives in dotfiles/pi/agent.
+    ".pi" = {
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-flake-config/dotfiles/pi";
     };
   };

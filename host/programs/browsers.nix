@@ -7,7 +7,7 @@
 }:
 {
   environment.systemPackages = with pkgs; [
-    # brave
+    brave-origin
     zen-browser
     microsoft-edge
   ];

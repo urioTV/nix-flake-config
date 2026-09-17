@@ -1,0 +1,135 @@
+{
+  "$schema": "https://raw.githubusercontent.com/gotgenes/pi-packages/main/packages/pi-permission-system/schemas/permissions.schema.json",
+
+  "permissionReviewLog": true,
+
+  "permission": {
+    "*": "allow",
+
+    "path": {
+      "*": "allow",
+
+      "*.env": "ask",
+      "*.env.local": "ask",
+      "*.env.production": "ask",
+      "*.env.prod": "ask",
+      "*.env.staging": "ask",
+      "*.env.dev": "ask",
+      "*.dev.vars": "ask",
+      "*auth.json": "deny",
+      "*oauth.json": "deny",
+      "*credentials.json": "deny",
+      "*.pem": "deny",
+      "*.key": "deny",
+      "*.p12": "deny",
+      "*.pfx": "deny",
+      "*.decrypted~*": "deny",
+      "*.secret": "deny",
+      "*.credentials": "deny",
+
+      "~/.ssh/*": "deny",
+      "~/.ssh": "deny",
+      "~/.config/gh/*": "deny",
+      "~/.config/gcloud/*": "deny",
+      "~/.config/op/*": "deny",
+      "~/.config/sops/*": "deny",
+      "~/.gnupg/*": "deny",
+      "~/.gnupg": "deny",
+      "~/*.gpg": "deny",
+
+      "*atlassian/config.json": "deny",
+
+      "*.env.example": "allow",
+      "*.env.sample": "allow",
+      "*.env.test": "allow",
+      "*.example.env": "allow",
+      "*.sample.env": "allow",
+      "*.test.env": "allow",
+      "~/.ssh/*.pub": "allow"
+    },
+
+    "path_write": {
+      "/": "ask",
+      "/etc": "ask",
+      "/etc/*": "ask",
+      "/usr": "ask",
+      "/usr/*": "ask",
+      "/var": "ask",
+      "/var/*": "ask",
+      "/boot": "ask",
+      "/boot/*": "ask",
+      "/nix": "ask",
+      "/nix/*": "ask",
+      "/opt": "ask",
+      "/opt/*": "ask",
+      "/srv": "ask",
+      "/srv/*": "ask",
+      "/mnt": "ask",
+      "/mnt/*": "ask",
+      "/root": "ask",
+      "/root/*": "ask",
+      "/sys": "ask",
+      "/sys/*": "ask",
+      "/proc": "ask",
+      "/proc/*": "ask",
+      "/run": "ask",
+      "/run/*": "ask",
+      "*/.git": "ask",
+      "*/.git/*": "ask",
+
+      "~/.ssh/*": "deny",
+      "~/.ssh": "deny",
+      "~/.gnupg/*": "deny",
+      "~/.gnupg": "deny",
+      "~/*.gpg": "deny",
+      "*.pem": "deny",
+      "*.key": "deny",
+      "*.secret": "deny",
+      "*.credentials": "deny",
+      "*auth.json": "deny",
+      "*oauth.json": "deny",
+      "*credentials.json": "deny"
+    },
+
+    "bash": {
+      "*": "allow",
+
+      "git push --force*": "ask",
+      "git push -f*": "ask",
+      "npm publish*": "ask",
+      "docker system prune*": "ask",
+      "docker compose down*": "ask",
+
+      "shred*": "ask",
+      "sudo*": "ask",
+      "doas*": "ask",
+      "pkexec*": "ask",
+      "dd of=*": "ask",
+      "mkfs*": "ask",
+      "wipefs*": "ask",
+      "blkdiscard*": "ask",
+      "fdisk*": "ask",
+      "parted*": "ask",
+      "chmod -R 777*": "ask",
+      "chown -R*": "ask",
+      "docker run --privileged*": "ask"
+    },
+
+    "external_directory": {
+      "*": "ask",
+      "~/.pi": "allow",
+      "~/.pi/*": "allow",
+      "~/.cache/pi": "allow",
+      "~/.cache/pi/*": "allow",
+      "/tmp": "allow",
+      "/tmp/*": "allow",
+      "/dev/shm": "allow",
+      "/dev/shm/*": "allow"
+    },
+
+    "external_directory_read": {
+      "/nix/store": "allow",
+      "/nix/store/*": "allow"
+    }
+  }
+}

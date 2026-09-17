@@ -558,11 +558,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1789099078,
-        "narHash": "sha256-zzHj2wl69724lzx7DLAVziWbL75wRIk+xJ3duD0Bgrc=",
+        "lastModified": 1789183968,
+        "narHash": "sha256-pEWnYdIF1pBMZwarp/rEPzl+Lknhm5hhjSfeLxH8nAA=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "f10b3f2ad4aae9259617a1ff518cc921e3394228",
+        "rev": "cd1c9e552f41894aeb5cc5cb353d5a1d61550357",
         "type": "github"
       },
       "original": {
@@ -634,11 +634,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1789117782,
-        "narHash": "sha256-R6DjdXEg4gWt/INX5oRYkh17p66nuYr8qiAuBkZ4oqU=",
+        "lastModified": 1789203435,
+        "narHash": "sha256-4JN4aEgvHZHwQ7fnmoVY0yzp9YeujV1q+JhB+sw5KGs=",
         "owner": "numtide",
         "repo": "llm-agents.nix",
-        "rev": "d706bc302d3a7854659e3b5b5ad35270f7dcf8da",
+        "rev": "826bb638c516f3cb58c45bb23310c9ec6224e66a",
         "type": "github"
       },
       "original": {
@@ -711,11 +711,11 @@
         "nixpkgs": "nixpkgs_6"
       },
       "locked": {
-        "lastModified": 1789070668,
-        "narHash": "sha256-Zel41jsQnKlZQHBFndBoRCJ3WfJCXknV2jL0GJbLy9k=",
+        "lastModified": 1789191979,
+        "narHash": "sha256-4qPh6ItkMtWiAaghgdHT1ixq6hxj+ikAwgCJ4rrEBuU=",
         "ref": "release",
-        "rev": "b8538a38adfd2a443aa0f8f3d506c29161f71f5f",
-        "revCount": 386,
+        "rev": "ecd7cfba571a89747357f2895aeb7549df4fd0e0",
+        "revCount": 388,
         "type": "git",
         "url": "https://github.com/xddxdd/nix-cachyos-kernel.git"
       },
@@ -749,11 +749,11 @@
         "nixpkgs": "nixpkgs_7"
       },
       "locked": {
-        "lastModified": 1789099111,
-        "narHash": "sha256-c4+dnCF/F3O9iKGHeAQ6mKy5ZcW+mFkFjzRowEe1tJk=",
+        "lastModified": 1789185644,
+        "narHash": "sha256-jDwahTHJjZUFG80aOlFKbZ/Z6X7JQfw3nh7DdI0p9VI=",
         "owner": "fufexan",
         "repo": "nix-gaming",
-        "rev": "d765d37f70d90b8373275053fa5fcf76b1cea71f",
+        "rev": "ae0da4b4183c39a94ff3dbe14efe7d1ae82b3e75",
         "type": "github"
       },
       "original": {
@@ -875,11 +875,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1789134023,
-        "narHash": "sha256-5zHEHuclUJ+ZlYtO0cSJxDqamdupkbKRZZJOZNKZENQ=",
+        "lastModified": 1789210427,
+        "narHash": "sha256-PdEuh+/uppur072RDuoICvIfVtwDwu2CkEdI8PXHxCY=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "fc4d0ee4baafd666d0ac67d94daeaa70c5a2b96c",
+        "rev": "91b508508ee904c29345c0b55e10b704b7f44940",
         "type": "github"
       },
       "original": {
@@ -969,11 +969,11 @@
     },
     "nixpkgs_6": {
       "locked": {
-        "lastModified": 1789034407,
-        "narHash": "sha256-7X4GZ0KK5qHF9lppR9IlfXShYGcxxw1Kcjj8m5+19H0=",
+        "lastModified": 1789149629,
+        "narHash": "sha256-H6GwaZzZf+4npqv0tph94w9tZddSjFjmQrVsW0z78uk=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "3824e02a19d7dccf95c30aa1cab8c857323d2201",
+        "rev": "eaad089433ca2bb662274377d33df3d0e51ef28b",
         "type": "github"
       },
       "original": {
@@ -1039,11 +1039,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1789135370,
-        "narHash": "sha256-5+KPI5MEdOVZue3ZfxM0KEHNiJ8gfIwSFkoVkTPpJlY=",
+        "lastModified": 1789210245,
+        "narHash": "sha256-NKtxG991f3Tbd10TdmfcETf9rc3El9bVnCeTdQEbX0I=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "3e63e2f2b093b5054b5de253fd03571af548da1b",
+        "rev": "94b50d1fd6c21e82f050a7584828cddc532c57cf",
         "type": "github"
       },
       "original": {
@@ -1392,11 +1392,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1788103064,
-        "narHash": "sha256-6IWTopvXWGClA5aHv+fAIMIRdNpyPJQLNIE/bgY2890=",
+        "lastModified": 1789223197,
+        "narHash": "sha256-QtJDWS515trxiFlEhnShje8ZdaqaJOFnatvqfRX1i/k=",
         "owner": "urioTV",
         "repo": "urio-nur",
-        "rev": "22ff5a0ba3bda449d550f0500a85e6974b0da951",
+        "rev": "271f0d3bfa05c668a28640a68be1093bb6bf4c9c",
         "type": "github"
       },
       "original": {

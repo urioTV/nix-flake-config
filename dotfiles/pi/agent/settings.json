@@ -37,10 +37,9 @@
     "openai-codex/gpt-5.6-terra:high",
     "openai-codex/gpt-5.6-luna:xhigh",
     "synthetic/hf:zai-org/GLM-5.3-Flash:high",
-    "synthetic/hf:moonshotai/Kimi-K3:high",
-    "llama-swap/qwen3.5-397b-int4-autoround:medium",
-    "llama-swap/qwen3.8-flash-next-nvfp4:medium",
-    "openrouter/deepseek/deepseek-v4-pro-0813:high"
+    "synthetic/hf:deepseek-ai/DeepSeek-V4.1-Flash:high",
+    "neuralwatt/glm-5.3-flex",
+    "llama-swap/qwen3.5-397b-int4-autoround:medium"
   ],
   "kendex": {
     "extensionManager": {
@@ -58,8 +57,5 @@
     }
   },
   "defaultProvider": "openai-codex",
-  "defaultModel": "gpt-5.6-terra",
-  "modelThinkingLevels": {
-    "openrouter/z-ai/glm-5.3": "low"
-  }
+  "defaultModel": "gpt-5.6-terra"
 }

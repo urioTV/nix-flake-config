@@ -8,8 +8,6 @@
 !AGENTS.md
 !.gitignore
 !extensions/
-!extensions/atlassian/
-!extensions/atlassian/**
 !extensions/pi-permission-system/
 !extensions/pi-permission-system/config.json
 !extensions/quotas.json

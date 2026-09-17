@@ -1,3 +1,14 @@
 {
-  "delegate": false
+  "delegate": false,
+  "compress": {
+    "nudgeGrowthTokens": 120000,
+    "maxContextLimit": "80%",
+    "emergencyThresholdPercent": "95%"
+  },
+  "promptSections": {
+    "whenToCompress": "Compress only when context usage exceeds ~60%, when a task phase has fully ended and its raw output will not be needed again, or when the user asks. Never compress just to keep context lean while usage is low."
+  },
+  "nudgeSections": {
+    "efficiencyNote": "Context usage is low — no rush. Fold only clearly consumed, already-extracted content."
+  }
 }

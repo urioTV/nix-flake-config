@@ -5,31 +5,29 @@
     "npm:@vanillagreen/pi-task-panel",
     "npm:@vanillagreen/pi-questions",
     "npm:@vanillagreen/pi-session-manager",
-    "npm:@vanillagreen/pi-tool-renderer",
     "npm:@vanillagreen/pi-skills-manager",
     "npm:@vanillagreen/pi-claude-bridge",
     "npm:@vanillagreen/pi-extension-manager",
-    "npm:@aliou/pi-guardrails",
+    "npm:@gotgenes/pi-permission-system",
     "npm:pi-mcp-adapter",
-    "npm:@alexanderfortin/pi-loaded-tools",
     "npm:pi-terminal-theme",
     "npm:pi-web-access",
     "npm:pi-bar",
     {
       "source": "npm:@latentminds/pi-quotas",
-      "extensions": [
-        "-src/extensions/command-quotas/index.ts"
-      ]
+      "extensions": ["-src/extensions/command-quotas/index.ts"]
     },
     "npm:gentle-engram",
     "npm:@aliou/pi-synthetic",
     "npm:@narumitw/pi-usage",
     "npm:@ogulcancelik/pi-herdr",
     "npm:pi-agent-browser-native",
-    "npm:billion-context",
-    "npm:billion-context-pi",
     "npm:@upstash/context7-pi",
-    "git:github.com/aliou/pi-neuralwatt"
+    "git:github.com/aliou/pi-neuralwatt",
+    "git:github.com/minuque/pi-cc-extensions",
+    "npm:@giladbarnea/pi-time-sense",
+    "npm:pi-add-dir",
+    "npm:@ff-labs/pi-fff"
   ],
   "theme": "terminal",
   "enabledModels": [
@@ -41,7 +39,8 @@
     "synthetic/hf:zai-org/GLM-5.3-Flash:high",
     "synthetic/hf:moonshotai/Kimi-K3:high",
     "llama-swap/qwen3.5-397b-int4-autoround:medium",
-    "llama-swap/qwen3.8-flash-next-nvfp4:medium"
+    "llama-swap/qwen3.8-flash-next-nvfp4:medium",
+    "openrouter/deepseek/deepseek-v4-pro-0813:high"
   ],
   "kendex": {
     "extensionManager": {

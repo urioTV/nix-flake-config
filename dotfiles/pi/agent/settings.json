@@ -1,12 +1,12 @@
 {
-  "lastChangelogVersion": "0.85.1",
+  "lastChangelogVersion": "0.87.1",
   "defaultThinkingLevel": "medium",
   "packages": [
     "npm:@vanillagreen/pi-task-panel",
     "npm:@vanillagreen/pi-questions",
     "npm:@vanillagreen/pi-session-manager",
     "npm:@vanillagreen/pi-skills-manager",
-    "npm:@vanillagreen/pi-claude-bridge",
+    "git:github.com/elidickinson/pi-claude-bridge@main",
     "npm:@vanillagreen/pi-extension-manager",
     "npm:@gotgenes/pi-permission-system",
     "npm:pi-mcp-adapter",
@@ -26,7 +26,6 @@
     "git:github.com/aliou/pi-neuralwatt",
     "git:github.com/minuque/pi-cc-extensions",
     "npm:@giladbarnea/pi-time-sense",
-    "npm:pi-add-dir",
     "npm:@ff-labs/pi-fff"
   ],
   "theme": "terminal",
@@ -35,11 +34,13 @@
     "llama.cpp/Qwen3.8-27B-QAT-Q2_0:medium",
     "openai-codex/gpt-5.6-sol:medium",
     "openai-codex/gpt-5.6-terra:high",
-    "openai-codex/gpt-5.6-luna:xhigh",
     "synthetic/hf:zai-org/GLM-5.3-Flash:high",
     "synthetic/hf:deepseek-ai/DeepSeek-V4.1-Flash:high",
     "neuralwatt/glm-5.3-flex",
-    "llama-swap/qwen3.5-397b-int4-autoround:medium"
+    "llama-swap/qwen3.5-397b-int4-autoround:medium",
+    "neuralwatt/kimi-k3-flex:high",
+    "claude-bridge/claude-opus-5-5:medium",
+    "claude-bridge/claude-sonnet-5:high"
   ],
   "kendex": {
     "extensionManager": {

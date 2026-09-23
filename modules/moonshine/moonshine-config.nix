@@ -78,15 +78,15 @@ let
 
           # --- Applications ---
           application = [
-            {
-              # Full remote desktop: boots the COSMIC desktop environment
-              # nested inside Moonshine's headless compositor (see TIPS.md
-              # "Run a desktop environment for a full remote desktop").
-              # Independent from the host's Plasma session — the physical
-              # desktop stays usable while streaming.
-              title = "COSMIC Desktop";
-              command = [ "${pkgs.cosmic-session}/bin/start-cosmic" ];
-            }
+            # {
+            #   # Full remote desktop: boots the COSMIC desktop environment
+            #   # nested inside Moonshine's headless compositor (see TIPS.md
+            #   # "Run a desktop environment for a full remote desktop").
+            #   # Independent from the host's Plasma session — the physical
+            #   # desktop stays usable while streaming.
+            #   title = "COSMIC Desktop";
+            #   command = [ "${pkgs.cosmic-session}/bin/start-cosmic" ];
+            # }
             {
               title = "Steam";
               command = [

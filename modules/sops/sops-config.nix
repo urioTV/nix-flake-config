@@ -1,9 +1,20 @@
 { inputs, self, ... }:
 let
+  # sops-nix @ 13616ff builds sops-install-secrets with buildGo125Module,
+  # which was removed from nixpkgs 2026-09-15 (Go 1.25 EOL). Inject the
+  # current builder via callPackage until upstream moves to buildGo126Module.
+  sopsInstallSecrets =
+    pkgs:
+    pkgs.callPackage "${inputs.sops-nix}/pkgs/sops-install-secrets" {
+      buildGo125Module = pkgs.buildGo126Module;
+      vendorHash = "sha256-SXOd+0yh0DQr3uLVQBdw07J9j5HNuFJSOajDul1B1qo="; # from sops-nix default.nix
+    };
+
   sharedConfig =
-    { ... }:
+    { pkgs, ... }:
     {
       sops = {
+        package = sopsInstallSecrets pkgs;
         defaultSopsFile = "${self}/sops/secrets/secrets.yaml";
 
         secrets.openrouter_api_key = { };

@@ -131,6 +131,7 @@
       "gamemode"
       "docker"
       "render"
+      "dialout" # serial ports: flashing M5Stack/ESP devices (esptool, espflash)
       "input" # Moonshine: virtual gamepads when streaming headless (no active desktop)
       "keys" # read sops-rendered files (e.g. nix access-tokens)
     ];

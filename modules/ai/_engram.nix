@@ -7,16 +7,21 @@
 
 pkgs.stdenv.mkDerivation rec {
   pname = "engram";
-  version = "1.20.0";
+  # 2.0.0 is required by gentle-engram >= 0.1.13: the Pi plugin resolves the
+  # local server identity with `engram instance-id`, which does not exist
+  # before 2.0.0. Without it the plugin reports "Engram could not resolve its
+  # local server identity" and every mem_* tool stays offline.
+  version = "2.0.0";
 
   src = pkgs.fetchurl {
     url = "https://github.com/Gentleman-Programming/engram/releases/download/v${version}/engram_${version}_linux_amd64.tar.gz";
-    hash = "sha256-fcMAMxjjA77iaaR3IUTzzgHI7HAL/VJKrsdncKzTico=";
+    hash = "sha256-I74cLOlznEVQl/+GRzYhNxe5JbPoghqYjfxhloWlq9U=";
   };
 
   nativeBuildInputs = [ pkgs.autoPatchelfHook ];
 
-  # CGO binary dynamically linked against glibc (SQLite via mattn/go-sqlite3)
+  # 2.0.0 ships a statically linked binary (no glibc dependency), so
+  # autoPatchelfHook is a no-op there; buildInputs is kept for older pins.
   buildInputs = [ pkgs.stdenv.cc.libc ];
 
   unpackPhase = ''
